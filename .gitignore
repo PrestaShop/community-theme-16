@@ -32,3 +32,14 @@ $RECYCLE.BIN/
 .Trashes
 
 # Project files
+/community-theme/.sass-cache/
+
+/community-theme/cache/*
+!/community-theme/cache/index.php
+
+/community-theme/css/*
+!/community-theme/css/index.php
+!/community-theme/css/autoload/
+/community-theme/css/autoload/*
+!/community-theme/css/autoload/highdpi.css
+!/community-theme/css/autoload/responsive-tables.css
