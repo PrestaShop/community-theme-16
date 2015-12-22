@@ -1,0 +1,3 @@
+# Ignore file permission changes as diffs
+[core]
+    filemode = false
