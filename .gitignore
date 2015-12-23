@@ -39,7 +39,3 @@ $RECYCLE.BIN/
 
 /community-theme/css/*
 !/community-theme/css/index.php
-!/community-theme/css/autoload/
-/community-theme/css/autoload/*
-!/community-theme/css/autoload/highdpi.css
-!/community-theme/css/autoload/responsive-tables.css
