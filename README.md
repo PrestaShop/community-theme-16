@@ -28,15 +28,15 @@ will be integrated to this theme regularly.
 
 - Semantic HTML markup should be used where possible
 - CSS styles must be kept to a minimum
-- Bootstrap components should be used where it makes sense or where they fit semantically.
+- Bootstrap components should be used where it makes sense or where they fit semantically
 - Bootstrap components should not be transformed into other, shop specific components, which deserve their own component.
 E.g. `.product-list-item`.
 - Elements should be marked up with microdata where matching objects and properties exist.
 - Theme components and styles should be consolidated and reused.
-- Libraries be kept updated
+- Libraries should be kept updated
 - JavaScript files must be formatted to a standard.
 - Overrides may be used or included to provide better support and development
-- Changes may affect third party module template styles void, but be easily fixable
+- Changes may affect third party module template styles, but be easily fixable
 - General compatibility should not be totally broken
 
 ## Installing
