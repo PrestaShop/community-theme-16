@@ -41,33 +41,46 @@ E.g. `.product-list-item`.
 
 ## Installing
 
-To install or use this theme, you should first compile `.scss` files by using [compass](http://compass-style.org/).
-`.css` files are purposely excluded from this repository, because they make pull requests too difficult to merge.
-Repository packages with `.css` files may come in the future.
+If you would like to install this theme, you should download the latest, prepackaged `vx.x.x-community-theme-16.zip`
+theme archive from [Releases](https://github.com/PrestaShop/community-theme-16/releases) tab. It contains compiled
+`.css` files, full folder structure, `index.php` file in every folder. Unnecessary files are removed.
 
-To compile `.scss` files, you must have [compass](http://compass-style.org/) tool available on your system.
+If you would like to develop this theme, then you should download the latest repository files from `dev` branch.
+To install these files as theme in PrestaShop, you must create a `.zip` archive with the following structure inside:
+
+```
+community-theme.zip
+  themes/
+     community-theme-16/
+        ...
+  Config.xml
+```
+
+You may then install this theme via PrestaShop back-office: `Preferences > Themes > Add new theme`.
+
+Let's not forget that this repository doesn't contain compiled `.css` files, you have to compile them
+on your system for development. You may compile them before creating the `.zip` or after installing theme. To compile
+`.scss` files to `.css` you must have [compass](http://compass-style.org/) tool available on your system.
 The recommended version is `1.0.3`, you can check it by typing:
 
 ``` bash
 compass -v
 ```
 
-We recommend that you install `compass` via `rubygems` package manager. This will give you the `1.0.3` version of `compass` tool.
-
-Once install, navigate to the theme folder
+We recommend installing `compass` via `rubygems` package manager. This will give you the latest `1.0.3` version of
+`compass` tool. Once installed, navigate to the theme folder:
 
 ``` bash
-cd community-theme/
+cd themes/community-theme-16/
 ```
 
-Then, execute compile command:
+Then execute the `compile` command:
 
 ``` bash
 compass compile
 ```
 
-If everything runs well, all `.css` files will be created in `community-theme/css/` folder.
-You may then copy the theme your PrestaShop themes folder or zip the folder up and install the theme via admin interface.
+If everything runs well, corresponding `.css` files will be created in `community-theme/css/` folder.
 
 ## Contributing
 
