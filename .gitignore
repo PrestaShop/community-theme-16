@@ -32,6 +32,9 @@ $RECYCLE.BIN/
 .Trashes
 
 # Project files
+.sass-cache/
+node_modules/
+
 index.php
 
 /themes/community-theme-16/.sass-cache/
