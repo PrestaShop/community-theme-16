@@ -8,6 +8,7 @@
         <variation name="PrestaShop 1.6 Community Theme" directory="community-theme-16" responsive="1"
                    default_left_column="1" default_right_column="0" product_per_page="12" from="1.6.1.3" to="1.6.1.3"/>
     </variations>
+    <docs></docs>
     <metas>
         <meta meta_page="404" left="0" right="0"/>
         <meta meta_page="best-sales" left="1" right="0"/>
