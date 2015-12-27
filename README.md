@@ -67,7 +67,7 @@ The recommended version is `1.0.3`, you can check it by typing:
 compass -v
 ```
 
-We recommend installing `compass` via `rubygems` package manager. This will give you the latest `1.0.3` version of
+We recommend installing `compass` via [rubygems](https://rubygems.org/) package manager. This will give you the latest `1.0.3` version of
 `compass` tool. Once installed, navigate to the theme folder:
 
 ``` bash
