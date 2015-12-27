@@ -32,10 +32,8 @@ $RECYCLE.BIN/
 .Trashes
 
 # Project files
+index.php
+
 /themes/community-theme-16/.sass-cache/
-
 /themes/community-theme-16/cache/*
-!/themes/community-theme-16/cache/index.php
-
 /themes/community-theme-16/css/*
-!/themes/community-theme-16/css/index.php
