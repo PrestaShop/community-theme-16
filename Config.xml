@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Copyright Prestashop -->
-<theme version="1.0" name="default-bootstrap" directory="default-bootstrap">
-    <author name="PrestaShop" email="contact@prestashop.com" url="http://www.prestashop.com"/>
+<theme version="0.1.0" name="PrestaShop 1.6 Community Theme" directory="community-theme-16">
+    <author name="PrestaShop Community" email="contact@prestashop.com" url="http://www.prestashop.com"/>
     <descriptions>
-        <description iso="en"></description>
+        <description iso="en">Community theme is a theme developed and maintained by the PrestaShop community.</description>
     </descriptions>
     <variations>
-        <variation name="default-bootstrap" directory="default-bootstrap" responsive="1" default_left_column="1"
-                   default_right_column="0" product_per_page="12" from="1.6.0.5" to="1.6.0.5"/>
+        <variation name="PrestaShop 1.6 Community Theme" directory="community-theme-16" responsive="1"
+                   default_left_column="1" default_right_column="0" product_per_page="12" from="1.6.1.3" to="1.6.1.3"/>
     </variations>
-    <docs>
-        <doc name="documentation" path="doc/"/>
-    </docs>
     <metas>
         <meta meta_page="404" left="0" right="0"/>
         <meta meta_page="best-sales" left="1" right="0"/>
