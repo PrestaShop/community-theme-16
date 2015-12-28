@@ -8,3 +8,5 @@ theme.
 
 - Source `.scss` files were created for `css/highdpi.css` and `css/responsive-tables.css`
 - Created appropriate folders and files for theme to be installable
+- Changed CSS style to :expanded for easier editing
+- Added gulpfile.js for building theme archive
