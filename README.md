@@ -11,8 +11,10 @@ THIS THEME IS MAINTAINED BY THE PRESTASHOP COMMUNITY, NOT BY PRESTASHOP SA.
 
 ## About
 
-**Community theme** is a fork of the default PrestaShop 1.6 theme [default-bootstrap](https://github.com/PrestaShop/PrestaShop/tree/1.6.1.x/themes/default-bootstrap)
+**Community theme** is a fork of the default PrestaShop 1.6 theme
+[default-bootstrap](https://github.com/PrestaShop/PrestaShop/tree/1.6.1.x/themes/default-bootstrap)
 taken from [1.6.1.x](https://github.com/PrestaShop/PrestaShop/tree/1.6.1.x/) branch.
+The purpose of this theme is to provide a solid and flexible foundation for building new PrestaShop 1.6 themes.
 
 The main features of this theme **will be** (currently in development):
 
