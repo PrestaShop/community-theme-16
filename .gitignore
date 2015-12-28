@@ -36,6 +36,7 @@ $RECYCLE.BIN/
 node_modules/
 
 index.php
+!/index.php
 
 /themes/community-theme-16/.sass-cache/
 /themes/community-theme-16/cache/*
