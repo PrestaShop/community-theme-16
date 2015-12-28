@@ -1,6 +1,9 @@
 # PrestaShop 1.6 Community Theme
 
 [![Join the chat at https://gitter.im/PrestaShop/community-theme-16](https://badges.gitter.im/PrestaShop/community-theme-16.svg)](https://gitter.im/PrestaShop/community-theme-16?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Github All Releases](https://img.shields.io/github/downloads/atom/atom/total.svg)]()
+[![GitHub release](https://img.shields.io/github/release/qubyte/rubidium.svg)]()
+[![GitHub commits](https://img.shields.io/github/commits-since/SubtitleEdit/subtitleedit/0.1.0.svg)]()
 
 ## Disclaimer
 
