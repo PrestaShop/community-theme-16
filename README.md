@@ -44,6 +44,26 @@ E.g. `.product-list-item`.
 - Changes may affect third party module template styles, but be easily fixable
 - General compatibility should not be totally broken
 
+## Roadmap
+
+Here is what is currently planned for this theme:
+
+- Version 0.1.0
+  * Unaltered files from [default-bootstrap](https://github.com/PrestaShop/PrestaShop/tree/1.6.1.x/themes/default-bootstrap)
+  * Established project structure, build tools
+- Version 0.2.0
+  * Updated Font Awesome and Bootstrap libraries
+  * Possibly some file formatting (indentation, tabs, spaces, comments, etc.)
+- Version 0.3.0
+  * File formatting
+  * Non-breaking removal of some styles
+  * JS code formatting (commas, etc.)
+  * Removal of uniform.js
+  * Removal of dead code
+- Version 0.4.0+
+  * Refactoring of templates and styles
+  * [TBD](https://en.wikipedia.org/wiki/To_be_announced)
+
 ## Installing theme
 
 If you would like **to install** this theme, you should download the latest, prepackaged `vx.x.x-community-theme-16.zip`
