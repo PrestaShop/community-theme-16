@@ -1,0 +1,15 @@
+{
+  "name": "community-theme-16",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "del": "^2.2.0",
+    "fs-extra": "^0.26.3",
+    "glob": "^6.0.2",
+    "gulp": "^3.9.0",
+    "gulp-zip": "^3.0.2",
+    "mkdirp": "^0.5.1",
+    "run-sequence": "^1.1.5",
+    "yargs": "^3.31.0"
+  }
+}
