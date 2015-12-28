@@ -42,48 +42,94 @@ E.g. `.product-list-item`.
 - Changes may affect third party module template styles, but be easily fixable
 - General compatibility should not be totally broken
 
-## Installing
+## Installing theme
 
-If you would like to install this theme, you should download the latest, prepackaged `vx.x.x-community-theme-16.zip`
+If you would like **to install** this theme, you should download the latest, prepackaged `vx.x.x-community-theme-16.zip`
 theme archive from [Releases](https://github.com/PrestaShop/community-theme-16/releases) tab. It contains compiled
-`.css` files, full folder structure, `index.php` file in every folder. Unnecessary files are removed.
+`.css` files, full folder structure, `index.php` file in every folder. Unnecessary files are removed. Prepackaged theme
+archive can be uploaded and installed via PrestaShop back-office.
 
-If you would like to develop this theme, then you should download the latest repository files from `dev` branch.
-To install these files as theme in PrestaShop, you must create a `.zip` archive with the following structure inside:
+## Building and developing theme
 
-```
-community-theme.zip
-  themes/
-     community-theme-16/
-        ...
-  Config.xml
-```
+If you would like **to develop** this theme, then you should clone this repository (`dev` or `master` branch,
+depending on your preference).
 
-You may then install this theme via PrestaShop back-office: `Preferences > Themes > Add new theme`.
+**To build** this theme, two tools are required:
 
-Let's not forget that this repository doesn't contain compiled `.css` files, you have to compile them
-on your system for development. You may compile them before creating the `.zip` or after installing theme. To compile
-`.scss` files to `.css` you must have [compass](http://compass-style.org/) tool available on your system.
-The recommended version is `1.0.3`, you can check it by typing:
+1. [Compass](http://compass-style.org/) tool. 
+2. [Node.js](https://nodejs.org/en/) & [npm](https://www.npmjs.com/).
 
-``` bash
-compass -v
-```
+We recommend that you install [Compass](http://compass-style.org/) via [rubygems](https://rubygems.org/) package
+manager. This will give you the latest version of [Compass](http://compass-style.org/): `1.0.3`. Compass is
+required to build `.css` files from `.scss` files.
 
-We recommend installing `compass` via [rubygems](https://rubygems.org/) package manager. This will give you the latest `1.0.3` version of
-`compass` tool. Once installed, navigate to the theme folder:
+[npm](https://www.npmjs.com/) package manager comes together with [Node.js](https://nodejs.org/en/).
+You should install [Node.js](https://nodejs.org/en/) first and then do a
+[self-update](http://blog.npmjs.org/post/85484771375/how-to-install-npm) of [npm](https://www.npmjs.com/):
 
 ``` bash
-cd themes/community-theme-16/
+sudo npm install npm -g
 ```
 
-Then execute the `compile` command:
+This will give you the updated version of [npm](https://www.npmjs.com/), which is used to build this theme.
+
+To verify that both tools are installed and have the correct versions, type the following in your terminal:
 
 ``` bash
-compass compile
+compass -v  // Should output 1.0.3 or higher
+npm -v      // Should output 3.5.2 or higher
 ```
 
-If everything runs well, corresponding `.css` files will be created in `community-theme/css/` folder.
+Once these tools are available, navigate to your cloned repository and run `npm install` command:
+
+``` bash
+cd community-theme-16/
+npm install 
+```
+
+This will install Node.js modules (packages) from [npmjs.com](https://www.npmjs.com/) which are used in
+`gulpfile.js` to build the theme.
+
+After the modules are installed, you may then run the `build` command:
+
+``` bash
+gulp build
+```
+
+which will run the build steps defined in `gulpfile.js` and output theme `.zip` archive in root folder of the cloned
+repository. This theme `.zip` archive can then be distributed and installed via PrestaShop back-office.
+
+**P.S.** If you can't or won't install [Node.js](https://nodejs.org/en/) & [npm](https://www.npmjs.com/), you can
+make do without them. You can always do the packaging steps manually. The only required tools is
+[Compass](http://compass-style.org/), which you can use by itself to compile `.css` files. Just navigate to
+theme folder and run `compass compile`.
+
+### Gulp commands
+
+Gulp `build` command is composed of several specific tasks (sub-commands), which you can run individually:
+
+``` bash
+gulp create-folders  // Creates empty theme folders like pdf/, pdf/lang/, which are not included repository
+                     // but should be in theme archive
+
+gulp build-css       // Runs shell process 'compass compile'. Optional flag maybe passed: --force
+
+gulp remove-trash    // Removes files which we don't to include in the archive, like cache files
+
+gulp copy-index      // Copies index.php to all directories and subdirectories inside theme folder
+
+gulp create-zip      // Adds Config.xml and theme folder to .zip archive and outputs
+                     // the file in root directory
+```
+
+### Testing and developing
+
+Because there is no way to place the repository files as an installed theme inside PrestaShop installation,
+you will have to synchronize changes between installed theme and cloned repository.
+
+We **encourage** that you use `gulp` to your own advantage, for example, you may write your own `gulp` task
+which watches for changes between installed theme and cloned repository and keeps then synchronized, eliminating the
+need to manually copy the changes every time.
 
 ## Contributing
 
@@ -92,7 +138,7 @@ Contributions are welcome! Your changes should be in agreement with the theme gu
 If you want to make a pull request, we ask that you keep to the same contribution rules as described
 in [PrestaShop/PrestaShop](https://github.com/PrestaShop/PrestaShop/blob/develop/CONTRIBUTING.md).
 
-We would like to emphasize the commit message norm: [How to write a commit message
-](http://doc.prestashop.com/display/PS16/How+to+write+a+commit+message).
+We would like to emphasize the commit message norm:
+[How to write a commit message](http://doc.prestashop.com/display/PS16/How+to+write+a+commit+message).
 Because this is a theme, you may omit the `type` in your commit message
 or write your own, more descriptive type: e.g `SEO`, `JS`, etc.
