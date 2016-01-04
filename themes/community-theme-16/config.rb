@@ -25,3 +25,7 @@ sourcemap = true
 # preferred_syntax = :sass
 # and then run:
 # sass-convert -R --from scss --to sass sass scss && rm -rf sass && mv scss sass
+
+# Float compute precision, without this setting
+# the precision would 4 points, meaning some Bootstrap elements are broken
+Sass::Script::Number.precision = 8
