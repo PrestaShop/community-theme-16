@@ -1,5 +1,7 @@
 @import "compass";
-@import "theme_variables";
+@import "./../../theme_variables";
+@import "./../../vendor_variables";
+
 #search_block_top {
 	padding-top: 50px;
 	#searchbox {
