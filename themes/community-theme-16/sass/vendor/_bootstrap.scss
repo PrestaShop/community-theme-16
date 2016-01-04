@@ -9,51 +9,51 @@
  */
 
 // Core variables and mixins
-@import "bootstrap_lib/variables";
-@import "bootstrap_lib/mixins";
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
 
 // Reset
-@import "bootstrap_lib/normalize";
-//@import "bootstrap_lib/print";
+@import "bootstrap/normalize";
+//@import "bootstrap/print";
 
 // Core CSS
-@import "bootstrap_lib/scaffolding";
-@import "bootstrap_lib/type";
-@import "bootstrap_lib/code";
-@import "bootstrap_lib/grid";
-@import "bootstrap_lib/tables";
-@import "bootstrap_lib/forms";
-@import "bootstrap_lib/buttons";
+@import "bootstrap/scaffolding";
+@import "bootstrap/type";
+@import "bootstrap/code";
+@import "bootstrap/grid";
+@import "bootstrap/tables";
+@import "bootstrap/forms";
+@import "bootstrap/buttons";
 
 // Components
-@import "bootstrap_lib/component-animations";
-//@import "bootstrap_lib/glyphicons";
-@import "bootstrap_lib/dropdowns";
-@import "bootstrap_lib/button-groups";
-@import "bootstrap_lib/input-groups";
-@import "bootstrap_lib/navs";
-@import "bootstrap_lib/navbar";
-@import "bootstrap_lib/breadcrumbs";
-@import "bootstrap_lib/pagination";
-@import "bootstrap_lib/pager";
-@import "bootstrap_lib/labels";
-@import "bootstrap_lib/badges";
-//@import "bootstrap_lib/jumbotron";
-@import "bootstrap_lib/thumbnails";
-@import "bootstrap_lib/alerts";
-@import "bootstrap_lib/progress-bars";
-@import "bootstrap_lib/media";
-@import "bootstrap_lib/list-group";
-@import "bootstrap_lib/panels";
-@import "bootstrap_lib/wells";
-@import "bootstrap_lib/close";
+@import "bootstrap/component-animations";
+//@import "bootstrap/glyphicons";
+@import "bootstrap/dropdowns";
+@import "bootstrap/button-groups";
+@import "bootstrap/input-groups";
+@import "bootstrap/navs";
+@import "bootstrap/navbar";
+@import "bootstrap/breadcrumbs";
+@import "bootstrap/pagination";
+@import "bootstrap/pager";
+@import "bootstrap/labels";
+@import "bootstrap/badges";
+//@import "bootstrap/jumbotron";
+@import "bootstrap/thumbnails";
+@import "bootstrap/alerts";
+@import "bootstrap/progress-bars";
+@import "bootstrap/media";
+@import "bootstrap/list-group";
+@import "bootstrap/panels";
+@import "bootstrap/wells";
+@import "bootstrap/close";
 
 // Components w/ JavaScript
-//@import "bootstrap_lib/modals";
-//@import "bootstrap_lib/tooltip";
-@import "bootstrap_lib/popovers";
-//@import "bootstrap_lib/carousel";
+//@import "bootstrap/modals";
+//@import "bootstrap/tooltip";
+@import "bootstrap/popovers";
+//@import "bootstrap/carousel";
 
 // Utility classes
-@import "bootstrap_lib/utilities";
-@import "bootstrap_lib/responsive-utilities";
+@import "bootstrap/utilities";
+@import "bootstrap/responsive-utilities";
