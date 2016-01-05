@@ -62,7 +62,7 @@ Here is what is currently planned for this theme:
   * Refactoring of templates and styles
   * [TBD](https://en.wikipedia.org/wiki/To_be_announced)
 
-# Libraries and dependencies
+## Libraries and dependencies
 
                         | default-bootstrap | community-theme-16
 ----------------------- | ----------------- | -------------
