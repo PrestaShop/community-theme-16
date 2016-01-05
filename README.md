@@ -69,12 +69,26 @@ Here is what is currently planned for this theme:
 If you would like **to install** this theme, you should download the latest, prepackaged `vx.x.x-community-theme-16.zip`
 theme archive from [Releases](https://github.com/PrestaShop/community-theme-16/releases) tab. It contains compiled
 `.css` files, full folder structure, `index.php` file in every folder. Unnecessary files are removed. Prepackaged theme
-archive can be uploaded and installed via PrestaShop back-office.
+archive can be uploaded and installed via PrestaShop back-office. Files from `dev` branch are not packaged,
+you must build a theme archive from them yourself.
 
-## Building and developing theme
+## Developing theme
 
-If you would like **to develop** this theme, then you should clone this repository (`dev` or `master` branch,
-depending on your preference).
+In this repository, files **are not ready** to be zipped and installed as theme.
+Instead, a **build** process is used, which automatically builds `.css` files,
+copies `index.php` files, creates required folder and does other things, so you don't have to do them manually.
+In the end, **build** process outputs theme `.zip` file which can be installed normally.
+It keeps the repository clean (we don't have to copy `index.php` 500 times or deal with messy compiled `.css`
+commits).
+
+If would like to be able to use this build process and preview the changes at the same time, we suggest doing this:
+
+1. Create a dedicated development installation of PrestaShop
+2. Clone the repository
+3. Build theme `.zip` archive and install it via back-office.
+4. Move repository files on top of PrestaShop installation files.
+5. Change theme files, build theme, preview changes in browser
+6. (Optional) Push changes to a forked repository and make a pull request.
 
 **To build** this theme, two tools are required:
 
@@ -143,15 +157,6 @@ gulp copy-index      // Copies index.php to all directories and subdirectories i
 gulp create-zip      // Adds Config.xml and theme folder to .zip archive and outputs
                      // the file in root directory
 ```
-
-### Testing and developing
-
-Because there is no way to place the repository files as an installed theme inside PrestaShop installation,
-you will have to synchronize changes between installed theme and cloned repository.
-
-We **encourage** that you use `gulp` to your own advantage, for example, you may write your own `gulp` task
-which watches for changes between installed theme and cloned repository and keeps then synchronized, eliminating the
-need to manually copy the changes every time.
 
 ## Contributing
 
