@@ -62,6 +62,15 @@ Here is what is currently planned for this theme:
   * Refactoring of templates and styles
   * [TBD](https://en.wikipedia.org/wiki/To_be_announced)
 
+# Libraries and dependencies
+
+                        | default-bootstrap | community-theme-16
+----------------------- | ----------------- | -------------
+Bootstrap               | 3.0.0             | 3.3.6
+Font Awesome            | 4.3.0             | 4.5.0
+jquery.uniform.js       | 2.1.2             | 2.1.2
+jquery.total-storage.js | 1.1.2             | 1.1.2
+
 ## Installing theme
 
 If you would like **to install** this theme, you should download the latest, prepackaged `vx.x.x-community-theme-16.zip`
