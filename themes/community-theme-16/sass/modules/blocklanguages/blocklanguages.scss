@@ -1,5 +1,7 @@
 @import "compass";
-@import "theme_variables";
+@import "./../../theme_variables";
+@import "./../../vendor_variables";
+
 #languages-block-top {
 	float: right;
 	border-left: 1px solid #515151;

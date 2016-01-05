@@ -1,5 +1,7 @@
 @import "compass";
-@import "theme_variables";
+@import "./../../theme_variables";
+@import "./../../vendor_variables";
+
 .shop-phone {
 	float: left;
 	padding: 5px 0 10px;

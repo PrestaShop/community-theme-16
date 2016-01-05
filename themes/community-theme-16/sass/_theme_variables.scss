@@ -1,12 +1,7 @@
-@import 'vendor/bootstrap/bootstrap/_variables';
-
 //------- FONTS
 $font-family:				  		Arial, Helvetica, sans-serif;
 $font:						  		normal 13px/18px $font-family;
 $font-custom:                 		'Open Sans', sans-serif;
-$font-icon:                   		"FontAwesome";
-$fa-css-prefix:       				icon !default;
-
 
 //-------- BORDERS
 $base-border-color:					#d6d4d4;
@@ -28,13 +23,12 @@ $base-text-color:                   #333;
 $base-heading-color:				#555454;
 $base-title-color:					$base-text-color;
 $light-text-color:                  #fff;
-$link-color:						$link-color;
-$link-hover-color:                  $link-hover-color;
 $description-color:					#666;
 
 
 //--------- Indents
-$base-page-indent:                 	$grid-gutter-width;
+// @TODO Remove $base-page-indent and use $grid-gutter-width (as before)
+$base-page-indent:                 	30px;
 $base-box-padding:                  14px 18px 13px;
 $base-box-indent:                  	0 0 30px 0;
 
@@ -99,3 +93,9 @@ $tr-even-bg:										#fdfdfd;
 	border-bottom: none;
 	background: $base-box-bg;
 }
+
+//
+// Override vendor variables here
+//
+$font-icon    : "FontAwesome";
+$fa-css-prefix: icon;
