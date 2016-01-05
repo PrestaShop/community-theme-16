@@ -1,45 +1,27 @@
-# IntelliJ project folders
-.idea
-
-# Windows image file caches
-Thumbs.db
-ehthumbs.db
-
-# Folder config file
-Desktop.ini
-
-# Recycle Bin used on file shares
-$RECYCLE.BIN/
-
-# Windows Installer files
-*.cab
-*.msi
-*.msm
-*.msp
-
-# OSX
-
-.DS_Store
-.AppleDouble
-.LSOverride
-
-
-# Thumbnails
-._*
-
-# Files that might appear on external disk
-.Spotlight-V100
-.Trashes
-
 # Project files
-.sass-cache/
-node_modules/
+/*
 
+!/themes/
+/themes/*
+!/themes/community-theme-16/
+
+!/modules/
+/modules/*
+
+!/CHANGELOG.md
+!/Config.xml
+!/CONTRIBUTORS.md
+!/gulpfile.js
+!/index.php.copy
+!/package.json
+!/README.md
+!/.gitignore
+!/.gitconfig
+!/.gitattributes
+
+# Ignore everywhere
 index.php
-!/index.php
 
 /themes/community-theme-16/.sass-cache/
 /themes/community-theme-16/cache/*
 /themes/community-theme-16/css/*
-
-/*.zip

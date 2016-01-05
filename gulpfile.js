@@ -80,7 +80,7 @@ gulp.task('copy-index', function(callback){
 
         // console.log('Copy to folders: \n', folders.join('\n'));
         folders.forEach(function(folder) {
-            fs.copy('index.php', folder + '/index.php', function(err) {
+            fs.copy('index.php.copy', folder + '/index.php', function(err) {
                 if (err) {
                     return console.error(err);
                 }
@@ -108,7 +108,7 @@ gulp.task('create-zip', function(){
             themeVersion = matches[1].trim();
         }
 
-        return gulp.src(['./themes*/**', './Config.xml'])
+        return gulp.src(['./themes*/community-theme-16*/**', './Config.xml'])
             .pipe(zip('v' + themeVersion + '-community-theme-16.zip'))
             .pipe(gulp.dest('./'));
     });
