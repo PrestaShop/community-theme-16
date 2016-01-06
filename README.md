@@ -48,10 +48,6 @@ E.g. `.product-list-item`.
 
 Here is what is currently planned for this theme:
 
-- Version 0.2.0
-  * Updated Font Awesome and Bootstrap libraries
-  * Possibly some file formatting (indentation, tabs, spaces, comments, etc.)
-  * Style corrections to match the `default-bootstrap` theme
 - Version 0.3.0
   * File formatting
   * Non-breaking removal of some styles
