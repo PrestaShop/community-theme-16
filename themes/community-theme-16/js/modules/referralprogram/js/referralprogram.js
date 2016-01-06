@@ -23,8 +23,8 @@
 *  International Registered Trademark & Property of PrestaShop SA
 */
 $(document).ready(function() {
-	$('#idTabs a').on('click', function(e) {
-		e.preventDefault();
-		$(this).tab('show');
-	});
+    $('#idTabs a').on('click', function(e) {
+        e.preventDefault();
+        $(this).tab('show');
+    });
 });
