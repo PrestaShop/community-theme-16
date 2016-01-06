@@ -8,6 +8,11 @@
 @import "vendor/font-awesome";
 
 $base-page-indent: $grid-gutter-width;
+.radio, .checkbox {
+	label {
+		padding-left: 0;
+	}
+}
 
 a:hover {
 	text-decoration: none;
