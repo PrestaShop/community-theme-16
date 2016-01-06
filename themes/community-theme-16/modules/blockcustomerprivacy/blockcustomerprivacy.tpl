@@ -33,6 +33,6 @@
         </div>
     </div>
     <div style="width: 92%; float: left; margin-top: 8px;">
-        <label for="customer_privacy" style="font-weight: normal;">{$privacy_message}</label>				
+        <label for="customer_privacy" style="font-weight: normal;">{$privacy_message}</label>
     </div>
 </fieldset>

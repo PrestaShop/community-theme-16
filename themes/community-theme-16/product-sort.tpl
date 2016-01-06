@@ -32,8 +32,8 @@
 {if !isset($request)}
     <!-- Sort products -->
     {if isset($smarty.get.id_category) && $smarty.get.id_category}
-        {assign var='request' value=$link->getPaginationLink('category', $category, false, true)
-}	{elseif isset($smarty.get.id_manufacturer) && $smarty.get.id_manufacturer}
+        {assign var='request' value=$link->getPaginationLink('category', $category, false, true)}
+    {elseif isset($smarty.get.id_manufacturer) && $smarty.get.id_manufacturer}
         {assign var='request' value=$link->getPaginationLink('manufacturer', $manufacturer, false, true)}
     {elseif isset($smarty.get.id_supplier) && $smarty.get.id_supplier}
         {assign var='request' value=$link->getPaginationLink('supplier', $supplier, false, true)}

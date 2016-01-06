@@ -500,7 +500,7 @@ ul.product_list.list {
                 }
             }
         }
-        @media (max-width: $screen-xs - 1) {	// max 479px
+        @media (max-width: $screen-xs - 1) { // max 479px
             text-align: center;
         }
     }
@@ -543,7 +543,7 @@ Product list(Index page) Styles
 /***** IE code *****/
 
 .ie8 {
-    .quick-view	 {
+    .quick-view {
         background: #fff;
         border: 1px solid $base-border-color;
     }

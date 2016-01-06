@@ -57,7 +57,7 @@
             "datas": [
                 {foreach from=$customization.datas key='type' item='datas' name='customization'}
                 {ldelim}
-                    "type":	{$type|json_encode},
+                    "type": {$type|json_encode},
                     "datas": [
                     {foreach from=$datas key='index' item='data' name='datas'}
                         {ldelim}

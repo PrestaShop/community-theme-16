@@ -817,7 +817,7 @@ Enjoy!
                                 $span.width(origElemWidth -spanPad);
                             });
                         });
-						
+
                     } else {
                         // Force the select to fill the size of the div
                         $div.addClass('fixedWidth');
@@ -1073,13 +1073,13 @@ Enjoy!
 if (typeof isMobile != 'undefined' && !isMobile){
 
     $(window).load(function () {
-    	$("select.form-control,input[type='checkbox']:not(.comparator), input[type='radio'],input#id_carrier2, input[type='file']").uniform();
+        $("select.form-control,input[type='checkbox']:not(.comparator), input[type='radio'],input#id_carrier2, input[type='file']").uniform();
     });
 
     // refresh uniform selects on document width change
     $(window).resize(
-    	function () {
-    		$.uniform.update("select.form-control, input[type='file']");
-    	}
+        function () {
+            $.uniform.update("select.form-control, input[type='file']");
+        }
     );
 }

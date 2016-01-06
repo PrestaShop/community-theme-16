@@ -68,7 +68,7 @@
                             {/if}
                         </div> <!-- end product-image-block -->
                         <h5>
-                            <a class="product-name"	href="{$product->getLink()|escape:'html':'UTF-8'}" title="{$product->name|truncate:32:'...'|escape:'html':'UTF-8'}">
+                            <a class="product-name" href="{$product->getLink()|escape:'html':'UTF-8'}" title="{$product->name|truncate:32:'...'|escape:'html':'UTF-8'}">
                                 {$product->name|truncate:45:'...'|escape:'html':'UTF-8'}
                             </a>
                         </h5>

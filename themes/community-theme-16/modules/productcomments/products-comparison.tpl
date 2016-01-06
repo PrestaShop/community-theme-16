@@ -52,7 +52,7 @@
                 {/if}
             </td>
         {/foreach}
-    </tr>				
+    </tr>
 {/foreach}
 
 {cycle values='comparison_feature_odd,comparison_feature_even' assign='classname'}

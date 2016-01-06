@@ -412,7 +412,7 @@ var ajaxCart = {
             cache: false,
             dataType : "json",
             data: 'controller=cart&delete=1&id_product=' + idProduct + '&ipa=' + ((idCombination != null && parseInt(idCombination)) ? idCombination : '') + ((customizationId && customizationId != null) ? '&id_customization=' + customizationId : '') + '&id_address_delivery=' + idAddressDelivery + '&token=' + static_token + '&ajax=true',
-            success: function(jsonData)	{
+            success: function(jsonData) {
                 ajaxCart.updateCart(jsonData);
                 if ($('body').attr('id') == 'order' || $('body').attr('id') == 'order-opc')
                     deleteProductFromSummary(idProduct+'_'+idCombination+'_'+customizationId+'_'+idAddressDelivery);
@@ -556,10 +556,10 @@ var ajaxCart = {
                         delete_link = '<a class="delete_voucher" href="'+jsonData.discounts[i].link+'" title="'+delete_txt+'"><i class="icon-remove-sign"></i></a>';
                     $('.vouchers tbody').append($(
                         '<tr class="bloc_cart_voucher" data-id="bloc_cart_voucher_'+jsonData.discounts[i].id+'">'
-                        +'	<td class="quantity">1x</td>'
-                        +'	<td class="name" title="'+jsonData.discounts[i].description+'">'+jsonData.discounts[i].name+'</td>'
-                        +'	<td class="price">-'+jsonData.discounts[i].price+'</td>'
-                        +'	<td class="delete">' + delete_link + '</td>'
+                        +' <td class="quantity">1x</td>'
+                        +' <td class="name" title="'+jsonData.discounts[i].description+'">'+jsonData.discounts[i].name+'</td>'
+                        +' <td class="price">-'+jsonData.discounts[i].price+'</td>'
+                        +' <td class="delete">' + delete_link + '</td>'
                         +'</tr>'
                     ));
                 }

@@ -46,7 +46,7 @@
     li{
         display:inline-block;
         line-height: 30px;
-        @media (min-width: $screen-sm) and (max-width: $screen-sm-max) {	//min 768px max 991px
+        @media (min-width: $screen-sm) and (max-width: $screen-sm-max) { //min 768px max 991px
             display: block;
             line-height: 20px;
         }

@@ -291,7 +291,7 @@ function display(view)
             if (colorList != null) {
                 html += '<div class="color-list-container">'+ colorList +'</div>';
             }
-            var availability = $(element).find('.availability').html();	// check : catalog mode is enabled
+            var availability = $(element).find('.availability').html(); // check : catalog mode is enabled
             if (availability != null) {
                 html += '<span class="availability">'+ availability +'</span>';
             }

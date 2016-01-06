@@ -294,9 +294,9 @@
                                         <img src="{$img_dir}icon/download_product.gif" class="icon" alt="{l s='Download product'}" />
                                     </a>
                                     {if isset($is_guest) && $is_guest}
-                                        <a href="{$link->getPageLink('get-file', true, NULL, "key={$product.filename|escape:'html':'UTF-8'}-{$product.download_hash|escape:'html':'UTF-8'}&id_order={$order->id}&secure_key={$order->secure_key}")|escape:'html':'UTF-8'}" title="{l s='Download this product'}"> {$product.product_name|escape:'html':'UTF-8'} 	</a>
+                                        <a href="{$link->getPageLink('get-file', true, NULL, "key={$product.filename|escape:'html':'UTF-8'}-{$product.download_hash|escape:'html':'UTF-8'}&id_order={$order->id}&secure_key={$order->secure_key}")|escape:'html':'UTF-8'}" title="{l s='Download this product'}"> {$product.product_name|escape:'html':'UTF-8'} </a>
                                     {else}
-                                    <a href="{$link->getPageLink('get-file', true, NULL, "key={$product.filename|escape:'html':'UTF-8'}-{$product.download_hash|escape:'html':'UTF-8'}")|escape:'html':'UTF-8'}" title="{l s='Download this product'}"> {$product.product_name|escape:'html':'UTF-8'} 	</a>
+                                    <a href="{$link->getPageLink('get-file', true, NULL, "key={$product.filename|escape:'html':'UTF-8'}-{$product.download_hash|escape:'html':'UTF-8'}")|escape:'html':'UTF-8'}" title="{l s='Download this product'}"> {$product.product_name|escape:'html':'UTF-8'} </a>
                                     {/if}
                                 {else}
                                     {$product.product_name|escape:'html':'UTF-8'}
