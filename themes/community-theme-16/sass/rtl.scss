@@ -3,12 +3,12 @@
 @import "vendor_variables";
 
 /********************************************************
-			Right to Left Styles
+            Right to Left Styles
 ********************************************************/
 
 * {
-	direction: rtl !important;
+    direction: rtl !important;
 }
 #page {
-	text-align: right !important;
+    text-align: right !important;
 }
