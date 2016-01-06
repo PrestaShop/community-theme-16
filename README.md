@@ -18,7 +18,7 @@ The purpose of this theme is to provide a solid and flexible foundation for buil
 The main features of this theme **will be** (currently in development):
 
 - Removed unnecessary styles, functions, elements
-- Updated libraries
+- Updated libraries &#10004;
 - Wider usage [Bootstrap 3](http://getbootstrap.com/) styles, utilities and components
 - Reduced stylesheet size
 - Simplified HTML markup
