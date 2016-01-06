@@ -41,7 +41,7 @@
 {addJsDef page_name=$page_name|escape:'html':'UTF-8'}
 {addJsDef contentOnly=$content_only|boolval}
 {if isset($cookie->id_lang)}
-	{addJsDef id_lang=$cookie->id_lang|intval}
+    {addJsDef id_lang=$cookie->id_lang|intval}
 {/if}
 {addJsDefL name=FancyboxI18nClose}{l s='Close'}{/addJsDefL}
 {addJsDefL name=FancyboxI18nNext}{l s='Next'}{/addJsDefL}

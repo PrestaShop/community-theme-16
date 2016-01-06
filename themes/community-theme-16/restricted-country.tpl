@@ -26,15 +26,15 @@
 <html lang="en">
     <head>
         <title>{$meta_title|escape:'html':'UTF-8'}</title>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 {if isset($meta_description)}
-		<meta name="description" content="{$meta_description|escape:'html':'UTF-8'}" />
+        <meta name="description" content="{$meta_description|escape:'html':'UTF-8'}" />
 {/if}
 {if isset($meta_keywords)}
-		<meta name="keywords" content="{$meta_keywords|escape:'html':'UTF-8'}" />
+        <meta name="keywords" content="{$meta_keywords|escape:'html':'UTF-8'}" />
 {/if}
-		<meta name="robots" content="{if isset($nobots)}no{/if}index,follow" />
-		<link rel="shortcut icon" href="{$favicon_url}" />
+        <meta name="robots" content="{if isset($nobots)}no{/if}index,follow" />
+        <link rel="shortcut icon" href="{$favicon_url}" />
         <style>
             ::-moz-selection {
                 background: #b3d4fc;

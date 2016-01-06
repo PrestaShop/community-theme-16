@@ -47,17 +47,17 @@ class="page-heading {if !isset($instant_search) || (isset($instant_search) && !$
 
 {include file="$tpl_dir./errors.tpl"}
 {if !$nbProducts}
-	<p class="alert alert-warning">
-		{if isset($search_query) && $search_query}
-			{l s='No results were found for your search'}&nbsp;"{if isset($search_query)}{$search_query|escape:'html':'UTF-8'}{/if}"
-		{elseif isset($search_tag) && $search_tag}
-			{l s='No results were found for your search'}&nbsp;"{$search_tag|escape:'html':'UTF-8'}"
-		{else}
-			{l s='Please enter a search keyword'}
-		{/if}
-	</p>
+    <p class="alert alert-warning">
+        {if isset($search_query) && $search_query}
+            {l s='No results were found for your search'}&nbsp;"{if isset($search_query)}{$search_query|escape:'html':'UTF-8'}{/if}"
+        {elseif isset($search_tag) && $search_tag}
+            {l s='No results were found for your search'}&nbsp;"{$search_tag|escape:'html':'UTF-8'}"
+        {else}
+            {l s='Please enter a search keyword'}
+        {/if}
+    </p>
 {else}
-	{if isset($instant_search) && $instant_search}
+    {if isset($instant_search) && $instant_search}
         <p class="alert alert-info">
             {if $nbProducts == 1}{l s='%d result has been found.' sprintf=$nbProducts|intval}{else}{l s='%d results have been found.' sprintf=$nbProducts|intval}{/if}
         </p>
@@ -69,18 +69,18 @@ class="page-heading {if !isset($instant_search) || (isset($instant_search) && !$
                 {include file="./nbr-product-page.tpl"}
             {/if}
         </div>
-    	<div class="top-pagination-content clearfix">
+        <div class="top-pagination-content clearfix">
             {include file="./product-compare.tpl"}
             {if !isset($instant_search) || (isset($instant_search) && !$instant_search)}
                 {include file="$tpl_dir./pagination.tpl" no_follow=1}
             {/if}
         </div>
-	</div>
-	{include file="$tpl_dir./product-list.tpl" products=$search_products}
+    </div>
+    {include file="$tpl_dir./product-list.tpl" products=$search_products}
     <div class="content_sortPagiBar">
-    	<div class="bottom-pagination-content clearfix">
-        	{include file="./product-compare.tpl"}
-        	{if !isset($instant_search) || (isset($instant_search) && !$instant_search)}
+        <div class="bottom-pagination-content clearfix">
+            {include file="./product-compare.tpl"}
+            {if !isset($instant_search) || (isset($instant_search) && !$instant_search)}
                 {include file="$tpl_dir./pagination.tpl" paginationId='bottom' no_follow=1}
             {/if}
         </div>

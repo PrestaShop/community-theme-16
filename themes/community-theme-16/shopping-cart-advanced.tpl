@@ -331,9 +331,9 @@
                 <tr class="cart_discount {if $discount@last}last_item{elseif $discount@first}first_item{else}item{/if}" id="cart_discount_{$discount.id_discount}">
                     <td class="cart_discount_name" colspan="{if $PS_STOCK_MANAGEMENT}3{else}2{/if}">{$discount.name}</td>
                     <td class="cart_discount_price">
-								<span class="price-discount">
-								{if !$priceDisplay}{displayPrice price=$discount.value_real*-1}{else}{displayPrice price=$discount.value_tax_exc*-1}{/if}
-								</span>
+                                <span class="price-discount">
+                                {if !$priceDisplay}{displayPrice price=$discount.value_real*-1}{else}{displayPrice price=$discount.value_tax_exc*-1}{/if}
+                                </span>
                     </td>
                     <td class="cart_discount_delete">1</td>
                     <td class="price_discount_del text-center">

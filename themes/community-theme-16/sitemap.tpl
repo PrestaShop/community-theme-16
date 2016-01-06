@@ -29,20 +29,20 @@
     {l s='Sitemap'}
 </h1>
 <div id="sitemap_content" class="row">
-	<div class="col-xs-12 col-sm-6">
-		<div class="sitemap_block box">
-    		<h3 class="page-subheading">{l s='Our offers'}</h3>
-    		<ul>
-    			<li>
+    <div class="col-xs-12 col-sm-6">
+        <div class="sitemap_block box">
+            <h3 class="page-subheading">{l s='Our offers'}</h3>
+            <ul>
+                <li>
                     <a 
                     href="{$link->getPageLink('new-products')|escape:'html':'UTF-8'}" 
                     title="{l s='View a new product'}">
                         {l s='New products'}
                     </a>
                 </li>
-    			{if !$PS_CATALOG_MODE}
-    			{if $PS_DISPLAY_BEST_SELLERS}
-        			<li>
+                {if !$PS_CATALOG_MODE}
+                {if $PS_DISPLAY_BEST_SELLERS}
+                    <li>
                         <a 
                         href="{$link->getPageLink('best-sales')|escape:'html':'UTF-8'}" 
                         title="{l s='View top-selling products'}">
@@ -50,15 +50,15 @@
                         </a>
                     </li>
                 {/if}
-        			<li>
+                    <li>
                         <a 
                         href="{$link->getPageLink('prices-drop')|escape:'html':'UTF-8'}" 
                         title="{l s='View products with a price drop'}">
                             {l s='Price drop'}
                         </a>
                     </li>
-    			{/if}
-    			{if $display_manufacturer_link OR $PS_DISPLAY_SUPPLIERS}
+                {/if}
+                {if $display_manufacturer_link OR $PS_DISPLAY_SUPPLIERS}
                     <li>
                         <a 
                         href="{$link->getPageLink('manufacturer')|escape:'html':'UTF-8'}" 
@@ -67,7 +67,7 @@
                         </a>
                     </li>
                 {/if}
-    			{if $display_supplier_link OR $PS_DISPLAY_SUPPLIERS}
+                {if $display_supplier_link OR $PS_DISPLAY_SUPPLIERS}
                     <li>
                         <a 
                         href="{$link->getPageLink('supplier')|escape:'html':'UTF-8'}" 
@@ -76,17 +76,17 @@
                         </a>
                     </li>
                 {/if}
-    		</ul>
-	   </div>
+            </ul>
+       </div>
     </div>
     <div class="col-xs-12 col-sm-6">
-		<div class="sitemap_block box">
-    		<h3 class="page-subheading">
+        <div class="sitemap_block box">
+            <h3 class="page-subheading">
                 {l s='Your Account'}
             </h3>
-    		<ul>
-        		{if $is_logged}
-        			<li>
+            <ul>
+                {if $is_logged}
+                    <li>
                         <a 
                         href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}" 
                         rel="nofollow" 
@@ -94,7 +94,7 @@
                             {l s='Your Account'}
                         </a>
                     </li>
-        			<li>
+                    <li>
                         <a 
                         href="{$link->getPageLink('identity', true)|escape:'html':'UTF-8'}" 
                         rel="nofollow" 
@@ -102,7 +102,7 @@
                             {l s='Personal information'}
                         </a>
                     </li>
-        			<li>
+                    <li>
                         <a 
                         href="{$link->getPageLink('addresses', true)|escape:'html':'UTF-8'}" 
                         rel="nofollow" 
@@ -110,7 +110,7 @@
                             {l s='Addresses'}
                         </a>
                     </li>
-        			{if $voucherAllowed}
+                    {if $voucherAllowed}
                         <li>
                             <a 
                             href="{$link->getPageLink('discount', true)|escape:'html':'UTF-8'}" 
@@ -120,7 +120,7 @@
                             </a>
                         </li>
                         {/if}
-        			<li>
+                    <li>
                         <a 
                         href="{$link->getPageLink('history', true)|escape:'html':'UTF-8'}" 
                         rel="nofollow"
@@ -128,8 +128,8 @@
                             {l s='Order history'}
                         </a>
                     </li>
-        		{else}
-        			<li>
+                {else}
+                    <li>
                         <a 
                         href="{$link->getPageLink('authentication', true)|escape:'html':'UTF-8'}" 
                         rel="nofollow"
@@ -137,7 +137,7 @@
                             {l s='Authentication'}
                         </a>
                     </li>
-        			<li>
+                    <li>
                         <a 
                         href="{$link->getPageLink('authentication', true)|escape:'html':'UTF-8'}"
                         rel="nofollow" 
@@ -145,9 +145,9 @@
                             {l s='Create new account'}
                         </a>
                     </li>
-        		{/if}
-        		{if $is_logged}
-        			<li>
+                {/if}
+                {if $is_logged}
+                    <li>
                         <a 
                         href="{$link->getPageLink('index')}?mylogout" 
                         rel="nofollow"
@@ -155,14 +155,14 @@
                             {l s='Sign out'}
                         </a>
                     </li>
-        		{/if}
-    		</ul>
-    	</div>
+                {/if}
+            </ul>
+        </div>
     </div>
 </div>
 <div id="listpage_content" class="row">
-	<div class="col-xs-12 col-sm-6">
-		<div class="categTree box">
+    <div class="col-xs-12 col-sm-6">
+        <div class="categTree box">
             <h3 class="page-subheading">{l s='Categories'}</h3>
             <div class="tree_top">
                 <a href="{$base_dir_ssl}" title="{$categoriesTree.name|escape:'html':'UTF-8'}"></a>
@@ -181,10 +181,10 @@
         </div>
     </div>
     <div class="col-xs-12 col-sm-6">
-		<div class="sitemap_block box">
+        <div class="sitemap_block box">
             <h3 class="page-subheading">{l s='Pages'}</h3>
             <ul>
-            	<li>
+                <li>
                     <a href="{$categoriescmsTree.link|escape:'html':'UTF-8'}" title="{$categoriescmsTree.name|escape:'html':'UTF-8'}">
                         {$categoriescmsTree.name|escape:'html':'UTF-8'}
                     </a>

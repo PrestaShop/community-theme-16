@@ -24,41 +24,41 @@
 *}
 
 {if $opc}
-	{assign var="back_order_page" value="order-opc.php"}
-	{else}
-	{assign var="back_order_page" value="order.php"}
+    {assign var="back_order_page" value="order-opc.php"}
+    {else}
+    {assign var="back_order_page" value="order.php"}
 {/if}
 
 {if $PS_CATALOG_MODE}
-	{capture name=path}{l s='Your shopping cart'}{/capture}
-	<h2 id="cart_title">{l s='Your shopping cart'}</h2>
-	<p class="alert alert-warning">{l s='Your new order was not accepted.'}</p>
+    {capture name=path}{l s='Your shopping cart'}{/capture}
+    <h2 id="cart_title">{l s='Your shopping cart'}</h2>
+    <p class="alert alert-warning">{l s='Your new order was not accepted.'}</p>
 {else}
-	{if $productNumber}
-		<!-- Shopping Cart -->
+    {if $productNumber}
+        <!-- Shopping Cart -->
 
-		{include file="$tpl_dir./shopping-cart.tpl"}
-		<!-- End Shopping Cart -->
-		{if $is_logged AND !$is_guest}
-			{include file="$tpl_dir./order-address.tpl"}
-		{else}
-			<!-- Create account / Guest account / Login block -->
-			{include file="$tpl_dir./order-opc-new-account.tpl"}
-			<!-- END Create account / Guest account / Login block -->
-		{/if}
-		<!-- Carrier -->
-		{include file="$tpl_dir./order-carrier.tpl"}
-		<!-- END Carrier -->
-	
-		<!-- Payment -->
-		{include file="$tpl_dir./order-payment.tpl"}
-		<!-- END Payment -->
-	{else}
-		{capture name=path}{l s='Your shopping cart'}{/capture}
-		<h2 class="page-heading">{l s='Your shopping cart'}</h2>
-		{include file="$tpl_dir./errors.tpl"}
-		<p class="alert alert-warning">{l s='Your shopping cart is empty.'}</p>
-	{/if}
+        {include file="$tpl_dir./shopping-cart.tpl"}
+        <!-- End Shopping Cart -->
+        {if $is_logged AND !$is_guest}
+            {include file="$tpl_dir./order-address.tpl"}
+        {else}
+            <!-- Create account / Guest account / Login block -->
+            {include file="$tpl_dir./order-opc-new-account.tpl"}
+            <!-- END Create account / Guest account / Login block -->
+        {/if}
+        <!-- Carrier -->
+        {include file="$tpl_dir./order-carrier.tpl"}
+        <!-- END Carrier -->
+
+        <!-- Payment -->
+        {include file="$tpl_dir./order-payment.tpl"}
+        <!-- END Payment -->
+    {else}
+        {capture name=path}{l s='Your shopping cart'}{/capture}
+        <h2 class="page-heading">{l s='Your shopping cart'}</h2>
+        {include file="$tpl_dir./errors.tpl"}
+        <p class="alert alert-warning">{l s='Your shopping cart is empty.'}</p>
+    {/if}
 {strip}
 {addJsDef imgDir=$img_dir}
 {addJsDef authenticationUrl=$link->getPageLink("authentication", true)|escape:'quotes':'UTF-8'}
