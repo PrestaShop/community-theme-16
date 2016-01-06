@@ -8,11 +8,10 @@ Some minor style corrections to match the default theme have been applied.
 - Bootstrap update to `3.3.6`
 - Font Awesome updated to `4.5.0`
 - Moved Bootstrap and Font Awesome `.scss` files to `scss/vendor` folder
-- Refactored `.scss` import paths. Files now import all variables, including overridden vendor variables. (1c8593f)
-- Fixed `.scss` float compute precision. Fixes Bootstrap element height, widths, etc. (95b284e)
-- Applied some style corrections to match the `default-bootstrap` theme with Bootstrap `3.0.0` (98da455, #21)
+- Refactored `.scss` import paths. Files now import all variables, including overridden vendor variables.
+- Fixed `.scss` float compute precision. Fixes Bootstrap element height, widths, etc.
+- Applied some style corrections to match the `default-bootstrap` theme with Bootstrap `3.0.0`
 - Updated `.gitignore` rules to support working from within PrestaShop installation.
-
 
 # v0.1.0 (2016-01-04)
 
