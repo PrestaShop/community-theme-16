@@ -31,7 +31,7 @@
 {include file="$tpl_dir./order-steps.tpl"}
 
 <form action="{$link->getModuleLink('cashondelivery', 'validation', [], true)|escape:'html'}" method="post">
-	<div class="box">
+    <div class="box">
         <input type="hidden" name="confirm" value="1" />
         <h3 class="page-subheading">{l s='Cash on delivery (COD) payment' mod='cashondelivery'}</h3>
         <p>

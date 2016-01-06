@@ -25,16 +25,16 @@
 
 <!-- MODULE Block specials -->
 <div id="special_block_right" class="block">
-	<p class="title_block">
+    <p class="title_block">
         <a href="{$link->getPageLink('prices-drop')|escape:'html':'UTF-8'}" title="{l s='Specials' mod='blockspecials'}">
             {l s='Specials' mod='blockspecials'}
         </a>
     </p>
-	<div class="block_content products-block">
+    <div class="block_content products-block">
     {if $special}
-		<ul>
-        	<li class="clearfix">
-            	<a class="products-block-image" href="{$special.link|escape:'html':'UTF-8'}">
+        <ul>
+            <li class="clearfix">
+                <a class="products-block-image" href="{$special.link|escape:'html':'UTF-8'}">
                     <img 
                     class="replace-2x img-responsive" 
                     src="{$link->getImageLink($special.link_rewrite, $special.id_image, 'small_default')|escape:'html':'UTF-8'}" 
@@ -42,19 +42,19 @@
                     title="{$special.name|escape:'html':'UTF-8'}" />
                 </a>
                 <div class="product-content">
-                	<h5>
+                    <h5>
                         <a class="product-name" href="{$special.link|escape:'html':'UTF-8'}" title="{$special.name|escape:'html':'UTF-8'}">
                             {$special.name|escape:'html':'UTF-8'}
                         </a>
                     </h5>
                     {if isset($special.description_short) && $special.description_short}
-                    	<p class="product-description">
+                        <p class="product-description">
                             {$special.description_short|strip_tags:'UTF-8'|truncate:40}
                         </p>
                     {/if}
                     <div class="price-box">
-                    	{if !$PS_CATALOG_MODE}
-                        	<span class="price special-price">
+                        {if !$PS_CATALOG_MODE}
+                            <span class="price special-price">
                                 {if !$priceDisplay}
                                     {displayWtPrice p=$special.price}{else}{displayWtPrice p=$special.price_tax_exc}
                                 {/if}
@@ -75,18 +75,18 @@
                     </div>
                 </div>
             </li>
-		</ul>
-		<div>
-			<a 
+        </ul>
+        <div>
+            <a
             class="btn btn-default button button-small" 
             href="{$link->getPageLink('prices-drop')|escape:'html':'UTF-8'}" 
             title="{l s='All specials' mod='blockspecials'}">
                 <span>{l s='All specials' mod='blockspecials'}<i class="icon-chevron-right right"></i></span>
             </a>
-		</div>
+        </div>
     {else}
-		<div>{l s='No special products at this time.' mod='blockspecials'}</div>
+        <div>{l s='No special products at this time.' mod='blockspecials'}</div>
     {/if}
-	</div>
+    </div>
 </div>
 <!-- /MODULE Block specials -->

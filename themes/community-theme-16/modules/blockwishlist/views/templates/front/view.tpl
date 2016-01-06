@@ -133,8 +133,8 @@
                                             </a>
                                         {else}
                                             <span class="button ajax_add_to_cart_button btn btn-default disabled">
-												<span>{l s='Add to cart' mod='blockwishlist'}</span>
-											</span>
+                                                <span>{l s='Add to cart' mod='blockwishlist'}</span>
+                                            </span>
                                         {/if}
                                         <a
                                                 class="button lnk_view btn btn-default"

@@ -204,18 +204,18 @@
                         {if $bought.quantity > 0}
                             <tr>
                                 <td class="first_item">
-									<span style="float:left;">
-										<img
+                                    <span style="float:left;">
+                                        <img
                                                 src="{$link->getImageLink($product.link_rewrite, $product.cover, 'small_default')|escape:'html':'UTF-8'}"
                                                 alt="{$product.name|escape:'html':'UTF-8'}"/>
-									</span>
-									<span style="float:left;">
-										{$product.name|truncate:40:'...'|escape:'html':'UTF-8'}
+                                    </span>
+                                    <span style="float:left;">
+                                        {$product.name|truncate:40:'...'|escape:'html':'UTF-8'}
                                         {if isset($product.attributes_small)}
                                             <br/>
                                             <i>{$product.attributes_small|escape:'html':'UTF-8'}</i>
                                         {/if}
-									</span>
+                                    </span>
                                 </td>
                                 <td class="item align_center">
                                     {$bought.quantity|intval}

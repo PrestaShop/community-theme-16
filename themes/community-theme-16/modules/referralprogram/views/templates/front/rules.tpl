@@ -27,6 +27,6 @@
 
 {if isset($xml)}
 <div id="referralprogram_rules">
-	{if isset($xml->body->$paragraph)}<div class="rte">{$xml->body->$paragraph|replace:"\'":"'"|replace:'\"':'"'}</div>{/if}
+    {if isset($xml->body->$paragraph)}<div class="rte">{$xml->body->$paragraph|replace:"\'":"'"|replace:'\"':'"'}</div>{/if}
 </div>
 {/if}
