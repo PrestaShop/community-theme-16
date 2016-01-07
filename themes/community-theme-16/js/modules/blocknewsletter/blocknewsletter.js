@@ -39,8 +39,7 @@ $(document).ready(function() {
   if (typeof nw_error != 'undefined' && !nw_error)
     cssClass = 'alert alert-success';
 
-  if (typeof msg_newsl != 'undefined' && msg_newsl)
-  {
+  if (typeof msg_newsl != 'undefined' && msg_newsl) {
     $('#columns').prepend('<div class="clearfix"></div><p class="' + cssClass + '"> ' + alert_blocknewsletter + '</p>');
     $('html, body').animate({scrollTop: $('#columns').offset().top}, 'slow');
   }

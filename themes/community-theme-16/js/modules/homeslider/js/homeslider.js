@@ -24,7 +24,7 @@
  *  International Registered Trademark & Property of PrestaShop SA
  */
 
-$(document).ready(function(){
+$(document).ready(function() {
 
   if (typeof(homeslider_speed) == 'undefined')
     homeslider_speed = 500;
@@ -35,8 +35,7 @@ $(document).ready(function(){
   if (typeof(homeslider_width) == 'undefined')
     homeslider_width = 779;
 
-
-  $('.homeslider-description').click(function () {
+  $('.homeslider-description').click(function() {
     window.location.href = $(this).prev('a').prop('href');
   });
 

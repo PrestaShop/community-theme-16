@@ -22,26 +22,24 @@
  *  @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  *  International Registered Trademark & Property of PrestaShop SA
  */
-$(document).ready(function(){
-  if (typeof ad !== 'undefined' && ad && typeof adtoken !== 'undefined' && adtoken)
-  {
-    $(document).on('click', 'input[name=publish_button]', function(e){
+$(document).ready(function() {
+  if (typeof ad !== 'undefined' && ad && typeof adtoken !== 'undefined' && adtoken) {
+    $(document).on('click', 'input[name=publish_button]', function(e) {
       e.preventDefault();
       submitPublishCMS(ad, 0, adtoken);
     });
-    $(document).on('click', 'input[name=lnk_view]', function(e){
+    $(document).on('click', 'input[name=lnk_view]', function(e) {
       e.preventDefault();
       submitPublishCMS(ad, 1, adtoken);
     });
   }
 });
 
-function submitPublishCMS(url, redirect, token)
-{
+function submitPublishCMS(url, redirect, token) {
   var id_cms = $('#admin-action-cms-id').val();
 
   $.ajaxSetup({async: false});
-  $.post(url+'/index.php', {
+  $.post(url + '/index.php', {
       action: 'PublishCMS',
       id_cms: id_cms,
       status: 1,
@@ -50,8 +48,7 @@ function submitPublishCMS(url, redirect, token)
       tab: 'AdminCmsContent',
       token: token
     },
-    function(data)
-    {
+    function(data) {
       if (data.indexOf('error') === -1)
         document.location.href = data;
     }

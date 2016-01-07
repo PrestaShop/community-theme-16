@@ -32,8 +32,8 @@ $(document).ready(function() {
       pager: false,
       nextText: '',
       prevText: '',
-      moveSlides:1,
-      infiniteLoop:false,
+      moveSlides: 1,
+      infiniteLoop: false,
       hideControlOnEnd: true
     });
 });

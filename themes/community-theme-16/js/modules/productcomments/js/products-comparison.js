@@ -22,12 +22,11 @@
  *  @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  *  International Registered Trademark & Property of PrestaShop SA
  */
-$(document).ready(function()
-{
+$(document).ready(function() {
   $('input.star').rating();
   $('.auto-submit-star').rating();
   $('a.cluetip').cluetip({
-    local:true,
+    local: true,
     cursor: 'pointer',
     cluetipClass: 'comparison_comments',
     dropShadow: false,
@@ -43,26 +42,24 @@ $(document).ready(function()
     }
   }).css('opacity', 0.8);
 
-  $('.comparison_infos a').each(function(){
+  $('.comparison_infos a').each(function() {
     var id_product_comment = parseInt($(this).data('id-product-comment'));
-    if (id_product_comment)
-    {
-      $(this).click(function(e){
+    if (id_product_comment) {
+      $(this).click(function(e) {
         e.preventDefault();
       });
       var htmlContent = $('#comments_' + id_product_comment).html();
       $(this).popover({
-        placement : 'bottom', //placement of the popover. also can use top, bottom, left or right
-        title : false, //this is the top title bar of the popover. add some basic css
+        placement: 'bottom', //placement of the popover. also can use top, bottom, left or right
+        title: false, //this is the top title bar of the popover. add some basic css
         html: 'true', //needed to show html of course
-        content : htmlContent  //this is the content of the html box. add the image here or anything you want really.
+        content: htmlContent  //this is the content of the html box. add the image here or anything you want really.
       });
     }
   });
 });
 
-function closeCommentForm()
-{
+function closeCommentForm() {
   $('#sendComment').slideUp('fast');
   $('input#addCommentButton').fadeIn('slow');
 }

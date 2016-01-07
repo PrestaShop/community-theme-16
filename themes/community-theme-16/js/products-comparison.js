@@ -22,8 +22,8 @@
  *  @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  *  International Registered Trademark & Property of PrestaShop SA
  */
-$(document).ready(function(){
-  $(document).on('click', '.add_to_compare', function(e){
+$(document).ready(function() {
+  $(document).on('click', '.add_to_compare', function(e) {
     e.preventDefault();
     if (typeof addToCompare != 'undefined')
       addToCompare(parseInt($(this).data('id-product')));
@@ -34,8 +34,7 @@ $(document).ready(function(){
   totalCompareButtons();
 });
 
-function addToCompare(productId)
-{
+function addToCompare(productId) {
   var totalValueNow = parseInt($('.bt_compare').next('.compare_product_count').val());
   var action, totalVal;
   if ($.inArray(parseInt(productId),comparedProductsIds) === -1)
@@ -51,19 +50,16 @@ function addToCompare(productId)
       if (action === 'add' && comparedProductsIds.length < comparator_max_item) {
         comparedProductsIds.push(parseInt(productId)),
           compareButtonsStatusRefresh(),
-          totalVal = totalValueNow +1,
+          totalVal = totalValueNow + 1,
           $('.bt_compare').next('.compare_product_count').val(totalVal),
           totalValue(totalVal);
-      }
-      else if (action === 'remove') {
+      } else if (action === 'remove') {
         comparedProductsIds.splice($.inArray(parseInt(productId), comparedProductsIds), 1),
           compareButtonsStatusRefresh(),
-          totalVal = totalValueNow -1,
+          totalVal = totalValueNow - 1,
           $('.bt_compare').next('.compare_product_count').val(totalVal),
           totalValue(totalVal);
-      }
-      else
-      {
+      } else {
         if (!!$.prototype.fancybox)
           $.fancybox.open([{
             type: 'inline',
@@ -78,13 +74,12 @@ function addToCompare(productId)
       }
       totalCompareButtons();
     },
-    error: function(){}
+    error: function() {}
   });
 }
 
-function reloadProductComparison()
-{
-  $(document).on('click', 'a.cmp_remove', function(e){
+function reloadProductComparison() {
+  $(document).on('click', 'a.cmp_remove', function(e) {
     e.preventDefault();
     var idProduct = parseInt($(this).data('id-product'));
     $.ajax({
@@ -106,8 +101,7 @@ function reloadProductComparison()
   });
 };
 
-function compareButtonsStatusRefresh()
-{
+function compareButtonsStatusRefresh() {
   $('.add_to_compare').each(function() {
     if ($.inArray(parseInt($(this).data('id-product')), comparedProductsIds) !== -1)
       $(this).addClass('checked');
@@ -116,28 +110,25 @@ function compareButtonsStatusRefresh()
   });
 }
 
-function totalCompareButtons()
-{
+function totalCompareButtons() {
   var totalProductsToCompare = parseInt($('.bt_compare .total-compare-val').html());
-  if (typeof totalProductsToCompare !== "number" || totalProductsToCompare === 0)
-    $('.bt_compare').attr("disabled",true);
+  if (typeof totalProductsToCompare !== 'number' || totalProductsToCompare === 0)
+    $('.bt_compare').attr('disabled',true);
   else
-    $('.bt_compare').attr("disabled",false);
+    $('.bt_compare').attr('disabled',false);
 }
 
-function totalValue(value)
-{
+function totalValue(value) {
   $('.bt_compare').find('.total-compare-val').html(value);
 }
 
-function get(name)
-{
-  var regexS = "[\\?&]" + name + "=([^&#]*)";
+function get(name) {
+  var regexS = '[\\?&]' + name + '=([^&#]*)';
   var regex = new RegExp(regexS);
   var results = regex.exec(window.location.search);
 
   if (results == null)
-    return "";
+    return '';
   else
     return results[1];
 }

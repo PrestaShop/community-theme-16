@@ -26,8 +26,7 @@ $(document).ready(function() {
   initCrossSellingbxSlider();
 });
 
-function initCrossSellingbxSlider()
-{
+function initCrossSellingbxSlider() {
   if (!!$.prototype.bxSlider)
     $('#crossselling_list_car').bxSlider({
       minSlides: 2,
@@ -37,8 +36,8 @@ function initCrossSellingbxSlider()
       pager: false,
       nextText: '',
       prevText: '',
-      moveSlides:1,
-      infiniteLoop:false,
+      moveSlides: 1,
+      infiniteLoop: false,
       hideControlOnEnd: true
     });
 }

@@ -7,10 +7,10 @@
  * http://www.gnu.org/licenses/gpl.html
  */
 
-(function ($) {
-  "use strict";
+(function($) {
+  'use strict';
 
-  var methods = (function () {
+  var methods = (function() {
     // private properties and methods go here
     var c = {
         bcClass: 'sf-breadcrumb',
@@ -18,48 +18,47 @@
         anchorClass: 'sf-with-ul',
         menuArrowClass: 'sf-arrows'
       },
-      ios = (function () {
+      ios = (function() {
         var ios = /iPhone|iPad|iPod/i.test(navigator.userAgent);
         if (ios) {
           // iOS clicks only bubble as far as body children
-          $(window).load(function () {
+          $(window).load(function() {
             $('body').children().on('click', $.noop);
           });
         }
         return ios;
       })(),
-      wp7 = (function () {
+      wp7 = (function() {
         var style = document.documentElement.style;
         return ('behavior' in style && 'fill' in style && /iemobile/i.test(navigator.userAgent));
       })(),
-      toggleMenuClasses = function ($menu, o) {
+      toggleMenuClasses = function($menu, o) {
         var classes = c.menuClass;
         if (o.cssArrows) {
           classes += ' ' + c.menuArrowClass;
         }
         $menu.toggleClass(classes);
       },
-      setPathToCurrent = function ($menu, o) {
+      setPathToCurrent = function($menu, o) {
         return $menu.find('li.' + o.pathClass).slice(0, o.pathLevels)
           .addClass(o.hoverClass + ' ' + c.bcClass)
-          .filter(function () {
+          .filter(function() {
             return ($(this).children(o.popUpSelector).hide().show().length);
           }).removeClass(o.pathClass);
       },
-      toggleAnchorClass = function ($li) {
+      toggleAnchorClass = function($li) {
         $li.children('a').toggleClass(c.anchorClass);
       },
-      toggleTouchAction = function ($menu) {
+      toggleTouchAction = function($menu) {
         var touchAction = $menu.css('ms-touch-action');
         touchAction = (touchAction === 'pan-y') ? 'auto' : 'pan-y';
         $menu.css('ms-touch-action', touchAction);
       },
-      applyHandlers = function ($menu, o) {
+      applyHandlers = function($menu, o) {
         var targets = 'li:has(' + o.popUpSelector + ')';
         if ($.fn.hoverIntent && !o.disableHI) {
           $menu.hoverIntent(over, out, targets);
-        }
-        else {
+        } else {
           $menu
             .on('mouseenter.superfish', targets, over)
             .on('mouseleave.superfish', targets, out);
@@ -76,7 +75,7 @@
           .on('focusout.superfish', 'li', out)
           .on(touchevent, 'a', o, touchHandler);
       },
-      touchHandler = function (e) {
+      touchHandler = function(e) {
         var $this = $(this),
           $ul = $this.siblings(e.data.popUpSelector);
 
@@ -89,24 +88,23 @@
           }
         }
       },
-      over = function () {
+      over = function() {
         var $this = $(this),
           o = getOptions($this);
         clearTimeout(o.sfTimer);
         $this.siblings().superfish('hide').end().superfish('show');
       },
-      out = function () {
+      out = function() {
         var $this = $(this),
           o = getOptions($this);
         if (ios) {
           $.proxy(close, $this, o)();
-        }
-        else {
+        } else {
           clearTimeout(o.sfTimer);
           o.sfTimer = setTimeout($.proxy(close, $this, o), o.delay);
         }
       },
-      close = function (o) {
+      close = function(o) {
         o.retainPath = ($.inArray(this[0], o.$path) > -1);
         this.superfish('hide');
 
@@ -117,16 +115,16 @@
           }
         }
       },
-      getMenu = function ($el) {
+      getMenu = function($el) {
         return $el.closest('.' + c.menuClass);
       },
-      getOptions = function ($el) {
+      getOptions = function($el) {
         return getMenu($el).data('sf-options');
       };
 
     return {
       // public methods
-      hide: function (instant) {
+      hide: function(instant) {
         if (this.length) {
           var $this = this,
             o = getOptions($this);
@@ -143,14 +141,14 @@
           }
           o.retainPath = false;
           o.onBeforeHide.call($ul);
-          $ul.stop(true, true).animate(o.animationOut, speed, function () {
+          $ul.stop(true, true).animate(o.animationOut, speed, function() {
             var $this = $(this);
             o.onHide.call($this);
           });
         }
         return this;
       },
-      show: function () {
+      show: function() {
         var o = getOptions(this);
         if (!o) {
           return this;
@@ -159,13 +157,13 @@
           $ul = $this.children(o.popUpSelector);
 
         o.onBeforeShow.call($ul);
-        $ul.stop(true, true).animate(o.animation, o.speed, function () {
+        $ul.stop(true, true).animate(o.animation, o.speed, function() {
           o.onShow.call($ul);
         });
         return this;
       },
-      destroy: function () {
-        return this.each(function () {
+      destroy: function() {
+        return this.each(function() {
           var $this = $(this),
             o = $this.data('sf-options'),
             $hasPopUp;
@@ -180,7 +178,7 @@
           // remove event handlers
           $this.off('.superfish').off('.hoverIntent');
           // clear animation's inline display style
-          $hasPopUp.children(o.popUpSelector).attr('style', function (i, style) {
+          $hasPopUp.children(o.popUpSelector).attr('style', function(i, style) {
             return style.replace(/display[^;]+;?/g, '');
           });
           // reset 'current' path classes
@@ -190,8 +188,8 @@
           $this.removeData('sf-options');
         });
       },
-      init: function (op) {
-        return this.each(function () {
+      init: function(op) {
+        return this.each(function() {
           var $this = $(this);
           if ($this.data('sf-options')) {
             return false;
@@ -215,14 +213,12 @@
     };
   })();
 
-  $.fn.superfish = function (method, args) {
+  $.fn.superfish = function(method, args) {
     if (methods[method]) {
       return methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
-    }
-    else if (typeof method === 'object' || ! method) {
+    } else if (typeof method === 'object' || !method) {
       return methods.init.apply(this, arguments);
-    }
-    else {
+    } else {
       return $.error('Method ' +  method + ' does not exist on jQuery.fn.superfish');
     }
   };
