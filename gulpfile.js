@@ -1,12 +1,13 @@
-var gulp   = require('gulp');
-var del    = require('del');
-var mkdirp = require('mkdirp');
-var glob   = require('glob');
-var exec   = require('child_process').exec;
-var argv   = require('yargs').argv;
-var fs     = require('fs-extra');
-var zip    = require('gulp-zip');
+var gulp        = require('gulp');
+var del         = require('del');
+var mkdirp      = require('mkdirp');
+var glob        = require('glob');
+var exec        = require('child_process').exec;
+var argv        = require('yargs').argv;
+var fs          = require('fs-extra');
+var zip         = require('gulp-zip');
 var runSequence = require('run-sequence');
+var jscs        = require('gulp-jscs');
 
 var createFolders = [
     './themes/community-theme-16/cache/',
@@ -92,6 +93,12 @@ gulp.task('copy-index', function(callback){
             });
         });
     });
+});
+
+gulp.task('format-js', function () {
+  return gulp.src('themes*/community-theme-16/js/**/*.js')
+    .pipe(jscs({ fix : true }))
+    .pipe(gulp.dest('./'));
 });
 
 gulp.task('create-zip', function(){

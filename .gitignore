@@ -16,6 +16,7 @@
 !/package.json
 !/README.md
 !/.editorconfig
+!/.jscsrc
 !/.gitignore
 !/.gitconfig
 !/.gitattributes
