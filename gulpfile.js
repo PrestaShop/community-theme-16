@@ -131,6 +131,7 @@ gulp.task('build', function(callback) {
     runSequence(
         ['create-folders', 'build-css'],
         'remove-trash',
+        'format-js',
         'copy-index',
         'create-zip',
         callback
