@@ -96,7 +96,13 @@ gulp.task('copy-index', function(callback){
 });
 
 gulp.task('format-js', function () {
-  return gulp.src('themes*/community-theme-16/js/**/*.js')
+
+  return gulp.src([
+    './themes*/community-theme-16/js/**/*.js',
+    '!./themes*/community-theme-16/js/**/*.min.js',
+    '!./themes*/community-theme-16/js/autoload/**/*.js',
+    '!./themes*/community-theme-16/js/debug/**/*.js'
+  ])
     .pipe(jscs({ fix : true }))
     .pipe(gulp.dest('./'));
 });
