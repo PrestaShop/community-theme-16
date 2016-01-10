@@ -76,9 +76,6 @@
               {/if}
               <div class="layered_subtitle_heading">
                 <span class="layered_subtitle">{$filter.name|escape:'html':'UTF-8'}</span>
-                <!--<span class="layered_close">
-                  <a href="#" data-rel="ul_layered_{$filter.type}_{$filter.id_key}"></a>
-                </span>-->
               </div>
               <ul id="ul_layered_{$filter.type}_{$filter.id_key}" class="layered_filter_ul{if isset($filter.is_color_group) && $filter.is_color_group} color-group{/if}">
                 {if !isset($filter.slider)}

@@ -188,18 +188,6 @@
                 </a>
               </p>
             {/if}
-            <!--{if $packItems|@count > 0}
-                <div class="short_description_pack">
-                <h3>{l s='Pack content'}</h3>
-                  {foreach from=$packItems item=packItem}
-
-                  <div class="pack_content">
-                      {$packItem.pack_quantity} x <a href="{$link->getProductLink($packItem.id_product, $packItem.link_rewrite, $packItem.category)|escape:'html':'UTF-8'}">{$packItem.name|escape:'html':'UTF-8'}</a>
-                      <p>{$packItem.description_short}</p>
-                  </div>
-                  {/foreach}
-                </div>
-              {/if}-->
           </div> <!-- end short_description_block -->
         {/if}
         {if ($display_qties == 1 && !$PS_CATALOG_MODE && $PS_STOCK_MANAGEMENT && $product->available_for_order)}

@@ -35,20 +35,6 @@
 {assign var="postCodeExist" value=false}
 {assign var="dniExist" value=false}
 {if !isset($email_create)}
-  <!--{if isset($authentification_error)}
-    <div class="alert alert-danger">
-        {if {$authentification_error|@count} == 1}
-            <p>{l s='There\'s at least one error'} :</p>
-            {else}
-            <p>{l s='There are %s errors' sprintf=[$account_error|@count]} :</p>
-        {/if}
-        <ol>
-            {foreach from=$authentification_error item=v}
-                <li>{$v}</li>
-            {/foreach}
-        </ol>
-    </div>
-{/if}-->
   <div class="row">
     <div class="col-xs-12 col-sm-6">
       <form action="{$link->getPageLink('authentication', true)|escape:'html':'UTF-8'}" method="post" id="create-account_form" class="box">
@@ -411,20 +397,6 @@
     </form>
   {/if}
 {else}
-  <!--{if isset($account_error)}
-    <div class="error">
-        {if {$account_error|@count} == 1}
-            <p>{l s='There\'s at least one error'} :</p>
-            {else}
-            <p>{l s='There are %s errors' sprintf=[$account_error|@count]} :</p>
-        {/if}
-        <ol>
-            {foreach from=$account_error item=v}
-                <li>{$v}</li>
-            {/foreach}
-        </ol>
-    </div>
-    {/if}-->
   <form action="{$link->getPageLink('authentication', true)|escape:'html':'UTF-8'}" method="post" id="account-creation_form" class="std box">
     {$HOOK_CREATE_ACCOUNT_TOP}
     <div class="account_creation">

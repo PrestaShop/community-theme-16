@@ -40,7 +40,6 @@
   {include file="$tpl_dir./errors.tpl"}
   <p class="required"><sup>*</sup>{l s='Required field'}</p>
   <form action="{$link->getPageLink('address', true)|escape:'html':'UTF-8'}" method="post" class="std" id="add_address">
-    <!--h3 class="page-subheading">{if isset($id_address)}{l s='Your address'}{else}{l s='New address'}{/if}</h3-->
     {assign var="stateExist" value=false}
     {assign var="postCodeExist" value=false}
     {assign var="dniExist" value=false}
