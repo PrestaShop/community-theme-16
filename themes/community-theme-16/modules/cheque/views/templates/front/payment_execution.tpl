@@ -63,8 +63,8 @@
         </select>
       </div>
       {else}
-        {l s='We allow the following currencies to be sent by check:' mod='cheque'}&nbsp;<b>{$currencies.0.name}</b>
-        <input type="hidden" name="currency_payment" value="{$currencies.0.id_currency}" />
+        {l s='We allow the following currencies to be sent by check:' mod='cheque'}&nbsp;<b>{$currencies[0].name}</b>
+        <input type="hidden" name="currency_payment" value="{$currencies[0].id_currency}" />
       {/if}
       </p>
       <p>

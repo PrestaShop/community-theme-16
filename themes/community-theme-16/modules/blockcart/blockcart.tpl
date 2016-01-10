@@ -102,7 +102,7 @@
                             <a class="ajax_cart_block_remove_link" href="{$link->getPageLink('cart', true, NULL, "delete=1&id_product={$product.id_product|intval}&ipa={$product.id_product_attribute|intval}&id_customization={$id_customization|intval}&token={$static_token}")|escape:'html':'UTF-8'}" rel="nofollow">&nbsp;</a>
                           </div>
                           {if isset($customization.datas.$CUSTOMIZE_TEXTFIELD.0)}
-                            {$customization.datas.$CUSTOMIZE_TEXTFIELD.0.value|replace:"<br />":" "|truncate:28:'...'|escape:'html':'UTF-8'}
+                            {$customization.datas.$CUSTOMIZE_TEXTFIELD[0].value|replace:"<br />":" "|truncate:28:'...'|escape:'html':'UTF-8'}
                           {else}
                             {l s='Customization #%d:' sprintf=$id_customization|intval mod='blockcart'}
                           {/if}
