@@ -7,7 +7,6 @@
 @import "vendor/bootstrap";
 @import "vendor/font-awesome";
 
-$base-page-indent: $grid-gutter-width;
 .radio, .checkbox {
     label {
         padding-left: 0;
@@ -139,7 +138,7 @@ p.info-account {
 }
 
 .main-page-indent {
-    margin-bottom: $base-page-indent;
+    margin-bottom: $grid-gutter-width;
 }
 
 .alert {
