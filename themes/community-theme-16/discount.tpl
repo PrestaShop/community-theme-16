@@ -29,16 +29,16 @@
 </h1>
 
 {if isset($cart_rules) && count($cart_rules) && $nb_cart_rules}
-  <table class="discount table table-bordered footab">
+  <table class="discount table table-bordered">
     <thead>
     <tr>
-      <th data-sort-ignore="true" class="discount_code first_item">{l s='Code'}</th>
-      <th data-sort-ignore="true" class="discount_description item">{l s='Description'}</th>
+      <th class="discount_code first_item">{l s='Code'}</th>
+      <th class="discount_description item">{l s='Description'}</th>
       <th class="discount_quantity item">{l s='Quantity'}</th>
-      <th data-sort-ignore="true" data-hide="phone,tablet" class="discount_value item">{l s='Value'}*</th>
-      <th data-hide="phone,tablet" class="discount_minimum item">{l s='Minimum'}</th>
-      <th data-sort-ignore="true" data-hide="phone,tablet" class="discount_cumulative item">{l s='Cumulative'}</th>
-      <th data-hide="phone" class="discount_expiration_date last_item">{l s='Expiration date'}</th>
+      <th class="discount_value item">{l s='Value'}*</th>
+      <th class="discount_minimum item">{l s='Minimum'}</th>
+      <th class="discount_cumulative item">{l s='Cumulative'}</th>
+      <th class="discount_expiration_date last_item">{l s='Expiration date'}</th>
     </tr>
     </thead>
     <tbody>
@@ -46,7 +46,7 @@
       <tr class="{if $smarty.foreach.myLoop.first}first_item{elseif $smarty.foreach.myLoop.last}last_item{else}item{/if} {if $smarty.foreach.myLoop.index % 2}alternate_item{/if}">
         <td class="discount_code">{$discountDetail.code}</td>
         <td class="discount_description">{$discountDetail.name}</td>
-        <td data-value="{$discountDetail.quantity_for_user}" class="discount_quantity">{$discountDetail.quantity_for_user}</td>
+        <td class="discount_quantity">{$discountDetail.quantity_for_user}</td>
         <td class="discount_value">
           {if $discountDetail.id_discount_type == 1}
             {$discountDetail.value|escape:'html':'UTF-8'}%
@@ -58,7 +58,7 @@
             -
           {/if}
         </td>
-        <td class="discount_minimum" data-value="{if $discountDetail.minimal == 0}0{else}{$discountDetail.minimal}{/if}">
+        <td class="discount_minimum">
           {if $discountDetail.minimal == 0}
             {l s='None'}
           {else}
@@ -72,7 +72,7 @@
             <i class="icon-remove icon"></i> {l s='No'}
           {/if}
         </td>
-        <td class="discount_expiration_date" data-value="{$discountDetail.date_to|regex_replace:"/[\-\:\ ]/":""}">
+        <td class="discount_expiration_date">
           {dateFormat date=$discountDetail.date_to}
         </td>
       </tr>
