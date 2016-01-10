@@ -66,9 +66,9 @@
                 {$flag=false}
               {/if}
             {/foreach}
-            {if $flag && isset($contacts.0.id_contact)}
-              <input type="text" class="form-control" id="contact_name" name="contact_name" value="{$contacts.0.name|escape:'html':'UTF-8'}" readonly="readonly" />
-              <input type="hidden" name="id_contact" value="{$contacts.0.id_contact|intval}" />
+            {if $flag && isset($contacts[0].id_contact)}
+              <input type="text" class="form-control" id="contact_name" name="contact_name" value="{$contacts[0].name|escape:'html':'UTF-8'}" readonly="readonly" />
+              <input type="hidden" name="id_contact" value="{$contacts[0].id_contact|intval}" />
             {/if}
           </div>
           {else}
