@@ -1,0 +1,100 @@
+//PAGES ADRESSES, IDENTITY
+#address,
+#identity,
+#account-creation_form,
+#new_account_form,
+#opc_account_form,
+#authentication {
+  .box {
+    padding-bottom: 20px;
+    line-height: 20px;
+  }
+  p.required {
+    color: #f13340;
+    margin: 9px 0 16px 0;
+  }
+  p.inline-infos {
+    color: red;
+  }
+  .form-group {
+    margin-bottom: 4px;
+    .form-control {
+      max-width: 271px;
+      &#adress_alias {
+        margin-bottom: 20px;
+      }
+    }
+    &.phone-number {
+      // min 1200px
+      @media (min-width: $screen-lg) {
+        float: left;
+        width: 270px;
+        margin-right: 13px;
+      }
+      + p {
+        @media (min-width: $screen-lg) {
+          padding: 23px 0 0 0px;
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+  .gender-line {
+    margin-bottom: 4px;
+    padding-top: 4px;
+    > label {
+      margin-right: 10px;
+      margin-bottom: 0;
+    }
+    .radio-inline {
+      label {
+        font-weight: normal;
+        color: #777777;
+      }
+    }
+  }
+}
+
+#identity,
+#authentication,
+#order-opc {
+  #center_column {
+    form.std {
+      .row {
+        margin-left: -5px;
+        margin-right: -5px;
+        .col-xs-4 {
+          padding-left: 5px;
+          padding-right: 5px;
+          max-width: 94px;
+          .form-control {
+            max-width: 84px;
+          }
+        }
+      }
+    }
+    .footer_links {
+      border: none;
+      padding-top: 0;
+    }
+  }
+}
+
+#new_account_form .box {
+  line-height: 20px;
+  .date-select {
+    padding-bottom: 10px;
+  }
+  .top-indent {
+    padding-top: 10px;
+  }
+  .customerprivacy {
+    padding-top: 15px;
+  }
+}
+
+#authentication {
+  fieldset.account_creation {
+    margin-bottom: 20px;
+  }
+}

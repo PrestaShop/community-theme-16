@@ -1,0 +1,17 @@
+//uniform
+.radio-inline, .checkbox {
+  padding-left: 0;
+  .checker {
+    float: left;
+    span {
+      top: 0px;
+    }
+  }
+  div.radio {
+    display: inline-block;
+    span {
+      float: left;
+      top: 0px;
+    }
+  }
+}

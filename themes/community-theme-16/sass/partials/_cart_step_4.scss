@@ -1,0 +1,115 @@
+// step 4 - paiement
+#order .delivery_option,
+#order-opc .delivery_option {
+  > div {
+    display: block;
+    margin-bottom: 20px;
+    font-weight: normal;
+    > table {
+      background: $light-background;
+      margin-bottom: 0;
+      &.resume {
+        height: 53px;
+        &.delivery_option_carrier {
+          margin-top: 10px;
+          width: 100%;
+          border: 1px solid $table-border-color;
+          font-weight: bold;
+          td {
+            padding: 8px 11px 7px 11px;
+            i {
+              font-size: 20px;
+              margin-right: 7px;
+              vertical-align: -2px;
+            }
+          }
+        }
+        td {
+          &.delivery_option_radio {
+            width: 54px;
+            padding-left: 0;
+            padding-right: 0;
+            text-align: center;
+          }
+          &.delivery_option_logo {
+            width: 97px;
+            padding-left: 21px;
+          }
+          &.delivery_option_price {
+            width: 162px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.order_carrier_content {
+  line-height: normal;
+  padding-bottom: 16px;
+  .carrier_title {
+    font-weight: bold;
+    color: $base-text-color;
+  }
+  .checkbox {
+    input {
+      margin-top: 2px;
+    }
+  }
+  .delivery_options_address {
+    .carrier_title {
+      margin-bottom: 17px;
+    }
+  }
+  & + div {
+    padding-bottom: 15px;
+  }
+}
+
+#carrierTable {
+  border: 1px solid #999999;
+  border-bottom: none;
+  background: $light-background;
+}
+
+#carrierTable tbody {
+  border-bottom: 1px solid #999999;
+}
+
+#carrierTable th {
+  padding: 0 15px;
+  height: 29px;
+  font-weight: bold;
+  line-height: 29px;
+  color: $light-text-color;
+  text-transform: uppercase;
+  background: url(../img/bg_table_th.png) repeat-x 0 -10px #999999;
+}
+
+#carrierTable td {
+  padding: 15px;
+  font-weight: bold;
+  border-right: 1px solid #e9e9e9;
+}
+
+#carrierTable td.carrier_price {
+  border: none;
+}
+
+p.checkbox.gift {
+  margin-bottom: 10px;
+}
+
+#gift_div {
+  display: none;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+a.iframe {
+  color: $base-text-color;
+  text-decoration: underline;
+  &:hover {
+    text-decoration: none;
+  }
+}

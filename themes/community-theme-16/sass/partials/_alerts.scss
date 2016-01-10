@@ -1,0 +1,35 @@
+.alert {
+  font-weight: bold;
+  &:before {
+    cursor:  pointer;
+  }
+  ul, ol {
+    padding-left: 15px;
+    margin-left: 27px;
+    li {
+      list-style-type: decimal;
+      font-weight: normal;
+    }
+  }
+  &.alert-success {
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.1);
+    &:before {
+      font-family: $font-icon;
+      content: "\f058";
+      font-size: 20px;
+      vertical-align: -2px;
+      padding-right: 7px;
+    }
+  }
+  &.alert-danger {
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.1);
+    &:before {
+      font-family: $font-icon;
+      content: "\f057";
+      font-size: 20px;
+      vertical-align: -2px;
+      padding-right: 7px;
+      float: left;
+    }
+  }
+}

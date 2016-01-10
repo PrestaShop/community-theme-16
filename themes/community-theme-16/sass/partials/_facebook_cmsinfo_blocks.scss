@@ -1,0 +1,146 @@
+//Homepage pre-footer
+#facebook_block,
+#cmsinfo_block {
+  overflow: hidden;
+  background: $homepage-footer-bg;
+  min-height: 344px;
+  height: 344px;
+  padding-right: 29px;
+  padding-left: 29px;
+  // max 991px
+  @media (max-width: $screen-sm-max) {
+    min-height: 354px;
+    height: 354px;
+    padding-left: 13px;
+    padding-right: 13px;
+  }
+  // max 767px
+  @media (max-width: $screen-xs-max) {
+    width: 100%;
+    min-height: 1px;
+  }
+}
+
+#facebook_block {
+  h4 {
+    padding: 35px 0 0 0;
+    margin: 0 0 12px 0;
+    font: 300 21px / 25px $font-custom;
+    color: lighten($base-heading-color, 10%);
+    // max 991px
+    @media (max-width: $screen-sm-max) {
+      font-size: 18px;
+    }
+    // max 767px
+    @media (max-width: $screen-xs-max) {
+      padding-top: 20px !important;
+    }
+    // 768px
+    @media (max-width: $screen-sm) {
+      font-size: 16px;
+    }
+  }
+  .facebook-fanbox {
+    background: $light-background;
+    border: 1px solid #aaaaaa;
+    padding-bottom: 10px;
+  }
+}
+
+#cmsinfo_block {
+  border-left: 1px solid $homepage-footer-border;
+  // max 767px
+  @media (max-width: $screen-xs-max) {
+    border: none;
+    margin-top: 10px;
+  }
+  > div {
+    padding: 35px 10px 0 0;
+    // max 767px
+    @media (max-width: $screen-xs-max) {
+      padding-top: 20px;
+    }
+    // max 479px
+    @media (max-width: $screen-xs - 1) {
+      width: 100%;
+      border-top: 1px solid $homepage-footer-border;
+    }
+  }
+  > div + div {
+    border-left: 1px solid $homepage-footer-border;
+    min-height: 344px;
+    padding-left: 29px;
+    // max 479px
+    @media (max-width: $screen-xs - 1) {
+      border-left: none;
+      padding-left: 10px;
+      min-height: 1px;
+      padding-bottom: 15px;
+    }
+  }
+  em {
+    float: left;
+    width: 60px;
+    height: 60px;
+    margin: 3px 10px 0 0;
+    font-size: 30px;
+    color: $light-text-color;
+    line-height: 60px;
+    text-align: center;
+    background: lighten($base-heading-color, 10%);
+    @include border-radius(100px);
+    // max 991px
+    @media (max-width: $screen-sm-max) {
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      font-size: 20px;
+    }
+  }
+  .type-text {
+    overflow: hidden;
+  }
+  h3 {
+    margin: 0 0 5px 0;
+    font: 300 21px / 25px $font-custom;
+    color: lighten($base-heading-color, 10%);
+    // max 1199px
+    @media (max-width: $screen-md-max) {
+      font-size: 18px;
+    }
+  }
+  ul {
+    li {
+      padding-bottom: 22px;
+      // max 1199px
+      @media (max-width: $screen-md-max) {
+        padding-bottom: 10px;
+      }
+      // max 991px
+      @media (max-width: $screen-sm-max) {
+        padding-bottom: 0;
+      }
+    }
+  }
+  p {
+    em {
+      background: none;
+      @include border-radius(0);
+      margin: 0;
+      font-size: 13px;
+      color: $text-color;
+      float: none;
+      height: inherit;
+      line-height: inherit;
+      text-align: left;
+      font-style: italic;
+    }
+  }
+}
+
+.ie8 {
+  #facebook_block,
+  #cmsinfo_block {
+    height: 344px;
+  }
+}

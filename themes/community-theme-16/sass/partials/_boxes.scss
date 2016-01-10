@@ -1,0 +1,42 @@
+//BOXES
+.box {
+  background: $base-box-bg;
+  border: 1px solid $base-border-color;
+  padding: $base-box-padding;
+  margin: $base-box-indent;
+  line-height: 23px;
+  p {
+    margin-bottom: 0;
+  }
+  &.box-small {
+    padding: 9px 10px 9px 20px;
+    .dark {
+      padding-top: 10px;
+      padding-right: 20px;
+      margin-bottom: 0;
+      width: auto;
+    }
+  }
+}
+
+.page-product-box {
+  padding-bottom: 10px;
+}
+
+.product-box {
+  width: 178px;
+  float: left;
+  @include box-sizing(border-box);
+  .product-image {
+    border: $main_border;
+    background: white;
+    padding: 5px;
+    display: block;
+    margin-bottom: 11px;
+    img {
+      max-width: 100%;
+      width: 100%;
+      height: auto;
+    }
+  }
+}

@@ -1,0 +1,81 @@
+//structure
+#header {
+  z-index: 5003;
+}
+
+.columns-container {
+  background: $light-background;
+}
+
+#columns {
+  position: relative;
+  padding-bottom: 50px;
+  padding-top: 15px;
+}
+
+#index {
+  .tab-content {
+    margin-top: 35px;
+    margin-bottom: 34px;
+  }
+}
+
+header {
+  z-index: 1;
+  position: relative;
+  background: $light-background;
+  padding-bottom: 15px;
+  .banner {
+    background: black;
+    max-height: 100%;
+    .row {
+      margin: 0px;
+    }
+  }
+  .nav {
+    background: $dark-background;
+    .row {
+      margin: 0px;
+    }
+    nav {
+      width: 100%;
+    }
+  }
+  .row {
+    position: relative;
+    > .container {
+      position: relative;
+    }
+    #header_logo {
+      padding-top: 15px;
+      @extend .col-sm-4;
+      @media (max-width: $screen-md) {
+        padding-top: 40px;
+      }
+      @media (max-width: $screen-xs-max) {
+        padding-top: 15px;
+        img {
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+  @media (min-width: $screen-xs-max){
+    .col-sm-4 + .col-sm-4 + .col-sm-4 {
+      float: right;
+    }
+  }
+}
+
+.ie8 #header #header_logo {
+  width: 350px;
+}
+
+//title
+#center_column {
+  .page_product_box {
+    h3 {
+      @include sub-heading;
+    }
+  }
+}

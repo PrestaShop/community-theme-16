@@ -1,0 +1,71 @@
+// step 3 - address
+#multishipping_mode_box {
+  padding-top: 12px;
+  padding-bottom: 19px;
+  .title {
+    font-weight: bold;
+    color: $base-text-color;
+    margin-bottom: 15px;
+  }
+  .description_off {
+    display: none;
+    div {
+      margin-bottom: 10px;
+    }
+  }
+  .description_off a:hover,
+  .description a:hover {
+    background: #f3f3f3;
+    border: 1px solid #cccccc;
+  }
+}
+
+#multishipping_mode_box.on .description_off {
+  display: block;
+}
+
+.multishipping-cart {
+  .cart_address_delivery {
+    &.form-control {
+      width: 198px;
+    }
+  }
+}
+
+#order .address_add.submit {
+  margin-bottom: 20px;
+}
+
+#ordermsg {
+  margin-bottom: 30px;
+}
+
+#id_address_invoice.form-control,
+#id_address_delivery.form-control {
+  width: 269px;
+}
+
+.addresses {
+  .select label,
+  .selector,
+  .addresses .address_select {
+    clear: both;
+    float: left;
+  }
+  .waitimage {
+    display: none;
+    float: left;
+    width: 24px;
+    height: 24px;
+    background-image: url("../../../img/loader.gif");
+    background-repeat: no-repeat;
+    position: relative;
+    bottom: -2px;
+    left: 10px;
+  }
+  .checkbox.addressesAreEquals {
+    clear: both;
+    float: left;
+    margin: 15px 0 25px 0;
+  }
+}

@@ -1,0 +1,47 @@
+.page-heading {
+  font: 600 18px / 22px $font-custom;
+  color: $base-heading-color;
+  text-transform: uppercase;
+  padding: 0px 0px 17px 0px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid $base-border-color;
+  overflow: hidden;
+  span.heading-counter {
+    font: bold 13px / 22px $font-family;
+    float: right;
+    color: $base-text-color;
+    text-transform: none;
+    margin-bottom: 10px;
+    @media (max-width: $screen-xs) {
+      float: none;
+      display: block;
+      padding-top: 5px;
+    }
+  }
+  span.lighter {
+    color: #9c9c9c;
+  }
+  &.bottom-indent {
+    margin-bottom: 16px;
+  }
+  &.product-listing {
+    border-bottom: none;
+    margin-bottom: 0;
+  }
+}
+
+.page-subheading {
+  font-family: $font-custom;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: $base-heading-color;
+  font-size: 18px;
+  padding: 0 0 15px;
+  line-height: normal;
+  margin-bottom: 12px;
+  border-bottom: 1px solid $base-border-color;
+}
+
+h3.page-product-heading {
+  @include sub-heading;
+}

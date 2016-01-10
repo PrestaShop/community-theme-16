@@ -1,0 +1,99 @@
+//addons comments products
+form#sendComment fieldset {
+  padding: 10px;
+  border: 1px solid #cccccc;
+  background: #eeeeee;
+}
+
+form#sendComment h3 {
+  font-size: 14px;
+}
+
+#new_comment_form p.text {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+#sendComment p.text label,
+#sendComment p.textarea label {
+  display: block;
+  margin: 12px 0 4px;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+#sendComment p.text input {
+  padding: 0 5px;
+  height: 28px;
+  width: 498px;
+  border: 1px solid #cccccc;
+  background: url(../img/bg_input.png) repeat-x 0 0 $light-background;
+}
+
+#sendComment p.textarea textarea {
+  height: 80px;
+  width: 508px;
+  border: 1px solid #cccccc;
+}
+
+#sendComment p.submit {
+  padding: 0;
+  text-align: right;
+}
+
+#sendComment p.closeform {
+  float: right;
+  padding: 0;
+  height: 12px;
+  width: 12px;
+  text-indent: -5000px;
+  background: url(../img/icon/delete.gif) no-repeat 0 0;
+}
+
+.star {
+  position: relative;
+  top: -1px;
+  float: left;
+  width: 14px;
+  overflow: hidden;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.star {
+  display: block;
+  a {
+    display: block;
+    position: absolute;
+    text-indent: -5000px;
+  }
+}
+
+div.star {
+  &:after {
+    content: "\f006";
+    font-family: $font-icon;
+    display: inline-block;
+    color: #777676;
+  }
+}
+
+div.star.star_on {
+  display: block;
+  &:after {
+    content: "\f005";
+    font-family: $font-icon;
+    display: inline-block;
+    color: #ef8743;
+  }
+}
+
+div.star.star_hover {
+  &:after {
+    content: "\f005";
+    font-family: $font-icon;
+    display: inline-block;
+    color: #ef8743;
+  }
+}

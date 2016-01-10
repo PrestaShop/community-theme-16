@@ -1,0 +1,91 @@
+// barre comparaison / tri
+.content_sortPagiBar {
+  .sortPagiBar {
+    border-bottom: 1px solid $base-border-color;
+    clear: both;
+    #productsSortForm {
+      float: left;
+      margin-right: 20px;
+      margin-bottom: 10px;
+      select {
+        max-width: 192px;
+        float: left;
+        @media (max-width: $screen-sm-max) {
+          max-width: 160px;
+        }
+      }
+      .selector {
+        float: left;
+      }
+    }
+    .nbrItemPage {
+      float: left;
+      select {
+        max-width: 59px;
+        float: left;
+      }
+      .clearfix > span {
+        padding: 3px 0 0 12px;
+        display: inline-block;
+        float: left;
+      }
+      #uniform-nb_item {
+        float: left;
+      }
+    }
+    label,
+    select {
+      float: left;
+    }
+    label {
+      padding: 3px 6px 0 0;
+    }
+    &.instant_search {
+      #productsSortForm {
+        display: none;
+      }
+    }
+  }
+  .display,
+  .display_m {
+    float: right;
+    margin-top: -4px;
+    li {
+      float: left;
+      padding-left: 12px;
+      text-align: center;
+      a {
+        color: $GL-text-color;
+        font-size: 11px;
+        line-height: 14px;
+        cursor: pointer;
+        i {
+          display: block;
+          font-size: 24px;
+          height: 24px;
+          line-height: 24px;
+          margin-bottom: -3px;
+          color: $GL-icon-color;
+        }
+        &:hover {
+          i {
+            color: lighten($GL-icon-color-hover, 30%);
+          }
+        }
+      }
+      &.selected {
+        a {
+          cursor: default;
+        }
+        i {
+          color: $GL-icon-color-hover;
+        }
+      }
+      &.display-title {
+        font-weight: bold;
+        color: $base-text-color;
+        padding: 7px 6px 0 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+//GUEST TRACKING
+#guestTracking {
+  .form-control {
+    max-width: 271px;
+  }
+  // > 1200px
+  @media (min-width: $screen-lg) {
+    .form-group {
+      overflow: hidden;
+      i {
+        padding-left: 10px;
+      }
+    }
+    .form-control {
+      float: left;
+    }
+    label {
+      float: left;
+      clear: both;
+      width: 100%;
+    }
+  }
+}

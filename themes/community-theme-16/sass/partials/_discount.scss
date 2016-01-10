@@ -1,0 +1,14 @@
+//DISCOUNT PAGE
+table.discount {
+  i {
+    font-size: 20px;
+    line-height: 20px;
+    vertical-align: -2px;
+    &.icon-ok {
+      color: #46a74e;
+    }
+    &.icon-remove {
+      color: #f13340;
+    }
+  }
+}

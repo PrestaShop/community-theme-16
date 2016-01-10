@@ -1,0 +1,49 @@
+// PAIMENT - PAGE ORDER
+//nav bottom
+.cart_navigation {
+  margin: 0 0 20px;
+  .button-medium {
+    float: right;
+    @include border-radius(4px);
+    font-size: 20px;
+    line-height: 24px;
+    span {
+      @include border-radius(4px);
+      padding: 11px 15px 10px 15px;
+      // max 992px
+      @media (max-width: $screen-md) {
+        font-size: 16px;
+      }
+    }
+    i.right {
+      font-size: 25px;
+      line-height: 25px;
+      vertical-align: -4px;
+      margin-left: 6px;
+    }
+  }
+  .button-exclusive {
+    border: none;
+    background: none;
+    padding: 0;
+    font-size: 17px;
+    font-weight: bold;
+    color: $base-text-color;
+    margin: 9px 0 0 0;
+    i {
+      color: #777777;
+      margin-right: 8px;
+    }
+    &:hover, &:focus, &:active {
+      color: $link-hover-color;
+      @include box-shadow(none);
+    }
+  }
+  @media (max-width: $screen-xs) {
+    > span {
+      display: block;
+      width: 100%;
+      padding-bottom: 15px;
+    }
+  }
+}
