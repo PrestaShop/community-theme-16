@@ -24,42 +24,43 @@
 *}
 
 {if $products}
-{if !$refresh}
-<div class="wishlistLinkTop">
-  <a id="hideWishlist" class="button_account icon pull-right" href="#" onclick="WishlistVisibility('wishlistLinkTop', 'Wishlist'); return false;" rel="nofollow" title="{l s='Close this wishlist' mod='blockwishlist'}">
-    <i class="icon-remove"></i>
-  </a>
-  <ul class="clearfix display_list">
-    <li>
-      <a  id="hideBoughtProducts" class="button_account" href="#" onclick="WishlistVisibility('wlp_bought', 'BoughtProducts'); return false;" title="{l s='Hide products' mod='blockwishlist'}">
-        {l s='Hide products' mod='blockwishlist'}
+  {if !$refresh}
+    <div class="wishlistLinkTop">
+      <a id="hideWishlist" class="button_account icon pull-right" href="#" onclick="WishlistVisibility('wishlistLinkTop', 'Wishlist'); return false;" rel="nofollow" title="{l s='Close this wishlist' mod='blockwishlist'}">
+        <i class="icon-remove"></i>
       </a>
-      <a id="showBoughtProducts" class="button_account" href="#" onclick="WishlistVisibility('wlp_bought', 'BoughtProducts'); return false;" title="{l s='Show products' mod='blockwishlist'}">
-        {l s='Show products' mod='blockwishlist'}
-      </a>
-    </li>
-    {if count($productsBoughts)}
-      <li>
-        <a id="hideBoughtProductsInfos" class="button_account" href="#" onclick="WishlistVisibility('wlp_bought_infos', 'BoughtProductsInfos'); return false;" title="{l s='Hide products' mod='blockwishlist'}">
-          {l s="Hide bought products' info" mod='blockwishlist'}
+      <ul class="clearfix display_list">
+        <li>
+          <a  id="hideBoughtProducts" class="button_account" href="#" onclick="WishlistVisibility('wlp_bought', 'BoughtProducts'); return false;" title="{l s='Hide products' mod='blockwishlist'}">
+            {l s='Hide products' mod='blockwishlist'}
+          </a>
+          <a id="showBoughtProducts" class="button_account" href="#" onclick="WishlistVisibility('wlp_bought', 'BoughtProducts'); return false;" title="{l s='Show products' mod='blockwishlist'}">
+            {l s='Show products' mod='blockwishlist'}
+          </a>
+        </li>
+        {if count($productsBoughts)}
+          <li>
+            <a id="hideBoughtProductsInfos" class="button_account" href="#" onclick="WishlistVisibility('wlp_bought_infos', 'BoughtProductsInfos'); return false;" title="{l s='Hide products' mod='blockwishlist'}">
+              {l s="Hide bought products' info" mod='blockwishlist'}
+            </a>
+            <a id="showBoughtProductsInfos" class="button_account" href="#" onclick="WishlistVisibility('wlp_bought_infos', 'BoughtProductsInfos'); return false;" title="{l s='Show products' mod='blockwishlist'}">
+              {l s="Show bought products' info" mod='blockwishlist'}
+            </a>
+          </li>
+        {/if}
+      </ul>
+      <p class="wishlisturl form-group">
+        <label>{l s='Permalink' mod='blockwishlist'}:</label>
+        <input type="text" class="form-control" value="{$link->getModuleLink('blockwishlist', 'view', ['token' => $token_wish])|escape:'html':'UTF-8'}" readonly="readonly"/>
+      </p>
+      <p class="submit">
+      <div id="showSendWishlist">
+        <a class="btn btn-default button button-small" href="#" onclick="WishlistVisibility('wl_send', 'SendWishlist'); return false;" title="{l s='Send this wishlist' mod='blockwishlist'}">
+          <span>{l s='Send this wishlist' mod='blockwishlist'}</span>
         </a>
-        <a id="showBoughtProductsInfos" class="button_account" href="#" onclick="WishlistVisibility('wlp_bought_infos', 'BoughtProductsInfos'); return false;" title="{l s='Show products' mod='blockwishlist'}">
-          {l s="Show bought products' info" mod='blockwishlist'}
-        </a>
-      </li>
-    {/if}
-  </ul>
-  <p class="wishlisturl form-group">
-    <label>{l s='Permalink' mod='blockwishlist'}:</label>
-    <input type="text" class="form-control" value="{$link->getModuleLink('blockwishlist', 'view', ['token' => $token_wish])|escape:'html':'UTF-8'}" readonly="readonly"/>
-  </p>
-  <p class="submit">
-  <div id="showSendWishlist">
-    <a class="btn btn-default button button-small" href="#" onclick="WishlistVisibility('wl_send', 'SendWishlist'); return false;" title="{l s='Send this wishlist' mod='blockwishlist'}">
-      <span>{l s='Send this wishlist' mod='blockwishlist'}</span>
-    </a>
-  </div>
-  </p>
+      </div>
+      </p>
+    </div>
   {/if}
   <div class="wlp_bought">
     {assign var='nbItemsPerLine' value=4}
@@ -234,8 +235,8 @@
       </table>
     {/if}
   {/if}
-  {else}
+{else}
   <p class="alert alert-warning">
     {l s='No products' mod='blockwishlist'}
   </p>
-  {/if}
+{/if}
