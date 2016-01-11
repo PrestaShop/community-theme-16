@@ -149,7 +149,7 @@
                               {/strip}
                               {foreach $first.product_list as $product}
                                 {if $product@index == 4}
-                                  <acronym title="
+                                  <abbr title="
                                 {/if}
                                 {strip}
                                   {if $product@index >= 4}
@@ -160,7 +160,7 @@
                                     {if !$product@last}
                                         ,&nbsp;
                                     {else}
-                                        ">&hellip;</acronym>)
+                                        ">&hellip;</abbr>)
                                     {/if}
                                   {else}
                                     {$product.name|escape:'htmlall':'UTF-8'}
@@ -220,7 +220,7 @@
                                   {/strip}
                                   {foreach $carrier.product_list as $product}
                                     {if $product@index == 4}
-                                      <acronym title="
+                                      <abbr title="
                                     {/if}
                                     {strip}
                                       {if $product@index >= 4}
@@ -231,7 +231,7 @@
                                         {if !$product@last}
                                             ,&nbsp;
                                         {else}
-                                            ">&hellip;</acronym>)
+                                            ">&hellip;</abbr>)
                                         {/if}
                                       {else}
                                         {$product.name|escape:'htmlall':'UTF-8'}
