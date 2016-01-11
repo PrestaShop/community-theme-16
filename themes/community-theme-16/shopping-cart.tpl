@@ -419,7 +419,7 @@
       {if sizeof($discounts)}
         <tbody>
         {foreach $discounts as $discount}
-          {if ((float)$discount.value_real == 0 && $discount.free_shipping != 1) || ((float)$discount.value_real == 0 && $discount.code == '')}
+          {if ($discount.value_real|floatval == 0 && $discount.free_shipping != 1) || ((float)$discount.value_real == 0 && $discount.code == '')}
             {continue}
           {/if}
           <tr class="cart_discount {if $discount@last}last_item{elseif $discount@first}first_item{else}item{/if}" id="cart_discount_{$discount.id_discount}">
