@@ -94,7 +94,7 @@ If would like to be able to use this build process and preview the changes at th
 
 **To build** this theme, two tools are required:
 
-1. [Compass](http://compass-style.org/) tool. 
+1. [Compass](http://compass-style.org/) tool.
 2. [Node.js](https://nodejs.org/en/) & [npm](https://www.npmjs.com/).
 
 We recommend that you install [Compass](http://compass-style.org/) via [rubygems](https://rubygems.org/) package
@@ -122,7 +122,7 @@ Once these tools are available, navigate to your cloned repository and run `npm 
 
 ``` bash
 cd community-theme-16/
-npm install 
+npm install
 ```
 
 This will install Node.js modules (packages) from [npmjs.com](https://www.npmjs.com/) which are used in
@@ -150,7 +150,7 @@ Gulp `build` command is composed of several specific tasks (sub-commands), which
 gulp create-folders  // Creates empty theme folders like pdf/, pdf/lang/, which are not included repository
                      // but should be in theme archive
 
-gulp build-css       // Runs shell process 'compass compile'. Optional flag maybe passed: --force
+gulp compile-css     // Runs shell process 'compass compile'. Optional flag maybe passed: --force
 
 gulp remove-trash    // Removes files which we don't to include in the archive, like cache files
 

@@ -47,7 +47,7 @@ gulp.task('create-folders', function(callback){
     });
 });
 
-gulp.task('build-css', function(callback){
+gulp.task('compile-css', function(callback){
     var options = '';
     if (argv.f || argv.force) {
         options += ' --force';
@@ -129,7 +129,7 @@ gulp.task('create-zip', function(){
 
 gulp.task('build', function(callback) {
     runSequence(
-        ['create-folders', 'build-css'],
+        ['create-folders', 'compile-css'],
         'remove-trash',
         'format-js',
         'copy-index',
