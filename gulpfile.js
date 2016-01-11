@@ -17,7 +17,7 @@ var createFolders = [
 
 var copyIndexIgnore = [];
 
-var removeTrash = [
+var cleanUp = [
     './themes/community-theme-16/.sass-cache/',
     './themes/community-theme-16/cache/*',
     './themes/community-theme-16/css/**/*.css.map'
@@ -64,9 +64,9 @@ gulp.task('compile-css', function(callback){
     compassCompile.stdout.pipe(process.stdout);
 });
 
-gulp.task('remove-trash', function(){
-    return del(removeTrash).then(function() {
-        console.log('Deleted files and folders:\n', removeTrash.join('\n'));
+gulp.task('clean-up', function(){
+    return del(cleanUp).then(function() {
+        console.log('Deleted files and folders:\n', cleanUp.join('\n'));
     });
 });
 
@@ -130,7 +130,7 @@ gulp.task('create-zip', function(){
 gulp.task('build', function(callback) {
     runSequence(
         ['create-folders', 'compile-css'],
-        'remove-trash',
+        'clean-up',
         'format-js',
         'copy-index',
         'create-zip',

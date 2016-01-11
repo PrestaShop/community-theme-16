@@ -152,7 +152,7 @@ gulp create-folders  // Creates empty theme folders like pdf/, pdf/lang/, which 
 
 gulp compile-css     // Runs shell process 'compass compile'. Optional flag maybe passed: --force
 
-gulp remove-trash    // Removes files which we don't to include in the archive, like cache files
+gulp clean-up        // Removes files which we don't want to include in the archive, like cache files
 
 gulp copy-index      // Copies index.php to all directories and subdirectories inside theme folder
 
