@@ -156,6 +156,8 @@ gulp clean-up        // Removes files which we don't want to include in the arch
 
 gulp copy-index      // Copies index.php to all directories and subdirectories inside theme folder
 
+gulp format-js       // Formats theme .js files using JavaScript style rules defined in .jscsrc using JSCS tool.
+
 gulp create-zip      // Adds Config.xml and theme folder to .zip archive and outputs
                      // the file in root directory
 ```
