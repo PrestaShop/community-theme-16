@@ -287,7 +287,7 @@ function paginationButton(nbProductsIn, nbProductOut) {
       else
         var nbPerPage = parseInt($('#nb_item option:selected').val());
 
-      isNaN(nbPage) ? nbPage = 1 : nbPage = nbPage;
+      nbPage = isNaN(nbPage) ? 1 : nbPage;
       nbPerPage * nbPage < nb_products ? productShowing = nbPerPage * nbPage : productShowing = (nbPerPage * nbPage - nb_products - nbPerPage * nbPage) * -1;
       nbPage == 1 ? productShowingStart = 1 : productShowingStart = nbPerPage * nbPage - nbPerPage + 1;
 
