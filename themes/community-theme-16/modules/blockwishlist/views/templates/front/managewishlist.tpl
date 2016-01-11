@@ -190,49 +190,51 @@
       </fieldset>
     </form>
     {if count($productsBoughts)}
-      <table class="wlp_bought_infos unvisible table table-bordered table-responsive">
-        <thead>
-        <tr>
-          <th class="first_item">{l s='Product' mod='blockwishlist'}</th>
-          <th class="item">{l s='Quantity' mod='blockwishlist'}</th>
-          <th class="item">{l s='Offered by' mod='blockwishlist'}</th>
-          <th class="last_item">{l s='Date' mod='blockwishlist'}</th>
-        </tr>
-        </thead>
-        <tbody>
-        {foreach from=$productsBoughts item=product name=i}
-          {foreach from=$product.bought item=bought name=j}
-            {if $bought.quantity > 0}
-              <tr>
-                <td class="first_item">
-                  <span style="float:left;">
-                    <img
-                      src="{$link->getImageLink($product.link_rewrite, $product.cover, 'small_default')|escape:'html':'UTF-8'}"
-                      alt="{$product.name|escape:'html':'UTF-8'}"/>
-                  </span>
-                  <span style="float:left;">
-                    {$product.name|truncate:40:'...'|escape:'html':'UTF-8'}
-                    {if isset($product.attributes_small)}
-                      <br/>
-                      <i>{$product.attributes_small|escape:'html':'UTF-8'}</i>
-                    {/if}
-                  </span>
-                </td>
-                <td class="item align_center">
-                  {$bought.quantity|intval}
-                </td>
-                <td class="item align_center">
-                  {$bought.firstname} {$bought.lastname}
-                </td>
-                <td class="last_item align_center">
-                  {$bought.date_add|date_format:"%Y-%m-%d"}
-                </td>
-              </tr>
-            {/if}
+      <div class="table-responsive">
+        <table class="wlp_bought_infos unvisible table table-bordered">
+          <thead>
+          <tr>
+            <th class="first_item">{l s='Product' mod='blockwishlist'}</th>
+            <th class="item">{l s='Quantity' mod='blockwishlist'}</th>
+            <th class="item">{l s='Offered by' mod='blockwishlist'}</th>
+            <th class="last_item">{l s='Date' mod='blockwishlist'}</th>
+          </tr>
+          </thead>
+          <tbody>
+          {foreach from=$productsBoughts item=product name=i}
+            {foreach from=$product.bought item=bought name=j}
+              {if $bought.quantity > 0}
+                <tr>
+                  <td class="first_item">
+                    <span style="float:left;">
+                      <img
+                        src="{$link->getImageLink($product.link_rewrite, $product.cover, 'small_default')|escape:'html':'UTF-8'}"
+                        alt="{$product.name|escape:'html':'UTF-8'}"/>
+                    </span>
+                    <span style="float:left;">
+                      {$product.name|truncate:40:'...'|escape:'html':'UTF-8'}
+                      {if isset($product.attributes_small)}
+                        <br/>
+                        <i>{$product.attributes_small|escape:'html':'UTF-8'}</i>
+                      {/if}
+                    </span>
+                  </td>
+                  <td class="item align_center">
+                    {$bought.quantity|intval}
+                  </td>
+                  <td class="item align_center">
+                    {$bought.firstname} {$bought.lastname}
+                  </td>
+                  <td class="last_item align_center">
+                    {$bought.date_add|date_format:"%Y-%m-%d"}
+                  </td>
+                </tr>
+              {/if}
+            {/foreach}
           {/foreach}
-        {/foreach}
-        </tbody>
-      </table>
+          </tbody>
+        </table>
+      </div>
     {/if}
   {/if}
 {else}
