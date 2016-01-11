@@ -53,9 +53,12 @@ Here is what is currently planned for this theme:
   * JS code formatting (commas, etc.)
   * Removal of uniform.js
   * Removal of dead code
-- Version 0.4.0+
-  * Refactoring of templates and styles
-  * [TBD](https://en.wikipedia.org/wiki/To_be_announced)
+- Version 0.4.0
+  * No major refactoring of page elements
+  * Removal of redundant styles, markup
+  * Minor .js improvements
+- Version 0.5.0+
+  * Refactoring of page elements
 
 ## Libraries and dependencies
 
