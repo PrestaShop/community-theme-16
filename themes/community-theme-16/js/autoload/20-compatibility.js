@@ -6,3 +6,11 @@
  * you may remove this file if you can take care of any
  * theme compatibility issues with custom modules.
  */
+
+function bindUniform() {
+	return true;
+}
+
+function initUniform() {
+  return true;
+}

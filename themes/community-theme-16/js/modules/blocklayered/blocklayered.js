@@ -178,11 +178,6 @@ function initFilters() {
   }
 }
 
-function initUniform() {
-  if (!!$.prototype.uniform)
-    $('#layered_form input[type=\'checkbox\'], #layered_form input[type=\'radio\'], select.form-control').uniform();
-}
-
 function hideFilterValueAction(it) {
   if (typeof(layered_hidden_list[$(it).parent().find('ul').attr('id')]) == 'undefined' ||
     layered_hidden_list[$(it).parent().find('ul').attr('id')] == false) {

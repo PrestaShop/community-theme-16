@@ -23,13 +23,6 @@
  *  International Registered Trademark & Property of PrestaShop SA
  */
 //global variables
-if (typeof $.uniform.defaults !== 'undefined') {
-  if (typeof contact_fileDefaultHtml !== 'undefined')
-    $.uniform.defaults.fileDefaultHtml = contact_fileDefaultHtml;
-  if (typeof contact_fileButtonHtml !== 'undefined')
-    $.uniform.defaults.fileButtonHtml = contact_fileButtonHtml;
-}
-
 $(document).ready(function() {
   $(document).on('change', 'select[name=id_contact]', function() {
     $('.desc_contact').hide();

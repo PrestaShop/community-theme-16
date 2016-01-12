@@ -389,8 +389,3 @@ function accordion(status) {
     $('#left_column, #right_column').removeClass('accordion');
   }
 }
-
-function bindUniform() {
-  if (!!$.prototype.uniform)
-    $('select.form-control,input[type=\'radio\'],input[type=\'checkbox\']').not('.not_uniform').uniform();
-}
