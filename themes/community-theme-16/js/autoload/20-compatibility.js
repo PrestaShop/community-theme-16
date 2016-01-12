@@ -8,9 +8,5 @@
  */
 
 function bindUniform() {
-	return true;
-}
-
-function initUniform() {
   return true;
 }
