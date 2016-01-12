@@ -47,7 +47,6 @@
     clear: both;
     padding: 5px 0;
 }
-#layered_block_left ul  li {padding:2px 0}
 #layered_block_left ul li label {cursor: pointer;}
 #layered_block_left div.block_content {
 }
@@ -80,10 +79,6 @@
 }
 
 #layered_block_left ul li:hover {
-}
-#layered_block_left ul li input.checkbox {
-    vertical-align: middle;
-    margin-left: 2px;
 }
 #layered_block_left ul li .disabled {
     color: #666;
