@@ -320,8 +320,8 @@
         {/if}
         <p class="carrier_title">{l s='Gift'}</p>
         <div class="checkbox gift">
-          <input type="checkbox" name="gift" id="gift" value="1"{if $cart->gift == 1} checked="checked"{/if} />
           <label for="gift">
+            <input type="checkbox" name="gift" id="gift" value="1"{if $cart->gift == 1} checked="checked"{/if} />
             {l s='I would like my order to be gift wrapped.'}
             {if $gift_wrapping_price > 0}
               &nbsp;<i>({l s='Additional cost of'}
@@ -358,11 +358,13 @@
       {$override_tos_display}
     {else}
       <div class="box">
-        <p class="checkbox">
-          <input type="checkbox" name="cgv" id="cgv" value="1" {if $checkedTOS}checked="checked"{/if} />
-          <label for="cgv">{l s='I agree to the terms of service and will adhere to them unconditionally.'}</label>
+        <div class="checkbox">
+          <label for="cgv">
+            <input type="checkbox" name="cgv" id="cgv" value="1" {if $checkedTOS}checked="checked"{/if} />
+            {l s='I agree to the terms of service and will adhere to them unconditionally.'}
+          </label>
           <a href="{$link_conditions|escape:'html':'UTF-8'}" class="iframe" rel="nofollow">{l s='(Read the Terms of Service)'}</a>
-        </p>
+        </div>
       </div>
     {/if}
   {/if}

@@ -131,20 +131,22 @@
             <div class="checkbox">
               <label for="newsletter">
                 <input type="checkbox" name="newsletter" id="newsletter" value="1"{if isset($guestInformations) && isset($guestInformations.newsletter) && $guestInformations.newsletter} checked="checked"{/if} autocomplete="off"/>
-                {l s='Sign up for our newsletter!'}</label>
-              {if array_key_exists('newsletter', $field_required)}
-                <sup> *</sup>
-              {/if}
+                {l s='Sign up for our newsletter!'}
+                {if array_key_exists('newsletter', $field_required)}
+                  <sup> *</sup>
+                {/if}
+              </label>
             </div>
           {/if}
           {if isset($optin) && $optin}
             <div class="checkbox">
               <label for="optin">
                 <input type="checkbox" name="optin" id="optin" value="1"{if isset($guestInformations) && isset($guestInformations.optin) && $guestInformations.optin} checked="checked"{/if} autocomplete="off"/>
-                {l s='Receive special offers from our partners!'}</label>
-              {if array_key_exists('optin', $field_required)}
-                <sup> *</sup>
-              {/if}
+                {l s='Receive special offers from our partners!'}
+                {if array_key_exists('optin', $field_required)}
+                  <sup> *</sup>
+                {/if}
+              </label>
             </div>
           {/if}
           <h3 class="page-subheading top-indent">{l s='Delivery address'}</h3>
@@ -262,7 +264,8 @@
           <div class="checkbox">
             <label for="invoice_address">
               <input type="checkbox" name="invoice_address" id="invoice_address"{if (isset($smarty.post.invoice_address) && $smarty.post.invoice_address) || (isset($guestInformations) && isset($guestInformations.invoice_address) && $guestInformations.invoice_address)} checked="checked"{/if} autocomplete="off"/>
-              {l s='Please use another address for invoice'}</label>
+              {l s='Please use another address for invoice'}
+            </label>
           </div>
 
           <div id="opc_invoice_address" class="is_customer_param">

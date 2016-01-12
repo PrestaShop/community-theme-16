@@ -7,12 +7,6 @@
 @import "vendor/bootstrap";
 @import "vendor/font-awesome";
 
-.radio, .checkbox {
-  label {
-    padding-left: 0;
-  }
-}
-
 a:hover {
   text-decoration: none;
 }
@@ -84,13 +78,6 @@ label {
 
 .unvisible {
   display: none;
-}
-
-.checkbox {
-  line-height: 16px;
-  label {
-    color: #777777;
-  }
 }
 
 .close {

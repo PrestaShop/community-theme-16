@@ -51,11 +51,6 @@
     font-weight: bold;
     color: $base-text-color;
   }
-  .checkbox {
-    input {
-      margin-top: 2px;
-    }
-  }
   .delivery_options_address {
     .carrier_title {
       margin-bottom: 17px;
@@ -96,7 +91,7 @@
   border: none;
 }
 
-p.checkbox.gift {
+.checkbox.gift {
   margin-bottom: 10px;
 }
 
