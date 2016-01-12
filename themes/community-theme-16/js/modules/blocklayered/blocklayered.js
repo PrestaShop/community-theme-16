@@ -174,7 +174,6 @@ function initFilters() {
 
       $('.layered_' + filter.type).show();
     }
-    initUniform();
   }
 }
 

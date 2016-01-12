@@ -161,8 +161,6 @@ function responsiveResize() {
     accordion('disable');
     accordionFooter('disable');
     responsiveflag = false;
-    if (typeof bindUniform !== 'undefined')
-      bindUniform();
   }
   blockHover();
 }
