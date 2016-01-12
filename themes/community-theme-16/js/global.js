@@ -161,8 +161,6 @@ function responsiveResize() {
     accordion('disable');
     accordionFooter('disable');
     responsiveflag = false;
-    if (typeof bindUniform !== 'undefined')
-      bindUniform();
   }
   blockHover();
 }
@@ -388,9 +386,4 @@ function accordion(status) {
     $('#right_column .block .title_block, #left_column .block .title_block, #left_column #newsletter_block_left h4').removeClass('active').off().parent().find('.block_content').removeAttr('style').slideDown('fast');
     $('#left_column, #right_column').removeClass('accordion');
   }
-}
-
-function bindUniform() {
-  if (!!$.prototype.uniform)
-    $('select.form-control,input[type=\'radio\'],input[type=\'checkbox\']').not('.not_uniform').uniform();
 }

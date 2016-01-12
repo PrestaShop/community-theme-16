@@ -62,8 +62,6 @@ function submitFunction() {
         $('#noSlide').fadeOut('slow', function() {
           $('#noSlide').html(jsonData.page);
           $(this).fadeIn('slow', function() {
-            if (typeof bindUniform !== 'undefined')
-              bindUniform();
             if (typeof bindStateInputAndUpdate !== 'undefined')
               bindStateInputAndUpdate();
             document.location = '#account-creation';

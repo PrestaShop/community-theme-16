@@ -174,13 +174,7 @@ function initFilters() {
 
       $('.layered_' + filter.type).show();
     }
-    initUniform();
   }
-}
-
-function initUniform() {
-  if (!!$.prototype.uniform)
-    $('#layered_form input[type=\'checkbox\'], #layered_form input[type=\'radio\'], select.form-control').uniform();
 }
 
 function hideFilterValueAction(it) {

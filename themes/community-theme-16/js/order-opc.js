@@ -35,8 +35,6 @@ $(document).ready(function() {
         $('#opc_account_form').slideDown('slow');
         $('#is_new_customer').val('1');
         $('#opc_account_choice, #opc_invoice_address').hide();
-        if (typeof bindUniform !== 'undefined')
-          bindUniform();
       });
       $(document).on('click', '#opc_guestCheckout', function(e) {
         e.preventDefault();
@@ -46,8 +44,6 @@ $(document).ready(function() {
         $('#opc_account_choice, #opc_invoice_address').hide();
         $('#new_account_title').html(txtInstantCheckout);
         $('#submitAccount').attr({id: 'submitGuestAccount', name: 'submitGuestAccount'});
-        if (typeof bindUniform !== 'undefined')
-          bindUniform();
       });
     } else if (isGuest) {
       $('.is_customer_param').hide();
@@ -303,8 +299,6 @@ function updatePaymentMethodsDisplay() {
       data: 'ajax=true&method=updateTOSStatusAndGetPayments&checked=' + checked + '&token=' + static_token,
       success: function(json) {
         updatePaymentMethods(json);
-        if (typeof bindUniform !== 'undefined')
-          bindUniform();
       }
     });
     $(this).fadeOut('slow');
@@ -541,8 +535,6 @@ function updateCarrierSelectionAndGift() {
         updateCarrierList(jsonData.carrier_data);
         $('#opc_delivery_methods-overlay, #opc_payment_methods-overlay').fadeOut('slow');
         refreshDeliveryOptions();
-        if (typeof bindUniform !== 'undefined')
-          bindUniform();
       }
     },
     error: function(XMLHttpRequest, textStatus, errorThrown) {
@@ -800,8 +792,6 @@ function bindInputs() {
         $('#opc_delivery_methods-overlay').fadeOut('slow');
       }
     });
-    if (typeof bindUniform !== 'undefined')
-      bindUniform();
   });
 
   // Recyclable checkbox
@@ -935,6 +925,4 @@ function multishippingMode(it) {
       }
     });
   }
-  if (typeof bindUniform !== 'undefined')
-    bindUniform();
 }
