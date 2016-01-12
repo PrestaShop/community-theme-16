@@ -4,12 +4,11 @@
     border-bottom: 1px solid $base-border-color;
     clear: both;
     #productsSortForm {
+      display: inline-block;
       float: left;
-      margin-right: 20px;
-      margin-bottom: 10px;
+      margin-right: 12px;
       select {
         max-width: 192px;
-        float: left;
         @media (max-width: $screen-sm-max) {
           max-width: 160px;
         }
@@ -22,20 +21,14 @@
       float: left;
       select {
         max-width: 59px;
-        float: left;
       }
-      .clearfix > span {
-        padding: 3px 0 0 12px;
+      .form-inline > span {
+        padding: 0 0 0 6px;
         display: inline-block;
-        float: left;
       }
-    }
-    label,
-    select {
-      float: left;
     }
     label {
-      padding: 3px 6px 0 0;
+      padding: 0 6px 0 0;
     }
     &.instant_search {
       #productsSortForm {

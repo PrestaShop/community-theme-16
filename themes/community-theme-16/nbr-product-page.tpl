@@ -40,7 +40,7 @@
   <!-- nbr product/page -->
   {if $nb_products > $nArray[0]}
     <form action="{if !is_array($requestNb)}{$requestNb|escape:'html':'UTF-8'}{else}{$requestNb.requestUrl|escape:'html':'UTF-8'}{/if}" method="get" class="nbrItemPage">
-      <div class="clearfix selector1">
+      <div class="js-per-page clearfix form-inline">
         {if isset($search_query) AND $search_query}
           <input type="hidden" name="search_query" value="{$search_query|escape:'html':'UTF-8'}" />
         {/if}
