@@ -305,8 +305,8 @@
         </div>
       {/if}
       {if $recyclablePackAllowed}
+        <p class="carrier_title">{l s='Recyclable Packaging'}</p>
         <div class="checkbox recyclable">
-          <p class="carrier_title">{l s='Recyclable Packaging'}</p>
           <label for="recyclable">
             <input type="checkbox" name="recyclable" id="recyclable" value="1"{if $recyclable == 1} checked="checked"{/if} />
             {l s='I would like to receive my order in recycled packaging.'}
@@ -318,9 +318,9 @@
           <hr style="" />
         {/if}
         <p class="carrier_title">{l s='Gift'}</p>
-        <p class="checkbox gift">
-          <input type="checkbox" name="gift" id="gift" value="1"{if $cart->gift == 1} checked="checked"{/if} />
+        <div class="checkbox gift">
           <label for="gift">
+            <input type="checkbox" name="gift" id="gift" value="1"{if $cart->gift == 1} checked="checked"{/if} />
             {l s='I would like my order to be gift wrapped.'}
             {if $gift_wrapping_price > 0}
               &nbsp;<i>({l s='Additional cost of'}
@@ -341,7 +341,7 @@
             </i>
             {/if}
           </label>
-        </p>
+        </div>
         <p id="gift_div">
           <label for="gift_message">{l s='If you\'d like, you can add a note to the gift:'}</label>
           <textarea rows="2" cols="120" id="gift_message" class="form-control" name="gift_message">{$cart->gift_message|escape:'html':'UTF-8'}</textarea>

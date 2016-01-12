@@ -451,12 +451,12 @@
   </div> <!-- end order-detail-content -->
 
   {if $show_option_allow_separate_package}
-    <p>
-      <label for="allow_seperated_package" class="checkbox inline">
+    <div class="checkbox">
+      <label for="allow_seperated_package" class="inline">
         <input type="checkbox" name="allow_seperated_package" id="allow_seperated_package" {if $cart->allow_seperated_package}checked="checked"{/if} autocomplete="off"/>
         {l s='Send available products first'}
       </label>
-    </p>
+    </div>
   {/if}
 
   {* Define the style if it doesn't exist in the PrestaShop version*}

@@ -320,8 +320,8 @@
         {/if}
         <p class="carrier_title">{l s='Gift'}</p>
         <div class="checkbox gift">
-          <input type="checkbox" name="gift" id="gift" value="1"{if $cart->gift == 1} checked="checked"{/if} />
           <label for="gift">
+            <input type="checkbox" name="gift" id="gift" value="1"{if $cart->gift == 1} checked="checked"{/if} />
             {l s='I would like my order to be gift wrapped.'}
             {if $gift_wrapping_price > 0}
               &nbsp;<i>({l s='Additional cost of'}
