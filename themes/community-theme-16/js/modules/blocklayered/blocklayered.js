@@ -449,7 +449,7 @@ function reloadContent(params_plus) {
         $('.category-product-count, .heading-counter').html(result.categoryCount);
 
         if (result.nbRenderedProducts == result.nbAskedProducts)
-          $('div.clearfix.selector1').hide();
+          $('.js-per-page').hide();
 
         if (result.productList)
           $('.product_list').replaceWith(utf8_decode(result.productList));
@@ -530,7 +530,7 @@ function reloadContent(params_plus) {
         window.location.href = current_friendly_url;
 
         if (current_friendly_url != '#/show-all')
-          $('div.clearfix.selector1').show();
+          $('.js-per-page').show();
 
         lockLocationChecking = true;
 
