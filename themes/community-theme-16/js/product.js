@@ -199,14 +199,6 @@ $(document).ready(function()
 	if (!$('#bxslider li').length)
 		$('.accessories-block').parent().remove();
 
-	if (!!$.prototype.uniform)
-	{
-		if (typeof product_fileDefaultHtml !== 'undefined')
-			$.uniform.defaults.fileDefaultHtml = product_fileDefaultHtml;
-		if (typeof product_fileButtonHtml !== 'undefined')
-			$.uniform.defaults.fileButtonHtml = product_fileButtonHtml;
-	}
-
 	if ($('#customizationForm').length)
 	{
 		var url = window.location + '';
@@ -1150,9 +1142,6 @@ function checkUrl()
 						$('input:radio[value=' + attributesCombinations[a]['id_attribute'] + ']').prop('checked', true);
 						$('input[type=hidden][name=group_' + attributesCombinations[a]['id_attribute_group'] + ']').val(attributesCombinations[a]['id_attribute']);
 						$('select[name=group_' + attributesCombinations[a]['id_attribute_group'] + ']').val(attributesCombinations[a]['id_attribute']);
-						if (!!$.prototype.uniform)
-							$.uniform.update('input[name=group_' + attributesCombinations[a]['id_attribute_group'] + '], select[name=group_' + attributesCombinations[a]['id_attribute_group'] + ']');
-
 					}
 			// find combination and select corresponding thumbs
 			if (count)

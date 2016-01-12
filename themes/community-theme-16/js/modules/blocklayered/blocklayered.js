@@ -192,8 +192,8 @@ function initFilters()
 
 function initUniform()
 {
-	if (!!$.prototype.uniform)
-		$("#layered_form input[type='checkbox'], #layered_form input[type='radio'], select.form-control").uniform();
+	// We don't use uniform anymore, TODO: Move to retro-compatibility.js
+	return true;
 }
 
 function hideFilterValueAction(it)

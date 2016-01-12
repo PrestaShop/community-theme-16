@@ -427,6 +427,6 @@ function accordion(status)
 
 function bindUniform()
 {
-	if (!!$.prototype.uniform)
-		$("select.form-control,input[type='radio'],input[type='checkbox']").not(".not_uniform").uniform();
+	// We don't use uniform anymore, TODO: Move to retro-compatibility.js
+	return true;
 }
