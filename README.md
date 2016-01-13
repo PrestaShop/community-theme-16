@@ -14,6 +14,7 @@ THIS THEME IS MAINTAINED BY THE PRESTASHOP COMMUNITY, NOT BY PRESTASHOP SA.
 [default-bootstrap](https://github.com/PrestaShop/PrestaShop/tree/1.6.1.x/themes/default-bootstrap)
 taken from [1.6.1.x](https://github.com/PrestaShop/PrestaShop/tree/1.6.1.x/) branch.
 The purpose of this theme is to provide a solid and flexible foundation for building new PrestaShop 1.6 themes.
+This theme is oriented more towards the developers, who can extend and adapt this theme to the shop's needs.
 
 The main features of this theme **will be** (currently in development):
 
@@ -47,18 +48,13 @@ E.g. `.product-list-item`.
 
 Here is what is currently planned for this theme:
 
-- Version 0.3.0
-  * File formatting
-  * Non-breaking removal of some styles
-  * JS code formatting (commas, etc.)
-  * Removal of uniform.js
-  * Removal of dead code
 - Version 0.4.0
   * No major refactoring of page elements
   * Removal of redundant styles, markup
   * Minor .js improvements
 - Version 0.5.0+
   * Refactoring of page elements
+  * New features
 
 ## Libraries and dependencies
 
@@ -66,7 +62,7 @@ Here is what is currently planned for this theme:
 ----------------------- | ----------------- | -------------
 Bootstrap               | 3.0.0             | 3.3.6
 Font Awesome            | 4.3.0             | 4.5.0
-jquery.uniform.js       | 2.1.2             | 2.1.2
+jquery.uniform.js       | 2.1.2             | -
 jquery.total-storage.js | 1.1.2             | 1.1.2
 
 ## Installing theme
@@ -168,6 +164,8 @@ gulp create-zip      // Adds Config.xml and theme folder to .zip archive and out
 ## Contributing
 
 Contributions are welcome! Your changes should be in agreement with the theme guidelines and goals described above.
+Before you make your pull request, we recommend that you join our [gitter room](https://gitter.im/PrestaShop/community-theme-16)
+to discuss it.
 
 If you want to make a pull request, we ask that you keep to the same contribution rules as described
 in [PrestaShop/PrestaShop](https://github.com/PrestaShop/PrestaShop/blob/develop/CONTRIBUTING.md).
