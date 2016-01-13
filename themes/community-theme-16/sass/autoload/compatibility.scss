@@ -1,0 +1,13 @@
+// This file contains style rules for elements which have been removed
+// or refactor in this theme, but may come with custom modules
+// which copied element markup and classes from the default theme
+//
+// If you are developing a custom shop with this theme,
+// you may remove this file if you can take care of any
+// theme style compatibility issues with custom modules.
+
+p.checkbox {
+  input[type="checkbox"] {
+    margin-left: 0;
+  }
+}
