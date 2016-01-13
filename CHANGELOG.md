@@ -1,5 +1,9 @@
 # v0.3.0 (2016-01-13)
 
+Released containing cleaned up and formatted theme files.
+Uniform.js has been removed. Theme now uses default Bootstrap vars.
+JavaScript formatting step has been added to build process.
+
 ## Changes
 
 - Fixed sortbar styles without uniform.js (#36)
