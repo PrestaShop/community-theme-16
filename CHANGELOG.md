@@ -1,10 +1,13 @@
-# v0.3.0 (2016-01-?)
+# v0.3.0 (2016-01-13)
 
 ## Changes
 
+- Fixed sortbar styles without uniform.js (#36)
+- Fixed checkbox styles without uniform.js (#35, 2e70c96)
+- Remove uniform.js (#33, bbe65fd)
 - Deprecated acronym tag replaced with abbr (898ed6a)
 - Renamed gulp commands
-- Recompressed theme images (losslessly)
+- Recompressed theme images losslessly (3981d4)
 - Some minor HTML fixes (6d9e931)
 - Some minor Smarty syntax improvements (c877bb6, 8e63afd)
 - Some minor JS syntax improvements (9dccbcf, 61bf675, 61bf675, edaa6d9)
