@@ -65,7 +65,7 @@ Font Awesome            | 4.3.0             | 4.5.0
 jquery.uniform.js       | 2.1.2             | -
 jquery.total-storage.js | 1.1.2             | 1.1.2
 
-## Installing theme
+## Installation
 
 If you would like **to install** this theme, you should download the latest, prepackaged `vx.x.x-community-theme-16.zip`
 theme archive from [Releases](https://github.com/PrestaShop/community-theme-16/releases) tab. It contains compiled
@@ -73,7 +73,7 @@ theme archive from [Releases](https://github.com/PrestaShop/community-theme-16/r
 archive can be uploaded and installed via PrestaShop back-office. Files from `dev` branch are not packaged,
 you must build a theme archive from them yourself.
 
-## Developing theme
+## Development
 
 In this repository, files **are not ready** to be zipped and installed as theme.
 Instead, a **build** process is used, which automatically builds `.css` files,
@@ -155,7 +155,7 @@ gulp clean-up        // Removes files which we don't want to include in the arch
 
 gulp copy-index      // Copies index.php to all directories and subdirectories inside theme folder
 
-gulp format-js       // Formats theme .js files using JavaScript style rules defined in .jscsrc using JSCS tool.
+gulp format-js       // Formats .js files using JavaScript style rules defined in .jscsrc using JSCS tool
 
 gulp create-zip      // Adds Config.xml and theme folder to .zip archive and outputs
                      // the file in root directory
