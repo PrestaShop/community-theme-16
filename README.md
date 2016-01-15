@@ -176,3 +176,7 @@ We would like to emphasize the commit message norm:
 [How to write a commit message](http://doc.prestashop.com/display/PS16/How+to+write+a+commit+message).
 Because this is a theme, you may omit the `type` in your commit message
 or write your own, more descriptive type: e.g `SEO`, `JS`, etc.
+
+## License
+
+Community theme is open-sourced software licensed under the [MIT license](http://badges.mit-license.org/).
