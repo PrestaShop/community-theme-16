@@ -4,6 +4,7 @@
 [![Github All Releases](https://img.shields.io/github/downloads/prestashop/community-theme-16/total.svg)](https://github.com/PrestaShop/community-theme-16/releases)
 [![GitHub release](https://img.shields.io/github/release/prestashop/community-theme-16.svg)](https://github.com/PrestaShop/community-theme-16/releases)
 [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
+[![Development dependencies](https://img.shields.io/david/dev/PrestaShop/community-theme-16.svg?style=flat-square)](https://github.com/PrestaShop/community-theme-16/blob/dev/package.json)
 
 ## Disclaimer
 
