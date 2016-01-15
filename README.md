@@ -1,8 +1,8 @@
 # PrestaShop 1.6 Community Theme
 
-[![Join the chat at https://gitter.im/PrestaShop/community-theme-16](https://badges.gitter.im/PrestaShop/community-theme-16.svg)](https://gitter.im/PrestaShop/community-theme-16?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[![Github All Releases](https://img.shields.io/github/downloads/prestashop/community-theme-16/total.svg)]()
-[![GitHub release](https://img.shields.io/github/release/prestashop/community-theme-16.svg)]()
+[![Join the chat at https://gitter.im/PrestaShop/community-theme-16](https://img.shields.io/gitter/room/PrestaShop/community-theme-16.svg?style=flat-square)](https://gitter.im/PrestaShop/community-theme-16?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Github All Releases](https://img.shields.io/github/downloads/prestashop/community-theme-16/total.svg)](https://github.com/PrestaShop/community-theme-16/releases)
+[![GitHub release](https://img.shields.io/github/release/prestashop/community-theme-16.svg)](https://github.com/PrestaShop/community-theme-16/releases)
 [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
 
 ## Disclaimer
