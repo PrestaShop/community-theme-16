@@ -15,7 +15,9 @@
 .block {
   .title_block,
   h4 {
-    font: 600 18px / 22px $font-custom;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
     color: $base-heading-color;
     background: #f6f6f6;
     border-top: 5px solid $dark-border-color;

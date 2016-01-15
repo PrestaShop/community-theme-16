@@ -1,7 +1,6 @@
 //------- FONTS
 $font-family:                       Arial, Helvetica, sans-serif;
 $font:                              normal 13px/18px $font-family;
-$font-custom:                       'Open Sans', sans-serif;
 
 //-------- BORDERS
 $base-border-color:                 #d6d4d4;
@@ -80,7 +79,6 @@ $tr-even-bg:                                        #fdfdfd;
 @mixin sub-heading {
   color: $base-heading-color;
   text-transform: uppercase;
-  font-family: $font-custom;
   font-weight: 600;
   font-size: 18px;
   line-height: 20px;

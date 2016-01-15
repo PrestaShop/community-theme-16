@@ -67,7 +67,9 @@
     }
   }
   > a {
-    font: 600 18px/22px $font-custom;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
     text-transform: uppercase;
     color: #484848;
     display: block;
@@ -148,7 +150,9 @@ ul.sf-menu li li li.sfHover ul {
   > li {
     > a {
       text-transform: uppercase;
-      font: 600 16px/20px $font-custom;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 20px;
       color: $base-text-color;
       &:hover {
         color: $link-hover-color;
@@ -207,7 +211,9 @@ ul.sf-menu li li li.sfHover ul {
   display: none;
   @media (max-width: $screen-xs-max) { // max 767px
     display: block;
-    font: 600 18px/22px $font-custom;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
     text-transform: uppercase;
     color: #484848;
     display: block;

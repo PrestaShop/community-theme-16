@@ -29,7 +29,9 @@ table#product_comparison {
       td.td_empty {
         vertical-align: bottom;
         > span {
-          font: 600 18px/22px $font-custom;
+          font-weight: 600;
+          font-size: 18px;
+          line-height: 22px;
           text-transform: uppercase;
           color: #555454;
         }
@@ -90,7 +92,6 @@ table#product_comparison {
   }
   .comparison_unit_price {
     font-size: 17px;
-    font-family: $font-custom;
     color: $product-price-color;
     font-style: italic;
   }

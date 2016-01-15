@@ -24,7 +24,9 @@
 }
 
 .price.product-price {
-  font: 600 21px / 26px $font-custom;
+  font-weight: 600;
+  font-size: 21px;
+  line-height: 26px;
   color: $product-price-color;
 }
 
@@ -44,7 +46,9 @@
 .price-percent-reduction {
   background: #f13340;
   border: 1px solid #d02a2c;
-  font: 600 21px / 24px $font-custom;
+  font-weight: 600;
+  font-size: 21px;
+  line-height: 24px;
   color: $light-text-color;
   padding: 0 5px 0 3px;
   display: inline-block;

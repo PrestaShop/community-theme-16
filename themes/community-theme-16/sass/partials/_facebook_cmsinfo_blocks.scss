@@ -25,7 +25,9 @@
   h4 {
     padding: 35px 0 0 0;
     margin: 0 0 12px 0;
-    font: 300 21px / 25px $font-custom;
+    font-weight: 300;
+    font-size: 21px;
+    line-height: 25px;
     color: lighten($base-heading-color, 10%);
     // max 991px
     @media (max-width: $screen-sm-max) {
@@ -102,7 +104,9 @@
   }
   h3 {
     margin: 0 0 5px 0;
-    font: 300 21px / 25px $font-custom;
+    font-weight: 300;
+    font-size: 21px;
+    line-height: 25px;
     color: lighten($base-heading-color, 10%);
     // max 1199px
     @media (max-width: $screen-md-max) {

@@ -17,7 +17,6 @@
   font-weight: 200;
   margin: 3px 0 8px;
   font-size: 19px;
-  font-family: $font-custom;
 }
 .box-security .product-heading-h5{
   margin: 3px 0 -8px;
@@ -886,7 +885,6 @@ table.table-product-discounts{
   font-weight: 600;
   font-size: 29px;
   line-height: 32px;
-  font-family: $font-custom;
   color: $product-price-color;
   @media (max-width: $screen-sm-max) { //max 991px
     font-size: 26px;
@@ -908,7 +906,6 @@ table.table-product-discounts{
   font-size: 13px;
   text-decoration: line-through;
   display: inline-block;
-  font-family: $font-custom;
   line-height: 23px;
 }
 #reduction_percent,
@@ -916,7 +913,6 @@ table.table-product-discounts{
   margin-right: 10px;
   padding: 1px 2px;
   font-weight: 600;
-  font-family: $font-custom;
   font-size: 21px;
   line-height: 23px;
   color: $light-text-color;

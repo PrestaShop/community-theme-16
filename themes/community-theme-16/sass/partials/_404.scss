@@ -11,13 +11,17 @@
       }
     }
     h1 {
-      font: 600 28px / 34px $font-custom;
+      font-weight: 600;
+      font-size: 28px;
+      line-height: 34px;
       color: $base-text-color;
       text-transform: uppercase;
       margin-bottom: 7px;
     }
     p {
-      font: 600 16px / 20px $font-custom;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 20px;
       color: #555454;
       text-transform: uppercase;
       border-bottom: 1px solid $base-border-color;
