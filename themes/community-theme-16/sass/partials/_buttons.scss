@@ -125,7 +125,6 @@ span.exclusive {
   border: 1px solid;
   border-color: #666666 #5f5f5f #292929 #5f5f5f;
   padding: 0;
-  text-shadow: 1px 1px rgba(0, 0, 0, 0.24);
   @include border-radius(0);
   span {
     display: block;
@@ -230,7 +229,6 @@ span.exclusive {
   font-size: 14px;
   line-height: 14px;
   color: $button-pm-color;
-  text-shadow: 1px -1px rgba(0, 0, 0, 0.05);
   padding: 0;
   border: 1px solid;
   border-color: #dedcdc #c1bfbf #b5b4b4 #dad8d8;
@@ -264,7 +262,6 @@ span.exclusive {
   font-weight: bold;
   border: 1px solid;
   border-color: #cacaca #b7b7b7 #9a9a9a #b7b7b7;
-  text-shadow: 1px 1px rgba(255, 255, 255, 1);
   span {
     border: 1px solid;
     border-color: $light-border-color;
@@ -287,7 +284,6 @@ span.exclusive {
 .button.ajax_add_to_cart_button {
   font: 700 17px / 21px $font-family;
   color: $button-text-color;
-  text-shadow: 1px 1px rgba(0, 0, 0, 0.2);
   padding: 0;
   border: 1px solid;
   border-color: #0079b6 #006fa8 #012740 #006fa8;
@@ -311,7 +307,6 @@ span.exclusive {
 .button.lnk_view {
   font: 700 17px / 21px $font-family;
   color: $base-text-color;
-  text-shadow: 1px 1px rgba(255, 255, 255, 1);
   padding: 0;
   border: 1px solid;
   border-color: #cacaca #b7b7b7 #9a9a9a #b7b7b7;

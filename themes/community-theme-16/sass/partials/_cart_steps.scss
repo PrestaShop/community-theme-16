@@ -30,7 +30,6 @@ ul.step {
       font-size: 17px;
       line-height: 21px;
       font-weight: bold;
-      text-shadow: 1px 1px rgba(255, 255, 255, 1);
       position: relative;
       // max 991px
       @media (max-width: $screen-md) {
@@ -111,7 +110,6 @@ ul.step {
       border-color: #399b49 #51ae5c #208931 #369946;
       span {
         color: $light-text-color;
-        text-shadow: 1px 1px rgba(32, 137, 49, 1);
         border: 1px solid;
         border-color: #73ca77 #74c776 #74c175 #74c776;
         position: relative;
@@ -151,7 +149,6 @@ ul.step {
       @include gradient-vertical(rgba(114, 113, 113, 1), rgba(102, 102, 102, 1));
       a {
         color: $light-text-color;
-        text-shadow: 1px 1px rgba(0, 0, 0, 0.3);
         border: 1px solid;
         border-color: #8b8a8a;
         // min 991px
