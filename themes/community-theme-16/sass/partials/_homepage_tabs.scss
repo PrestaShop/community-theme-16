@@ -20,7 +20,9 @@
       width: 100%;
     }
     a {
-      font: 600 21px / 24px $font-custom;
+      font-weight: 600;
+      font-size: 21px;
+      line-height: 24px;
       color: $base-heading-color;
       text-transform: uppercase;
       border: none;

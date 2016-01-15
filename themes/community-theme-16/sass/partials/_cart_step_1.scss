@@ -123,13 +123,17 @@ a.price_discount_delete {
       }
       &.total_price_container {
         span {
-          font: 600 18px / 22px $font-custom;
+          font-weight: 600;
+          font-size: 18px;
+          line-height: 22px;
           color: #555454;
           text-transform: uppercase;
         }
       }
       &#total_price_container {
-        font: 600 21px / 25px $font-custom;
+        font-weight: 600;
+        font-size: 21px;
+        line-height: 25px;
         color: $product-price-color;
         background: $light-background;
       }
@@ -272,7 +276,9 @@ a.price_discount_delete {
 .cart_voucher {
   vertical-align: top !important;
   h4 {
-    font: 600 18px / 22px $font-custom;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
     color: $base-heading-color;
     text-transform: uppercase;
     padding: 7px 0 10px 0;

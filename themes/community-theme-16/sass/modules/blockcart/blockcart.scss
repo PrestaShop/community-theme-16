@@ -52,7 +52,9 @@
     }
     b {
       color: $light-text-color;
-      font: 600 18px/22px $font-custom;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 22px;
       padding-right: 5px;
     }
     &:before {

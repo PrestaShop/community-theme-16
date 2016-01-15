@@ -30,7 +30,9 @@
       }
     }
     h4 {
-      font: 600 18px / 22px $font-custom;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 22px;
       color: $light-text-color;
       margin: 0 0 13px 0;
       cursor: pointer;

@@ -18,7 +18,9 @@
     }
   }
   span.category-name {
-    font: 600 42px/51px $font-custom;
+    font-weight: 600;
+    font-size: 42px;
+    line-height: 51px;
     color: $light-text-color;
     margin-bottom: 12px;
     @media  (max-width: $screen-md-max) { // max 1199px
@@ -82,7 +84,9 @@
         }
       }
       .subcategory-name {
-        font: 600 18px/22px $font-custom;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 22px;
         color: $base-heading-color;
         text-transform: uppercase;
         &:hover {

@@ -1,5 +1,7 @@
 .page-heading {
-  font: 600 18px / 22px $font-custom;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
   color: $base-heading-color;
   text-transform: uppercase;
   padding: 0px 0px 17px 0px;
@@ -31,7 +33,6 @@
 }
 
 .page-subheading {
-  font-family: $font-custom;
   font-weight: 600;
   text-transform: uppercase;
   color: $base-heading-color;
