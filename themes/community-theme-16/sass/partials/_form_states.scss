@@ -4,14 +4,14 @@
     input, textarea {
       border: 1px solid #f13340;
       color: #f13340;
-      background: url(../img/icon/form-error.png) 98% 5px no-repeat #fff1f2;
+      background: url(../img/icon/form-error.png) 98% 9px no-repeat #fff1f2;
     }
   }
   &.form-ok {
     input, textarea {
       border: 1px solid #46a74e;
       color: #35b33f;
-      background: url(../img/icon/form-ok.png) 98% 5px no-repeat #ddf9e1;
+      background: url(../img/icon/form-ok.png) 98% 9px no-repeat #ddf9e1;
     }
   }
   &.form-error, &.form-ok {
