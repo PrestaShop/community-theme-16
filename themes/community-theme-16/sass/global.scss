@@ -91,9 +91,6 @@ label {
 
 //form
 .form-control {
-  padding: 3px 5px;
-  height: 27px;
-  @include box-shadow(none);
   &.grey {
     background: $base-box-bg;
   }
