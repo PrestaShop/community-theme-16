@@ -115,7 +115,6 @@
           display: inline-block;
           &.publish_button{
             color: $button-text-color;
-            text-shadow: 1px 1px rgba(0,0,0,0.2);
             border-color: #0079b6 #006fa8 #012740 #006fa8;
             background: rgb(0,154,208);
             background: -moz-linear-gradient(top, rgba(0,154,208,1) 0%, rgba(0,122,183,1) 100%);
@@ -133,7 +132,6 @@
           }
           &.lnk_view{
             color: $base-text-color;
-            text-shadow: 1px 1px rgba(255,255,255,1);
             border-color: #cacaca #b7b7b7 #9a9a9a #b7b7b7;
             background: rgb(247,247,247);
             background: -moz-linear-gradient(top, rgba(247,247,247,1) 0%, rgba(237,237,237,1) 100%);

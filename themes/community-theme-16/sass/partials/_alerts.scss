@@ -12,7 +12,6 @@
     }
   }
   &.alert-success {
-    text-shadow: 1px 1px rgba(0, 0, 0, 0.1);
     &:before {
       font-family: $font-icon;
       content: "\f058";
@@ -22,7 +21,6 @@
     }
   }
   &.alert-danger {
-    text-shadow: 1px 1px rgba(0, 0, 0, 0.1);
     &:before {
       font-family: $font-icon;
       content: "\f057";
