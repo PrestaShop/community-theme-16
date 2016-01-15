@@ -3,6 +3,7 @@
 [![Join the chat at https://gitter.im/PrestaShop/community-theme-16](https://badges.gitter.im/PrestaShop/community-theme-16.svg)](https://gitter.im/PrestaShop/community-theme-16?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Github All Releases](https://img.shields.io/github/downloads/prestashop/community-theme-16/total.svg)]()
 [![GitHub release](https://img.shields.io/github/release/prestashop/community-theme-16.svg)]()
+[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
 
 ## Disclaimer
 
