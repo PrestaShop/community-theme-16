@@ -65,7 +65,7 @@
   <div class="store-content">
     <div class="address-input">
       <label for="addressInput">{l s='Your location:'}</label>
-      <input class="form-control grey" type="text" name="location" id="addressInput" value="{l s='Address, zip / postal code, city, state or country'}" />
+      <input class="form-control" type="text" name="location" id="addressInput" value="{l s='Address, zip / postal code, city, state or country'}" />
     </div>
     <div class="radius-input">
       <label for="radiusSelect">{l s='Radius:'}</label>

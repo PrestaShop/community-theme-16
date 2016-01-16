@@ -80,14 +80,14 @@
                     <label for="quantity_{$product.id_product}_{$product.id_product_attribute}">
                       {l s='Quantity' mod='blockwishlist'}:
                     </label>
-                    <input type="text" class="form-control grey" id="quantity_{$product.id_product}_{$product.id_product_attribute}" value="{$product.quantity|intval}" size="3"/>
+                    <input type="text" class="form-control" id="quantity_{$product.id_product}_{$product.id_product_attribute}" value="{$product.quantity|intval}" size="3"/>
                   </p>
 
                   <p class="form-group">
                     <label for="priority_{$product.id_product}_{$product.id_product_attribute}">
                       {l s='Priority' mod='blockwishlist'}:
                     </label>
-                    <select id="priority_{$product.id_product}_{$product.id_product_attribute}" class="form-control grey">
+                    <select id="priority_{$product.id_product}_{$product.id_product_attribute}" class="form-control">
                       <option value="0"{if $product.priority eq 0} selected="selected"{/if}>
                         {l s='High' mod='blockwishlist'}
                       </option>
