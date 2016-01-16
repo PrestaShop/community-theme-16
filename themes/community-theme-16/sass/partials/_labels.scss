@@ -3,3 +3,8 @@
   display: inline-block;
   padding: 6px 10px;
 }
+
+// When label has a bright background, the text needs to be dark to contrast
+.label.dark {
+  color: #333;
+}
