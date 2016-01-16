@@ -1229,3 +1229,11 @@ Quick View Styles
     }
   }
 }
+
+// Zoom (something to do with jquery zoom)
+// max 1199px
+@media (max-width: $screen-md-max) {
+  .zoomdiv {
+    display: none !important;
+  }
+}
