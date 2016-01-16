@@ -1,0 +1,46 @@
+a:hover {
+  text-decoration: none;
+}
+
+#page .rte {
+  background: transparent none repeat scroll 0 0;
+
+  em {
+    font-style: italic !important;
+  }
+}
+
+// Make sure lists are correctly displayed in tinyMCE BO edition mode too
+#short_description_content ul,
+#short_description_content ol,
+#short_description_content dl,
+#tinymce ul,
+#tinymce ol,
+#tinymce dl {
+  margin-left: 20px;
+}
+
+.rte ul {
+  list-style-type: disc;
+  padding-left: 15px;
+}
+
+.rte ol {
+  list-style-type: decimal;
+  padding-left: 15px;
+}
+
+.dark {
+  color: $base-text-color;
+}
+
+//text
+p.info-title {
+  font-weight: bold;
+  color: $base-text-color;
+  margin-bottom: 25px;
+}
+
+p.info-account {
+  margin: -4px 0 24px 0;
+}

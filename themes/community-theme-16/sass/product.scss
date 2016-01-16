@@ -2,6 +2,10 @@
 @import "theme_variables";
 @import "vendor_variables";
 
+.pack_content {
+  margin: 10px 0 10px 0;
+}
+
 /* product desc */
 /* primary_block ***************************************************************************** */
 .primary_block {
@@ -1210,5 +1214,18 @@ Quick View Styles
   }
   .box-security {
     filter: none;
+  }
+}
+
+//temporary fix for quickview
+#product.content_only {
+  div.pb-left-column {
+    p.resetimg {
+      margin-bottom: 0px;
+      padding-top: 0px;
+    }
+    #thumbs_list_frame {
+      margin-bottom: 0px;
+    }
   }
 }
