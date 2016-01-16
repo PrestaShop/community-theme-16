@@ -9,7 +9,9 @@
   border-bottom: 1px solid $base-border-color;
   overflow: hidden;
   span.heading-counter {
-    font: bold 13px / 22px $font-family;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 22px;
     float: right;
     color: $base-text-color;
     text-transform: none;
