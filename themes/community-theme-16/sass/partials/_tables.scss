@@ -34,13 +34,10 @@ table.table_block td {
 }
 
 .table {
-  margin-bottom: 30px;
   > thead {
     > tr {
       > th {
         background: $table-background;
-        border-bottom-width: 1px;
-        color: $base-text-color;
         vertical-align: middle;
       }
     }
