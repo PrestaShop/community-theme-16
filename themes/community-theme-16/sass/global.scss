@@ -16,37 +16,31 @@
 @import "partials/tables";
 @import "partials/products";
 @import "partials/boxes";
-@import "partials/homepage_tabs";
 @import "partials/blocks";
 @import "partials/headings";
 @import "partials/footer_links";
 @import "partials/sortbar";
 @import "partials/pagination";
-@import "partials/cart_steps";
 @import "partials/breadcrumbs";
 @import "partials/footer";
 @import "partials/modules/blockreinsurance";
 @import "partials/type";
 @import "partials/utilities";
-@import "partials/order";
-@import "partials/cart_step_1";
-@import "partials/cart_step_3";
-@import "partials/cart_step_4";
-@import "partials/cart_step_5";
-@import "partials/order_opc";
-@import "partials/address_identity";
-@import "partials/password";
-@import "partials/search";
-@import "partials/manuf_suppliers";
-@import "partials/discount";
-@import "partials/guest_tracking";
-@import "partials/404";
 @import "partials/forms";
 @import "partials/fancybox";
 @import "partials/zoom";
 @import "partials/quick_view";
-@import "partials/product_comparison";
-@import "partials/payment";
+
+// Pages
+@import "partials/pages/404";
+@import "partials/pages/address_identity";
+@import "partials/pages/checkout";
+@import "partials/pages/discount";
+@import "partials/pages/guest_tracking";
+@import "partials/pages/index";
+@import "partials/pages/manuf_suppliers";
+@import "partials/pages/password";
+@import "partials/pages/product_comparison";
 
 //CSS Modules
 //IMPORTANT - Internet Explorer can read 31 CSS files max. Some CSS have been put here and erased from their own module folder.
@@ -57,6 +51,7 @@
 @import "partials/modules/blockcustomerprivacy";
 @import "partials/modules/blockfacebook";
 @import "partials/modules/blockreinsurance";
+@import "partials/modules/blocksearch";
 @import "partials/modules/productcomments";
 @import "partials/modules/referralprogram";
 @import "partials/modules/reverso";
