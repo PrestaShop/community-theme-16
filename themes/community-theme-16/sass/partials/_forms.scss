@@ -1,3 +1,7 @@
+textarea {
+  resize: vertical;
+}
+
 label {
   color: $base-title-color;
   &.required {
@@ -9,10 +13,6 @@ label {
       line-height: 12px;
     }
   }
-}
-
-textarea {
-  resize: none;
 }
 
 //Form validate
