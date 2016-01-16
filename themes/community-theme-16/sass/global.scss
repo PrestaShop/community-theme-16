@@ -1,35 +1,43 @@
 @charset "UTF-8";
 // Make sure the charset is set appropriately
 
+// Resets and mixins
 @import "compass";
 @import "compass/reset";
 
+// Vendor variable overrides
 @import "theme_variables";
+
+// Vendor styles
 @import "vendor/bootstrap";
 @import "vendor/font-awesome";
 
-@import "partials/page";
+// Vendor style overrides + new components
 @import "partials/alerts";
 @import "partials/labels";
 @import "partials/close";
+@import "partials/fancybox";
+@import "partials/breadcrumbs";
+@import "partials/forms";
+
+// Base styles
+@import "partials/type";
+@import "partials/headings";
+
+// Page style and blocks
+@import "partials/page";
+@import "partials/footer";
+
+// Page components and utilities
 @import "partials/buttons";
 @import "partials/tables";
 @import "partials/products";
 @import "partials/boxes";
 @import "partials/blocks";
-@import "partials/headings";
-@import "partials/footer_links";
 @import "partials/sortbar";
 @import "partials/pagination";
-@import "partials/breadcrumbs";
-@import "partials/footer";
-@import "partials/modules/blockreinsurance";
-@import "partials/type";
-@import "partials/utilities";
-@import "partials/forms";
-@import "partials/fancybox";
 @import "partials/zoom";
-@import "partials/quick_view";
+@import "partials/utilities";
 
 // Pages
 @import "partials/pages/404";
