@@ -1,3 +1,28 @@
+// unknown element
+.listcomment {
+  list-style-type: none;
+  margin: 0 0 20px 0 !important;
+}
+
+.listcomment li {
+  padding: 10px 0;
+  border-bottom: 1px dotted $base-border-color;
+  color: #666666;
+}
+
+.listcomment .titlecomment {
+  display: block;
+  font-weight: bold;
+  font-size: 12px;
+  color: $base-text-color;
+}
+
+.listcomment .txtcomment {
+  display: block;
+  padding: 5px 0;
+  color: $base-text-color;
+}
+
 //addons comments products
 form#sendComment fieldset {
   padding: 10px;

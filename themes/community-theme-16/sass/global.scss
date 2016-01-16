@@ -3,99 +3,16 @@
 
 @import "compass";
 @import "compass/reset";
+
 @import "theme_variables";
 @import "vendor/bootstrap";
 @import "vendor/font-awesome";
 
-a:hover {
-  text-decoration: none;
-}
-
-@media only screen and (min-width: 1200px) {
-  .container {
-    padding-left: 0;
-    padding-right: 0;
-  }
-}
-
-body {
-  min-width: 320px;
-  height: 100%;
-  line-height: 18px;
-  font-size: 13px;
-  color: $base-body-color;
-  &.content_only {
-    background: none;
-    min-width: 0px;
-  }
-}
-
-textarea {
-  resize: none;
-}
-
 @import "partials/page";
-
-//text
-p.info-title {
-  font-weight: bold;
-  color: $base-text-color;
-  margin-bottom: 25px;
-}
-
-p.info-account {
-  margin: -4px 0 24px 0;
-}
-
-.dark {
-  color: $base-text-color;
-}
-
-.main-page-indent {
-  margin-bottom: $grid-gutter-width;
-}
-
 @import "partials/alerts";
-
-.label {
-  white-space: normal;
-  display: inline-block;
-  padding: 6px 10px;
-}
-
-label {
-  color: $base-title-color;
-  &.required {
-    &:before {
-      content: "*";
-      color: red;
-      font-size: 14px;
-      position: relative;
-      line-height: 12px;
-    }
-  }
-}
-
-.unvisible {
-  display: none;
-}
-
-.close {
-  opacity: 1;
-  &:hover {
-    opacity: 1;
-  }
-}
-
+@import "partials/labels";
+@import "partials/close";
 @import "partials/buttons";
-
-//form
-.form-control {
-  &.grey {
-    background: $base-box-bg;
-  }
-}
-
 @import "partials/tables";
 @import "partials/products";
 @import "partials/boxes";
@@ -107,86 +24,11 @@ label {
 @import "partials/pagination";
 @import "partials/cart_steps";
 @import "partials/product_comments";
-
-.pack_content {
-  margin: 10px 0 10px 0;
-}
-
-.confirmation {
-  margin: 0 0 10px;
-  padding: 10px;
-  border: 1px solid #e6db55;
-  font-size: 13px;
-  background: none repeat scroll 0 0 lightyellow;
-}
-
-#page .rte {
-  background: transparent none repeat scroll 0 0;
-
-  em {
-    font-style: italic !important;
-  }
-}
-
-.listcomment {
-  list-style-type: none;
-  margin: 0 0 20px 0 !important;
-}
-
-.listcomment li {
-  padding: 10px 0;
-  border-bottom: 1px dotted $base-border-color;
-  color: #666666;
-}
-
-.listcomment .titlecomment {
-  display: block;
-  font-weight: bold;
-  font-size: 12px;
-  color: $base-text-color;
-}
-
-.listcomment .txtcomment {
-  display: block;
-  padding: 5px 0;
-  color: $base-text-color;
-}
-
-.header-container {
-  background: $light-background;
-}
-
 @import "partials/breadcrumbs";
 @import "partials/footer";
-
-#reinsurance_block {
-  clear: both !important;
-}
-
-// Make sure lists are correctly displayed in tinyMCE BO edition mode too
-#short_description_content ul,
-#short_description_content ol,
-#short_description_content dl,
-#tinymce ul,
-#tinymce ol,
-#tinymce dl {
-  margin-left: 20px;
-}
-
-.rte ul {
-  list-style-type: disc;
-  padding-left: 15px;
-}
-
-.rte ol {
-  list-style-type: decimal;
-  padding-left: 15px;
-}
-
-.block_hidden_only_for_screen {
-  display: none;
-}
-
+@import "partials/modules/blockreinsurance";
+@import "partials/type";
+@import "partials/utilities";
 @import "partials/order";
 @import "partials/cart_step_1";
 @import "partials/cart_step_3";
@@ -200,7 +42,6 @@ label {
 @import "partials/discount";
 @import "partials/guest_tracking";
 @import "partials/404";
-
 @import "partials/modules/reverso_form";
 @import "partials/modules/customer_privacy";
 @import "partials/modules/referal_program";
@@ -211,7 +52,7 @@ label {
 
 @import "partials/modules/block_advertising";
 @import "partials/blockcategories";
-@import "partials/form_states";
+@import "partials/forms";
 @import "partials/fancybox";
 @import "partials/facebook_cmsinfo_blocks";
 @import "partials/zoom";

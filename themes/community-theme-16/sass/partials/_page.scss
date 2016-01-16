@@ -79,3 +79,27 @@ header {
     }
   }
 }
+
+.header-container {
+  background: $light-background;
+}
+
+
+@media only screen and (min-width: 1200px) {
+  .container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+body {
+  min-width: 320px;
+  height: 100%;
+  line-height: 18px;
+  font-size: 13px;
+  color: $base-body-color;
+  &.content_only {
+    background: none;
+    min-width: 0px;
+  }
+}
