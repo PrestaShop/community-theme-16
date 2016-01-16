@@ -8,13 +8,13 @@
         <a href="#" onclick="$(this).closest('form').submit(); return false;" class="button btn btn-default button-medium pull-right"><span>{l s='Reorder'}<i class="icon-chevron-right right"></i></span></a>
       </form>
     {/if}
-    <p class="dark">
+    <p>
       <strong>{l s='Order Reference %s - placed on' sprintf=$order->getUniqReference()} {dateFormat date=$order->date_add full=0}</strong>
     </p>
   </div>
   <div class="info-order box">
-    {if $carrier->id}<p><strong class="dark">{l s='Carrier'}</strong> {if $carrier->name == "0"}{$shop_name|escape:'html':'UTF-8'}{else}{$carrier->name|escape:'html':'UTF-8'}{/if}</p>{/if}
-    <p><strong class="dark">{l s='Payment method'}</strong> <span class="color-myaccount">{$order->payment|escape:'html':'UTF-8'}</span></p>
+    {if $carrier->id}<p><strong>{l s='Carrier'}</strong> {if $carrier->name == "0"}{$shop_name|escape:'html':'UTF-8'}{else}{$carrier->name|escape:'html':'UTF-8'}{/if}</p>{/if}
+    <p><strong>{l s='Payment method'}</strong> <span class="color-myaccount">{$order->payment|escape:'html':'UTF-8'}</span></p>
     {if $invoice AND $invoiceAllowed}
       <p>
         <i class="icon-file-text"></i>
@@ -26,7 +26,7 @@
     {/if}
     {if $order->gift}
       <p><i class="icon-gift"></i>&nbsp;{l s='You have requested gift wrapping for this order.'}</p>
-      <p><strong class="dark">{l s='Message'}</strong> {$order->gift_message|nl2br}</p>
+      <p><strong>{l s='Message'}</strong> {$order->gift_message|nl2br}</p>
     {/if}
   </div>
 
@@ -384,7 +384,7 @@
           {foreach from=$messages item=message name="messageList"}
             <tr class="{if $smarty.foreach.messageList.first}first_item{elseif $smarty.foreach.messageList.last}last_item{/if} {if $smarty.foreach.messageList.index % 2}alternate_item{else}item{/if}">
               <td>
-                <strong class="dark">
+                <strong>
                   {if isset($message.elastname) && $message.elastname}
                     {$message.efirstname|escape:'html':'UTF-8'} {$message.elastname|escape:'html':'UTF-8'}
                   {elseif $message.clastname}

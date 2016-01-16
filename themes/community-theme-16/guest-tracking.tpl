@@ -45,7 +45,7 @@
     <form method="post" action="{$action|escape:'html':'UTF-8'}#guestToCustomer" class="std">
       <fieldset class="description_box box">
 
-        <p><strong class="dark">{l s='Transform your guest account into a customer account and enjoy:'}</strong></p>
+        <p><strong>{l s='Transform your guest account into a customer account and enjoy:'}</strong></p>
         <ul>
           <li> -{l s='Personalized and secure access'}</li>
           <li> -{l s='Fast and easy checkout'}</li>
@@ -54,7 +54,7 @@
         <div class="row">
           <div class="col-xs-12 col-sm-5 col-md-4 col-lg-3">
             <div class="text form-group">
-              <label><strong class="dark">{l s='Set your password:'}</strong></label>
+              <label><strong>{l s='Set your password:'}</strong></label>
               <input type="password" name="password" class="form-control" />
             </div>
           </div>

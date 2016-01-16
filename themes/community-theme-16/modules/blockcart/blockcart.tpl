@@ -195,11 +195,11 @@
           <span id="layer_cart_product_title" class="product-name"></span>
           <span id="layer_cart_product_attributes"></span>
           <div>
-            <strong class="dark">{l s='Quantity' mod='blockcart'}</strong>
+            <strong>{l s='Quantity' mod='blockcart'}</strong>
             <span id="layer_cart_product_quantity"></span>
           </div>
           <div>
-            <strong class="dark">{l s='Total' mod='blockcart'}</strong>
+            <strong>{l s='Total' mod='blockcart'}</strong>
             <span id="layer_cart_product_price"></span>
           </div>
         </div>
@@ -216,7 +216,7 @@
           </span>
         </span>
         <div class="layer_cart_row">
-          <strong class="dark">
+          <strong>
             {l s='Total products' mod='blockcart'}
             {if $use_taxes && $display_tax_label && $show_tax}
               {if $priceDisplay == 1}
@@ -235,7 +235,7 @@
 
         {if $show_wrapping}
           <div class="layer_cart_row">
-            <strong class="dark">
+            <strong>
               {l s='Wrapping' mod='blockcart'}
               {if $use_taxes && $display_tax_label && $show_tax}
                 {if $priceDisplay == 1}
@@ -255,7 +255,7 @@
           </div>
         {/if}
         <div class="layer_cart_row">
-          <strong class="dark{if $shipping_cost_float == 0 && (!$cart_qties || $cart->isVirtualCart() || !isset($cart->id_address_delivery) || !$cart->id_address_delivery)} unvisible{/if}">
+          <strong class="{if $shipping_cost_float == 0 && (!$cart_qties || $cart->isVirtualCart() || !isset($cart->id_address_delivery) || !$cart->id_address_delivery)} unvisible{/if}">
             {l s='Total shipping' mod='blockcart'}&nbsp;{if $use_taxes && $display_tax_label && $show_tax}{if $priceDisplay == 1}{l s='(tax excl.)' mod='blockcart'}{else}{l s='(tax incl.)' mod='blockcart'}{/if}{/if}
           </strong>
           <span class="ajax_cart_shipping_cost{if $shipping_cost_float == 0 && (!$cart_qties || $cart->isVirtualCart() || !isset($cart->id_address_delivery) || !$cart->id_address_delivery)} unvisible{/if}">
@@ -268,12 +268,12 @@
         </div>
         {if $show_tax && isset($tax_cost)}
           <div class="layer_cart_row">
-            <strong class="dark">{l s='Tax' mod='blockcart'}</strong>
+            <strong>{l s='Tax' mod='blockcart'}</strong>
             <span class="price cart_block_tax_cost ajax_cart_tax_cost">{$tax_cost}</span>
           </div>
         {/if}
         <div class="layer_cart_row">
-          <strong class="dark">
+          <strong>
             {l s='Total' mod='blockcart'}
             {if $use_taxes && $display_tax_label && $show_tax}
               {if $priceDisplay == 1}

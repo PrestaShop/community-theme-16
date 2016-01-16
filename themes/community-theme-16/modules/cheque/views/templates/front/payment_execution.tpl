@@ -13,7 +13,7 @@
     <div class="box cheque-box">
       <h3 class="page-subheading">{l s='Check payment' mod='cheque'}</h3>
       <p class="cheque-indent">
-        <strong class="dark">
+        <strong>
           {l s='You have chosen to pay by check.' mod='cheque'} {l s='Here is a short summary of your order:' mod='cheque'}
         </strong>
       </p>

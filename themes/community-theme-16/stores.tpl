@@ -7,7 +7,7 @@
 {if $simplifiedStoresDiplay}
   {if $stores|@count}
     <p class="store-title">
-      <strong class="dark">
+      <strong>
         {l s='Here you can find our store locations. Please feel free to contact us:'}
       </strong>
     </p>
@@ -58,7 +58,7 @@
 {else}
   <div id="map"></div>
   <p class="store-title">
-    <strong class="dark">
+    <strong>
       {l s='Enter a location (e.g. zip/postal code, address, city or country) in order to find the nearest stores.'}
     </strong>
   </p>

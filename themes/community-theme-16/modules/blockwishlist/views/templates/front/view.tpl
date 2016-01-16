@@ -12,7 +12,7 @@
   </h1>
   {if $wishlists}
     <p>
-      <strong class="dark">
+      <strong>
         {l s='Other wishlists of %1s %2s:' sprintf=[$current_wishlist.firstname, $current_wishlist.lastname] mod='blockwishlist'}
       </strong>
       {foreach from=$wishlists item=wishlist name=i}

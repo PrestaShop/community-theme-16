@@ -11,7 +11,7 @@
 
 {foreach from=$days_datas  item=one_day}
   <p>
-    <strong class="dark">{l s=$one_day.day}: </strong> &nbsp;<span>{$one_day.hours}</span>
+    <strong>{l s=$one_day.day}: </strong> &nbsp;<span>{$one_day.hours}</span>
   </p>
 {/foreach}
 
