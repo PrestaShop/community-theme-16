@@ -81,15 +81,6 @@ header {
   width: 350px;
 }
 
-//title
-#center_column {
-  .page_product_box {
-    h3 {
-      @include sub-heading;
-    }
-  }
-}
-
 .header-container {
   background: $light-background;
 }

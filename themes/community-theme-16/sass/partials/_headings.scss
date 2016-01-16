@@ -45,6 +45,17 @@
   border-bottom: 1px solid $base-border-color;
 }
 
+.page_product_box h3,
 h3.page-product-heading {
-  @include sub-heading;
+  color: $base-heading-color;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 20px;
+  padding: 14px 20px 17px;
+  margin: 0 0 20px;
+  position: relative;
+  border: 1px solid $base-border-color;
+  border-bottom: none;
+  background: $base-box-bg;
 }
