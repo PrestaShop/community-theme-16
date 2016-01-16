@@ -23,7 +23,6 @@
 @import "partials/sortbar";
 @import "partials/pagination";
 @import "partials/cart_steps";
-@import "partials/product_comments";
 @import "partials/breadcrumbs";
 @import "partials/footer";
 @import "partials/modules/blockreinsurance";
@@ -42,21 +41,23 @@
 @import "partials/discount";
 @import "partials/guest_tracking";
 @import "partials/404";
-@import "partials/modules/reverso_form";
-@import "partials/modules/customer_privacy";
-@import "partials/modules/referal_program";
-@import "partials/modules/product_comments";
+@import "partials/forms";
+@import "partials/fancybox";
+@import "partials/zoom";
+@import "partials/quick_view";
+@import "partials/product_comparison";
+@import "partials/payment";
 
 //CSS Modules
 //IMPORTANT - Internet Explorer can read 31 CSS files max. Some CSS have been put here and erased from their own module folder.
 
-@import "partials/modules/block_advertising";
-@import "partials/blockcategories";
-@import "partials/forms";
-@import "partials/fancybox";
-@import "partials/facebook_cmsinfo_blocks";
-@import "partials/zoom";
-@import "partials/quick_view";
-@import "partials/product_comparison";
-@import "partials/modules/social_sharing";
-@import "partials/payment";
+@import "partials/modules/blockadvertising";
+@import "partials/modules/blockcategories";
+@import "partials/modules/blockcmsinfo";
+@import "partials/modules/blockcustomerprivacy";
+@import "partials/modules/blockfacebook";
+@import "partials/modules/blockreinsurance";
+@import "partials/modules/productcomments";
+@import "partials/modules/referralprogram";
+@import "partials/modules/reverso";
+@import "partials/modules/socialsharing";

@@ -1,5 +1,4 @@
 //Homepage pre-footer
-#facebook_block,
 #cmsinfo_block {
   overflow: hidden;
   background: $homepage-footer-bg;
@@ -18,34 +17,6 @@
   @media (max-width: $screen-xs-max) {
     width: 100%;
     min-height: 1px;
-  }
-}
-
-#facebook_block {
-  h4 {
-    padding: 35px 0 0 0;
-    margin: 0 0 12px 0;
-    font-weight: 300;
-    font-size: 21px;
-    line-height: 25px;
-    color: lighten($base-heading-color, 10%);
-    // max 991px
-    @media (max-width: $screen-sm-max) {
-      font-size: 18px;
-    }
-    // max 767px
-    @media (max-width: $screen-xs-max) {
-      padding-top: 20px !important;
-    }
-    // 768px
-    @media (max-width: $screen-sm) {
-      font-size: 16px;
-    }
-  }
-  .facebook-fanbox {
-    background: $light-background;
-    border: 1px solid #aaaaaa;
-    padding-bottom: 10px;
   }
 }
 
@@ -143,7 +114,6 @@
 }
 
 .ie8 {
-  #facebook_block,
   #cmsinfo_block {
     height: 344px;
   }
