@@ -5,12 +5,9 @@ textarea {
 label {
   color: $base-title-color;
   &.required {
-    &:before {
-      content: "*";
-      color: red;
-      font-size: 14px;
-      position: relative;
-      line-height: 12px;
+    &:after {
+      content: '*';
+      color: $state-danger-text;
     }
   }
 }
