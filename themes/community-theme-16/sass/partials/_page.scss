@@ -3,7 +3,6 @@ body {
   height: 100%;
   line-height: 18px;
   font-size: 13px;
-  color: $base-body-color;
   &.content_only {
     min-width: 0px;
   }
@@ -44,6 +43,7 @@ header {
   }
   .nav {
     background: $dark-background;
+    color: $gray-text-color;
     .row {
       margin: 0px;
     }
