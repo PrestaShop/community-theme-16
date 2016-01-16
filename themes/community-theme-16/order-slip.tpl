@@ -3,8 +3,8 @@
 <h1 class="page-heading bottom-indent">
   {l s='Credit slips'}
 </h1>
-<p class="info-title">
-  {l s='Credit slips you have received after canceled orders'}.
+<p>
+  <b>{l s='Credit slips you have received after canceled orders'}.</b>
 </p>
 <div class="block-center" id="block-history">
   {if $ordersSlip && count($ordersSlip)}

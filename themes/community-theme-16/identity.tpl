@@ -22,8 +22,8 @@
       {if isset($pwd_changed)}<br />{l s='Your password has been sent to your email:'} {$email}{/if}
     </p>
   {else}
-    <p class="info-title">
-      {l s='Please be sure to update your personal information if it has changed.'}
+    <p>
+      <b>{l s='Please be sure to update your personal information if it has changed.'}</b>
     </p>
     <p class="required">
       <sup>*</sup>{l s='Required field'}
