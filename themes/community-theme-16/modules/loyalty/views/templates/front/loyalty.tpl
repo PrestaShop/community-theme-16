@@ -78,7 +78,7 @@
     {if $orders|@count > 10}
       <form action="{$pagination_link}" method="get" class="pagination">
         <p>
-          <input type="submit" class="button_mini" value="{l s='OK'  mod='loyalty'}" />
+          <input type="submit" class="btn btn-xs btn-default" value="{l s='OK'  mod='loyalty'}" />
           <label for="nb_item">{l s='items:' mod='loyalty'}</label>
           <select name="n" id="nb_item">
             {foreach from=$nArray item=nValue}

@@ -140,7 +140,7 @@
           </tbody>
         </table>
         <p class="submit">
-          <button type="submit" name="revive" id="revive" class="button_large btn btn-default">{l s='Remind my friend(s)' mod='referralprogram'}</button>
+          <button type="submit" name="revive" id="revive" class="btn btn-primary">{l s='Remind my friend(s)' mod='referralprogram'}</button>
         </p>
       </form>
     {else}
