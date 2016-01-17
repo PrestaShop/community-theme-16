@@ -367,7 +367,7 @@
         </a>
       {/if}
       {if isset($virtual_cart) && $virtual_cart || (isset($delivery_option_list) && !empty($delivery_option_list))}
-        <button type="submit" name="processCarrier" class="btn btn-lg btn-success standard-checkout">
+        <button type="submit" name="processCarrier" class="btn btn-lg btn-success pull-right standard-checkout">
           <span>
             {l s='Proceed to checkout'}
             <i class="icon-chevron-right right"></i>

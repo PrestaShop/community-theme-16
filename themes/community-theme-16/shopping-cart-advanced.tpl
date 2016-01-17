@@ -345,5 +345,5 @@
     <i class="icon-chevron-left"></i>
     {l s='Continue shopping'}
   </a>
-  <button data-show-if-js="" style="" id="confirmOrder" type="button" class="btn btn-lg btn-success standard-checkout"><span>{l s='Order With Obligation To Pay'}</span></button>
+  <button data-show-if-js="" style="" id="confirmOrder" type="button" class="btn btn-lg btn-success pull-right standard-checkout"><span>{l s='Order With Obligation To Pay'}</span></button>
 </p>

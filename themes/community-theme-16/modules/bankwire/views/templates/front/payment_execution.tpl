@@ -60,7 +60,7 @@
       <a class="button-exclusive btn btn-default" href="{$link->getPageLink('order', true, NULL, "step=3")|escape:'html':'UTF-8'}">
         <i class="icon-chevron-left"></i>{l s='Other payment methods' mod='bankwire'}
       </a>
-      <button class="btn btn-lg btn-success" type="submit">
+      <button class="btn btn-lg btn-success pull-right" type="submit">
         <span>{l s='I confirm my order' mod='bankwire'}<i class="icon-chevron-right right"></i></span>
       </button>
     </p>

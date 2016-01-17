@@ -55,7 +55,7 @@
       {else}
         <a href="{$link->getPageLink('order', true, NULL)|escape:'html':'UTF-8'}" title="{l s='Previous'}" class="btn btn-lg btn-default"><i class="icon-chevron-left"></i>{l s='Continue Shopping'}</a>
       {/if}
-      <button type="submit" name="processAddress" class="btn btn-lg btn-success"><span>{l s='Proceed to checkout'}<i class="icon-chevron-right right"></i></span></button>
+      <button type="submit" name="processAddress" class="btn btn-lg btn-success pull-right"><span>{l s='Proceed to checkout'}<i class="icon-chevron-right right"></i></span></button>
     </p>
   </form>
 {else}

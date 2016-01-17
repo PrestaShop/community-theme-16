@@ -85,7 +85,7 @@
         <i class="icon-chevron-left"></i>
         {l s='Continue Shopping'}
       </a>
-      <button type="submit" name="processAddress" class="btn btn-lg btn-success">
+      <button type="submit" name="processAddress" class="btn btn-lg btn-success pull-right">
         <span>{l s='Proceed to checkout'}<i class="icon-chevron-right right"></i></span>
       </button>
     </p>
