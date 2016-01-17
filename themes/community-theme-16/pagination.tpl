@@ -37,7 +37,7 @@
           {if isset($tag) AND $tag AND !is_array($tag)}
             <input type="hidden" name="tag" value="{$tag|escape:'html':'UTF-8'}" />
           {/if}
-          <button type="submit" class="btn btn-default button exclusive-medium">
+          <button type="submit" class="btn btn-lg btn-default">
             <span>{l s='Show all'}</span>
           </button>
           {if is_array($requestNb)}

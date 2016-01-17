@@ -111,7 +111,7 @@
                   </p>
                   {if isset($manufacturer.nb_products) && $manufacturer.nb_products > 0}
                     <a
-                      class="btn btn-default button exclusive-medium"
+                      class="btn btn-lg btn-default"
                       href="{$link->getmanufacturerLink($manufacturer.id_manufacturer, $manufacturer.link_rewrite)|escape:'html':'UTF-8'}">
                       <span>
                         {l s='view products'} <i class="icon-chevron-right right"></i>

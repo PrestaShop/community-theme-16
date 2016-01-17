@@ -294,7 +294,7 @@
           </span>
         </div>
         <div class="button-container">
-          <span class="continue btn btn-default button exclusive-medium" title="{l s='Continue shopping' mod='blockcart'}">
+          <span class="btn btn-lg btn-default continue" title="{l s='Continue shopping' mod='blockcart'}">
             <span>
                 <i class="icon-chevron-left left"></i>{l s='Continue shopping' mod='blockcart'}
             </span>
