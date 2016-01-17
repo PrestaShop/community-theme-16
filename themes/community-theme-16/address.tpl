@@ -184,7 +184,7 @@
 </div>
 <ul class="footer_links clearfix">
   <li>
-    <a class="btn btn-default button button-small" href="{$link->getPageLink('addresses', true)|escape:'html':'UTF-8'}">
+    <a class="btn btn-default" href="{$link->getPageLink('addresses', true)|escape:'html':'UTF-8'}">
       <span><i class="icon-chevron-left"></i> {l s='Back to your addresses'}</span>
     </a>
   </li>

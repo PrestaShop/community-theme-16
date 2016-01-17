@@ -8,7 +8,7 @@
       <input type="hidden" name="controller" value="search" />
       <input type="hidden" name="orderway" value="desc" />
       <input class="search_query form-control" type="text" id="search_query_block" name="search_query" value="{$search_query|escape:'htmlall':'UTF-8'|stripslashes}" />
-      <button type="submit" id="search_button" class="btn btn-default button button-small"><span><i class="icon-search"></i></span></button>
+      <button type="submit" id="search_button" class="btn btn-default"><span><i class="icon-search"></i></span></button>
     </p>
   </form>
 </div>

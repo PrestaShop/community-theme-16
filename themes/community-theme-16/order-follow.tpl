@@ -36,7 +36,7 @@
     <input type="hidden" name="id_order" value="{$id_order|intval}"/>
     <input class="unvisible" type="submit" name="submitReturnMerchandise" value="{l s='Make an RMA slip'}"/>
     <p>
-      <button type="submit" name="submitReturnMerchandise" class="btn btn-default button button-small">
+      <button type="submit" name="submitReturnMerchandise" class="btn btn-success">
        <span>
          {l s='Make an RMA slip'}<i class="icon-chevron-right right"></i>
        </span>
@@ -122,14 +122,14 @@
 
 <ul class="footer_links clearfix">
   <li>
-    <a class="btn btn-default button button-small" href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}">
+    <a class="btn btn-default" href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}">
       <span>
         <i class="icon-chevron-left"></i> {l s='Back to your account'}
       </span>
     </a>
   </li>
   <li>
-    <a class="btn btn-default button button-small" href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}">
+    <a class="btn btn-default" href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}">
       <span>
         <i class="icon-chevron-left"></i> {l s='Home'}
       </span>

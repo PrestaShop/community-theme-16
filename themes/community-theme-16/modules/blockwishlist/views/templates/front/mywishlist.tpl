@@ -101,14 +101,14 @@
   {/if}
   <ul class="footer_links clearfix">
     <li>
-      <a class="btn btn-default button button-small" href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}">
+      <a class="btn btn-default" href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}">
         <span>
           <i class="icon-chevron-left"></i>{l s='Back to Your Account' mod='blockwishlist'}
         </span>
       </a>
     </li>
     <li>
-      <a class="btn btn-default button button-small" href="{$base_dir|escape:'html':'UTF-8'}">
+      <a class="btn btn-default" href="{$base_dir|escape:'html':'UTF-8'}">
         <span>
           <i class="icon-chevron-left"></i>{l s='Home' mod='blockwishlist'}
         </span>

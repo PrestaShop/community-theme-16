@@ -22,10 +22,10 @@
         <div id="admin-action" class="container">
           <p class="alert alert-info">{l s='This product is not visible to your customers.'}
             <input type="hidden" id="admin-action-product-id" value="{$product->id}" />
-            <a id="publish_button" class="btn btn-default button button-small" href="#">
+            <a id="publish_button" class="btn btn-success" href="#">
               <span>{l s='Publish'}</span>
             </a>
-            <a id="lnk_view" class="btn btn-default button button-small" href="#">
+            <a id="lnk_view" class="btn btn-warning" href="#">
               <span>{l s='Back'}</span>
             </a>
           </p>
@@ -623,7 +623,7 @@
               <p id="customizedDatas">
                 <input type="hidden" name="quantityBackup" id="quantityBackup" value="" />
                 <input type="hidden" name="submitCustomizedDatas" value="1" />
-                <button class="button btn btn-default button button-small" name="saveCustomization">
+                <button class="btn btn-success" name="saveCustomization">
                   <span>{l s='Save'}</span>
                 </button>
                 <span id="ajax-loader" class="unvisible">

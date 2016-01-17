@@ -6,7 +6,7 @@
   <p class="alert alert-success">{l s='Your message has been successfully sent to our team.'}</p>
   <ul class="footer_links clearfix">
     <li>
-      <a class="btn btn-default button button-small" href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}">
+      <a class="btn btn-default" href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}">
         <span>
           <i class="icon-chevron-left"></i>{l s='Home'}
         </span>
@@ -17,7 +17,7 @@
   <p class="alert alert-warning">{l s='Your message has already been sent.'}</p>
   <ul class="footer_links clearfix">
     <li>
-      <a class="btn btn-default button button-small" href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}">
+      <a class="btn btn-default" href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}">
         <span>
           <i class="icon-chevron-left"></i>{l s='Home'}
         </span>

@@ -336,7 +336,7 @@
         <textarea class="form-control" cols="67" rows="3" name="returnText"></textarea>
       </p>
       <p class="form-group">
-        <button type="submit" name="submitReturnMerchandise" class="btn btn-default button button-small"><span>{l s='Make an RMA slip'}<i class="icon-chevron-right right"></i></span></button>
+        <button type="submit" name="submitReturnMerchandise" class="btn btn-success"><span>{l s='Make an RMA slip'}<i class="icon-chevron-right right"></i></span></button>
         <input type="hidden" class="hidden" value="{$order->id|intval}" name="id_order" />
       </p>
     </div>

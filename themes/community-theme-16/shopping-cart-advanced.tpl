@@ -58,7 +58,7 @@
                   <h4>{l s='Vouchers'}</h4>
                   <input type="text" class="discount_name form-control" id="discount_name" name="discount_name" value="{if isset($discount_name) && $discount_name}{$discount_name}{/if}" />
                   <input type="hidden" name="submitDiscount" />
-                  <button type="submit" name="submitAddDiscount" class="button btn btn-default button-small"><span>{l s='OK'}</span></button>
+                  <button type="submit" name="submitAddDiscount" class="btn btn-primary"><span>{l s='OK'}</span></button>
                 </fieldset>
               </form>
               {if $displayVouchers}
@@ -83,7 +83,7 @@
                   <h4>{l s='Vouchers'}</h4>
                   <input type="text" class="discount_name form-control" id="discount_name" name="discount_name" value="{if isset($discount_name) && $discount_name}{$discount_name}{/if}" />
                   <input type="hidden" name="submitDiscount" />
-                  <button type="submit" name="submitAddDiscount" class="button btn btn-default button-small"><span>{l s='OK'}</span></button>
+                  <button type="submit" name="submitAddDiscount" class="button btn btn-primary"><span>{l s='OK'}</span></button>
                 </fieldset>
               </form>
               {if $displayVouchers}
@@ -109,7 +109,7 @@
                 <h4>{l s='Vouchers'}</h4>
                 <input type="text" class="discount_name form-control" id="discount_name" name="discount_name" value="{if isset($discount_name) && $discount_name}{$discount_name}{/if}" />
                 <input type="hidden" name="submitDiscount" />
-                <button type="submit" name="submitAddDiscount" class="button btn btn-default button-small">
+                <button type="submit" name="submitAddDiscount" class="btn btn-primary">
                   <span>{l s='OK'}</span>
                 </button>
               </fieldset>

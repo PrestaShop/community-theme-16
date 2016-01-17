@@ -845,7 +845,7 @@ function multishippingMode(it) {
           'afterLoad': function() {
             $('.fancybox-inner .cart_quantity_input').typeWatch({highlight: true, wait: 600, captureLength: 0, callback: function(val) { updateQty(val, false, this.el);}});
             cleanSelectAddressDelivery();
-            $('.fancybox-outer').append($('<div class="multishipping_close_container"><a id="multishipping-close" class="btn btn-default button button-small" href="#"><span>' + CloseTxt + '</span></a></div>'));
+            $('.fancybox-outer').append($('<div class="multishipping_close_container"><a id="multishipping-close" class="btn btn-default" href="#"><span>' + CloseTxt + '</span></a></div>'));
             $(document).on('click', '#multishipping-close', function(e) {
               var newTotalQty = 0;
               $('.fancybox-inner .cart_quantity_input').each(function() {
