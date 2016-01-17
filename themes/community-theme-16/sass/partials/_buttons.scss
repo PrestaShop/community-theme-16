@@ -1,3 +1,5 @@
+$button-text-color: #fff;
+
 //buttons
 input.button_mini,
 input.button_small,
@@ -118,7 +120,7 @@ span.exclusive {
   font-size: 13px;
   line-height: 17px;
   color: $button-text-color;
-  background: $button-small-bg;
+  background: #6f6f6f;
   border: 1px solid;
   border-color: #666666 #5f5f5f #292929 #5f5f5f;
   padding: 0;
@@ -137,7 +139,7 @@ span.exclusive {
       }
     }
     &:hover {
-      background: $button-small-hover-bg;
+      background: #575757;
       border-color: #303030 #303030 #666666 #444444;
     }
   }
@@ -254,7 +256,7 @@ span.exclusive {
   font-size: 17px;
   padding: 0;
   line-height: 21px;
-  color: $button-em-color;
+  color: #333;
   font-weight: bold;
   border: 1px solid;
   border-color: #cacaca #b7b7b7 #9a9a9a #b7b7b7;
