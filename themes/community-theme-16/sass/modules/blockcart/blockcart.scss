@@ -190,21 +190,6 @@
       text-align: center;
       margin-bottom: 10px;
       margin-right: 10px;
-      &#button_order_cart {
-        margin-right: 0;
-        border: none;
-        span {
-          padding: 7px 0;
-          font-size: 1.1em;
-          border: solid 1px lighten(#43b155,10%);
-          background: #43b155;
-        }
-        &:hover span {
-          border: solid 1px darken(#43b155,10%);
-          background: darken(#43b155,15%);
-          color: $light-text-color;
-        }
-      }
     }
   }
 }
@@ -230,9 +215,6 @@
     }
     a {
       color: $light-text-color;
-      &:hover {
-        color: #9c9b9b;
-      }
     }
     .cart_block_list {
       .remove_link a,

@@ -55,10 +55,9 @@
       overflow: hidden;
     }
     .form-group {
+      padding-top: 4px;
       margin-bottom: 0;
       .form-control {
-        height: 45px;
-        max-width: 267px;
         background: #3c3c3c;
         border-color: #515151;
         color: $light-text-color;
@@ -67,26 +66,6 @@
         float: left;
         &:focus {
           @include box-shadow(black 0px 0px 0px);
-        }
-      }
-      .button-small {
-        margin-left: -43px;
-        border: none;
-        background: none;
-        text-align: center;
-        color: #908f8f;
-        padding: 8px;
-        &:before {
-          content: "\f138";
-          font-family: $font-icon;
-          font-size: 28px;
-          line-height: 28px;
-        }
-        &:hover {
-          color: $light-text-color !important;
-        }
-        span{
-          display: none;
         }
       }
     }
@@ -104,9 +83,6 @@
         left: 15px;
         clear: none;
       }
-    }
-    .newsletter-input {
-      max-width: 300px !important;
     }
   }
 }

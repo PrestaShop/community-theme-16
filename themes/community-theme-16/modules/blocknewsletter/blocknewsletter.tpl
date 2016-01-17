@@ -4,10 +4,14 @@
   <div class="block_content">
     <form action="{$link->getPageLink('index', null, null, null, false, null, true)|escape:'html':'UTF-8'}" method="post">
       <div class="form-group{if isset($msg) && $msg } {if $nw_error}form-error{else}form-ok{/if}{/if}" >
-        <input class="inputNew form-control newsletter-input" id="newsletter-input" type="text" name="email" size="18" value="{if isset($msg) && $msg}{$msg}{elseif isset($value) && $value}{$value}{else}{l s='Enter your e-mail' mod='blocknewsletter'}{/if}" />
-        <button type="submit" name="submitNewsletter" class="btn btn-primary">
-          <span>{l s='Ok' mod='blocknewsletter'}</span>
-        </button>
+        <div class="input-group">
+          <input class="inputNew form-control newsletter-input" id="newsletter-input" type="text" name="email" size="18" value="{if isset($msg) && $msg}{$msg}{elseif isset($value) && $value}{$value}{else}{l s='Enter your e-mail' mod='blocknewsletter'}{/if}" />
+          <span class="input-group-btn">
+            <button type="submit" name="submitNewsletter" class="btn btn-primary">
+              <i class="icon icon-chevron-right"></i>
+            </button>
+          </span>
+        </div>
         <input type="hidden" name="action" value="0" />
       </div>
     </form>

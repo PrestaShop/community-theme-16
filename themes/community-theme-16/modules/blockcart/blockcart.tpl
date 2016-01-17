@@ -167,9 +167,7 @@
             </div>
             <p class="cart-buttons">
               <a id="button_order_cart" class="btn btn-success" href="{$link->getPageLink("$order_process", true)|escape:"html":"UTF-8"}" title="{l s='Check out' mod='blockcart'}" rel="nofollow">
-              <span>
-                {l s='Check out' mod='blockcart'}<i class="icon-chevron-right right"></i>
-              </span>
+                {l s='Check out' mod='blockcart'} <i class="icon-angle-right"></i>
               </a>
             </p>
           </div>
