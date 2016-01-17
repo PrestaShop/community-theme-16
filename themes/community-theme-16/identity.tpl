@@ -169,7 +169,7 @@
           {$HOOK_CUSTOMER_IDENTITY_FORM}
         {/if}
         <div class="form-group">
-          <button type="submit" name="submitIdentity" class="btn btn-default button button-medium">
+          <button type="submit" name="submitIdentity" class="btn btn-lg btn-success">
             <span>{l s='Save'}<i class="icon-chevron-right right"></i></span>
           </button>
         </div>

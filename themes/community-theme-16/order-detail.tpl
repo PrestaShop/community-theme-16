@@ -5,7 +5,7 @@
         <input type="hidden" value="{$order->id}" name="id_order"/>
         <input type="hidden" value="" name="submitReorder"/>
 
-        <a href="#" onclick="$(this).closest('form').submit(); return false;" class="button btn btn-default button-medium pull-right"><span>{l s='Reorder'}<i class="icon-chevron-right right"></i></span></a>
+        <a href="#" onclick="$(this).closest('form').submit(); return false;" class="btn btn-lg btn-success pull-right"><span>{l s='Reorder'}<i class="icon-chevron-right right"></i></span></a>
       </form>
     {/if}
     <p>
@@ -436,7 +436,7 @@
       <div class="submit">
         <input type="hidden" name="id_order" value="{$order->id|intval}" />
         <input type="submit" class="unvisible" name="submitMessage" value="{l s='Send'}"/>
-        <button type="submit" name="submitMessage" class="button btn btn-default button-medium"><span>{l s='Send'}<i class="icon-chevron-right right"></i></span></button>
+        <button type="submit" name="submitMessage" class="btn btn-lg btn-success"><span>{l s='Send'}<i class="icon-chevron-right right"></i></span></button>
       </div>
     </form>
   {else}

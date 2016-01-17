@@ -20,7 +20,7 @@
         <a href="{$link->getPageLink('password', true)|escape:'html':'UTF-8'}" class="lost_password">{l s='Forgot your password?'}</a>
         <p class="submit">
           {if isset($back)}<input type="hidden" class="hidden" name="back" value="{$back|escape:'html':'UTF-8'}" />{/if}
-          <button type="submit" id="SubmitLogin" name="SubmitLogin" class="button btn btn-default button-medium"><span><i class="icon-lock left"></i>{l s='Sign in'}</span></button>
+          <button type="submit" id="SubmitLogin" name="SubmitLogin" class="btn btn-lg btn-success"><span><i class="icon-lock left"></i>{l s='Sign in'}</span></button>
         </p>
       </div>
     </fieldset>
@@ -389,7 +389,7 @@
             <p class="required opc-required pull-right">
               <sup>*</sup>{l s='Required field'}
             </p>
-            <button type="submit" name="submitAccount" id="submitAccount" class="btn btn-default button button-medium"><span>{l s='Save'}<i class="icon-chevron-right right"></i></span></button>
+            <button type="submit" name="submitAccount" id="submitAccount" class="btn btn-lg btn-success"><span>{l s='Save'}<i class="icon-chevron-right right"></i></span></button>
 
           </div>
           <div style="display: none;" id="opc_account_saved" class="alert alert-success">

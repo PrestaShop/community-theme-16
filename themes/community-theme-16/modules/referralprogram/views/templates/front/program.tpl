@@ -97,7 +97,7 @@
           <a href="{$link->getModuleLink('referralprogram', 'email', ['height' => '500', 'width' => '600', 'mail' => {$file}], true)|escape:'html':'UTF-8'}" class="thickbox" title="{l s='Invitation e-mail' mod='referralprogram'}" rel="nofollow">{l s='the default e-mail' mod='referralprogram'}</a> {l s='that will be sent to your friend(s).' mod='referralprogram'}
         </p>
         <p class="submit">
-          <button type="submit" id="submitSponsorFriends" name="submitSponsorFriends" class="btn btn-default button button-medium"><span>{l s='Validate' mod='referralprogram'}<i class="icon-chevron-right right"></i></span></button>
+          <button type="submit" id="submitSponsorFriends" name="submitSponsorFriends" class="btn btn-lg btn-success"><span>{l s='Validate' mod='referralprogram'}<i class="icon-chevron-right right"></i></span></button>
         </p>
       </form>
     {else}

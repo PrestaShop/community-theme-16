@@ -50,7 +50,7 @@
           <p class="lost_password form-group"><a href="{$link->getPageLink('password')|escape:'html':'UTF-8'}" title="{l s='Recover your forgotten password'}" rel="nofollow">{l s='Forgot your password?'}</a></p>
           <p class="submit">
             {if isset($back)}<input type="hidden" class="hidden" name="back" value="{$back|escape:'html':'UTF-8'}" />{/if}
-            <button type="submit" id="SubmitLogin" name="SubmitLogin" class="button btn btn-default button-medium">
+            <button type="submit" id="SubmitLogin" name="SubmitLogin" class="btn btn-lg btn-success">
               <span>
                 <i class="icon-lock left"></i>
                 {l s='Sign in'}
@@ -366,7 +366,7 @@
       <p class="cart_navigation required submit clearfix">
         <span><sup>*</sup>{l s='Required field'}</span>
         <input type="hidden" name="display_guest_checkout" value="1" />
-        <button type="submit" class="button btn btn-default button-medium" name="submitGuestAccount" id="submitGuestAccount">
+        <button type="submit" class="btn btn-lg btn-success" name="submitGuestAccount" id="submitGuestAccount">
           <span>
             {l s='Proceed to checkout'}
             <i class="icon-chevron-right right"></i>
@@ -618,7 +618,7 @@
       <input type="hidden" name="email_create" value="1" />
       <input type="hidden" name="is_new_customer" value="1" />
       {if isset($back)}<input type="hidden" class="hidden" name="back" value="{$back|escape:'html':'UTF-8'}" />{/if}
-      <button type="submit" name="submitAccount" id="submitAccount" class="btn btn-default button button-medium">
+      <button type="submit" name="submitAccount" id="submitAccount" class="btn btn-lg btn-success">
         <span>{l s='Register'}<i class="icon-chevron-right right"></i></span>
       </button>
       <p class="pull-right required"><span><sup>*</sup>{l s='Required field'}</span></p>
