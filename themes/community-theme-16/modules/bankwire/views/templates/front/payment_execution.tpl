@@ -57,7 +57,7 @@
       </p>
     </div><!-- .cheque-box -->
     <p class="cart_navigation clearfix" id="cart_navigation">
-      <a class="button-exclusive btn btn-default" href="{$link->getPageLink('order', true, NULL, "step=3")|escape:'html':'UTF-8'}">
+      <a class="btn btn-lg btn-default" href="{$link->getPageLink('order', true, NULL, "step=3")|escape:'html':'UTF-8'}">
         <i class="icon-chevron-left"></i>{l s='Other payment methods' mod='bankwire'}
       </a>
       <button class="btn btn-lg btn-success pull-right" type="submit">
