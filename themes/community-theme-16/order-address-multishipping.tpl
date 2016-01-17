@@ -51,9 +51,9 @@
       <input type="hidden" class="hidden" name="step" value="2" />
       <input type="hidden" name="back" value="{$back}" />
       {if $back}
-        <a href="{$link->getPageLink('order', true, NULL, "back={$back}")|escape:'html':'UTF-8'}" title="{l s='Previous'}" class="button-exclusive btn btn-default"><i class="icon-chevron-left"></i>{l s='Continue Shopping'}</a>
+        <a href="{$link->getPageLink('order', true, NULL, "back={$back}")|escape:'html':'UTF-8'}" title="{l s='Previous'}" class="btn btn-lg btn-default"><i class="icon-chevron-left"></i>{l s='Continue Shopping'}</a>
       {else}
-        <a href="{$link->getPageLink('order', true, NULL)|escape:'html':'UTF-8'}" title="{l s='Previous'}" class="button-exclusive btn btn-default"><i class="icon-chevron-left"></i>{l s='Continue Shopping'}</a>
+        <a href="{$link->getPageLink('order', true, NULL)|escape:'html':'UTF-8'}" title="{l s='Previous'}" class="btn btn-lg btn-default"><i class="icon-chevron-left"></i>{l s='Continue Shopping'}</a>
       {/if}
       <button type="submit" name="processAddress" class="btn btn-lg btn-success"><span>{l s='Proceed to checkout'}<i class="icon-chevron-right right"></i></span></button>
     </p>

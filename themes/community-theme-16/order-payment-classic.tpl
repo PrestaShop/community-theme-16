@@ -283,7 +283,7 @@
   {/if}
   {if !$opc}
   <p class="cart_navigation clearfix">
-    <a href="{$link->getPageLink('order', true, NULL, "step=2")|escape:'html':'UTF-8'}" title="{l s='Previous'}" class="button-exclusive btn btn-default">
+    <a href="{$link->getPageLink('order', true, NULL, "step=2")|escape:'html':'UTF-8'}" title="{l s='Previous'}" class="btn btn-lg btn-default">
       <i class="icon-chevron-left"></i>
       {l s='Continue shopping'}
     </a>
