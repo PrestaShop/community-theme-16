@@ -15,28 +15,7 @@ $button-text-color: #fff;
 
 .btn.button-plus,
 .btn.button-minus {
-  font-size: 14px;
-  line-height: 14px;
-  padding: 0;
-  border: 1px solid;
-  border-color: #dedcdc #c1bfbf #b5b4b4 #dad8d8;
-  @include border-radius(0);
-  span {
-    display: block;
-    border: 1px solid $light-border-color;
-    vertical-align: middle;
-    width: 25px;
-    height: 25px;
-    text-align: center;
-    padding: 4px 0 0 0;
-    background: rgb(255, 255, 255);
-    @include gradient-vertical(rgba(255, 255, 255, 1), rgba(251, 251, 251, 1));
-  }
-  &:hover {
-    color: $base-text-color;
-    span {
-      filter: none;
-      background: #f6f6f6;
-    }
-  }
+  width: 27px;
+  text-align: center;
+  padding: 2px;
 }
