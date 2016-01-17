@@ -101,7 +101,7 @@
                     {/if}
                   </p>
                   {if isset($supplier.nb_products) && $supplier.nb_products > 0}
-                    <a class="btn btn-default button exclusive-medium" href="{$link->getsupplierLink($supplier.id_supplier, $supplier.link_rewrite)|escape:'html':'UTF-8'}"><span>{l s='View products'} <i class="icon-chevron-right right"></i></span></a>
+                    <a class="btn btn-lg btn-default" href="{$link->getsupplierLink($supplier.id_supplier, $supplier.link_rewrite)|escape:'html':'UTF-8'}"><span>{l s='View products'} <i class="icon-chevron-right right"></i></span></a>
                   {/if}
                 </div>
               </div><!-- .right-side -->

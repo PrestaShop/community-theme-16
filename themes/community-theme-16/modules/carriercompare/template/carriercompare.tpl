@@ -46,10 +46,10 @@
         {l s='No carrier has been made available for this selection.' mod='carriercompare'}
       </p>
       <p class="SE_SubmitRefreshCard">
-        <button class="btn btn-default button button-small" id="carriercompare_submit" type="button" name="carriercompare_submit">
+        <button class="btn btn-default" id="carriercompare_submit" type="button" name="carriercompare_submit">
           <span>{l s='Update cart' mod='carriercompare'}<i class="icon-chevron-right right"></i></span>
         </button>
-        <button id="update_carriers_list" type="button" class="btn btn-default button button-small">
+        <button id="update_carriers_list" type="button" class="btn btn-default">
           <span>{l s='Update carrier list' mod='carriercompare'}<i class="icon-chevron-right right"></i></span>
         </button>
       </p>

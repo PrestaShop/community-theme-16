@@ -113,7 +113,7 @@
                       </span>
                     {/if}
                     <a
-                      class="button lnk_view btn btn-default"
+                      class="btn btn-default"
                       href="{$link->getProductLink($product.id_product,  $product.link_rewrite, $product.category_rewrite)|escape:'html':'UTF-8'}"
                       title="{l s='View' mod='blockwishlist'}"
                       rel="nofollow">

@@ -53,7 +53,7 @@
       </ul>
       <div>
         <a
-          class="btn btn-default button button-small"
+          class="btn btn-primary"
           href="{$link->getPageLink('prices-drop')|escape:'html':'UTF-8'}"
           title="{l s='All specials' mod='blockspecials'}">
           <span>{l s='All specials' mod='blockspecials'}<i class="icon-chevron-right right"></i></span>

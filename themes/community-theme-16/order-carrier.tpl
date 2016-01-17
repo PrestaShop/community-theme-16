@@ -351,24 +351,24 @@
     <input type="hidden" name="back" value="{$back}" />
     {if !$is_guest}
       {if $back}
-        <a href="{$link->getPageLink('order', true, NULL, "step=1&back={$back}{if $multi_shipping}&multi-shipping={$multi_shipping}{/if}")|escape:'html':'UTF-8'}" title="{l s='Previous'}" class="button-exclusive btn btn-default">
+        <a href="{$link->getPageLink('order', true, NULL, "step=1&back={$back}{if $multi_shipping}&multi-shipping={$multi_shipping}{/if}")|escape:'html':'UTF-8'}" title="{l s='Previous'}" class="btn btn-lg btn-default">
           <i class="icon-chevron-left"></i>
           {l s='Continue shopping'}
         </a>
       {else}
-        <a href="{$link->getPageLink('order', true, NULL, "step=1{if $multi_shipping}&multi-shipping={$multi_shipping}{/if}")|escape:'html':'UTF-8'}" title="{l s='Previous'}" class="button-exclusive btn btn-default">
+        <a href="{$link->getPageLink('order', true, NULL, "step=1{if $multi_shipping}&multi-shipping={$multi_shipping}{/if}")|escape:'html':'UTF-8'}" title="{l s='Previous'}" class="btn btn-lg btn-default">
           <i class="icon-chevron-left"></i>
           {l s='Continue shopping'}
         </a>
       {/if}
     {else}
-      <a href="{$link->getPageLink('order', true, NULL, "{if $multi_shipping}multi-shipping={$multi_shipping}{/if}")|escape:'html':'UTF-8'}" title="{l s='Previous'}" class="button-exclusive btn btn-default">
+      <a href="{$link->getPageLink('order', true, NULL, "{if $multi_shipping}multi-shipping={$multi_shipping}{/if}")|escape:'html':'UTF-8'}" title="{l s='Previous'}" class="btn btn-lg btn-default">
         <i class="icon-chevron-left"></i>
         {l s='Continue shopping'}
       </a>
     {/if}
     {if isset($virtual_cart) && $virtual_cart || (isset($delivery_option_list) && !empty($delivery_option_list))}
-      <button type="submit" name="processCarrier" class="button btn btn-default standard-checkout button-medium">
+      <button type="submit" name="processCarrier" class="btn btn-lg btn-success pull-right standard-checkout">
         <span>
           {l s='Proceed to checkout'}
           <i class="icon-chevron-right right"></i>

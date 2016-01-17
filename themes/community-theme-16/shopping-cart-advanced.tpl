@@ -58,7 +58,7 @@
                   <h4>{l s='Vouchers'}</h4>
                   <input type="text" class="discount_name form-control" id="discount_name" name="discount_name" value="{if isset($discount_name) && $discount_name}{$discount_name}{/if}" />
                   <input type="hidden" name="submitDiscount" />
-                  <button type="submit" name="submitAddDiscount" class="button btn btn-default button-small"><span>{l s='OK'}</span></button>
+                  <button type="submit" name="submitAddDiscount" class="btn btn-primary"><span>{l s='OK'}</span></button>
                 </fieldset>
               </form>
               {if $displayVouchers}
@@ -83,7 +83,7 @@
                   <h4>{l s='Vouchers'}</h4>
                   <input type="text" class="discount_name form-control" id="discount_name" name="discount_name" value="{if isset($discount_name) && $discount_name}{$discount_name}{/if}" />
                   <input type="hidden" name="submitDiscount" />
-                  <button type="submit" name="submitAddDiscount" class="button btn btn-default button-small"><span>{l s='OK'}</span></button>
+                  <button type="submit" name="submitAddDiscount" class="btn btn-primary"><span>{l s='OK'}</span></button>
                 </fieldset>
               </form>
               {if $displayVouchers}
@@ -109,7 +109,7 @@
                 <h4>{l s='Vouchers'}</h4>
                 <input type="text" class="discount_name form-control" id="discount_name" name="discount_name" value="{if isset($discount_name) && $discount_name}{$discount_name}{/if}" />
                 <input type="hidden" name="submitDiscount" />
-                <button type="submit" name="submitAddDiscount" class="button btn btn-default button-small">
+                <button type="submit" name="submitAddDiscount" class="btn btn-primary">
                   <span>{l s='OK'}</span>
                 </button>
               </fieldset>
@@ -341,9 +341,9 @@
   {else}
     {assign var='back_link' value=$link->getPageLink('order', true, NULL, "step=2")}
   {/if}
-  <a href="{$back_link|escape:'html':'UTF-8'}" title="{l s='Previous'}" class="button-exclusive btn btn-default">
+  <a href="{$back_link|escape:'html':'UTF-8'}" title="{l s='Previous'}" class="btn btn-lg btn-default">
     <i class="icon-chevron-left"></i>
     {l s='Continue shopping'}
   </a>
-  <button data-show-if-js="" style="" id="confirmOrder" type="button" class="button btn btn-default standard-checkout button-medium"><span>{l s='Order With Obligation To Pay'}</span></button>
+  <button data-show-if-js="" style="" id="confirmOrder" type="button" class="btn btn-lg btn-success pull-right standard-checkout"><span>{l s='Order With Obligation To Pay'}</span></button>
 </p>

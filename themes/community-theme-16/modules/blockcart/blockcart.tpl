@@ -26,7 +26,7 @@
       {/if}
     </a>
     {if !$PS_CATALOG_MODE}
-      <div class="cart_block block exclusive">
+      <div class="cart_block block">
         <div class="block_content">
           <!-- block list of products -->
           <div class="cart_block_list{if isset($blockcart_top) && !$blockcart_top}{if isset($colapseExpandStatus) && $colapseExpandStatus eq 'expanded' || !$ajax_allowed || !isset($colapseExpandStatus)} expanded{else} collapsed unvisible{/if}{/if}">
@@ -166,7 +166,7 @@
               {/if}
             </div>
             <p class="cart-buttons">
-              <a id="button_order_cart" class="btn btn-default button button-small" href="{$link->getPageLink("$order_process", true)|escape:"html":"UTF-8"}" title="{l s='Check out' mod='blockcart'}" rel="nofollow">
+              <a id="button_order_cart" class="btn btn-success" href="{$link->getPageLink("$order_process", true)|escape:"html":"UTF-8"}" title="{l s='Check out' mod='blockcart'}" rel="nofollow">
               <span>
                 {l s='Check out' mod='blockcart'}<i class="icon-chevron-right right"></i>
               </span>
@@ -294,12 +294,12 @@
           </span>
         </div>
         <div class="button-container">
-          <span class="continue btn btn-default button exclusive-medium" title="{l s='Continue shopping' mod='blockcart'}">
+          <span class="btn btn-lg btn-default continue" title="{l s='Continue shopping' mod='blockcart'}">
             <span>
                 <i class="icon-chevron-left left"></i>{l s='Continue shopping' mod='blockcart'}
             </span>
           </span>
-          <a class="btn btn-default button button-medium" href="{$link->getPageLink("$order_process", true)|escape:"html":"UTF-8"}" title="{l s='Proceed to checkout' mod='blockcart'}" rel="nofollow">
+          <a class="btn btn-lg btn-success" href="{$link->getPageLink("$order_process", true)|escape:"html":"UTF-8"}" title="{l s='Proceed to checkout' mod='blockcart'}" rel="nofollow">
             <span>
               {l s='Proceed to checkout' mod='blockcart'}<i class="icon-chevron-right right"></i>
             </span>

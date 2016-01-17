@@ -106,7 +106,7 @@
                     <h4>{l s='Vouchers'}</h4>
                     <input type="text" class="discount_name form-control" id="discount_name" name="discount_name" value="{if isset($discount_name) && $discount_name}{$discount_name}{/if}" />
                     <input type="hidden" name="submitDiscount" />
-                    <button type="submit" name="submitAddDiscount" class="button btn btn-default button-small"><span>{l s='OK'}</span></button>
+                    <button type="submit" name="submitAddDiscount" class="btn btn-primary"><span>{l s='OK'}</span></button>
                   </fieldset>
                 </form>
                 {if $displayVouchers}
@@ -131,7 +131,7 @@
                     <h4>{l s='Vouchers'}</h4>
                     <input type="text" class="discount_name form-control" id="discount_name" name="discount_name" value="{if isset($discount_name) && $discount_name}{$discount_name}{/if}" />
                     <input type="hidden" name="submitDiscount" />
-                    <button type="submit" name="submitAddDiscount" class="button btn btn-default button-small"><span>{l s='OK'}</span></button>
+                    <button type="submit" name="submitAddDiscount" class="btn btn-primary"><span>{l s='OK'}</span></button>
                   </fieldset>
                 </form>
                 {if $displayVouchers}
@@ -157,7 +157,7 @@
                   <h4>{l s='Vouchers'}</h4>
                   <input type="text" class="discount_name form-control" id="discount_name" name="discount_name" value="{if isset($discount_name) && $discount_name}{$discount_name}{/if}" />
                   <input type="hidden" name="submitDiscount" />
-                  <button type="submit" name="submitAddDiscount" class="button btn btn-default button-small">
+                  <button type="submit" name="submitAddDiscount" class="btn btn-primary">
                     <span>{l s='OK'}</span>
                   </button>
                 </fieldset>
@@ -520,11 +520,11 @@
   <div id="HOOK_SHOPPING_CART">{$HOOK_SHOPPING_CART}</div>
   <p class="cart_navigation clearfix">
     {if !$opc}
-      <a  href="{if $back}{$link->getPageLink('order', true, NULL, 'step=1&amp;back={$back}')|escape:'html':'UTF-8'}{else}{$link->getPageLink('order', true, NULL, 'step=1')|escape:'html':'UTF-8'}{/if}" class="button btn btn-default standard-checkout button-medium" title="{l s='Proceed to checkout'}">
+      <a  href="{if $back}{$link->getPageLink('order', true, NULL, 'step=1&amp;back={$back}')|escape:'html':'UTF-8'}{else}{$link->getPageLink('order', true, NULL, 'step=1')|escape:'html':'UTF-8'}{/if}" class="btn btn-lg btn-success pull-right standard-checkout" title="{l s='Proceed to checkout'}">
         <span>{l s='Proceed to checkout'}<i class="icon-chevron-right right"></i></span>
       </a>
     {/if}
-    <a href="{if (isset($smarty.server.HTTP_REFERER) && ($smarty.server.HTTP_REFERER == $link->getPageLink('order', true) || $smarty.server.HTTP_REFERER == $link->getPageLink('order-opc', true) || strstr($smarty.server.HTTP_REFERER, 'step='))) || !isset($smarty.server.HTTP_REFERER)}{$link->getPageLink('index')}{else}{$smarty.server.HTTP_REFERER|escape:'html':'UTF-8'|secureReferrer}{/if}" class="button-exclusive btn btn-default" title="{l s='Continue shopping'}">
+    <a href="{if (isset($smarty.server.HTTP_REFERER) && ($smarty.server.HTTP_REFERER == $link->getPageLink('order', true) || $smarty.server.HTTP_REFERER == $link->getPageLink('order-opc', true) || strstr($smarty.server.HTTP_REFERER, 'step='))) || !isset($smarty.server.HTTP_REFERER)}{$link->getPageLink('index')}{else}{$smarty.server.HTTP_REFERER|escape:'html':'UTF-8'|secureReferrer}{/if}" class="btn btn-lg btn-default" title="{l s='Continue shopping'}">
       <i class="icon-chevron-left"></i>{l s='Continue shopping'}
     </a>
   </p>

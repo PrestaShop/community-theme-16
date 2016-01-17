@@ -138,7 +138,7 @@
                           <h4>{l s='Vouchers'}</h4>
                           <input type="text" id="discount_name" class="form-control" name="discount_name" value="{if isset($discount_name) && $discount_name}{$discount_name}{/if}" />
                           <input type="hidden" name="submitDiscount" />
-                          <button type="submit" name="submitAddDiscount" class="button btn btn-default button-small"><span>{l s='ok'}</span></button>
+                          <button type="submit" name="submitAddDiscount" class="btn btn-primary"><span>{l s='ok'}</span></button>
                           {if $displayVouchers}
                             <p id="title" class="title_offers">{l s='Take advantage of our offers:'}</p>
                             <div id="display_cart_vouchers">
@@ -283,7 +283,7 @@
   {/if}
   {if !$opc}
   <p class="cart_navigation clearfix">
-    <a href="{$link->getPageLink('order', true, NULL, "step=2")|escape:'html':'UTF-8'}" title="{l s='Previous'}" class="button-exclusive btn btn-default">
+    <a href="{$link->getPageLink('order', true, NULL, "step=2")|escape:'html':'UTF-8'}" title="{l s='Previous'}" class="btn btn-lg btn-default">
       <i class="icon-chevron-left"></i>
       {l s='Continue shopping'}
     </a>

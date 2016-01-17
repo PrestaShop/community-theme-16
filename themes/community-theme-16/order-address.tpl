@@ -45,7 +45,7 @@
           {/section}
           </select><span class="waitimage"></span>
         {else}
-           <a href="{$link->getPageLink('address', true, NULL, "back={$back_order_page}?step=1&select_address=1{if $back}&mod={$back}{/if}")|escape:'html':'UTF-8'}" title="{l s='Add'}" class="button button-small btn btn-default">
+           <a href="{$link->getPageLink('address', true, NULL, "back={$back_order_page}?step=1&select_address=1{if $back}&mod={$back}{/if}")|escape:'html':'UTF-8'}" title="{l s='Add'}" class="btn btn-success">
              <span>
                {l s='Add a new address'}
                <i class="icon-chevron-right right"></i>
@@ -66,7 +66,7 @@
     </div>
   </div> <!-- end row -->
   <p class="address_add submit">
-    <a href="{$link->getPageLink('address', true, NULL, "back={$back_order_page}?step=1{if $back}&mod={$back}{/if}")|escape:'html':'UTF-8'}" title="{l s='Add'}" class="button button-small btn btn-default">
+    <a href="{$link->getPageLink('address', true, NULL, "back={$back_order_page}?step=1{if $back}&mod={$back}{/if}")|escape:'html':'UTF-8'}" title="{l s='Add'}" class="btn btn-success">
       <span>{l s='Add a new address'}<i class="icon-chevron-right right"></i></span>
     </a>
   </p>
@@ -81,11 +81,11 @@
     <p class="cart_navigation clearfix">
       <input type="hidden" class="hidden" name="step" value="2" />
       <input type="hidden" name="back" value="{$back}" />
-      <a href="{$link->getPageLink($back_order_page, true, NULL, "{if $back}back={$back}{/if}")|escape:'html':'UTF-8'}" title="{l s='Previous'}" class="button-exclusive btn btn-default">
+      <a href="{$link->getPageLink($back_order_page, true, NULL, "{if $back}back={$back}{/if}")|escape:'html':'UTF-8'}" title="{l s='Previous'}" class="btn btn-lg btn-default">
         <i class="icon-chevron-left"></i>
         {l s='Continue Shopping'}
       </a>
-      <button type="submit" name="processAddress" class="button btn btn-default button-medium">
+      <button type="submit" name="processAddress" class="btn btn-lg btn-success pull-right">
         <span>{l s='Proceed to checkout'}<i class="icon-chevron-right right"></i></span>
       </button>
     </p>
@@ -113,6 +113,6 @@
   {addJsDefL name=titleInvoice}{$smarty.capture.default|@addcslashes:'\''}{/addJsDefL}
   {capture}<h3 class="page-subheading">{l s='Your delivery address' js=1}</h3>{/capture}
   {addJsDefL name=titleDelivery}{$smarty.capture.default|@addcslashes:'\''}{/addJsDefL}
-  {capture}<a class="button button-small btn btn-default" href="{$smarty.capture.addressUrlAdd}" title="{l s='Update' js=1}"><span>{l s='Update' js=1}<i class="icon-chevron-right right"></i></span></a>{/capture}
+  {capture}<a class="btn btn-success" href="{$smarty.capture.addressUrlAdd}" title="{l s='Update' js=1}"><span>{l s='Update' js=1}<i class="icon-chevron-right right"></i></span></a>{/capture}
   {addJsDefL name=liUpdate}{$smarty.capture.default|@addcslashes:'\''}{/addJsDefL}
 {/strip}

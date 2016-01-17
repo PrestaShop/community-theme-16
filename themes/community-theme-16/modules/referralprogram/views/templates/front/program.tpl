@@ -97,7 +97,7 @@
           <a href="{$link->getModuleLink('referralprogram', 'email', ['height' => '500', 'width' => '600', 'mail' => {$file}], true)|escape:'html':'UTF-8'}" class="thickbox" title="{l s='Invitation e-mail' mod='referralprogram'}" rel="nofollow">{l s='the default e-mail' mod='referralprogram'}</a> {l s='that will be sent to your friend(s).' mod='referralprogram'}
         </p>
         <p class="submit">
-          <button type="submit" id="submitSponsorFriends" name="submitSponsorFriends" class="btn btn-default button button-medium"><span>{l s='Validate' mod='referralprogram'}<i class="icon-chevron-right right"></i></span></button>
+          <button type="submit" id="submitSponsorFriends" name="submitSponsorFriends" class="btn btn-lg btn-success"><span>{l s='Validate' mod='referralprogram'}<i class="icon-chevron-right right"></i></span></button>
         </p>
       </form>
     {else}
@@ -140,7 +140,7 @@
           </tbody>
         </table>
         <p class="submit">
-          <button type="submit" name="revive" id="revive" class="button_large btn btn-default">{l s='Remind my friend(s)' mod='referralprogram'}</button>
+          <button type="submit" name="revive" id="revive" class="btn btn-primary">{l s='Remind my friend(s)' mod='referralprogram'}</button>
         </p>
       </form>
     {else}
@@ -191,10 +191,10 @@
 
 <ul class="footer_links clearfix">
   <li>
-    <a class="btn btn-default button button-small" href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}" title="{l s='Back to Your Account' mod='referralprogram'}" rel="nofollow">
+    <a class="btn btn-default" href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}" title="{l s='Back to Your Account' mod='referralprogram'}" rel="nofollow">
       <span><i class="icon-chevron-left"></i> {l s='Back to Your Account' mod='referralprogram'}</span></a>
   </li>
-  <li><a class="btn btn-default button button-small" href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}" title="{l s='Home' mod='referralprogram'}"><span><i class="icon-chevron-left"></i>{l s='Home' mod='referralprogram'}</span></a></li>
+  <li><a class="btn btn-default" href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}" title="{l s='Home' mod='referralprogram'}"><span><i class="icon-chevron-left"></i>{l s='Home' mod='referralprogram'}</span></a></li>
 </ul>
 {addJsDefL name=ThickboxI18nClose}{l s='Close' mod='referralprogram' js=1}{/addJsDefL}
 {addJsDefL name=ThickboxI18nOrEscKey}{l s='or Esc key' mod='referralprogram' js=1}{/addJsDefL}

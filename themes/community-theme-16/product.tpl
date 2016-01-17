@@ -22,10 +22,10 @@
         <div id="admin-action" class="container">
           <p class="alert alert-info">{l s='This product is not visible to your customers.'}
             <input type="hidden" id="admin-action-product-id" value="{$product->id}" />
-            <a id="publish_button" class="btn btn-default button button-small" href="#">
+            <a id="publish_button" class="btn btn-success" href="#">
               <span>{l s='Publish'}</span>
             </a>
-            <a id="lnk_view" class="btn btn-default button button-small" href="#">
+            <a id="lnk_view" class="btn btn-warning" href="#">
               <span>{l s='Back'}</span>
             </a>
           </p>
@@ -159,7 +159,7 @@
 
             {if $product->description}
               <p class="buttons_bottom_block">
-                <a href="javascript:{ldelim}{rdelim}" class="button">
+                <a href="javascript:{ldelim}{rdelim}" class="btn btn-xs btn-default">
                   {l s='More details'}
                 </a>
               </p>
@@ -509,7 +509,7 @@
                       <div class="clearfix" style="margin-top:5px">
                         {if !$PS_CATALOG_MODE && ($accessory.allow_oosp || $accessory.quantity > 0) && isset($add_prod_display) && $add_prod_display == 1}
                           <div class="no-print">
-                            <a class="exclusive button ajax_add_to_cart_button" href="{$link->getPageLink('cart', true, NULL, "qty=1&amp;id_product={$accessory.id_product|intval}&amp;token={$static_token}&amp;add")|escape:'html':'UTF-8'}" data-id-product="{$accessory.id_product|intval}" title="{l s='Add to cart'}">
+                            <a class="button ajax_add_to_cart_button" href="{$link->getPageLink('cart', true, NULL, "qty=1&amp;id_product={$accessory.id_product|intval}&amp;token={$static_token}&amp;add")|escape:'html':'UTF-8'}" data-id-product="{$accessory.id_product|intval}" title="{l s='Add to cart'}">
                               <span>{l s='Add to cart'}</span>
                             </a>
                           </div>
@@ -623,7 +623,7 @@
               <p id="customizedDatas">
                 <input type="hidden" name="quantityBackup" id="quantityBackup" value="" />
                 <input type="hidden" name="submitCustomizedDatas" value="1" />
-                <button class="button btn btn-default button button-small" name="saveCustomization">
+                <button class="btn btn-success" name="saveCustomization">
                   <span>{l s='Save'}</span>
                 </button>
                 <span id="ajax-loader" class="unvisible">

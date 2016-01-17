@@ -173,7 +173,7 @@
       {if isset($mod)}<input type="hidden" name="mod" value="{$mod}" />{/if}
       {if isset($select_address)}<input type="hidden" name="select_address" value="{$select_address|intval}" />{/if}
       <input type="hidden" name="token" value="{$token}" />
-      <button type="submit" name="submitAddress" id="submitAddress" class="btn btn-default button button-medium">
+      <button type="submit" name="submitAddress" id="submitAddress" class="btn btn-lg btn-success">
         <span>
           {l s='Save'}
           <i class="icon-chevron-right right"></i>
@@ -184,7 +184,7 @@
 </div>
 <ul class="footer_links clearfix">
   <li>
-    <a class="btn btn-default button button-small" href="{$link->getPageLink('addresses', true)|escape:'html':'UTF-8'}">
+    <a class="btn btn-default" href="{$link->getPageLink('addresses', true)|escape:'html':'UTF-8'}">
       <span><i class="icon-chevron-left"></i> {l s='Back to your addresses'}</span>
     </a>
   </li>

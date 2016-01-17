@@ -169,7 +169,7 @@
           {$HOOK_CUSTOMER_IDENTITY_FORM}
         {/if}
         <div class="form-group">
-          <button type="submit" name="submitIdentity" class="btn btn-default button button-medium">
+          <button type="submit" name="submitIdentity" class="btn btn-lg btn-success">
             <span>{l s='Save'}<i class="icon-chevron-right right"></i></span>
           </button>
         </div>
@@ -179,14 +179,14 @@
 </div>
 <ul class="footer_links clearfix">
   <li>
-    <a class="btn btn-default button button-small" href="{$link->getPageLink('my-account', true)}">
+    <a class="btn btn-default" href="{$link->getPageLink('my-account', true)}">
       <span>
         <i class="icon-chevron-left"></i>{l s='Back to your account'}
       </span>
     </a>
   </li>
   <li>
-    <a class="btn btn-default button button-small" href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}">
+    <a class="btn btn-default" href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}">
       <span>
         <i class="icon-chevron-left"></i>{l s='Home'}
       </span>

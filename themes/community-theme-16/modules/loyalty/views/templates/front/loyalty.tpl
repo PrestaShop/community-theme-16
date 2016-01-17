@@ -78,7 +78,7 @@
     {if $orders|@count > 10}
       <form action="{$pagination_link}" method="get" class="pagination">
         <p>
-          <input type="submit" class="button_mini" value="{l s='OK'  mod='loyalty'}" />
+          <input type="submit" class="btn btn-xs btn-default" value="{l s='OK'  mod='loyalty'}" />
           <label for="nb_item">{l s='items:' mod='loyalty'}</label>
           <select name="n" id="nb_item">
             {foreach from=$nArray item=nValue}
@@ -165,9 +165,9 @@
 
 <ul class="footer_links clearfix">
   <li>
-    <a class="btn btn-default button button-small" href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}" title="{l s='Back to Your Account' mod='loyalty'}" rel="nofollow"><span><i class="icon-chevron-left"></i>{l s='Back to Your Account' mod='loyalty'}</span></a>
+    <a class="btn btn-default" href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}" title="{l s='Back to Your Account' mod='loyalty'}" rel="nofollow"><span><i class="icon-chevron-left"></i>{l s='Back to Your Account' mod='loyalty'}</span></a>
   </li>
   <li>
-    <a class="btn btn-default button button-small" href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}" title="{l s='Home' mod='loyalty'}"><span><i class="icon-chevron-left"></i>{l s='Home' mod='loyalty'}</span></a>
+    <a class="btn btn-default" href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}" title="{l s='Home' mod='loyalty'}"><span><i class="icon-chevron-left"></i>{l s='Home' mod='loyalty'}</span></a>
   </li>
 </ul>

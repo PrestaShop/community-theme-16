@@ -122,7 +122,7 @@
                       </span>
                     {/if}
                   {/if}
-                  <a class="button lnk_view btn btn-default" href="{$product->getLink()|escape:'html':'UTF-8'}" title="{l s='View'}">
+                  <a class="btn btn-default" href="{$product->getLink()|escape:'html':'UTF-8'}" title="{l s='View'}">
                     <span>{l s='View'}</span>
                   </a>
                 </div>

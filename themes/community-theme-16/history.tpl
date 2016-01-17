@@ -62,7 +62,7 @@
             {/if}
           </td>
           <td class="history_detail">
-            <a class="btn btn-default button button-small" href="javascript:showOrder(1, {$order.id_order|intval}, '{$link->getPageLink('order-detail', true, NULL, "id_order={$order.id_order|intval}")|escape:'html':'UTF-8'}');">
+            <a class="btn btn-default" href="javascript:showOrder(1, {$order.id_order|intval}, '{$link->getPageLink('order-detail', true, NULL, "id_order={$order.id_order|intval}")|escape:'html':'UTF-8'}');">
               <span>
                 {l s='Details'}<i class="icon-chevron-right right"></i>
               </span>
@@ -88,14 +88,14 @@
 </div>
 <ul class="footer_links clearfix">
   <li>
-    <a class="btn btn-default button button-small" href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}">
+    <a class="btn btn-default" href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}">
       <span>
         <i class="icon-chevron-left"></i> {l s='Back to Your Account'}
       </span>
     </a>
   </li>
   <li>
-    <a class="btn btn-default button button-small" href="{$base_dir}">
+    <a class="btn btn-default" href="{$base_dir}">
       <span><i class="icon-chevron-left"></i> {l s='Home'}</span>
     </a>
   </li>

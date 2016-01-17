@@ -30,7 +30,7 @@
       </p>
       <p class="submit">
       <div id="showSendWishlist">
-        <a class="btn btn-default button button-small" href="#" onclick="WishlistVisibility('wl_send', 'SendWishlist'); return false;" title="{l s='Send this wishlist' mod='blockwishlist'}">
+        <a class="btn btn-success" href="#" onclick="WishlistVisibility('wl_send', 'SendWishlist'); return false;" title="{l s='Send this wishlist' mod='blockwishlist'}">
           <span>{l s='Send this wishlist' mod='blockwishlist'}</span>
         </a>
       </div>
@@ -101,13 +101,13 @@
                   </p>
                 </div>
                 <div class="btn_action">
-                  <a class="btn btn-default button button-small"  href="javascript:;" onclick="WishlistProductManage('wlp_bought_{$product.id_product_attribute}', 'update', '{$id_wishlist}', '{$product.id_product}', '{$product.id_product_attribute}', $('#quantity_{$product.id_product}_{$product.id_product_attribute}').val(), $('#priority_{$product.id_product}_{$product.id_product_attribute}').val());" title="{l s='Save' mod='blockwishlist'}">
+                  <a class="btn btn-success"  href="javascript:;" onclick="WishlistProductManage('wlp_bought_{$product.id_product_attribute}', 'update', '{$id_wishlist}', '{$product.id_product}', '{$product.id_product_attribute}', $('#quantity_{$product.id_product}_{$product.id_product_attribute}').val(), $('#priority_{$product.id_product}_{$product.id_product_attribute}').val());" title="{l s='Save' mod='blockwishlist'}">
                     <span>{l s='Save' mod='blockwishlist'}</span>
                   </a>
                   {if $wishlists|count > 1}
                     {foreach name=wl from=$wishlists item=wishlist}
                       {if $smarty.foreach.wl.first}
-                        <a class="btn btn-default button button-small wishlist_change_button" tabindex="0" data-toggle="popover" data-trigger="focus" title="{l s='Move to a wishlist' mod='blockwishlist'}" data-placement="bottom">
+                        <a class="btn btn-default wishlist_change_button" tabindex="0" data-toggle="popover" data-trigger="focus" title="{l s='Move to a wishlist' mod='blockwishlist'}" data-placement="bottom">
                           <span>{l s='Move' mod='blockwishlist'}</span>
                         </a>
                         <div hidden class="popover-content">
@@ -154,7 +154,7 @@
           </div>
         {/section}
         <div class="submit">
-          <button class="btn btn-default button button-small" type="submit" name="submitWishlist"
+          <button class="btn btn-success" type="submit" name="submitWishlist"
                   onclick="WishlistSend('wl_send', '{$id_wishlist}', 'email');">
             <span>{l s='Send' mod='blockwishlist'}</span>
           </button>

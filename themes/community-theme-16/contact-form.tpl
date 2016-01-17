@@ -6,7 +6,7 @@
   <p class="alert alert-success">{l s='Your message has been successfully sent to our team.'}</p>
   <ul class="footer_links clearfix">
     <li>
-      <a class="btn btn-default button button-small" href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}">
+      <a class="btn btn-default" href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}">
         <span>
           <i class="icon-chevron-left"></i>{l s='Home'}
         </span>
@@ -17,7 +17,7 @@
   <p class="alert alert-warning">{l s='Your message has already been sent.'}</p>
   <ul class="footer_links clearfix">
     <li>
-      <a class="btn btn-default button button-small" href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}">
+      <a class="btn btn-default" href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}">
         <span>
           <i class="icon-chevron-left"></i>{l s='Home'}
         </span>
@@ -122,7 +122,7 @@
       </div>
       </div>
       <div class="submit">
-        <button type="submit" name="submitMessage" id="submitMessage" class="button btn btn-default button-medium"><span>{l s='Send'}<i class="icon-chevron-right right"></i></span></button>
+        <button type="submit" name="submitMessage" id="submitMessage" class="btn btn-lg btn-success"><span>{l s='Send'}<i class="icon-chevron-right right"></i></span></button>
       </div>
     </fieldset>
   </form>

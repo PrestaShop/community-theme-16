@@ -17,12 +17,12 @@
           <input class="form-control" type="email" id="email" name="email" value="{if isset($smarty.post.email)}{$smarty.post.email|escape:'html':'UTF-8'|stripslashes}{/if}" />
         </div>
         <p class="submit">
-          <button type="submit" class="btn btn-default button button-medium"><span>{l s='Retrieve Password'}<i class="icon-chevron-right right"></i></span></button>
+          <button type="submit" class="btn btn-lg btn-success"><span>{l s='Retrieve Password'}<i class="icon-chevron-right right"></i></span></button>
         </p>
       </fieldset>
     </form>
   {/if}
 </div>
 <ul class="clearfix footer_links">
-  <li><a class="btn btn-default button button-small" href="{$link->getPageLink('authentication')|escape:'html':'UTF-8'}" title="{l s='Back to Login'}" rel="nofollow"><span><i class="icon-chevron-left"></i>{l s='Back to Login'}</span></a></li>
+  <li><a class="btn btn-default" href="{$link->getPageLink('authentication')|escape:'html':'UTF-8'}" title="{l s='Back to Login'}" rel="nofollow"><span><i class="icon-chevron-left"></i>{l s='Back to Login'}</span></a></li>
 </ul>

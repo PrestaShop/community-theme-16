@@ -23,7 +23,7 @@
     </div>
 
     <div class="margin-form">
-      <input name="setGlobalConfiguration" type="submit" class="button" value="{l s='Submit' mod='carriercompare'}">
+      <input name="setGlobalConfiguration" type="submit" class="btn btn-success" value="{l s='Submit' mod='carriercompare'}">
     </div>
   </fieldset>
 </form>

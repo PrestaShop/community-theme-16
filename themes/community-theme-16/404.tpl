@@ -11,10 +11,10 @@
       <div>
         <label for="search_query">{l s='Search our product catalog:'}</label>
         <input id="search_query" name="search_query" type="text" class="form-control" />
-        <button type="submit" name="Submit" value="OK" class="btn btn-default button button-small"><span>{l s='Ok'}</span></button>
+        <button type="submit" name="Submit" value="OK" class="btn btn-primary"><span>{l s='Ok'}</span></button>
       </div>
     </fieldset>
   </form>
 
-  <div class="buttons"><a class="btn btn-default button button-medium" href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}" title="{l s='Home'}"><span><i class="icon-chevron-left left"></i>{l s='Home page'}</span></a></div>
+  <div class="buttons"><a class="btn btn-lg btn-success" href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}" title="{l s='Home'}"><span><i class="icon-chevron-left left"></i>{l s='Home page'}</span></a></div>
 </div>
