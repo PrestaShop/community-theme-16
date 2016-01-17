@@ -44,7 +44,7 @@
               <li>- {l s='Separate billing and shipping addresses'}</li>
             </ul>
             <p class="opc-button">
-              <button type="submit" class="btn btn-default button button-medium exclusive" id="opc_createAccount"><span><i class="icon-user left"></i>{l s='Create an account'}</span></button>
+              <button type="submit" class="btn btn-lg btn-warning" id="opc_createAccount"><span><i class="icon-user left"></i>{l s='Create an account'}</span></button>
             </p>
           </div>
         </div>
