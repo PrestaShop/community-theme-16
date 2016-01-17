@@ -24,7 +24,7 @@
           </div>
           <div class="submit">
             {if isset($back)}<input type="hidden" class="hidden" name="back" value="{$back|escape:'html':'UTF-8'}" />{/if}
-            <button class="btn btn-default button button-medium exclusive" type="submit" id="SubmitCreate" name="SubmitCreate">
+            <button class="btn btn-lg btn-warning" type="submit" id="SubmitCreate" name="SubmitCreate">
               <span>
                 <i class="icon-user left"></i>
                 {l s='Create an account'}

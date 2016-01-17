@@ -33,7 +33,7 @@
           <div class="col-xs-12 col-md-6">
             <p class="title_block">{l s='Instant Checkout'}</p>
             <p class="opc-button">
-              <button type="submit" class="btn btn-default button button-medium exclusive" id="opc_guestCheckout"><span>{l s='Guest checkout'}</span></button>
+              <button type="submit" class="btn btn-lg btn-warning" id="opc_guestCheckout"><span>{l s='Guest checkout'}</span></button>
             </p>
           </div>
           <div class="col-xs-12 col-md-6">
