@@ -131,7 +131,9 @@
       margin-bottom: 14px;
     }
     .price-percent-reduction {
-      font: 700 14px / 17px $font-family;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 17px;
       padding: 1px 6px;
     }
   }

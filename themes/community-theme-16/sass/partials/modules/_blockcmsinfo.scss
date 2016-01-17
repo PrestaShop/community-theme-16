@@ -21,7 +21,7 @@
 }
 
 #cmsinfo_block {
-  border-left: 1px solid $homepage-footer-border;
+  border-left: 1px solid $base-border-color;
   // max 767px
   @media (max-width: $screen-xs-max) {
     border: none;
@@ -36,11 +36,11 @@
     // max 479px
     @media (max-width: $screen-xs - 1) {
       width: 100%;
-      border-top: 1px solid $homepage-footer-border;
+      border-top: 1px solid $base-border-color;
     }
   }
   > div + div {
-    border-left: 1px solid $homepage-footer-border;
+    border-left: 1px solid $base-border-color;
     min-height: 344px;
     padding-left: 29px;
     // max 479px

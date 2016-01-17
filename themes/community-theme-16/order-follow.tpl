@@ -61,8 +61,8 @@
   </p>
 {/if}
 
-<p class="info-title">
-  {l s='Here is a list of pending merchandise returns'}.
+<p>
+  <b>{l s='Here is a list of pending merchandise returns'}.</b>
 </p>
 <div class="block-center" id="block-history">
   {if $ordersReturn && count($ordersReturn)}

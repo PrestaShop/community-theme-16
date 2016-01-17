@@ -108,8 +108,9 @@
           color: $product-price-color;
         }
         .button{
-          font: 700 17px/21px $font-family;
-          padding: 0;
+          font-weight: 700;
+          font-size: 17px;
+          line-height: 21px;
           border: 1px solid;
           padding: 10px 14px;
           display: inline-block;

@@ -3,7 +3,7 @@
 <p>{l s='Please configure your default billing and delivery addresses when placing an order. You may also add additional addresses, which can be useful for sending gifts or receiving an order at your office.'}</p>
 {if isset($multipleAddresses) && $multipleAddresses}
   <div class="addresses">
-    <p><strong class="dark">{l s='Your addresses are listed below.'}</strong></p>
+    <p><strong>{l s='Your addresses are listed below.'}</strong></p>
     <p class="p-indent">{l s='Be sure to update your personal information if it has changed.'}</p>
     {assign var="adrs_style" value=$addresses_style}
     <div class="bloc_adresses row">

@@ -3,9 +3,7 @@ body {
   height: 100%;
   line-height: 18px;
   font-size: 13px;
-  color: $base-body-color;
   &.content_only {
-    background: none;
     min-width: 0px;
   }
 }
@@ -45,6 +43,7 @@ header {
   }
   .nav {
     background: $dark-background;
+    color: $gray-text-color;
     .row {
       margin: 0px;
     }
@@ -80,15 +79,6 @@ header {
 
 .ie8 #header #header_logo {
   width: 350px;
-}
-
-//title
-#center_column {
-  .page_product_box {
-    h3 {
-      @include sub-heading;
-    }
-  }
 }
 
 .header-container {

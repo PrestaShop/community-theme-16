@@ -7,7 +7,7 @@
 {if $simplifiedStoresDiplay}
   {if $stores|@count}
     <p class="store-title">
-      <strong class="dark">
+      <strong>
         {l s='Here you can find our store locations. Please feel free to contact us:'}
       </strong>
     </p>
@@ -58,14 +58,14 @@
 {else}
   <div id="map"></div>
   <p class="store-title">
-    <strong class="dark">
+    <strong>
       {l s='Enter a location (e.g. zip/postal code, address, city or country) in order to find the nearest stores.'}
     </strong>
   </p>
   <div class="store-content">
     <div class="address-input">
       <label for="addressInput">{l s='Your location:'}</label>
-      <input class="form-control grey" type="text" name="location" id="addressInput" value="{l s='Address, zip / postal code, city, state or country'}" />
+      <input class="form-control" type="text" name="location" id="addressInput" value="{l s='Address, zip / postal code, city, state or country'}" />
     </div>
     <div class="radius-input">
       <label for="radiusSelect">{l s='Radius:'}</label>

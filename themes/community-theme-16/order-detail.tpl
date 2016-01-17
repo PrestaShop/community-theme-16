@@ -8,13 +8,13 @@
         <a href="#" onclick="$(this).closest('form').submit(); return false;" class="button btn btn-default button-medium pull-right"><span>{l s='Reorder'}<i class="icon-chevron-right right"></i></span></a>
       </form>
     {/if}
-    <p class="dark">
+    <p>
       <strong>{l s='Order Reference %s - placed on' sprintf=$order->getUniqReference()} {dateFormat date=$order->date_add full=0}</strong>
     </p>
   </div>
   <div class="info-order box">
-    {if $carrier->id}<p><strong class="dark">{l s='Carrier'}</strong> {if $carrier->name == "0"}{$shop_name|escape:'html':'UTF-8'}{else}{$carrier->name|escape:'html':'UTF-8'}{/if}</p>{/if}
-    <p><strong class="dark">{l s='Payment method'}</strong> <span class="color-myaccount">{$order->payment|escape:'html':'UTF-8'}</span></p>
+    {if $carrier->id}<p><strong>{l s='Carrier'}</strong> {if $carrier->name == "0"}{$shop_name|escape:'html':'UTF-8'}{else}{$carrier->name|escape:'html':'UTF-8'}{/if}</p>{/if}
+    <p><strong>{l s='Payment method'}</strong> <span class="color-myaccount">{$order->payment|escape:'html':'UTF-8'}</span></p>
     {if $invoice AND $invoiceAllowed}
       <p>
         <i class="icon-file-text"></i>
@@ -26,7 +26,7 @@
     {/if}
     {if $order->gift}
       <p><i class="icon-gift"></i>&nbsp;{l s='You have requested gift wrapping for this order.'}</p>
-      <p><strong class="dark">{l s='Message'}</strong> {$order->gift_message|nl2br}</p>
+      <p><strong>{l s='Message'}</strong> {$order->gift_message|nl2br}</p>
     {/if}
   </div>
 
@@ -181,7 +181,7 @@
                 <label for="cb_{$product.id_order_detail|intval}">{$product.product_name|escape:'html':'UTF-8'}</label>
               </td>
               <td>
-                <input class="order_qte_input form-control grey"  name="order_qte_input[{$smarty.foreach.products.index}]" type="text" size="2" value="{$product.customizationQuantityTotal|intval}" />
+                <input class="order_qte_input form-control"  name="order_qte_input[{$smarty.foreach.products.index}]" type="text" size="2" value="{$product.customizationQuantityTotal|intval}" />
                 <div class="clearfix return_quantity_buttons">
                   <a href="#" class="return_quantity_down btn btn-default button-minus"><span><i class="icon-minus"></i></span></a>
                   <a href="#" class="return_quantity_up btn btn-default button-plus"><span><i class="icon-plus"></i></span></a>
@@ -242,7 +242,7 @@
                     {/foreach}
                   </td>
                   <td>
-                    <input class="order_qte_input form-control grey" name="customization_qty_input[{$customizationId|intval}]" type="text" size="2" value="{$customization.quantity|intval}" />
+                    <input class="order_qte_input form-control" name="customization_qty_input[{$customizationId|intval}]" type="text" size="2" value="{$customization.quantity|intval}" />
                     <div class="clearfix return_quantity_buttons">
                       <a href="#" class="return_quantity_down btn btn-default button-minus"><span><i class="icon-minus"></i></span></a>
                       <a href="#" class="return_quantity_up btn btn-default button-plus"><span><i class="icon-plus"></i></span></a>
@@ -280,7 +280,7 @@
                 </label>
               </td>
               <td class="return_quantity">
-                <input class="order_qte_input form-control grey" name="order_qte_input[{$product.id_order_detail|intval}]" type="text" size="2" value="{$productQuantity|intval}" />
+                <input class="order_qte_input form-control" name="order_qte_input[{$product.id_order_detail|intval}]" type="text" size="2" value="{$productQuantity|intval}" />
                 <div class="clearfix return_quantity_buttons">
                   <a href="#" class="return_quantity_down btn btn-default button-minus"><span><i class="icon-minus"></i></span></a>
                   <a href="#" class="return_quantity_up btn btn-default button-plus"><span><i class="icon-plus"></i></span></a>
@@ -384,7 +384,7 @@
           {foreach from=$messages item=message name="messageList"}
             <tr class="{if $smarty.foreach.messageList.first}first_item{elseif $smarty.foreach.messageList.last}last_item{/if} {if $smarty.foreach.messageList.index % 2}alternate_item{else}item{/if}">
               <td>
-                <strong class="dark">
+                <strong>
                   {if isset($message.elastname) && $message.elastname}
                     {$message.efirstname|escape:'html':'UTF-8'} {$message.elastname|escape:'html':'UTF-8'}
                   {elseif $message.clastname}

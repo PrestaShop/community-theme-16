@@ -2,6 +2,9 @@
 @import "theme_variables";
 @import "vendor_variables";
 
+//---------- Product Listing
+$base-listing-border-color: $base-border-color;
+
 /*******************************************************
 Product list Styles
 ********************************************************/
@@ -101,7 +104,9 @@ ul.product_list {
       }
     }
     .quick-view {
-      font: 700 13px/16px $font-family;
+      font-weight: 700;
+      font-size: 13px;
+      line-height: 16px;
       color: #777676;
       position: absolute;
       left: 50%;

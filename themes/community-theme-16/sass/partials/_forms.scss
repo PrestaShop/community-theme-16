@@ -1,18 +1,14 @@
-label {
-  color: $base-title-color;
-  &.required {
-    &:before {
-      content: "*";
-      color: red;
-      font-size: 14px;
-      position: relative;
-      line-height: 12px;
-    }
-  }
+textarea {
+  resize: vertical;
 }
 
-textarea {
-  resize: none;
+label {
+  &.required {
+    &:after {
+      content: '*';
+      color: $state-danger-text;
+    }
+  }
 }
 
 //Form validate
@@ -35,12 +31,5 @@ textarea {
     .form-control {
       padding-right: 30px;
     }
-  }
-}
-
-//form
-.form-control {
-  &.grey {
-    background: $base-box-bg;
   }
 }

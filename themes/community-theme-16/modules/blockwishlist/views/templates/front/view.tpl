@@ -12,7 +12,7 @@
   </h1>
   {if $wishlists}
     <p>
-      <strong class="dark">
+      <strong>
         {l s='Other wishlists of %1s %2s:' sprintf=[$current_wishlist.firstname, $current_wishlist.lastname] mod='blockwishlist'}
       </strong>
       {foreach from=$wishlists item=wishlist name=i}
@@ -73,7 +73,7 @@
                     <label for="quantity_{$product.id_product}_{$product.id_product_attribute}">
                       {l s='Quantity' mod='blockwishlist'}:
                     </label>
-                    <input class="form-control grey" type="text"
+                    <input class="form-control" type="text"
                            id="quantity_{$product.id_product}_{$product.id_product_attribute}"
                            value="{$product.quantity|intval}" size="3"/>
                   </p>

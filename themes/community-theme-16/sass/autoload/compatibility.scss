@@ -6,8 +6,20 @@
 // you may remove this file if you can take care of any
 // theme style compatibility issues with custom modules.
 
+@import "./../theme_variables";
+@import "./../vendor_variables";
+
+// Old checkbox markup which doesn't follow Bootstrap's checkbox markup
 p.checkbox {
   input[type="checkbox"] {
     margin-left: 0;
   }
+}
+
+// Non-bootstrap confirmation alert from PrestaShop 1.5
+.confirmation {
+  background-color: #ffffe0;
+  border: 1px solid #e6db55;
+  padding: $alert-padding;
+  margin-bottom: $line-height-computed;
 }

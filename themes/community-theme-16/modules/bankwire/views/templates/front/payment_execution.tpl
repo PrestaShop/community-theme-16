@@ -20,7 +20,7 @@
         {l s='Bank-wire payment' mod='bankwire'}
       </h3>
       <p class="cheque-indent">
-        <strong class="dark">
+        <strong>
           {l s='You have chosen to pay by bank wire.' mod='bankwire'} {l s='Here is a short summary of your order:' mod='bankwire'}
         </strong>
       </p>

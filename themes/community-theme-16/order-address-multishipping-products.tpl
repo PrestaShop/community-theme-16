@@ -1,4 +1,4 @@
-<p class="info-title">{l s='Choose the delivery addresses'}</p>
+<p><b>{l s='Choose the delivery addresses'}</b></p>
 <div id="order-detail-content" class="table_block table-responsive">
   <table id="cart_summary" class="table table-bordered multishipping-cart">
     <thead>

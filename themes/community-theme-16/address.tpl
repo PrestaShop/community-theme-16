@@ -1,17 +1,19 @@
 {capture name=path}{l s='Your addresses'}{/capture}
 <div class="box">
   <h1 class="page-subheading">{l s='Your addresses'}</h1>
-  <p class="info-title">
-    {if isset($id_address) && (isset($smarty.post.alias) || isset($address->alias))}
-      {l s='Modify address'}
-      {if isset($smarty.post.alias)}
-        "{$smarty.post.alias}"
+  <p>
+    <b>
+      {if isset($id_address) && (isset($smarty.post.alias) || isset($address->alias))}
+        {l s='Modify address'}
+        {if isset($smarty.post.alias)}
+          "{$smarty.post.alias}"
+        {else}
+          {if isset($address->alias)}"{$address->alias|escape:'html':'UTF-8'}"{/if}
+        {/if}
       {else}
-        {if isset($address->alias)}"{$address->alias|escape:'html':'UTF-8'}"{/if}
+        {l s='To add a new address, please fill out the form below.'}
       {/if}
-    {else}
-      {l s='To add a new address, please fill out the form below.'}
-    {/if}
+    </b>
   </p>
   {include file="$tpl_dir./errors.tpl"}
   <p class="required"><sup>*</sup>{l s='Required field'}</p>

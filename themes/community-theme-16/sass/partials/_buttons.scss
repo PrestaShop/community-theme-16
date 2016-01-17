@@ -113,13 +113,10 @@ span.exclusive {
   cursor: default;
 }
 
-.btn.disabled,
-.btn[disabled]:hover {
-  opacity: 0.3;
-}
-
 .button.button-small {
-  font: bold 13px / 17px $font-family;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 17px;
   color: $button-text-color;
   background: $button-small-bg;
   border: 1px solid;
@@ -228,7 +225,6 @@ span.exclusive {
 .btn.button-minus {
   font-size: 14px;
   line-height: 14px;
-  color: $button-pm-color;
   padding: 0;
   border: 1px solid;
   border-color: #dedcdc #c1bfbf #b5b4b4 #dad8d8;
@@ -282,7 +278,9 @@ span.exclusive {
 }
 
 .button.ajax_add_to_cart_button {
-  font: 700 17px / 21px $font-family;
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 21px;
   color: $button-text-color;
   padding: 0;
   border: 1px solid;
@@ -305,7 +303,9 @@ span.exclusive {
 }
 
 .button.lnk_view {
-  font: 700 17px / 21px $font-family;
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 21px;
   color: $base-text-color;
   padding: 0;
   border: 1px solid;

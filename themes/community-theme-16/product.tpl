@@ -33,9 +33,9 @@
         </div>
       {/if}
       {if isset($confirmation) && $confirmation}
-        <p class="confirmation">
+        <div class="alert alert-warning">
           {$confirmation}
-        </p>
+        </div>
       {/if}
       <!-- left infos-->
       <div class="pb-left-column col-xs-12 col-sm-4 col-md-5">

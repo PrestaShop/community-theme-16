@@ -30,12 +30,8 @@
       }
     }
     h4 {
-      font-weight: 600;
-      font-size: 18px;
-      line-height: 22px;
       color: $light-text-color;
       margin: 0 0 13px 0;
-      cursor: pointer;
       // max 767px
       @media (max-width: $screen-xs-max) {
         position: relative;
@@ -60,9 +56,6 @@
     ul {
       li {
         padding-bottom: 8px;
-        a {
-          font-weight: bold;
-        }
       }
     }
     #block_contact_infos {

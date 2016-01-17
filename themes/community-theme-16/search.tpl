@@ -10,7 +10,7 @@
     </span>
   {/if}
   {if isset($instant_search) && $instant_search}
-    <a href="#" class="close">
+    <a href="#" class="pull-right">
       {l s='Return to the previous page'}
     </a>
   {else}

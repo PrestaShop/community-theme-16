@@ -53,7 +53,9 @@
   padding: 0 5px 0 3px;
   display: inline-block;
   &.small {
-    font: 700 14px / 17px $font-family;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
     padding: 1px 6px;
   }
 }
@@ -79,7 +81,9 @@
 }
 
 .new-label {
-  font: 700 14px / 12px $font-family;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 12px;
   color: $light-text-color;
   background: #6ad4ff;
   text-transform: uppercase;
@@ -121,7 +125,9 @@
 }
 
 .sale-label {
-  font: 700 14px / 12px $font-family;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 12px;
   color: $light-text-color;
   background: #f13340;
   text-transform: uppercase;

@@ -6,7 +6,7 @@
     {l s='Your account has been created.'}
   </p>
 {/if}
-<p class="info-account">{l s='Welcome to your account. Here you can manage all of your personal information and orders.'}</p>
+<p>{l s='Welcome to your account. Here you can manage all of your personal information and orders.'}</p>
 <div class="row addresses-lists">
   <div class="col-xs-12 col-sm-6 col-lg-4">
     <ul class="myaccount-link-list">
