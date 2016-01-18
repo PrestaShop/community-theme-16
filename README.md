@@ -4,7 +4,7 @@
 [![Development dependencies](https://img.shields.io/david/dev/PrestaShop/community-theme-16.svg?style=flat-square)](https://github.com/PrestaShop/community-theme-16/blob/dev/package.json)
 [![Github All Releases](https://img.shields.io/github/downloads/prestashop/community-theme-16/total.svg?style=flat-square)](https://github.com/PrestaShop/community-theme-16/releases)
 [![GitHub release](https://img.shields.io/github/release/prestashop/community-theme-16.svg?style=flat-square)](https://github.com/PrestaShop/community-theme-16/releases)
-[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
+[![License](https://img.shields.io/badge/license-AFL%20v3.0-blue.svg?style=flat-square)](https://opensource.org/licenses/AFL-3.0)
 
 ## Disclaimer
 
@@ -179,4 +179,4 @@ or write your own, more descriptive type: e.g `SEO`, `JS`, etc.
 
 ## License
 
-Community theme is open-sourced software licensed under the [MIT license](http://badges.mit-license.org/).
+Community theme is open-sourced software licensed under the [AFL v3.0](https://opensource.org/licenses/AFL-3.0).
