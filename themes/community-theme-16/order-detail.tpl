@@ -1,5 +1,5 @@
 {if isset($order)}
-  <div class="box box-small clearfix">
+  <div class="box clearfix">
     {if isset($reorderingAllowed) && $reorderingAllowed}
       <form id="submitReorder" action="{if isset($opc) && $opc}{$link->getPageLink('order-opc', true)}{else}{$link->getPageLink('order', true)}{/if}" method="post" class="submit">
         <input type="hidden" value="{$order->id}" name="id_order"/>
