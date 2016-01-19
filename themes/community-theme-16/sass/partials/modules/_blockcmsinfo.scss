@@ -1,7 +1,7 @@
 //Homepage pre-footer
 #cmsinfo_block {
   overflow: hidden;
-  background: $homepage-footer-bg;
+  background: #f2f2f2;
   min-height: 344px;
   height: 344px;
   padding-right: 29px;
@@ -57,10 +57,9 @@
     height: 60px;
     margin: 3px 10px 0 0;
     font-size: 30px;
-    color: $light-text-color;
+    color: #fff;
     line-height: 60px;
     text-align: center;
-    background: lighten($base-heading-color, 10%);
     @include border-radius(100px);
     // max 991px
     @media (max-width: $screen-sm-max) {
@@ -78,7 +77,6 @@
     font-weight: 300;
     font-size: 21px;
     line-height: 25px;
-    color: lighten($base-heading-color, 10%);
     // max 1199px
     @media (max-width: $screen-md-max) {
       font-size: 18px;

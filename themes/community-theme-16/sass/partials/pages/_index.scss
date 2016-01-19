@@ -23,7 +23,6 @@
       font-weight: 600;
       font-size: 21px;
       line-height: 24px;
-      color: $base-heading-color;
       text-transform: uppercase;
       border: none;
       outline: none;
@@ -44,7 +43,7 @@
   > li.active a,
   >li a:hover {
     background: $dark-background;
-    color: $light-text-color;
+    color: #fff;
     padding: 10px;
     // min 768px
     @media (min-width: $screen-sm) {

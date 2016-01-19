@@ -81,7 +81,7 @@
   &.sfHoverForce > a {
     background: $dark-background;
     border-bottom-color: #666666;
-    color: $light-text-color;
+    color: #fff;
   }
 }
 .sf-menu li li li a {
@@ -97,9 +97,6 @@
     display: inline-block;
     font-family: $font-icon;
     padding-right: 10px;
-  }
-  &:hover {
-    color: $base-text-color;
   }
 }
 .sf-menu li ul {
@@ -153,7 +150,6 @@ ul.sf-menu li li li.sfHover ul {
       font-weight: 600;
       font-size: 16px;
       line-height: 20px;
-      color: $base-text-color;
       &:hover {
         color: $link-hover-color;
       }
@@ -224,7 +220,7 @@ ul.sf-menu li li li.sfHover ul {
     &:hover {
       background: $dark-background;
       border-bottom-color: #666666;
-      color: $light-text-color;
+      color: #fff;
     }
     &:after {
       display: block;

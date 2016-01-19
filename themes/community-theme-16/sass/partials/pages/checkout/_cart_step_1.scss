@@ -49,7 +49,6 @@
 .cart_delete a.cart_quantity_delete,
 a.price_discount_delete {
   font-size: 23px;
-  color: $base-text-color;
   &:hover {
     color: silver;
   }
@@ -116,7 +115,6 @@ a.price_discount_delete {
     td {
       &.text-right {
         font-weight: bold;
-        color: $base-text-color;
       }
       &.price {
         text-align: right;
@@ -279,12 +277,10 @@ a.price_discount_delete {
     font-weight: 600;
     font-size: 18px;
     line-height: 22px;
-    color: $base-heading-color;
     text-transform: uppercase;
     padding: 7px 0 10px 0;
   }
   .title-offers {
-    color: $base-text-color;
     font-weight: bold;
     margin-bottom: 6px;
   }
@@ -342,7 +338,7 @@ a.price_discount_delete {
   height: 29px;
   font-weight: bold;
   line-height: 29px;
-  color: $light-text-color;
+  color: #fff;
   font-weight: bold;
   text-transform: uppercase;
   background: url(../img/bg_table_th.png) repeat-x 0 -10px #999999;

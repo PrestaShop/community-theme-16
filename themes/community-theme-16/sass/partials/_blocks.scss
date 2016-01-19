@@ -18,7 +18,6 @@
     font-weight: 600;
     font-size: 18px;
     line-height: 22px;
-    color: $base-heading-color;
     background: #f6f6f6;
     border-top: 5px solid $dark-border-color;
     text-transform: uppercase;
@@ -46,12 +45,6 @@
         content: "";
       }
     }
-    a {
-      color: $base-heading-color;
-      &:hover {
-        color: $base-text-color;
-      }
-    }
   }
   .list-block {
     margin-top: -8px;
@@ -70,11 +63,9 @@
           content: "\f105";
           display: inline;
           font-family: $font-icon;
-          color: $base-text-color;
           padding-right: 8px;
         }
         &:hover {
-          color: $base-text-color;
           font-weight: bold;
         }
       }

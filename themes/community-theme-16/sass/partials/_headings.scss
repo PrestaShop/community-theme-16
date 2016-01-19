@@ -2,9 +2,8 @@
   font-weight: 600;
   font-size: 18px;
   line-height: 22px;
-  color: $base-heading-color;
   text-transform: uppercase;
-  padding: 0px 0px 17px 0px;
+  padding: 0 0 17px 0;
   margin-bottom: 30px;
   border-bottom: 1px solid $base-border-color;
   overflow: hidden;
@@ -13,7 +12,6 @@
     font-size: 13px;
     line-height: 22px;
     float: right;
-    color: $base-text-color;
     text-transform: none;
     margin-bottom: 10px;
     @media (max-width: $screen-xs) {
@@ -37,7 +35,6 @@
 .page-subheading {
   font-weight: 600;
   text-transform: uppercase;
-  color: $base-heading-color;
   font-size: 18px;
   padding: 0 0 15px;
   line-height: normal;
@@ -47,7 +44,6 @@
 
 .page_product_box h3,
 h3.page-product-heading {
-  color: $base-heading-color;
   text-transform: uppercase;
   font-weight: 600;
   font-size: 18px;

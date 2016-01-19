@@ -26,11 +26,11 @@
     a {
       color: #777777;
       &:hover {
-        color: $light-text-color;
+        color: #fff;
       }
     }
     h4 {
-      color: $light-text-color;
+      color: #fff;
       margin: 0 0 13px 0;
       // max 767px
       @media (max-width: $screen-xs-max) {
@@ -50,7 +50,7 @@
         }
       }
       a {
-        color: $light-text-color;
+        color: #fff;
       }
     }
     ul {
@@ -77,7 +77,7 @@
             line-height: 30px;
             > span,
             > span a {
-              color: $light-text-color;
+              color: #fff;
               font-weight: normal;
             }
             i {
@@ -138,7 +138,7 @@
               -moz-osx-font-smoothing: grayscale;
             }
             &:hover {
-              color: $light-text-color;
+              color: #fff;
             }
           }
           &.facebook {

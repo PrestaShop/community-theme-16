@@ -14,7 +14,7 @@
   &:before{
     content: "\f08a";
     font: 400 15px/31px $font-icon;
-    color: $light-text-color;
+    color: #fff;
     background: #929292;
     width: 30px;
     text-align: center;
@@ -121,8 +121,7 @@
   margin-bottom: 20px;
   a  {
     display: inline-block;
-    color: $base-text-color;
-    margin: 10px 10px 10px 0px;
+    margin: 10px 10px 10px 0;
     font-weight: bold;
     &:hover {
       color: $link-hover-color;

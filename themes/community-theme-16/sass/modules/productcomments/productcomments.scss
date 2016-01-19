@@ -15,7 +15,6 @@
   .comments_note span,
   .star_content {
     float: left;
-    color: $base-text-color;
   }
   .star_content {
     margin-top: 1px;
@@ -86,9 +85,6 @@
     &.open-comment-form:before{
       content: "\f040";
     }
-    &:hover {
-      color:$base-text-color
-    }
     &.reviews{
       border-right: 1px solid $base-border-color;
       padding-right: 30px;
@@ -114,7 +110,6 @@
 }
 #new_comment_form {
   overflow: hidden;
-  color: $base-text-color;
   text-align: left;
   h2{
     margin-bottom: 10px;
@@ -122,7 +117,7 @@
   .title {
     padding: 10px;
     font-size: 13px;
-    color: $light-text-color;
+    color: #fff;
     text-transform: uppercase;
     background: $dark-background;
   }
@@ -149,7 +144,6 @@
     }
     .product_desc {
       line-height: 18px;
-      color: $description-color;
       .product_name {
         padding: 10px 0 5px;
         font-size: 13px;
@@ -251,7 +245,6 @@
             &:before{
               font-family: $font-icon;
               content: "\f0da";
-              color: $base-text-color;
               margin-right: 8px;
             }
           }
@@ -280,7 +273,6 @@
     padding-top: 9px;
     strong{
       display: block;
-      color: $base-text-color;
     }
     em {
       color: #adadad;

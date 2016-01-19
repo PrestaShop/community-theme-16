@@ -18,7 +18,7 @@ ul.product_list {
   .availability {
     span {
       display: inline-block;
-      color: $light-text-color;
+      color: #fff;
       font-weight: bold;
       padding: 3px 8px 4px 8px;
       margin-bottom: 20px;
@@ -235,7 +235,7 @@ ul.product_list.grid {
           padding: 9px 0;
           display: none;
           span {
-            color: $light-text-color;
+            color: #fff;
             &.old-price {
               color: #b1b0b0;
             }
@@ -387,7 +387,6 @@ ul.product_list.list {
       }
     }
     .product-flags {
-      color: $base-text-color;
       margin: -5px 0 10px 0;
       .discount {
         color: #f13340;

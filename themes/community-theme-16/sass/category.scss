@@ -21,7 +21,7 @@
     font-weight: 600;
     font-size: 42px;
     line-height: 51px;
-    color: $light-text-color;
+    color: #fff;
     margin-bottom: 12px;
     @media  (max-width: $screen-md-max) { // max 1199px
       font-size: 25px;
@@ -32,7 +32,7 @@
     margin-bottom: 0;
   }
   a {
-    color: $light-text-color;
+    color: #fff;
     &:hover {
       text-decoration: underline;
     }
@@ -56,10 +56,9 @@
 
 #subcategories {
   border-top: 1px solid $base-border-color;
-  padding: 15px 0 0px 0;
+  padding: 15px 0 0 0;
   p.subcategory-heading {
     font-weight: bold;
-    color: $base-text-color;
     margin: 0 0 15px 0;
   }
   ul {
@@ -86,7 +85,6 @@
         font-weight: 600;
         font-size: 18px;
         line-height: 22px;
-        color: $base-heading-color;
         text-transform: uppercase;
         &:hover {
           color: $link-hover-color;

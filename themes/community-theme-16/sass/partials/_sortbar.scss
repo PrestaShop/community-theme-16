@@ -1,7 +1,6 @@
 //-------------- Grid/List vars
 $GL-text-color:                             #808080;
 $GL-icon-color:                             #e1e0e0;
-$GL-icon-color-hover:                       $base-text-color;
 
 // barre comparaison / tri
 .content_sortPagiBar {
@@ -62,23 +61,14 @@ $GL-icon-color-hover:                       $base-text-color;
           margin-bottom: -3px;
           color: $GL-icon-color;
         }
-        &:hover {
-          i {
-            color: lighten($GL-icon-color-hover, 30%);
-          }
-        }
       }
       &.selected {
         a {
           cursor: default;
         }
-        i {
-          color: $GL-icon-color-hover;
-        }
       }
       &.display-title {
         font-weight: bold;
-        color: $base-text-color;
         padding: 7px 6px 0 0;
       }
     }
