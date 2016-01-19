@@ -173,3 +173,10 @@
   min-width: 50%;
   width: auto;
 }
+
+.layered_filter_ul {
+  .radio, .checkbox {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
