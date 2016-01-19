@@ -167,7 +167,7 @@
     padding: 10px 20px;
   }
   .cart-prices {
-    border-top: 1px solid $base-border-color;
+    border-top: 1px solid $ps-border-color;
     font-weight: bold;
     padding: 10px 20px 22px 20px;
     .cart-prices-line {
@@ -353,7 +353,7 @@
     }
     .product-image-container {
       max-width: 178px;
-      border: 1px solid $base-border-color;
+      border: 1px solid $ps-border-color;
       padding: 5px;
       float: left;
       margin-right: 30px;
@@ -379,7 +379,7 @@
   }
   .layer_cart_cart {
     background: #fafafa;
-    border-left: 1px solid $base-border-color;
+    border-left: 1px solid $ps-border-color;
     padding: 21px 30px 170px 30px;
     @include border-radius(0px 4px 4px 0px);
     position: relative;
@@ -394,14 +394,14 @@
     @media (max-width: $screen-sm-max) { // max 991px
       @include border-radius(0px 0 4px 4px);
       border-left: none;
-      border-top: 1px solid $base-border-color;
+      border-top: 1px solid $ps-border-color;
     }
     .title {
       display: block;
       font-weight: 400;
       font-size: 23px;
       line-height: 29px;
-      border-bottom: 1px solid $base-border-color;
+      border-bottom: 1px solid $ps-border-color;
       padding-bottom: 13px;
       margin-bottom: 17px;
       @media (max-width: $screen-xs-max) { // max 767px
@@ -461,7 +461,7 @@
 #layer_cart {
   .crossseling {
     .crossseling-content {
-      border-top: 1px solid $base-border-color;
+      border-top: 1px solid $ps-border-color;
       padding: 26px 30px 40px 30px;
       position: relative;
     }
@@ -483,7 +483,7 @@
           width: 178px;
           margin: 0 0px 0 0;
           .product-image-container {
-            border: 1px solid $base-border-color;
+            border: 1px solid $ps-border-color;
             text-align: center;
             padding: 5px;
             margin-bottom: 15px;

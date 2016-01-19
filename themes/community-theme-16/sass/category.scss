@@ -55,7 +55,7 @@
 ************************************************************************************************ */
 
 #subcategories {
-  border-top: 1px solid $base-border-color;
+  border-top: 1px solid $ps-border-color;
   padding: 15px 0 0 0;
   p.subcategory-heading {
     font-weight: bold;
@@ -74,7 +74,7 @@
         a {
           display: block;
           padding: 9px;
-          border: 1px solid $base-border-color;
+          border: 1px solid $ps-border-color;
           img {
             max-width: 100%;
             vertical-align: top;

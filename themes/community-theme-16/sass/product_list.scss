@@ -3,7 +3,7 @@
 @import "vendor_variables";
 
 //---------- Product Listing
-$base-listing-border-color: $base-border-color;
+$base-listing-border-color: $ps-border-color;
 
 /*******************************************************
 Product list Styles
@@ -29,7 +29,7 @@ ul.product_list {
     ul {
       li {
         display: inline-block;
-        border: 1px solid $base-border-color;
+        border: 1px solid $ps-border-color;
         width: 26px;
         height: 26px;
         a {
@@ -151,7 +151,7 @@ ul.product_list {
         }
       }
       &.wishlist {
-        border-right: 1px solid $base-border-color;
+        border-right: 1px solid $ps-border-color;
         a:before {
           display: inline-block;
           font-family: $font-icon;
@@ -371,7 +371,7 @@ ul.product_list.list {
       }
     }
     .product-container {
-      border-top: 1px solid $base-border-color;
+      border-top: 1px solid $ps-border-color;
       padding: 30px 0 30px;
     }
     .product-image-container {
@@ -410,7 +410,7 @@ ul.product_list.list {
       .right-block-content {
         @media (min-width: $screen-md) { // min 991px
           margin: 0;
-          border-left: 1px solid $base-border-color;
+          border-left: 1px solid $ps-border-color;
           padding-left: 15px;
           padding-bottom: 16px;
         }
@@ -548,6 +548,6 @@ Product list(Index page) Styles
 .ie8 {
   .quick-view {
     background: #fff;
-    border: 1px solid $base-border-color;
+    border: 1px solid $ps-border-color;
   }
 }

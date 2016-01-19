@@ -468,7 +468,7 @@ span.view_scroll_spacer {
         float: left;
         margin: 0 3px 3px 0;
         padding: 1px;
-        border: 1px solid $base-border-color;
+        border: 1px solid $ps-border-color;
         clear: none;
         width: 26px;
         height: 26px;
@@ -934,7 +934,7 @@ table.table-product-discounts{
   .product{
     img{
       margin: 0 0 10px 0;
-      border: 1px solid $base-border-color;
+      border: 1px solid $ps-border-color;
     }
     p{
       padding: 0 ;
@@ -946,7 +946,7 @@ table.table-product-discounts{
   }
   .form_container {
     padding: 10px 15px;
-    border: 1px solid $base-border-color;
+    border: 1px solid $ps-border-color;
     background: #fbfbfb;
     p{
       &.intro_form {
@@ -971,7 +971,7 @@ table.table-product-discounts{
         padding: 0 5px;
         height: 22px;
         width: 100%;
-        border: 1px solid $base-border-color;
+        border: 1px solid $ps-border-color;
         font-size: 12px;
         color: #666;
       }
@@ -998,7 +998,7 @@ ul#text_fields {
 .customizableProductsText {
   margin-bottom: 20px;
   padding-bottom: 10px;
-  border-bottom: 1px solid $base-border-color;
+  border-bottom: 1px solid $ps-border-color;
 }
 .customizationUploadLine {
   padding-bottom:10px;
@@ -1189,7 +1189,7 @@ Quick View Styles
       #view_full_size {
         .span_link {
           background: #fff;
-          border: 1px solid $base-border-color;
+          border: 1px solid $ps-border-color;
         }
       }
     }

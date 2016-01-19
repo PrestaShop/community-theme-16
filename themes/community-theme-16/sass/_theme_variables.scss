@@ -1,24 +1,27 @@
-//-------- BORDERS
-$base-border-color:                 #d6d4d4;
+//
+// Place your theme variables here
+//
 
-//---------- Product Elements
-$product-name-color:                #3a3939;
-$product-name-hover-color:          #515151;
-$price-color:                       #777;
-$product-price-color:               #333;
-$product-reduced-price:             #f00;
-$product-special-price-color:       #f13340;
-$product-old-price-color:           #6f6f6f;
+// PrestaShop Blocks
+$ps-border-color : #d6d4d4;
+
+// PrestaShop Products
+$product-name-color          : #3a3939;
+$product-name-hover-color    : #515151;
+$product-price-color         : #333;
+$product-reduced-price-color : #f00;
+$product-special-price-color : #f13340;
+$product-old-price-color     : #6f6f6f;
 
 //
 // Override vendor variables here
 //
 
 // Bootstrap
-$border-radius-base:  0;
-$border-radius-large: 0;
-$border-radius-small: 0;
+$border-radius-base  : 0;
+$border-radius-large : 0;
+$border-radius-small : 0;
 
 // Font Awesome
-$font-icon    : "FontAwesome";
-$fa-css-prefix: icon;
+$font-icon     : 'FontAwesome';
+$fa-css-prefix : icon;

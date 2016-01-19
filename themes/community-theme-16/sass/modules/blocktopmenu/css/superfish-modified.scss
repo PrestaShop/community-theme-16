@@ -41,7 +41,7 @@
 }
 .sf-menu > li {
   float: left;
-  border-right: 1px solid $base-border-color;
+  border-right: 1px solid $ps-border-color;
   margin-bottom: -3px;
   @media (max-width: $screen-xs-max) { // max 767px
     float: none;

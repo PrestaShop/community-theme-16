@@ -19,7 +19,7 @@
   &.list {
     li {
       .mansup-container {
-        border-top: 1px solid $base-border-color;
+        border-top: 1px solid $ps-border-color;
         padding: 31px 0 30px 0;
         // < 768
         @media (max-width: $screen-xs-max) {
@@ -47,7 +47,7 @@
         }
       }
       .right-side-content {
-        border-left: 1px solid $base-border-color;
+        border-left: 1px solid $ps-border-color;
         padding: 0 0 32px 31px;
         min-height: 108px;
         // < 768
@@ -74,7 +74,7 @@
       .product-container {
         padding-top: 40px;
         padding-bottom: 20px;
-        border-bottom: 1px solid $base-border-color;
+        border-bottom: 1px solid $ps-border-color;
         .left-side {
           padding-bottom: 42px;
         }
@@ -123,7 +123,7 @@
   .description_box {
     padding-top: 20px;
     padding-bottom: 20px;
-    border-top: 1px solid $base-border-color;
+    border-top: 1px solid $ps-border-color;
     .hide_desc {
       display: none;
     }
@@ -133,6 +133,6 @@
     min-height: 69px;
   }
   .top-pagination-content.bottom-line {
-    border-bottom: 1px solid $base-border-color;
+    border-bottom: 1px solid $ps-border-color;
   }
 }

@@ -7,10 +7,10 @@
     position:relative;
     margin-bottom: 14px;
     padding: 12px 8px;
-    border: 1px solid $base-border-color;
+    border: 1px solid $ps-border-color;
     @include border-radius(3px);
     a.product_img_link {
-      border: 1px solid $base-border-color;
+      border: 1px solid $ps-border-color;
       display: block;
       float: left;
       margin-right: 14px;
