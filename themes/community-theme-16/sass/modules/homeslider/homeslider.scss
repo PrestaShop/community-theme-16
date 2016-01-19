@@ -101,13 +101,13 @@
       height: 52px;
       text-indent: -9999px;
       z-index: 9999;
-      border: 2px solid $light-border-color;
+      border: 2px solid #fff;
       line-height: 18px;
       &:before {
         height: 48px;
         width: 48px;
         display: block;
-        background: $light-background;
+        background: #fff;
         content: ".";
         opacity: 0.14;
         text-indent: -9999px;
@@ -120,7 +120,7 @@
         display: block;
         width: 48px;
         height: 48px;
-        color: $light-text-color;
+        color: #fff;
         text-indent: 0;
         text-align: center;
         font-size: 21px;
@@ -133,7 +133,7 @@
       }
       &:hover {
         &:before {
-          background: $dark-background;
+          background: #333;
           opacity: 0.83;
         }
       }
@@ -156,7 +156,7 @@
   #homepage-slider{
     .bx-wrapper .bx-controls-direction a {
       &:before {
-        background: $dark-background;
+        background: #333;
       }
     }
   }

@@ -61,18 +61,17 @@
 
 #categories_block_left {
   .block_content > ul {
-    border-top: 1px solid $base-border-color;
+    border-top: 1px solid $ps-border-color;
   }
   li {
     position: relative;
     a {
       font-weight: bold;
-      color: $base-text-color;
       display: block;
       font-size: 13px;
       line-height: 30px;
       padding: 0 30px 0 19px;
-      border-bottom: 1px solid $base-border-color;
+      border-bottom: 1px solid $ps-border-color;
     }
     span.grower {
       display: block;
@@ -91,7 +90,6 @@
           vertical-align: middle;
           width: 30px;
           height: 30px;
-          color: $base-text-color;
           line-height: 30px;
           text-align: center;
         }

@@ -39,7 +39,7 @@
   }
   > a:first-child {
     padding: 7px 10px 14px 16px;
-    background: $dark-background;
+    background: #333;
     display: block;
     font-weight: bold;
     color: #777777;
@@ -50,7 +50,7 @@
       }
     }
     b {
-      color: $light-text-color;
+      color: #fff;
       font-weight: 600;
       font-size: 18px;
       line-height: 22px;
@@ -62,7 +62,7 @@
       display: inline-block;
       font-size: 23px;
       line-height: 23px;
-      color: $light-text-color;
+      color: #fff;
       padding-right: 15px;
     }
   }
@@ -150,7 +150,7 @@
   dd {
     position: relative;
     .cart_block_customizations{
-      border-top: 1px dashed $dark-background;
+      border-top: 1px dashed #333;
       li {
         padding: 10px 20px;
 
@@ -167,7 +167,7 @@
     padding: 10px 20px;
   }
   .cart-prices {
-    border-top: 1px solid $base-border-color;
+    border-top: 1px solid $ps-border-color;
     font-weight: bold;
     padding: 10px 20px 22px 20px;
     .cart-prices-line {
@@ -205,7 +205,7 @@
     display: none;
     height: auto;
     background: #484848;
-    color: $light-text-color;
+    color: #fff;
     width: 270px;
     @media (max-width: $screen-xs) {
       width: 100%;
@@ -214,12 +214,12 @@
       width: 100%;
     }
     a {
-      color: $light-text-color;
+      color: #fff;
     }
     .cart_block_list {
       .remove_link a,
       .ajax_cart_block_remove_link {
-        color: $light-text-color;
+        color: #fff;
         outline: none;
         text-decoration: none;
         &:hover {
@@ -228,7 +228,7 @@
       }
     }
     .price {
-      color: $light-text-color;
+      color: #fff;
     }
     dt {
       background: url(../../../img/cart-shadow.png) repeat-x;
@@ -242,7 +242,7 @@
       a {
         color: #9c9b9b;
         &:hover {
-          color: $light-text-color;
+          color: #fff;
         }
       }
     }
@@ -251,7 +251,7 @@
       background: url(../../../img/cart-shadow.png) repeat-x #3d3d3d;
     }
     .cart-buttons {
-      background: url(../../../img/cart-shadow.png) repeat-x $dark-background;
+      background: url(../../../img/cart-shadow.png) repeat-x #333;
     }
   }
   .block_content {
@@ -316,7 +316,7 @@
 }
 
 #layer_cart {
-  background-color: $light-background;
+  background-color: #fff;
   position: absolute;
   display: none;
   z-index: 99;
@@ -353,7 +353,7 @@
     }
     .product-image-container {
       max-width: 178px;
-      border: 1px solid $base-border-color;
+      border: 1px solid $ps-border-color;
       padding: 5px;
       float: left;
       margin-right: 30px;
@@ -379,7 +379,7 @@
   }
   .layer_cart_cart {
     background: #fafafa;
-    border-left: 1px solid $base-border-color;
+    border-left: 1px solid $ps-border-color;
     padding: 21px 30px 170px 30px;
     @include border-radius(0px 4px 4px 0px);
     position: relative;
@@ -394,15 +394,14 @@
     @media (max-width: $screen-sm-max) { // max 991px
       @include border-radius(0px 0 4px 4px);
       border-left: none;
-      border-top: 1px solid $base-border-color;
+      border-top: 1px solid $ps-border-color;
     }
     .title {
       display: block;
       font-weight: 400;
       font-size: 23px;
       line-height: 29px;
-      color: $base-text-color;
-      border-bottom: 1px solid $base-border-color;
+      border-bottom: 1px solid $ps-border-color;
       padding-bottom: 13px;
       margin-bottom: 17px;
       @media (max-width: $screen-xs-max) { // max 767px
@@ -437,7 +436,6 @@
     width: 25px;
     height: 25px;
     cursor: pointer;
-    color: $base-text-color;
     z-index: 2;
     &:before {
       content: "\f057";
@@ -463,7 +461,7 @@
 #layer_cart {
   .crossseling {
     .crossseling-content {
-      border-top: 1px solid $base-border-color;
+      border-top: 1px solid $ps-border-color;
       padding: 26px 30px 40px 30px;
       position: relative;
     }
@@ -471,7 +469,6 @@
       font-weight: 400;
       font-size: 23px;
       line-height: 26px;
-      color: $base-text-color;
       margin-bottom: 25px;
     }
     #blockcart_list {
@@ -486,7 +483,7 @@
           width: 178px;
           margin: 0 0px 0 0;
           .product-image-container {
-            border: 1px solid $base-border-color;
+            border: 1px solid $ps-border-color;
             text-align: center;
             padding: 5px;
             margin-bottom: 15px;
@@ -513,7 +510,6 @@
         line-height: 20px;
         width: 20px;
         height: 20px;
-        color: $base-text-color;
         text-indent: -5000px;
         position: absolute;
         top: 45%;

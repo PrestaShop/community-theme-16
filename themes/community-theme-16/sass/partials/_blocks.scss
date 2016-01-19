@@ -18,9 +18,8 @@
     font-weight: 600;
     font-size: 18px;
     line-height: 22px;
-    color: $base-heading-color;
     background: #f6f6f6;
-    border-top: 5px solid $dark-border-color;
+    border-top: 5px solid #333;
     text-transform: uppercase;
     padding: 14px 5px 17px 20px;
     margin-bottom: 20px;
@@ -46,12 +45,6 @@
         content: "";
       }
     }
-    a {
-      color: $base-heading-color;
-      &:hover {
-        color: $base-text-color;
-      }
-    }
   }
   .list-block {
     margin-top: -8px;
@@ -61,7 +54,7 @@
     }
     li {
       padding: 5px 0 6px 20px;
-      border-top: 1px solid $base-border-color;
+      border-top: 1px solid $ps-border-color;
       a {
         i {
           display: none;
@@ -70,11 +63,9 @@
           content: "\f105";
           display: inline;
           font-family: $font-icon;
-          color: $base-text-color;
           padding-right: 8px;
         }
         &:hover {
-          color: $base-text-color;
           font-weight: bold;
         }
       }
@@ -84,7 +75,7 @@
     }
     .form-group {
       padding-top: 20px;
-      border-top: 1px solid $base-border-color;
+      border-top: 1px solid $ps-border-color;
       margin-bottom: 0;
       select {
         max-width: 270px;
@@ -102,10 +93,10 @@
     li {
       padding: 0 0 20px 0;
       margin-bottom: 20px;
-      border-bottom: 1px solid $base-border-color;
+      border-bottom: 1px solid $ps-border-color;
       .products-block-image {
         float: left;
-        border: 1px solid $base-border-color;
+        border: 1px solid $ps-border-color;
         margin-right: 19px;
         // min 768px max 991px
         @media (min-width: $screen-sm) and (max-width: $screen-sm-max) {

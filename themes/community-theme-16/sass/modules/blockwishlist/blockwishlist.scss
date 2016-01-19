@@ -14,7 +14,7 @@
   &:before{
     content: "\f08a";
     font: 400 15px/31px $font-icon;
-    color: $light-text-color;
+    color: #fff;
     background: #929292;
     width: 30px;
     text-align: center;
@@ -34,7 +34,7 @@
       &.products.no-products {
         font-weight: 700;
         padding: 0 0 15px 0;
-        border-bottom: 1px solid $base-border-color;
+        border-bottom: 1px solid $ps-border-color;
         dt {
           padding: 0;
           border-top: none;
@@ -44,10 +44,10 @@
         }
       }
       &.products {
-        border-bottom: 1px solid $base-border-color;
+        border-bottom: 1px solid $ps-border-color;
         dt {
           padding: 20px 0 0;
-          border-top: 1px solid $base-border-color;
+          border-top: 1px solid $ps-border-color;
         }
         dd {
           padding: 0 0 20px 0;
@@ -117,12 +117,11 @@
   }
 }
 #module-blockwishlist-mywishlist .wishlistLinkTop ul.display_list {
-  border-bottom: 1px solid $base-border-color;
+  border-bottom: 1px solid $ps-border-color;
   margin-bottom: 20px;
   a  {
     display: inline-block;
-    color: $base-text-color;
-    margin: 10px 10px 10px 0px;
+    margin: 10px 10px 10px 0;
     font-weight: bold;
     &:hover {
       color: $link-hover-color;
@@ -149,7 +148,7 @@ ul.wlp_bought_list li {
   margin: 0 0 30px 0;
   .product_image {
     padding: 9px;
-    border: 1px solid $base-border-color;
+    border: 1px solid $ps-border-color;
     margin: 0 0 20px 0;
     max-width: 270px;
   }

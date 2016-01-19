@@ -16,8 +16,7 @@ table#product_comparison {
       td.td_empty,
       td.feature-name,
       &.comparison_header {
-        background: $table-background;
-        color: $base-text-color;
+        background: #fbfbfb;
       }
       td.comparison_infos {
         text-align: center;
@@ -55,7 +54,7 @@ table#product_comparison {
     position: relative;
     .product_image {
       padding: 9px;
-      border: 1px solid $base-border-color;
+      border: 1px solid $ps-border-color;
       display: inline-block;
       margin: 0 0 8px 0;
       img {
@@ -78,7 +77,7 @@ table#product_comparison {
   .product_discount {
     padding-top: 5px;
     .reduced-price {
-      color: $product-reduced-price;
+      color: $product-reduced-price-color;
       font-weight: 700;
     }
   }

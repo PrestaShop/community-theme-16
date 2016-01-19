@@ -34,7 +34,7 @@
           height: 100%;
           padding: 10px 0 0 0;
           text-align: center;
-          border: 1px solid $light-border-color;
+          border: 1px solid #fff;
           @include border-top-left-radius(4px);
           @include border-bottom-left-radius(4px);
         }
@@ -44,7 +44,7 @@
           overflow: hidden;
           border: 1px solid;
           margin-left: 52px;
-          border-color: $light-border-color $light-border-color $light-border-color #c8c8c8;
+          border-color: #fff #fff #fff #c8c8c8;
           @include border-top-right-radius(5px);
           @include border-bottom-right-radius(5px);
         }

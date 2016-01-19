@@ -24,8 +24,8 @@
   padding: 0;
   height: 62px !important;
   width: 100%;
-  border-top: 1px solid $base-border-color;
-  border-bottom: 1px solid $base-border-color;
+  border-top: 1px solid $ps-border-color;
+  border-bottom: 1px solid $ps-border-color;
   .space-keeper{
     width: 21px;
     float: left;
@@ -34,9 +34,8 @@
     a.prev{
       display: none;
       width: 21px;
-      background: $base-box-bg;
+      background: #fbfbfb;
       text-decoration: none;
-      color: $base-text-color;
       &:before {
         font-family: $font-icon;
         content: "\f053";
@@ -49,9 +48,8 @@
       float: left;
       display: block;
       width: 21px;
-      background: $base-box-bg;
+      background: #fbfbfb;
       text-decoration: none;
-      color: $base-text-color;
       &:before {
         font-family: $font-icon;
         content: "\f054";
@@ -86,7 +84,7 @@
   }
   .popover {
     @include border-radius(0);
-    border-color: $base-border-color;
+    border-color: $ps-border-color;
   }
   .product-image-container,
   .product-name {

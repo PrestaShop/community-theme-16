@@ -26,7 +26,6 @@ ul.step {
     &.step_current_end span {
       display: block;
       padding: 13px 10px 14px 13px;
-      color: $base-text-color;
       font-size: 17px;
       line-height: 21px;
       font-weight: bold;
@@ -109,7 +108,7 @@ ul.step {
       @include gradient-vertical(rgba(66, 184, 86, 1), rgba(67, 171, 84, 1));
       border-color: #399b49 #51ae5c #208931 #369946;
       span {
-        color: $light-text-color;
+        color: #fff;
         border: 1px solid;
         border-color: #73ca77 #74c776 #74c175 #74c776;
         position: relative;
@@ -131,8 +130,7 @@ ul.step {
       span {
         display: block;
         border: 1px solid;
-        border-color: $light-border-color;
-        color: $base-text-color;
+        border-color: #fff;
         position: relative;
         // min 991px
         @media (min-width: $screen-md) {
@@ -148,7 +146,7 @@ ul.step {
       background: rgb(114, 113, 113);
       @include gradient-vertical(rgba(114, 113, 113, 1), rgba(102, 102, 102, 1));
       a {
-        color: $light-text-color;
+        color: #fff;
         border: 1px solid;
         border-color: #8b8a8a;
         // min 991px

@@ -9,13 +9,13 @@
     width: 100%;
   }
   .btn.button-search {
-    background: $dark-background;
+    background: #333;
     display: block;
     position: absolute;
     top: 0;
     right: 0;
     border: none;
-    color: $light-text-color;
+    color: #fff;
     width: 50px;
     text-align: center;
     padding: 10px 0 11px 0;
@@ -38,14 +38,13 @@
     display: inline;
     padding: 13px 60px 13px 13px;
     height: 45px;
-    background: $base-box-bg;
     margin-right: 1px;
   }
 }
 
 .ac_results {
-  background: $light-background;
-  border: 1px solid $base-border-color;
+  background: #fff;
+  border: 1px solid $ps-border-color;
   width: 271px;
   margin-top: -1px;
   li {
@@ -55,19 +54,16 @@
     font-size: 13px;
     line-height: 22px;
     &.ac_odd {
-      background: $light-background;
+      background: #fff;
     }
     &:hover, &.ac_over {
-      background: $base-box-bg;
+      background: #fbfbfb;
     }
   }
 }
 
 form#searchbox {
   position: relative;
-  label {
-    color: $base-text-color;
-  }
   input#search_query_block {
     margin-right:10px;
     max-width:222px;

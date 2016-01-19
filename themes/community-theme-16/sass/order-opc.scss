@@ -23,7 +23,6 @@
       font-size: 42px;
       line-height: 51px;
       font-style: italic;
-      color: $base-text-color;
       position: absolute;
       left: 10px;
       top: -14px;
@@ -45,7 +44,6 @@
   }
   .title_block {
     font-weight: bold;
-    color: $base-text-color;
     padding: 3px 0 6px;
   }
   .opc-button {
@@ -59,7 +57,7 @@
     padding-bottom: 10px;
   }
   .opc-add-save {
-    border-top: 1px solid $base-border-color;
+    border-top: 1px solid $ps-border-color;
     margin-top: 20px;
     padding-top: 20px;
   }

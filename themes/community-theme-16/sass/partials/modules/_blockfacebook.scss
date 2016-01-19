@@ -1,7 +1,7 @@
 //Homepage pre-footer
 #facebook_block {
   overflow: hidden;
-  background: $homepage-footer-bg;
+  background: #f2f2f2;
   min-height: 344px;
   height: 344px;
   padding-right: 29px;
@@ -27,7 +27,6 @@
     font-weight: 300;
     font-size: 21px;
     line-height: 25px;
-    color: lighten($base-heading-color, 10%);
     // max 991px
     @media (max-width: $screen-sm-max) {
       font-size: 18px;
@@ -42,7 +41,7 @@
     }
   }
   .facebook-fanbox {
-    background: $light-background;
+    background: #fff;
     border: 1px solid #aaaaaa;
     padding-bottom: 10px;
   }

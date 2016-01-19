@@ -1,45 +1,30 @@
-//-------- BORDERS
-$base-border-color:                 #d6d4d4;
-$main_border:                       1px solid $base-border-color;
-$dark-border-color:                 #333;
-$light-border-color:                #fff;
+//
+// Place your theme variables here
+//
 
-//--------- BACKGROUNDS
-$base-box-bg:                       #fbfbfb;
-$table-background:                  $base-box-bg;
-$dark-background:                   #333;
-$light-background:                  #fff;
-$homepage-footer-bg:                #f2f2f2;
+// PrestaShop Blocks
+$ps-border-color : #d6d4d4;
 
-//--------- COLORS
-$gray-text-color:                   #777;
-$base-text-color:                   #333;
-$base-heading-color:                #555454;
-$light-text-color:                  #fff;
-$description-color:                 #666;
+// PrestaShop Products
+$product-name-color          : #3a3939;
+$product-name-hover-color    : #515151;
+$product-price-color         : #333;
+$product-reduced-price-color : #f00;
+$product-special-price-color : #f13340;
+$product-old-price-color     : #6f6f6f;
 
-//--------- Indents
-$base-box-padding:                  14px 18px 13px;
-$base-box-indent:                   0 0 30px 0;
-
-//---------- Product Elements
-$product-name-color:                #3a3939;
-$product-name-hover-color:          #515151;
-$price-color:                       $gray-text-color;
-$product-price-color:               $base-text-color;
-$product-reduced-price:             #f00;
-$product-special-price-color:       #f13340;
-$product-old-price-color:           #6f6f6f;
+// PrestaShop Product Labels
+// @TODO SASS label colors
 
 //
 // Override vendor variables here
 //
 
 // Bootstrap
-$border-radius-base:  0;
-$border-radius-large: 0;
-$border-radius-small: 0;
+$border-radius-base  : 0;
+$border-radius-large : 0;
+$border-radius-small : 0;
 
 // Font Awesome
-$font-icon    : "FontAwesome";
-$fa-css-prefix: icon;
+$font-icon     : 'FontAwesome';
+$fa-css-prefix : icon;

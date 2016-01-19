@@ -5,7 +5,6 @@
 $product-image-border      : #dbdbdb;
 $scroll-button-color       : #c0c0c0;
 $list-info-bg              : #f6f6f6;
-$scroll-button-hover-color : $base-text-color;
 $tr-even-bg                : #fdfdfd;
 
 .pack_content {
@@ -49,13 +48,13 @@ a.fancybox-nav {
     cursor: pointer;
     padding: 5px;
     border: 1px solid $product-image-border;
-    background: $light-background;
+    background: #fff;
     @media (max-width: $screen-xs-max) { //max 767px
       width: 280px;
       margin: 0 auto;
     }
     img {
-      background: $base-box-bg;
+      background: #fbfbfb;
       width: 100%;
     }
     #view_full_size {
@@ -82,9 +81,6 @@ a.fancybox-nav {
           content: "\f00e";
           font-weight: normal;
           margin: 0 0 0 4px;
-        }
-        &:hover:after{
-          color: $base-text-color
         }
       }
     }
@@ -154,16 +150,16 @@ a.fancybox-nav {
     }
     a{
       display: block;
-      border: 3px solid $light-border-color;
+      border: 3px solid #fff;
       @include transition(all 0.3s ease);
       @include box-sizing(border-box);
-      background: $base-box-bg;
+      background: #fbfbfb;
       &:hover, &.shown {
         border-color: $product-image-border;
       }
     }
     img {
-      border: 1px solid $light-border-color;
+      border: 1px solid #fff;
       width: 100%;
       height: 100%;
       @include box-sizing(border-box);
@@ -245,9 +241,6 @@ span.view_scroll_spacer {
     font-size: 20px;
     line-height: 22px;
   }
-  &:hover:before{
-    color: $scroll-button-hover-color;
-  }
 }
 #view_scroll_right {
   float: left;
@@ -298,7 +291,6 @@ span.view_scroll_spacer {
 
       &:before{
         font-family: $font-icon;
-        color: $base-text-color;
         font-size: 19px;
         line-height: 24px;
         position: absolute;
@@ -349,7 +341,6 @@ span.view_scroll_spacer {
       position: relative;
       &:before{
         font-family: $font-icon;
-        color: $base-text-color;
         font-size: 19px;
         line-height: 24px;
         position: absolute;
@@ -384,7 +375,6 @@ span.view_scroll_spacer {
     margin-bottom: 6px;
   }
   #short_description_block {
-    color: $description-color;
     .buttons_bottom_block {
       display: none;
     }
@@ -419,13 +409,10 @@ span.view_scroll_spacer {
 }
 #product p#loyalty {
   padding: 17px 0 15px 35px;
-  border-top: $main_border;
-  border-bottom: $main_border;
+  border-top: 1px solid #d6d4d4;
+  border-bottom: 1px solid #d6d4d4;
   margin: 10px 0 -5px;
   position: relative;
-  b{
-    color: $base-text-color
-  }
   &:before{
     content: "\f024";
     font-family: $font-icon;
@@ -457,10 +444,6 @@ span.view_scroll_spacer {
     width: 100%;
     .form-control {
       max-width: 230px;
-      option{
-        background: $light-background;
-        color: $description-color;
-      }
     }
     ul{
       clear: both;
@@ -485,7 +468,7 @@ span.view_scroll_spacer {
         float: left;
         margin: 0 3px 3px 0;
         padding: 1px;
-        border: 1px solid $base-border-color;
+        border: 1px solid $ps-border-color;
         clear: none;
         width: 26px;
         height: 26px;
@@ -550,7 +533,7 @@ span.view_scroll_spacer {
       top: 0;
       left: 0;
       bottom: 0;
-      color: $light-text-color;
+      color: #fff;
       font-size: 25px;
       line-height: 47px;
       content: "\f07a";
@@ -602,7 +585,7 @@ span.view_scroll_spacer {
       border-left: 1px solid #06b2e6;
       border-bottom: 1px solid #06b2e6;
       padding: 12px 36px 14px 60px;
-      color: $light-text-color;
+      color: #fff;
       display: block !important;
       @include transition(all 0.3s ease);
       @media  (max-width: $screen-md-max) { //max 1199px
@@ -646,7 +629,7 @@ span.view_scroll_spacer {
           top: 0;
           left: 0;
           bottom: 0;
-          color: $light-text-color;
+          color: #fff;
           font-size: 25px;
           line-height: 47px;
           content: "\f07a";
@@ -694,7 +677,7 @@ span.view_scroll_spacer {
           border: none;
           border-top: 1px solid #006fa8;
           padding: 12px 16px 14px;
-          color: $light-text-color;
+          color: #fff;
           display: block !important;
           @include border-radius(0);
           @include transition(all 0.3s ease);
@@ -718,22 +701,21 @@ span.view_scroll_spacer {
 
 /* table_data_sheet */
 .table-data-sheet{
-  border-bottom: $main_border;
+  border-bottom: 1px solid #d6d4d4;
   width: 100%;
   margin: 0 0 20px;
-  background: $light-background;
+  background: #fff;
   tr{
-    border-top: $main_border;
+    border-top: 1px solid #d6d4d4;
     &.even{
       background: $tr-even-bg;
     }
     td{
       padding: 10px 20px 11px;
       &:first-child{
-        border-right: $main_border;
+        border-right: 1px solid #d6d4d4;
         width: 30%;
         font-weight: 700;
-        color: $base-text-color;
       }
     }
   }
@@ -742,27 +724,25 @@ span.view_scroll_spacer {
 /* table product-discounts */
 table.table-product-discounts{
   border: none;
-  border-bottom: $main_border;
-  border-right: $main_border;
+  border-bottom: 1px solid #d6d4d4;
+  border-right: 1px solid #d6d4d4;
   width: 50%;
   margin: 0 0 20px;
-  background: $light-background;
+  background: #fff;
   @media (max-width: $screen-xs-max) { //max 767px
     width: 100%;
   }
   tr th{
-    background: $table-background;
-    color: $base-text-color;
-    font-weight: 700;
+    background: #fbfbfb;
     border: none;
     font-weight: 700;
   }
   tr td,
   tr th{
-    border-left: $main_border;
+    border-left: 1px solid #d6d4d4;
     width: 33%;
     padding: 10px 20px 11px;
-    border-top: $main_border;
+    border-top: 1px solid #d6d4d4;
     border-right: none;
     text-transform: none;
     font-weight: 13px;
@@ -817,7 +797,7 @@ table.table-product-discounts{
     height: 27px;
     padding: 0 6px;
     float: left;
-    border: $main_border;
+    border: 1px solid #d6d4d4;
     line-height: 27px;
   }
   .btn{
@@ -840,14 +820,13 @@ table.table-product-discounts{
   text-align: right;
 }
 #quantityAvailable{
-  color: $base-text-color;
   font-size: 13px;
   line-height: 18px;
   font-weight: 700;
 }
 #availability_value,
 #last_quantities {
-  color: $light-text-color;
+  color: #fff;
   font-weight: 700;
   line-height: 18px;
   display: inline-block;
@@ -868,7 +847,6 @@ table.table-product-discounts{
 }
 #pQuantityAvailable span{
   font-weight: 700;
-  color: $base-text-color;
 }
 
 /* box-security */
@@ -920,7 +898,7 @@ table.table-product-discounts{
   font-weight: 600;
   font-size: 21px;
   line-height: 23px;
-  color: $light-text-color;
+  color: #fff;
   background: #f13340;
   border: 1px solid #d02a2c;
   span{
@@ -956,11 +934,10 @@ table.table-product-discounts{
   .product{
     img{
       margin: 0 0 10px 0;
-      border: 1px solid $base-border-color;
+      border: 1px solid $ps-border-color;
     }
     p{
       padding: 0 ;
-      color: $base-text-color;
       .product_name {
         font-size: 12px;
         color: #000;
@@ -969,14 +946,13 @@ table.table-product-discounts{
   }
   .form_container {
     padding: 10px 15px;
-    border: 1px solid $base-border-color;
-    background: $base-box-bg;
+    border: 1px solid $ps-border-color;
+    background: #fbfbfb;
     p{
       &.intro_form {
         padding-bottom: 6px;
         font-weight: 700;
         font-size: 13px;
-        color: $base-text-color;
       }
       &.txt_required{
         padding-bottom: 0;
@@ -995,7 +971,7 @@ table.table-product-discounts{
         padding: 0 5px;
         height: 22px;
         width: 100%;
-        border: 1px solid $base-border-color;
+        border: 1px solid $ps-border-color;
         font-size: 12px;
         color: #666;
       }
@@ -1022,7 +998,7 @@ ul#text_fields {
 .customizableProductsText {
   margin-bottom: 20px;
   padding-bottom: 10px;
-  border-bottom: 1px solid $base-border-color;
+  border-bottom: 1px solid $ps-border-color;
 }
 .customizationUploadLine {
   padding-bottom:10px;
@@ -1032,7 +1008,7 @@ ul#text_fields {
   }
   textarea {
     width: 50%;
-    border: $main_border;
+    border: 1px solid #d6d4d4;
     color: $text-color;
   }
 }
@@ -1116,7 +1092,7 @@ Quick View Styles
             padding-bottom: 125px;
             @media (max-width: $screen-sm-max) {  //max 991px
               @include border-radius(0);
-              border: $main_border;
+              border: 1px solid #d6d4d4;
             }
             #add_to_cart .exclusive{
               display: block;
@@ -1213,7 +1189,7 @@ Quick View Styles
       #view_full_size {
         .span_link {
           background: #fff;
-          border: 1px solid $base-border-color;
+          border: 1px solid $ps-border-color;
         }
       }
     }

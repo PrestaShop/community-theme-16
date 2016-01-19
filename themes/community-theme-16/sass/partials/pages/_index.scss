@@ -1,7 +1,7 @@
 //Homepage Tabs
 #home-page-tabs {
   border: none;
-  background: $light-background;
+  background: #fff;
   // min 768px
   @media (min-width: $screen-sm) {
     padding: 10px 0;
@@ -11,7 +11,7 @@
     margin-bottom: 0;
     // min 768px
     @media (min-width: $screen-sm-max) {
-      border-left: 1px solid $base-border-color;
+      border-left: 1px solid $ps-border-color;
       margin: 0 0px 0 9px;
       padding: 0 0px 0 9px;
     }
@@ -23,7 +23,6 @@
       font-weight: 600;
       font-size: 21px;
       line-height: 24px;
-      color: $base-heading-color;
       text-transform: uppercase;
       border: none;
       outline: none;
@@ -43,8 +42,8 @@
   }
   > li.active a,
   >li a:hover {
-    background: $dark-background;
-    color: $light-text-color;
+    background: #333;
+    color: #fff;
     padding: 10px;
     // min 768px
     @media (min-width: $screen-sm) {

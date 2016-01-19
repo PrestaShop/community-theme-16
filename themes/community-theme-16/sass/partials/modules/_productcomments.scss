@@ -6,7 +6,7 @@
 
 .listcomment li {
   padding: 10px 0;
-  border-bottom: 1px dotted $base-border-color;
+  border-bottom: 1px dotted $ps-border-color;
   color: #666666;
 }
 
@@ -14,13 +14,11 @@
   display: block;
   font-weight: bold;
   font-size: 12px;
-  color: $base-text-color;
 }
 
 .listcomment .txtcomment {
   display: block;
   padding: 5px 0;
-  color: $base-text-color;
 }
 
 // module productcomments
@@ -98,7 +96,7 @@ form#sendComment h3 {
   height: 28px;
   width: 498px;
   border: 1px solid #cccccc;
-  background: url(../img/bg_input.png) repeat-x 0 0 $light-background;
+  background: url(../img/bg_input.png) repeat-x 0 0 #fff;
 }
 
 #sendComment p.textarea textarea {

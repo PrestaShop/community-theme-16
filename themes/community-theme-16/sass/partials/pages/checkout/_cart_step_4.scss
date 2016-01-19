@@ -6,7 +6,7 @@
     margin-bottom: 20px;
     font-weight: normal;
     > table {
-      background: $light-background;
+      background: #fff;
       margin-bottom: 0;
       &.resume {
         height: 53px;
@@ -49,7 +49,6 @@
   padding-bottom: 16px;
   .carrier_title {
     font-weight: bold;
-    color: $base-text-color;
   }
   .delivery_options_address {
     .carrier_title {
@@ -64,7 +63,7 @@
 #carrierTable {
   border: 1px solid #999999;
   border-bottom: none;
-  background: $light-background;
+  background: #fff;
 }
 
 #carrierTable tbody {
@@ -76,7 +75,7 @@
   height: 29px;
   font-weight: bold;
   line-height: 29px;
-  color: $light-text-color;
+  color: #fff;
   text-transform: uppercase;
   background: url(../img/bg_table_th.png) repeat-x 0 -10px #999999;
 }
@@ -102,7 +101,6 @@
 }
 
 a.iframe {
-  color: $base-text-color;
   text-decoration: underline;
   &:hover {
     text-decoration: none;

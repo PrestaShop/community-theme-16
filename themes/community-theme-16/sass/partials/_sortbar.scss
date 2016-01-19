@@ -1,12 +1,6 @@
-//-------------- Grid/List vars
-$GL-text-color:                             #808080;
-$GL-icon-color:                             #e1e0e0;
-$GL-icon-color-hover:                       $base-text-color;
-
-// barre comparaison / tri
 .content_sortPagiBar {
   .sortPagiBar {
-    border-bottom: 1px solid $base-border-color;
+    border-bottom: 1px solid $ps-border-color;
     clear: both;
     #productsSortForm {
       display: inline-block;
@@ -50,7 +44,7 @@ $GL-icon-color-hover:                       $base-text-color;
       padding-left: 12px;
       text-align: center;
       a {
-        color: $GL-text-color;
+        color: #ccc;
         font-size: 11px;
         line-height: 14px;
         cursor: pointer;
@@ -60,25 +54,15 @@ $GL-icon-color-hover:                       $base-text-color;
           height: 24px;
           line-height: 24px;
           margin-bottom: -3px;
-          color: $GL-icon-color;
-        }
-        &:hover {
-          i {
-            color: lighten($GL-icon-color-hover, 30%);
-          }
         }
       }
       &.selected {
         a {
-          cursor: default;
-        }
-        i {
-          color: $GL-icon-color-hover;
+          color: #333;
         }
       }
       &.display-title {
         font-weight: bold;
-        color: $base-text-color;
         padding: 7px 6px 0 0;
       }
     }

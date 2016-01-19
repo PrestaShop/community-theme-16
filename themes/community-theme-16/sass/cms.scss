@@ -28,7 +28,7 @@
         padding: 4px 0 6px 0;
         font-weight: bold;
         color: #46a74e;
-        border-top: 1px solid $base-border-color;
+        border-top: 1px solid $ps-border-color;
         &:first-child {
           border: none;
         }
@@ -51,7 +51,7 @@
       margin: 4px 0 13px 0;
       position: relative;
       .inner {
-        border: 1px solid $light-border-color;
+        border: 1px solid #fff;
         padding: 19px 18px 11px 18px;
         background: rgb(251,251,251);
         background: -moz-linear-gradient(top,  rgba(251,251,251,1) 0%, rgba(254,254,254,1) 100%);

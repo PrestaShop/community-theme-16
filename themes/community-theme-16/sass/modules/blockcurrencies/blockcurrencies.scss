@@ -16,7 +16,7 @@
   div.current {
     font-weight: bold;
     padding: 8px 10px 10px 10px;
-    color: $light-text-color;
+    color: #fff;
     cursor: pointer;
     line-height:18px;
     @media (max-width: $screen-xs - 1) {
@@ -59,17 +59,17 @@
     top: 37px;
     left: 0;
     width: 157px;
-    background: $dark-background;
+    background: #333;
     z-index: 2;
     li {
-      color: $light-text-color;
+      color: #fff;
       line-height: 35px;
       font-size: 13px;
       a,
       > span {
         padding: 0 10px 0 12px;
         display: block;
-        color: $light-text-color;
+        color: #fff;
       }
       &.selected, &:hover a {
         background: #484848;

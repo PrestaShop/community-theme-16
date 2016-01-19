@@ -1,9 +1,9 @@
 // FOOTER
 .footer-container {
-  background-color: $dark-background;
+  background-color: #333;
   // min 768px
   @media (min-width: $screen-sm) {
-    background: url(../img/footer-bg.png) repeat-x $dark-background;
+    background: url(../img/footer-bg.png) repeat-x #333;
   }
   .container {
     padding-bottom: 100px;
@@ -26,11 +26,11 @@
     a {
       color: #777777;
       &:hover {
-        color: $light-text-color;
+        color: #fff;
       }
     }
     h4 {
-      color: $light-text-color;
+      color: #fff;
       margin: 0 0 13px 0;
       // max 767px
       @media (max-width: $screen-xs-max) {
@@ -50,7 +50,7 @@
         }
       }
       a {
-        color: $light-text-color;
+        color: #fff;
       }
     }
     ul {
@@ -77,7 +77,7 @@
             line-height: 30px;
             > span,
             > span a {
-              color: $light-text-color;
+              color: #fff;
               font-weight: normal;
             }
             i {
@@ -138,7 +138,7 @@
               -moz-osx-font-smoothing: grayscale;
             }
             &:hover {
-              color: $light-text-color;
+              color: #fff;
             }
           }
           &.facebook {
@@ -229,7 +229,7 @@
 // BLOCK .footer_links (cms pages)
 ul.footer_links {
   padding: 20px 0 0px 0;
-  border-top: 1px solid $base-border-color;
+  border-top: 1px solid $ps-border-color;
   height: 65px;
   li {
     float: left;

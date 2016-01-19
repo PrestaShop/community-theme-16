@@ -6,7 +6,7 @@
                                 Categories Page Styles
 ************************************************************************************************ */
 .content_scene_cat {
-  border-top: 5px solid $dark-border-color;
+  border-top: 5px solid #333;
   color: #d7d7d7;
   line-height: 19px;
   margin: 0 0 26px 0;
@@ -21,7 +21,7 @@
     font-weight: 600;
     font-size: 42px;
     line-height: 51px;
-    color: $light-text-color;
+    color: #fff;
     margin-bottom: 12px;
     @media  (max-width: $screen-md-max) { // max 1199px
       font-size: 25px;
@@ -32,7 +32,7 @@
     margin-bottom: 0;
   }
   a {
-    color: $light-text-color;
+    color: #fff;
     &:hover {
       text-decoration: underline;
     }
@@ -55,11 +55,10 @@
 ************************************************************************************************ */
 
 #subcategories {
-  border-top: 1px solid $base-border-color;
-  padding: 15px 0 0px 0;
+  border-top: 1px solid $ps-border-color;
+  padding: 15px 0 0 0;
   p.subcategory-heading {
     font-weight: bold;
-    color: $base-text-color;
     margin: 0 0 15px 0;
   }
   ul {
@@ -75,7 +74,7 @@
         a {
           display: block;
           padding: 9px;
-          border: 1px solid $base-border-color;
+          border: 1px solid $ps-border-color;
           img {
             max-width: 100%;
             vertical-align: top;
@@ -86,7 +85,6 @@
         font-weight: 600;
         font-size: 18px;
         line-height: 22px;
-        color: $base-heading-color;
         text-transform: uppercase;
         &:hover {
           color: $link-hover-color;
@@ -98,7 +96,7 @@
       &:hover {
         .subcategory-image {
           a {
-            border: 5px solid $dark-border-color;
+            border: 5px solid #333;
             padding: 5px;
           }
         }
