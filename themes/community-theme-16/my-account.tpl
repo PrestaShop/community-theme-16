@@ -2,9 +2,9 @@
 
 <h1 class="page-heading">{l s='My account'}</h1>
 {if isset($account_created)}
-  <p class="alert alert-success">
+  <div class="alert alert-success">
     {l s='Your account has been created.'}
-  </p>
+  </div>
 {/if}
 <p>{l s='Welcome to your account. Here you can manage all of your personal information and orders.'}</p>
 <div class="row addresses-lists">

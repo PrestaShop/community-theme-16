@@ -414,9 +414,9 @@
       </div>
     {/if}
     {if isset($message_confirmation) && $message_confirmation}
-      <p class="alert alert-success">
+      <div class="alert alert-success">
         {l s='Message successfully sent'}
-      </p>
+      </div>
     {/if}
     <form action="{$link->getPageLink('order-detail', true)|escape:'html':'UTF-8'}" method="post" class="std" id="sendOrderMessage">
       <h3 class="page-heading bottom-indent">{l s='Add a message'}</h3>
@@ -440,6 +440,6 @@
       </div>
     </form>
   {else}
-    <p class="alert alert-info"><i class="icon-info-sign"></i>{l s='You cannot return merchandise with a guest account'}</p>
+    <div class="alert alert-info"><i class="icon-info-sign"></i>{l s='You cannot return merchandise with a guest account'}</div>
   {/if}
 {/if}

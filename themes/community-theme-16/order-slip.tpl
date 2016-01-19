@@ -44,7 +44,7 @@
     </table>
     <div id="block-order-detail" class="unvisible">&nbsp;</div>
   {else}
-    <p class="alert alert-warning">{l s='You have not received any credit slips.'}</p>
+    <div class="alert alert-warning">{l s='You have not received any credit slips.'}</div>
   {/if}
 </div><!-- #block-history -->
 

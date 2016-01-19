@@ -3,7 +3,7 @@
 <h1 class="page-heading">{l s='Referral program' mod='referralprogram'}</h1>
 
 {if $error}
-  <p class="alert alert-danger">
+  <div class="alert alert-danger">
     {if $error == 'conditions not valided'}
       {l s='You need to agree to the conditions of the referral program!' mod='referralprogram'}
     {elseif $error == 'email invalid'}
@@ -17,27 +17,27 @@
     {elseif $error == 'cannot add friends'}
       {l s='Cannot add friends to database' mod='referralprogram'}
     {/if}
-  </p>
+  </div>
 {/if}
 
 {if $invitation_sent}
-  <p class="alert alert-success">
+  <div class="alert alert-success">
     {if $nbInvitation > 1}
       {l s='E-mails have been sent to your friends!' mod='referralprogram'}
     {else}
       {l s='An e-mail has been sent to your friend!' mod='referralprogram'}
     {/if}
-  </p>
+  </div>
 {/if}
 
 {if $revive_sent}
-  <p class="alert alert-success">
+  <div class="alert alert-success">
     {if $nbRevive > 1}
       {l s='Reminder e-mails have been sent to your friends!' mod='referralprogram'}
     {else}
       {l s='A reminder e-mail has been sent to your friend!' mod='referralprogram'}
     {/if}
-  </p>
+  </div>
 {/if}
 <ul class="nav nav-tabs" id="idTabs">
   <li class="active"><a data-toggle="tab" href="#idTab1" class="tab-pane {if $activeTab eq 'sponsor'} active{/if}" title="{l s='Sponsor my friends' mod='referralprogram'}" rel="nofollow">{l s='Sponsor my friends' mod='referralprogram'}</a></li>
@@ -101,9 +101,9 @@
         </p>
       </form>
     {else}
-      <p class="alert alert-warning">
+      <div class="alert alert-warning">
         {l s='To become a sponsor, you need to have completed at least' mod='referralprogram'} {$orderQuantity} {if $orderQuantity > 1}{l s='orders' mod='referralprogram'}{else}{l s='order' mod='referralprogram'}{/if}.
-      </p>
+      </div>
     {/if}
   </div>
 
@@ -144,13 +144,13 @@
         </p>
       </form>
     {else}
-      <p class="alert alert-warning">
+      <div class="alert alert-warning">
         {if $subscribeFriends AND $subscribeFriends|@count > 0}
           {l s='You have no pending invitations.' mod='referralprogram'}
         {else}
           {l s='You have not sponsored any friends yet.' mod='referralprogram'}
         {/if}
-      </p>
+      </div>
     {/if}
   </div>
 
@@ -182,9 +182,9 @@
         </tbody>
       </table>
     {else}
-      <p class="alert alert-warning">
+      <div class="alert alert-warning">
         {l s='No sponsored friends have accepted your invitation yet.' mod='referralprogram'}
-      </p>
+      </div>
     {/if}
   </div>
 </div>

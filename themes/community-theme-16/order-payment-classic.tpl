@@ -279,7 +279,7 @@
       </div> <!-- end opc_payment_methods-content -->
     {/if}
   {else}
-    <p class="alert alert-warning">{l s='No payment modules have been installed.'}</p>
+    <div class="alert alert-warning">{l s='No payment modules have been installed.'}</div>
   {/if}
   {if !$opc}
   <p class="cart_navigation clearfix">

@@ -213,7 +213,7 @@
     {/if}
   {/if}
 {else}
-  <p class="alert alert-warning">
+  <div class="alert alert-warning">
     {l s='No products' mod='blockwishlist'}
-  </p>
+  </div>
 {/if}

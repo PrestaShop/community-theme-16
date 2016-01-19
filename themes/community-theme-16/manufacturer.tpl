@@ -47,6 +47,6 @@
       </div>
     </div>
   {else}
-    <p class="alert alert-warning">{l s='No products for this manufacturer.'}</p>
+    <div class="alert alert-warning">{l s='No products for this manufacturer.'}</div>
   {/if}
 {/if}

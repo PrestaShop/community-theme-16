@@ -36,7 +36,7 @@
       {/foreach}
     </ul>
   {else}
-    <p class="alert alert-warning">{l s='No favorite products have been determined just yet. ' mod='favoriteproducts'}</p>
+    <div class="alert alert-warning">{l s='No favorite products have been determined just yet. ' mod='favoriteproducts'}</div>
   {/if}
 
   <ul class="footer_links clearfix">

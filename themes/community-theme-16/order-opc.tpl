@@ -7,7 +7,7 @@
 {if $PS_CATALOG_MODE}
   {capture name=path}{l s='Your shopping cart'}{/capture}
   <h2 id="cart_title">{l s='Your shopping cart'}</h2>
-  <p class="alert alert-warning">{l s='Your new order was not accepted.'}</p>
+  <div class="alert alert-warning">{l s='Your new order was not accepted.'}</div>
 {else}
   {if $productNumber}
     <!-- Shopping Cart -->
@@ -32,7 +32,7 @@
     {capture name=path}{l s='Your shopping cart'}{/capture}
     <h2 class="page-heading">{l s='Your shopping cart'}</h2>
     {include file="$tpl_dir./errors.tpl"}
-    <p class="alert alert-warning">{l s='Your shopping cart is empty.'}</p>
+    <div class="alert alert-warning">{l s='Your shopping cart is empty.'}</div>
   {/if}
   {strip}
     {addJsDef imgDir=$img_dir}

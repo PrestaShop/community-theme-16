@@ -3,7 +3,7 @@
   {l s='Customer service'} - {if isset($customerThread) && $customerThread}{l s='Your reply'}{else}{l s='Contact us'}{/if}
 </h1>
 {if isset($confirmation)}
-  <p class="alert alert-success">{l s='Your message has been successfully sent to our team.'}</p>
+  <div class="alert alert-success">{l s='Your message has been successfully sent to our team.'}</div>
   <ul class="footer_links clearfix">
     <li>
       <a class="btn btn-default" href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}">
@@ -14,7 +14,7 @@
     </li>
   </ul>
 {elseif isset($alreadySent)}
-  <p class="alert alert-warning">{l s='Your message has already been sent.'}</p>
+  <div class="alert alert-warning">{l s='Your message has already been sent.'}</div>
   <ul class="footer_links clearfix">
     <li>
       <a class="btn btn-default" href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}">

@@ -42,9 +42,9 @@
           </tbody>
         </table>
       </div>
-      <p class="alert alert-warning text-center" id="noCarrier" style="display: none;">
+      <div class="alert alert-warning text-center" id="noCarrier" style="display: none;">
         {l s='No carrier has been made available for this selection.' mod='carriercompare'}
-      </p>
+      </div>
       <p class="SE_SubmitRefreshCard">
         <button class="btn btn-default" id="carriercompare_submit" type="button" name="carriercompare_submit">
           <span>{l s='Update cart' mod='carriercompare'}<i class="icon-chevron-right right"></i></span>

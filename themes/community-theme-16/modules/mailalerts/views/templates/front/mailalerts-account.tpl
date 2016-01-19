@@ -17,7 +17,7 @@
       {/foreach}
     </ul>
   {/if}
-  <p id="mailalerts_block_account_warning" class="{if $mailAlerts}hidden{/if} alert alert-warning">{l s='No mail alerts yet.' mod='mailalerts'}</p>
+  <div id="mailalerts_block_account_warning" class="{if $mailAlerts}hidden{/if} alert alert-warning">{l s='No mail alerts yet.' mod='mailalerts'}</div>
   <ul class="footer_links clearfix">
     <li><a class="btn btn-default" href="{$link->getPageLink('my-account', true)|escape:'html'}" title="{l s='Back to Your Account' mod='mailalerts'}"><span><i class="icon-chevron-left"></i>{l s='Back to Your Account' mod='mailalerts'}</span></a></li>
   </ul>

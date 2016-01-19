@@ -24,11 +24,11 @@
 {capture name=path}{l s='Your shopping cart'}{/capture}
 
 {if $productNumber == 0}
-  <p class="alert alert-warning">{l s='Your shopping cart is empty.'}</p>
+  <div class="alert alert-warning">{l s='Your shopping cart is empty.'}</div>
 {elseif $PS_CATALOG_MODE}
-  <p class="alert alert-warning">{l s='This store has not accepted your new order.'}</p>
+  <div class="alert alert-warning">{l s='This store has not accepted your new order.'}</div>
 {else}
-  <p id="emptyCartWarning" class="alert alert-warning unvisible">{l s='Your shopping cart is empty.'}</p>
+  <div id="emptyCartWarning" class="alert alert-warning unvisible">{l s='Your shopping cart is empty.'}</div>
   <h2>{l s='Payment Options'}</h2>
   <!-- HOOK_ADVANCED_PAYMENT -->
   <div id="HOOK_ADVANCED_PAYMENT">
@@ -75,7 +75,7 @@
     </div>
     {else}
     <div class="col-xs-12 col-md-12">
-      <p class="alert alert-warning ">{l s='Unable to find any available payment option for your cart. Please contact us if the problem persists'}</p>
+      <div class="alert alert-warning ">{l s='Unable to find any available payment option for your cart. Please contact us if the problem persists'}</div>
     </div>
     {/if}
   </div>

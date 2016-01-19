@@ -1,5 +1,5 @@
 {if $status == 'ok'}
-  <p class="alert alert-success">{l s='Your order on %s is complete.' sprintf=$shop_name mod='cheque'}</p>
+  <div class="alert alert-success">{l s='Your order on %s is complete.' sprintf=$shop_name mod='cheque'}</div>
   <div class="box">
     {l s='Please send us a bank wire with' mod='bankwire'}
     <br />- {l s='Amount' mod='bankwire'} <span class="price"><strong>{$total_to_pay}</strong></span>
@@ -15,8 +15,8 @@
     <br />{l s='If you have questions, comments or concerns, please contact our' mod='bankwire'} <a href="{$link->getPageLink('contact', true)|escape:'html':'UTF-8'}">{l s='expert customer support team' mod='bankwire'}</a>.
   </div>
 {else}
-  <p class="alert alert-warning">
+  <div class="alert alert-warning">
     {l s='We noticed a problem with your order. If you think this is an error, feel free to contact our' mod='bankwire'}
     <a href="{$link->getPageLink('contact', true)|escape:'html':'UTF-8'}">{l s='customer service department.' mod='bankwire'}</a>.
-  </p>
+  </div>
 {/if}

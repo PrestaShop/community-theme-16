@@ -22,7 +22,7 @@
 
 {include file="$tpl_dir./errors.tpl"}
 {if !$nbProducts}
-  <p class="alert alert-warning">
+  <div class="alert alert-warning">
     {if isset($search_query) && $search_query}
       {l s='No results were found for your search'}&nbsp;"{if isset($search_query)}{$search_query|escape:'html':'UTF-8'}{/if}"
     {elseif isset($search_tag) && $search_tag}
@@ -30,12 +30,12 @@
     {else}
       {l s='Please enter a search keyword'}
     {/if}
-  </p>
+  </div>
 {else}
   {if isset($instant_search) && $instant_search}
-    <p class="alert alert-info">
+    <div class="alert alert-info">
       {if $nbProducts == 1}{l s='%d result has been found.' sprintf=$nbProducts|intval}{else}{l s='%d results have been found.' sprintf=$nbProducts|intval}{/if}
-    </p>
+    </div>
   {/if}
   <div class="content_sortPagiBar">
     <div class="sortPagiBar clearfix {if isset($instant_search) && $instant_search} instant_search{/if}">

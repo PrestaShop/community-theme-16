@@ -19,9 +19,9 @@
   </p>
 {/if}
 {if isset($errorMsg) && $errorMsg}
-  <p class="alert alert-danger">
+  <div class="alert alert-danger">
     {l s='Please provide an explanation for your RMA.'}
-  </p>
+  </div>
   <form method="POST"  id="returnOrderMessage">
     <p class="textarea form-group">
       <label>{l s='Please provide an explanation for your RMA:'}</label>
@@ -46,19 +46,19 @@
 
 {/if}
 {if isset($errorDetail1) && $errorDetail1}
-  <p class="alert alert-danger">
+  <div class="alert alert-danger">
     {l s='Please check at least one product you would like to return.'}
-  </p>
+  </div>
 {/if}
 {if isset($errorDetail2) && $errorDetail2}
-  <p class="alert alert-danger">
+  <div class="alert alert-danger">
     {l s='For each product you wish to add, please specify the desired quantity.'}
-  </p>
+  </div>
 {/if}
 {if isset($errorNotReturnable) && $errorNotReturnable}
-  <p class="alert alert-danger">
+  <div class="alert alert-danger">
     {l s='This order cannot be returned.'}
-  </p>
+  </div>
 {/if}
 
 <p>
@@ -112,7 +112,7 @@
     </table>
     <div id="block-order-detail" class="unvisible">&nbsp;</div>
   {else}
-    <p class="alert alert-warning">{l s='You have no merchandise return authorizations.'}</p>
+    <div class="alert alert-warning">{l s='You have no merchandise return authorizations.'}</div>
   {/if}
 </div>
 
