@@ -7,11 +7,9 @@
   font-size: 12px;
   line-height: 24px;
   min-height: 6px;
-  @include border-radius(3px);
   overflow: hidden;
   margin-bottom: 16px;
   position: relative;
-  z-index: 1;
   .navigation-pipe {
     width: 18px;
     display: inline-block;
@@ -26,14 +24,10 @@
     z-index: 2;
     &.home {
       font-size: 17px;
-      color: $text-color;
       width: 38px;
       text-align: center;
       padding: 0;
       margin: 0 0 0 -10px;
-      @include border-top-left-radius(3px);
-      @include border-bottom-left-radius(3px);
-      z-index: 99;
       line-height: 22px;
       display: inline-block;
       height: 25px;
@@ -75,21 +69,6 @@
       text-indent: -5000px;
       z-index: -1;
       @include rotate(45deg);
-    }
-    &:hover {
-      color: #777777;
-    }
-  }
-}
-
-.ie8 {
-  .breadcrumb {
-    min-height: 1px;
-    a:after {
-      display: none;
-    }
-    .navigation-pipe {
-      width: 20px;
     }
   }
 }
