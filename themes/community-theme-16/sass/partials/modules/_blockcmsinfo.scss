@@ -57,10 +57,8 @@
     height: 60px;
     margin: 3px 10px 0 0;
     font-size: 30px;
-    color: #fff;
     line-height: 60px;
     text-align: center;
-    @include border-radius(100px);
     // max 991px
     @media (max-width: $screen-sm-max) {
       width: 30px;
