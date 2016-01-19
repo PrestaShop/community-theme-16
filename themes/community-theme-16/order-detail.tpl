@@ -14,7 +14,7 @@
   </div>
   <div class="info-order box">
     {if $carrier->id}<p><strong>{l s='Carrier'}</strong> {if $carrier->name == "0"}{$shop_name|escape:'html':'UTF-8'}{else}{$carrier->name|escape:'html':'UTF-8'}{/if}</p>{/if}
-    <p><strong>{l s='Payment method'}</strong> <span class="color-myaccount">{$order->payment|escape:'html':'UTF-8'}</span></p>
+    <p><strong>{l s='Payment method'}</strong> <span>{$order->payment|escape:'html':'UTF-8'}</span></p>
     {if $invoice AND $invoiceAllowed}
       <p>
         <i class="icon-file-text"></i>

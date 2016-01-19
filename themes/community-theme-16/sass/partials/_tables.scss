@@ -32,31 +32,3 @@ table.table_block td {
   font-size: 12px;
   vertical-align: top;
 }
-
-.table {
-  > thead {
-    > tr {
-      > th {
-        background: #fbfbfb;
-        vertical-align: middle;
-      }
-    }
-  }
-  td {
-    ul, ol {
-      margin-bottom: 0 !important;
-    }
-    a.color-myaccount {
-      color: $link-color;
-      text-decoration: underline;
-      &:hover {
-        text-decoration: none;
-      }
-    }
-  }
-  tfoot {
-    tr {
-      background: #fbfbfb;
-    }
-  }
-}
