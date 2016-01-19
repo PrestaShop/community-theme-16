@@ -21,12 +21,12 @@
       {foreach from=$ordersSlip item=slip name=myLoop}
         <tr class="{if $smarty.foreach.myLoop.first}first_item{elseif $smarty.foreach.myLoop.last}last_item{else}item{/if} {if $smarty.foreach.myLoop.index % 2}alternate_item{/if}">
           <td class="bold">
-            <span class="color-myaccount">
+            <span>
               {l s='#%s' sprintf=$slip.id_order_slip|string_format:"%06d"}
             </span>
           </td>
           <td class="history_method">
-            <a class="color-myaccount" href="javascript:showOrder(1, {$slip.id_order|intval}, '{$link->getPageLink('order-detail')|escape:'html':'UTF-8'}');">
+            <a href="javascript:showOrder(1, {$slip.id_order|intval}, '{$link->getPageLink('order-detail')|escape:'html':'UTF-8'}');">
               {l s='#%s' sprintf=$slip.id_order|string_format:"%06d"}
             </a>
           </td>
@@ -34,7 +34,7 @@
             {dateFormat date=$slip.date_add full=0}
           </td>
           <td class="history_invoice">
-            <a class="link-button" href="{$link->getPageLink('pdf-order-slip', true, NULL, "id_order_slip={$slip.id_order_slip|intval}")|escape:'html':'UTF-8'}" title="{l s='Credit slip'} {l s='#%s' sprintf=$slip.id_order_slip|string_format:"%06d"}">
+            <a class="btn btn-default" href="{$link->getPageLink('pdf-order-slip', true, NULL, "id_order_slip={$slip.id_order_slip|intval}")|escape:'html':'UTF-8'}" title="{l s='Credit slip'} {l s='#%s' sprintf=$slip.id_order_slip|string_format:"%06d"}">
               <i class="icon-file-text large"></i>{l s='PDF'}
             </a>
           </td>

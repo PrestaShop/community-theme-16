@@ -1,15 +1,5 @@
 .block {
-  margin-bottom: 30px;
-  // max 767px
-  @media (max-width: $screen-xs-max) {
-    margin-bottom: 0px;
-  }
-  .block_content {
-    // max 767px
-    @media (max-width: $screen-xs-max) {
-      margin-bottom: 20px;
-    }
-  }
+  margin-bottom: 25px;
 }
 
 .block {
@@ -20,8 +10,7 @@
     line-height: 22px;
     background: #f6f6f6;
     border-top: 5px solid #333;
-    text-transform: uppercase;
-    padding: 14px 5px 17px 20px;
+    padding: 15px;
     margin-bottom: 20px;
     @media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
       font-size: 14px;
@@ -109,17 +98,9 @@
       .product-content {
         overflow: hidden;
         h5 {
-          position: relative;
-          top: -11px;
+          margin-top: 0;
         }
       }
-    }
-    .product-name {
-      font-size: 15px;
-      line-height: 18px;
-    }
-    .product-description {
-      margin-bottom: 14px;
     }
     .price-percent-reduction {
       font-weight: 700;

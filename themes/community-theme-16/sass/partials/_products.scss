@@ -1,20 +1,5 @@
 //product elements
 .product-name {
-  font-size: 17px;
-  line-height: 23px;
-  color: $product-name-color;
-  margin-bottom: 0;
-  a {
-    font-size: 17px;
-    line-height: 23px;
-    color: $product-name-color;
-    &:hover {
-      color: $product-name-hover-color;
-    }
-    @media (max-width: $screen-sm) {
-      font-size: 14px;
-    }
-  }
 }
 
 .price {
@@ -165,40 +150,5 @@
     content: ".";
     text-indent: -5000px;
     @include rotate(135deg);
-  }
-}
-
-.ie8 {
-  .new-label {
-    left: 0px;
-    top: 0px;
-    width: auto;
-    padding: 5px 15px;
-    &:after {
-      display: none;
-    }
-    &:before {
-      display: none;
-    }
-  }
-  .sale-label {
-    right: 0px;
-    top: 0px;
-    width: auto;
-    padding: 5px 15px;
-    &:after {
-      display: none;
-    }
-    &:before {
-      display: none;
-    }
-  }
-  .new-box {
-    top: -1px;
-    left: -1px;
-  }
-  .sale-box {
-    right: -1px;
-    top: -1px;
   }
 }

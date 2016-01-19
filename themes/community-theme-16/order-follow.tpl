@@ -80,16 +80,12 @@
       {foreach from=$ordersReturn item=return name=myLoop}
         <tr class="{if $smarty.foreach.myLoop.first}first_item{elseif $smarty.foreach.myLoop.last}last_item{else}item{/if} {if $smarty.foreach.myLoop.index % 2}alternate_item{/if}">
           <td class="bold">
-            <a
-              class="color-myaccount"
-              href="javascript:showOrder(0, {$return.id_order_return|intval}, '{$link->getPageLink('order-return', true)|escape:'html':'UTF-8'}');">
+            <a href="javascript:showOrder(0, {$return.id_order_return|intval}, '{$link->getPageLink('order-return', true)|escape:'html':'UTF-8'}');">
               {l s='#'}{$return.id_order_return|string_format:"%06d"}
             </a>
           </td>
           <td class="history_method">
-            <a
-              class="color-myaccount"
-              href="javascript:showOrder(1, {$return.id_order|intval}, '{$link->getPageLink('order-detail', true)|escape:'html':'UTF-8'}');">
+            <a href="javascript:showOrder(1, {$return.id_order|intval}, '{$link->getPageLink('order-detail', true)|escape:'html':'UTF-8'}');">
               {$return.reference}
             </a>
           </td>
@@ -103,7 +99,7 @@
           </td>
           <td class="history_invoice">
             {if $return.state == 2}
-              <a class="link-button" href="{$link->getPageLink('pdf-order-return', true, NULL, "id_order_return={$return.id_order_return|intval}")|escape:'html':'UTF-8'}" title="{l s='Order return'} {l s='#'}{$return.id_order_return|string_format:"%06d"}">
+              <a class="btn btn-default" href="{$link->getPageLink('pdf-order-return', true, NULL, "id_order_return={$return.id_order_return|intval}")|escape:'html':'UTF-8'}" title="{l s='Order return'} {l s='#'}{$return.id_order_return|string_format:"%06d"}">
                 <i class="icon-file-text"></i> {l s='Print out'}
               </a>
             {else}

@@ -17,11 +17,7 @@
       position: static;
     }
     .footer-block {
-      margin-top: 45px;
-      // max 767px
-      @media (max-width: $screen-xs-max) {
-        margin-top: 20px;
-      }
+      margin-top: 15px;
     }
     a {
       color: #777777;
@@ -55,46 +51,25 @@
     }
     ul {
       li {
-        padding-bottom: 8px;
+        padding-bottom: 5px;
       }
     }
     #block_contact_infos {
-      border-left: 1px solid #515151;
-      // max 767px
-      @media (max-width: $screen-xs-max) {
-        border: none;
-      }
-      > div {
-        padding: 0 0 0 5px;
-        // max 767px
-        @media (max-width: $screen-xs-max) {
-          padding-left: 0;
-        }
-        ul {
-          li {
-            padding: 0 0 7px 4px;
-            overflow: hidden;
-            line-height: 30px;
-            > span,
-            > span a {
-              color: #fff;
-              font-weight: normal;
-            }
-            i {
-              font-size: 25px;
-              width: 32px;
-              text-align: center;
-              padding-right: 12px;
-              float: left;
-              color: #908f8f;
-            }
+      ul {
+        li {
+          padding: 0 0 8px 0;
+          span, a {
+            color: #fff;
+          }
+          i {
+            font-size: 25px;
+            min-width: 35px;
+            padding-right: 12px;
           }
         }
       }
     }
-    .blockcategories_footer {
-      clear: left;
-    }
+
     #social_block {
       float: left;
       width: 50%;
@@ -205,7 +180,7 @@
         font-size: 21px;
         line-height: 25px;
         text-transform: none;
-        padding: 0 10px 0 0;
+        padding: 10px 10px 0 0;
         // max 767px
         @media (max-width: $screen-xs-max) {
           display: none;
@@ -228,7 +203,7 @@
 
 // BLOCK .footer_links (cms pages)
 ul.footer_links {
-  padding: 20px 0 0px 0;
+  padding: 20px 0 0 0;
   border-top: 1px solid $ps-border-color;
   height: 65px;
   li {

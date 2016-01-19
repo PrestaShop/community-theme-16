@@ -1,3 +1,7 @@
+$has-error-bg  : $state-danger-bg;
+$has-warning-bg: $state-warning-bg;
+$has-success-bg: $state-success-bg;
+
 textarea {
   resize: vertical;
 }
@@ -11,25 +15,23 @@ label {
   }
 }
 
-//Form validate
-.form-group {
-  &.form-error {
-    input, textarea {
-      border: 1px solid #f13340;
-      color: #f13340;
-      background: url(../img/icon/form-error.png) 98% 9px no-repeat #fff1f2;
-    }
+.form-error {
+  @extend .has-error;
+  .form-control {
+    background-color: $has-error-bg;
   }
-  &.form-ok {
-    input, textarea {
-      border: 1px solid #46a74e;
-      color: #35b33f;
-      background: url(../img/icon/form-ok.png) 98% 9px no-repeat #ddf9e1;
-    }
+}
+
+.form-ok {
+  @extend .has-success;
+  .form-control {
+    background-color: $has-success-bg;
   }
-  &.form-error, &.form-ok {
-    .form-control {
-      padding-right: 30px;
-    }
+}
+
+.form-warning {
+  @extend .has-warning;
+  .form-control {
+    background-color: $has-warning-bg;
   }
 }

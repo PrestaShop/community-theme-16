@@ -1,5 +1,5 @@
 {if isset($order)}
-  <div class="box box-small clearfix">
+  <div class="box clearfix">
     {if isset($reorderingAllowed) && $reorderingAllowed}
       <form id="submitReorder" action="{if isset($opc) && $opc}{$link->getPageLink('order-opc', true)}{else}{$link->getPageLink('order', true)}{/if}" method="post" class="submit">
         <input type="hidden" value="{$order->id}" name="id_order"/>
@@ -14,7 +14,7 @@
   </div>
   <div class="info-order box">
     {if $carrier->id}<p><strong>{l s='Carrier'}</strong> {if $carrier->name == "0"}{$shop_name|escape:'html':'UTF-8'}{else}{$carrier->name|escape:'html':'UTF-8'}{/if}</p>{/if}
-    <p><strong>{l s='Payment method'}</strong> <span class="color-myaccount">{$order->payment|escape:'html':'UTF-8'}</span></p>
+    <p><strong>{l s='Payment method'}</strong> <span>{$order->payment|escape:'html':'UTF-8'}</span></p>
     {if $invoice AND $invoiceAllowed}
       <p>
         <i class="icon-file-text"></i>
