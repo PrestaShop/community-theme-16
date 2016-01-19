@@ -37,7 +37,7 @@ table.table_block td {
   > thead {
     > tr {
       > th {
-        background: $table-background;
+        background: #fbfbfb;
         vertical-align: middle;
       }
     }
@@ -56,7 +56,7 @@ table.table_block td {
   }
   tfoot {
     tr {
-      background: $table-background;
+      background: #fbfbfb;
     }
   }
 }

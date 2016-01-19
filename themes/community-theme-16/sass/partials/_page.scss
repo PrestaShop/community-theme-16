@@ -13,7 +13,7 @@ body {
 }
 
 .columns-container {
-  background: $light-background;
+  background: #fff;
 }
 
 #columns {
@@ -32,7 +32,7 @@ body {
 header {
   z-index: 1;
   position: relative;
-  background: $light-background;
+  background: #fff;
   padding-bottom: 15px;
   .banner {
     background: black;
@@ -42,8 +42,7 @@ header {
     }
   }
   .nav {
-    background: $dark-background;
-    color: $gray-text-color;
+    background: #333;
     .row {
       margin: 0px;
     }
@@ -82,7 +81,7 @@ header {
 }
 
 .header-container {
-  background: $light-background;
+  background: #fff;
 }
 
 

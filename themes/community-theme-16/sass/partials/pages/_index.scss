@@ -1,7 +1,7 @@
 //Homepage Tabs
 #home-page-tabs {
   border: none;
-  background: $light-background;
+  background: #fff;
   // min 768px
   @media (min-width: $screen-sm) {
     padding: 10px 0;
@@ -42,7 +42,7 @@
   }
   > li.active a,
   >li a:hover {
-    background: $dark-background;
+    background: #333;
     color: #fff;
     padding: 10px;
     // min 768px

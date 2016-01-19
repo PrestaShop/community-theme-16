@@ -1,9 +1,9 @@
 // FOOTER
 .footer-container {
-  background-color: $dark-background;
+  background-color: #333;
   // min 768px
   @media (min-width: $screen-sm) {
-    background: url(../img/footer-bg.png) repeat-x $dark-background;
+    background: url(../img/footer-bg.png) repeat-x #333;
   }
   .container {
     padding-bottom: 100px;

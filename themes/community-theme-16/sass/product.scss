@@ -48,13 +48,13 @@ a.fancybox-nav {
     cursor: pointer;
     padding: 5px;
     border: 1px solid $product-image-border;
-    background: $light-background;
+    background: #fff;
     @media (max-width: $screen-xs-max) { //max 767px
       width: 280px;
       margin: 0 auto;
     }
     img {
-      background: $base-box-bg;
+      background: #fbfbfb;
       width: 100%;
     }
     #view_full_size {
@@ -150,16 +150,16 @@ a.fancybox-nav {
     }
     a{
       display: block;
-      border: 3px solid $light-border-color;
+      border: 3px solid #fff;
       @include transition(all 0.3s ease);
       @include box-sizing(border-box);
-      background: $base-box-bg;
+      background: #fbfbfb;
       &:hover, &.shown {
         border-color: $product-image-border;
       }
     }
     img {
-      border: 1px solid $light-border-color;
+      border: 1px solid #fff;
       width: 100%;
       height: 100%;
       @include box-sizing(border-box);
@@ -409,8 +409,8 @@ span.view_scroll_spacer {
 }
 #product p#loyalty {
   padding: 17px 0 15px 35px;
-  border-top: $main_border;
-  border-bottom: $main_border;
+  border-top: 1px solid #d6d4d4;
+  border-bottom: 1px solid #d6d4d4;
   margin: 10px 0 -5px;
   position: relative;
   &:before{
@@ -701,19 +701,19 @@ span.view_scroll_spacer {
 
 /* table_data_sheet */
 .table-data-sheet{
-  border-bottom: $main_border;
+  border-bottom: 1px solid #d6d4d4;
   width: 100%;
   margin: 0 0 20px;
-  background: $light-background;
+  background: #fff;
   tr{
-    border-top: $main_border;
+    border-top: 1px solid #d6d4d4;
     &.even{
       background: $tr-even-bg;
     }
     td{
       padding: 10px 20px 11px;
       &:first-child{
-        border-right: $main_border;
+        border-right: 1px solid #d6d4d4;
         width: 30%;
         font-weight: 700;
       }
@@ -724,25 +724,25 @@ span.view_scroll_spacer {
 /* table product-discounts */
 table.table-product-discounts{
   border: none;
-  border-bottom: $main_border;
-  border-right: $main_border;
+  border-bottom: 1px solid #d6d4d4;
+  border-right: 1px solid #d6d4d4;
   width: 50%;
   margin: 0 0 20px;
-  background: $light-background;
+  background: #fff;
   @media (max-width: $screen-xs-max) { //max 767px
     width: 100%;
   }
   tr th{
-    background: $table-background;
+    background: #fbfbfb;
     border: none;
     font-weight: 700;
   }
   tr td,
   tr th{
-    border-left: $main_border;
+    border-left: 1px solid #d6d4d4;
     width: 33%;
     padding: 10px 20px 11px;
-    border-top: $main_border;
+    border-top: 1px solid #d6d4d4;
     border-right: none;
     text-transform: none;
     font-weight: 13px;
@@ -797,7 +797,7 @@ table.table-product-discounts{
     height: 27px;
     padding: 0 6px;
     float: left;
-    border: $main_border;
+    border: 1px solid #d6d4d4;
     line-height: 27px;
   }
   .btn{
@@ -947,7 +947,7 @@ table.table-product-discounts{
   .form_container {
     padding: 10px 15px;
     border: 1px solid $base-border-color;
-    background: $base-box-bg;
+    background: #fbfbfb;
     p{
       &.intro_form {
         padding-bottom: 6px;
@@ -1008,7 +1008,7 @@ ul#text_fields {
   }
   textarea {
     width: 50%;
-    border: $main_border;
+    border: 1px solid #d6d4d4;
     color: $text-color;
   }
 }
@@ -1092,7 +1092,7 @@ Quick View Styles
             padding-bottom: 125px;
             @media (max-width: $screen-sm-max) {  //max 991px
               @include border-radius(0);
-              border: $main_border;
+              border: 1px solid #d6d4d4;
             }
             #add_to_cart .exclusive{
               display: block;

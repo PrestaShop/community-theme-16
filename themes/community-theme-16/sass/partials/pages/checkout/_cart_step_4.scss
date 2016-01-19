@@ -6,7 +6,7 @@
     margin-bottom: 20px;
     font-weight: normal;
     > table {
-      background: $light-background;
+      background: #fff;
       margin-bottom: 0;
       &.resume {
         height: 53px;
@@ -63,7 +63,7 @@
 #carrierTable {
   border: 1px solid #999999;
   border-bottom: none;
-  background: $light-background;
+  background: #fff;
 }
 
 #carrierTable tbody {

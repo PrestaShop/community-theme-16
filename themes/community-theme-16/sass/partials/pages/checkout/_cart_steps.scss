@@ -130,7 +130,7 @@ ul.step {
       span {
         display: block;
         border: 1px solid;
-        border-color: $light-border-color;
+        border-color: #fff;
         position: relative;
         // min 991px
         @media (min-width: $screen-md) {

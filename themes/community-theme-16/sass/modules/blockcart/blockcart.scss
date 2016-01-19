@@ -39,7 +39,7 @@
   }
   > a:first-child {
     padding: 7px 10px 14px 16px;
-    background: $dark-background;
+    background: #333;
     display: block;
     font-weight: bold;
     color: #777777;
@@ -150,7 +150,7 @@
   dd {
     position: relative;
     .cart_block_customizations{
-      border-top: 1px dashed $dark-background;
+      border-top: 1px dashed #333;
       li {
         padding: 10px 20px;
 
@@ -251,7 +251,7 @@
       background: url(../../../img/cart-shadow.png) repeat-x #3d3d3d;
     }
     .cart-buttons {
-      background: url(../../../img/cart-shadow.png) repeat-x $dark-background;
+      background: url(../../../img/cart-shadow.png) repeat-x #333;
     }
   }
   .block_content {
@@ -316,7 +316,7 @@
 }
 
 #layer_cart {
-  background-color: $light-background;
+  background-color: #fff;
   position: absolute;
   display: none;
   z-index: 99;

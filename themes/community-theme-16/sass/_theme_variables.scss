@@ -1,24 +1,11 @@
 //-------- BORDERS
 $base-border-color:                 #d6d4d4;
-$main_border:                       1px solid $base-border-color;
-$dark-border-color:                 #333;
-$light-border-color:                #fff;
-
-//--------- BACKGROUNDS
-$base-box-bg:                       #fbfbfb;
-$table-background:                  $base-box-bg;
-$dark-background:                   #333;
-$light-background:                  #fff;
-
-//--------- COLORS
-$gray-text-color:                   #777;
-$base-text-color:                   #333;
 
 //---------- Product Elements
 $product-name-color:                #3a3939;
 $product-name-hover-color:          #515151;
-$price-color:                       $gray-text-color;
-$product-price-color:               $base-text-color;
+$price-color:                       #777;
+$product-price-color:               #333;
 $product-reduced-price:             #f00;
 $product-special-price-color:       #f13340;
 $product-old-price-color:           #6f6f6f;

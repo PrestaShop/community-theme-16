@@ -28,7 +28,7 @@
 .sf-menu ul {
   position: absolute;
   top: -999em;
-  background: $light-background;
+  background: #fff;
   @media (max-width: $screen-xs-max) { // max 767px
     position: relative;
   }
@@ -79,7 +79,7 @@
   &.sfHover > a,
   > a:hover,
   &.sfHoverForce > a {
-    background: $dark-background;
+    background: #333;
     border-bottom-color: #666666;
     color: #fff;
   }
@@ -218,7 +218,7 @@ ul.sf-menu li li li.sfHover ul {
     background: #f6f6f6;
     position: relative;
     &:hover {
-      background: $dark-background;
+      background: #333;
       border-bottom-color: #666666;
       color: #fff;
     }
