@@ -160,7 +160,7 @@
     </table>
   </div> <!-- end products_block -->
 {else}
-  <p class="alert alert-warning">{l s='There are no products selected for comparison.'}</p>
+  <div class="alert alert-warning">{l s='There are no products selected for comparison.'}</div>
 {/if}
 <ul class="footer_link">
   <li>

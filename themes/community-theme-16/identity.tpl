@@ -17,10 +17,10 @@
   {include file="$tpl_dir./errors.tpl"}
 
   {if isset($confirmation) && $confirmation}
-    <p class="alert alert-success">
+    <div class="alert alert-success">
       {l s='Your personal information has been successfully updated.'}
       {if isset($pwd_changed)}<br />{l s='Your password has been sent to your email:'} {$email}{/if}
-    </p>
+    </div>
   {else}
     <p>
       <b>{l s='Please be sure to update your personal information if it has changed.'}</b>

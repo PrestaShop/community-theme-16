@@ -9,9 +9,9 @@
 </h1>
 
 {if isset($account_created)}
-  <p class="alert alert-success">
+  <div class="alert alert-success">
     {l s='Your account has been created.'}
-  </p>
+  </div>
 {/if}
 
 {assign var='current_step' value='summary'}
@@ -19,11 +19,11 @@
 {include file="$tpl_dir./errors.tpl"}
 
 {if isset($empty)}
-  <p class="alert alert-warning">{l s='Your shopping cart is empty.'}</p>
+  <div class="alert alert-warning">{l s='Your shopping cart is empty.'}</div>
 {elseif $PS_CATALOG_MODE}
-  <p class="alert alert-warning">{l s='This store has not accepted your new order.'}</p>
+  <div class="alert alert-warning">{l s='This store has not accepted your new order.'}</div>
 {else}
-  <p id="emptyCartWarning" class="alert alert-warning unvisible">{l s='Your shopping cart is empty.'}</p>
+  <div id="emptyCartWarning" class="alert alert-warning unvisible">{l s='Your shopping cart is empty.'}</div>
   {if isset($lastProductAdded) AND $lastProductAdded}
     <div class="cart_last_product">
       <div class="cart_last_product_header">

@@ -56,7 +56,7 @@
     </tbody>
   </table>
 {else}
-  <p class="alert alert-warning">{l s='You do not have any vouchers.'}</p>
+  <div class="alert alert-warning">{l s='You do not have any vouchers.'}</div>
 {/if}
 
 <ul class="footer_links clearfix">

@@ -22,7 +22,7 @@
       {/if}
     </div>
     {if isset($isVirtualCart) && $isVirtualCart}
-      <p class="alert alert-warning">{l s='No carrier is needed for this order.'}</p>
+      <div class="alert alert-warning">{l s='No carrier is needed for this order.'}</div>
     {else}
       <div class="delivery_options_address">
         {if isset($delivery_option_list)}
@@ -238,7 +238,7 @@
             </div>
             {foreachelse}
             {assign var='errors' value=' '|explode:''}
-            <p class="alert alert-warning" id="noCarrierWarning">
+            <div class="alert alert-warning" id="noCarrierWarning">
               {foreach $cart->getDeliveryAddressesWithoutCarriers(true, $errors) as $address}
                 {if empty($address->alias)}
                   {l s='No carriers available.'}
@@ -266,7 +266,7 @@
                 {foreachelse}
                 {l s='No carriers available.'}
               {/foreach}
-            </p>
+            </div>
           {/foreach}
         {/if}
       </div> <!-- end delivery_options_address -->

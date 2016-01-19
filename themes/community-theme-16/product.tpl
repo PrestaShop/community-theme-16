@@ -20,7 +20,7 @@
       {/if}
       {if isset($adminActionDisplay) && $adminActionDisplay}
         <div id="admin-action" class="container">
-          <p class="alert alert-info">{l s='This product is not visible to your customers.'}
+          <div class="alert alert-info">{l s='This product is not visible to your customers.'}
             <input type="hidden" id="admin-action-product-id" value="{$product->id}" />
             <a id="publish_button" class="btn btn-success" href="#">
               <span>{l s='Publish'}</span>
@@ -28,7 +28,7 @@
             <a id="lnk_view" class="btn btn-warning" href="#">
               <span>{l s='Back'}</span>
             </a>
-          </p>
+          </div>
           <p id="admin-action-result"></p>
         </div>
       {/if}

@@ -34,7 +34,7 @@
     </div>
   </div>
 {else}
-  <p class="alert alert-warning">{l s='No addresses are available.'}&nbsp;<a href="{$link->getPageLink('address', true)|escape:'html':'UTF-8'}">{l s='Add a new address'}</a></p>
+  <div class="alert alert-warning">{l s='No addresses are available.'}&nbsp;<a href="{$link->getPageLink('address', true)|escape:'html':'UTF-8'}">{l s='Add a new address'}</a></div>
 {/if}
 <div class="clearfix form-group">
   <a href="{$link->getPageLink('address', true)|escape:'html':'UTF-8'}" title="{l s='Add an address'}" class="btn btn-lg btn-success"><span>{l s='Add a new address'}<i class="icon-chevron-right right"></i></span></a>

@@ -10,9 +10,9 @@
 {include file="$tpl_dir./order-steps.tpl"}
 
 {if $nbProducts <= 0}
-  <p class="alert alert-warning">
+  <div class="alert alert-warning">
     {l s='Your shopping cart is empty.' mod='bankwire'}
-  </p>
+  </div>
 {else}
   <form action="{$link->getModuleLink('bankwire', 'validation', [], true)|escape:'html':'UTF-8'}" method="post">
     <div class="box cheque-box">

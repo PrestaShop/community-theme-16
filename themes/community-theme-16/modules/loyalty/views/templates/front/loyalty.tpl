@@ -34,7 +34,7 @@
       </table>
       <div id="block-order-detail" class="unvisible">&nbsp;</div>
     {else}
-      <p class="alert alert-warning">{l s='You have not placed any orders.' mod='loyalty'}</p>
+      <div class="alert alert-warning">{l s='You have not placed any orders.' mod='loyalty'}</div>
     {/if}
   </div>
   <div id="pagination" class="pagination">
@@ -157,10 +157,10 @@
     {if $minimalLoyalty > 0}<p>{l s='The minimum order amount in order to use these vouchers is:' mod='loyalty'} {convertPrice price=$minimalLoyalty}</p>{/if}
 
   {else}
-    <p class="alert alert-warning">{l s='No vouchers yet.' mod='loyalty'}</p>
+    <div class="alert alert-warning">{l s='No vouchers yet.' mod='loyalty'}</div>
   {/if}
 {else}
-  <p class="alert alert-warning">{l s='No reward points yet.' mod='loyalty'}</p>
+  <div class="alert alert-warning">{l s='No reward points yet.' mod='loyalty'}</div>
 {/if}
 
 <ul class="footer_links clearfix">
