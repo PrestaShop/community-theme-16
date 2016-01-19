@@ -1,20 +1,5 @@
 //product elements
 .product-name {
-  font-size: 17px;
-  line-height: 23px;
-  color: $product-name-color;
-  margin-bottom: 0;
-  a {
-    font-size: 17px;
-    line-height: 23px;
-    color: $product-name-color;
-    &:hover {
-      color: $product-name-hover-color;
-    }
-    @media (max-width: $screen-sm) {
-      font-size: 14px;
-    }
-  }
 }
 
 .price {
