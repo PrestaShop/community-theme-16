@@ -69,16 +69,16 @@
     <table id="order-list" class="table table-bordered footab">
       <thead>
       <tr>
-        <th data-sort-ignore="true" class="first_item">{l s='Return'}</th>
-        <th data-sort-ignore="true" class="item">{l s='Order'}</th>
-        <th data-hide="phone" class="item">{l s='Package status'}</th>
-        <th data-hide="phone,tablet" class="item">{l s='Date issued'}</th>
-        <th data-sort-ignore="true" data-hide="phone,tablet" class="last_item">{l s='Return slip'}</th>
+        <th data-sort-ignore="true">{l s='Return'}</th>
+        <th data-sort-ignore="true">{l s='Order'}</th>
+        <th data-hide="phone">{l s='Package status'}</th>
+        <th data-hide="phone,tablet">{l s='Date issued'}</th>
+        <th data-sort-ignore="true" data-hide="phone,tablet">{l s='Return slip'}</th>
       </tr>
       </thead>
       <tbody>
       {foreach from=$ordersReturn item=return name=myLoop}
-        <tr class="{if $smarty.foreach.myLoop.first}first_item{elseif $smarty.foreach.myLoop.last}last_item{else}item{/if} {if $smarty.foreach.myLoop.index % 2}alternate_item{/if}">
+        <tr>
           <td class="bold">
             <a href="javascript:showOrder(0, {$return.id_order_return|intval}, '{$link->getPageLink('order-return', true)|escape:'html':'UTF-8'}');">
               {l s='#'}{$return.id_order_return|string_format:"%06d"}

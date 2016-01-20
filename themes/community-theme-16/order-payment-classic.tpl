@@ -6,14 +6,14 @@
         <table id="cart_summary" class="table table-bordered">
           <thead>
           <tr>
-            <th class="cart_product first_item">{l s='Product'}</th>
-            <th class="cart_description item">{l s='Description'}</th>
+            <th class="cart_product">{l s='Product'}</th>
+            <th class="cart_description">{l s='Description'}</th>
             {if $PS_STOCK_MANAGEMENT}
-              <th class="cart_availability item text-center">{l s='Availability'}</th>
+              <th class="cart_availability text-center">{l s='Availability'}</th>
             {/if}
-            <th class="cart_unit item text-right">{l s='Unit price'}</th>
-            <th class="cart_quantity item text-center">{l s='Qty'}</th>
-            <th class="cart_total last_item text-right">{l s='Total'}</th>
+            <th class="cart_unit text-right">{l s='Unit price'}</th>
+            <th class="cart_quantity text-center">{l s='Qty'}</th>
+            <th class="cart_total text-right">{l s='Total'}</th>
           </tr>
           </thead>
           <tfoot>
@@ -178,7 +178,7 @@
             {* Then the customized datas ones*}
             {if isset($customizedDatas.$productId.$productAttributeId)}
               {foreach from=$customizedDatas.$productId.$productAttributeId[$product.id_address_delivery] key='id_customization' item='customization'}
-                <tr id="product_{$product.id_product}_{$product.id_product_attribute}_{$id_customization}" class="alternate_item cart_item">
+                <tr id="product_{$product.id_product}_{$product.id_product_attribute}_{$id_customization}" class="cart_item">
                   <td colspan="4">
                     {foreach from=$customization.datas key='type' item='datas'}
                       {if $type == $CUSTOMIZE_FILE}
@@ -237,7 +237,7 @@
               {if $discount.value_real|floatval == 0}
                 {continue}
               {/if}
-              <tr class="cart_discount {if $smarty.foreach.discountLoop.last}last_item{elseif $smarty.foreach.discountLoop.first}first_item{else}item{/if}" id="cart_discount_{$discount.id_discount}">
+              <tr class="cart_discount" id="cart_discount_{$discount.id_discount}">
                 <td class="cart_discount_name" colspan="{if $PS_STOCK_MANAGEMENT}3{else}2{/if}">{$discount.name}</td>
                 <td class="cart_discount_price">
                   <span class="price-discount">

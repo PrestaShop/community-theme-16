@@ -57,11 +57,11 @@
   </div> <!-- end row -->
   <div class="row">
     <div class="col-xs-12 col-sm-6"{if $cart->isVirtualCart()} style="display:none;"{/if}>
-      <ul class="address item box" id="address_delivery">
+      <ul class="address box" id="address_delivery">
       </ul>
     </div>
     <div class="col-xs-12 col-sm-6">
-      <ul class="address alternate_item{if $cart->isVirtualCart()} full_width{/if} box" id="address_invoice">
+      <ul class="address {if $cart->isVirtualCart()} full_width{/if} box" id="address_invoice">
       </ul>
     </div>
   </div> <!-- end row -->

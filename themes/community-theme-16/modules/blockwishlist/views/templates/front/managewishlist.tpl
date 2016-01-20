@@ -38,19 +38,10 @@
     </div>
   {/if}
   <div class="wlp_bought">
-    {assign var='nbItemsPerLine' value=4}
-    {assign var='nbItemsPerLineTablet' value=3}
-    {assign var='nbLi' value=$products|@count}
-    {math equation="nbLi/nbItemsPerLine" nbLi=$nbLi nbItemsPerLine=$nbItemsPerLine assign=nbLines}
-    {math equation="nbLi/nbItemsPerLineTablet" nbLi=$nbLi nbItemsPerLineTablet=$nbItemsPerLineTablet assign=nbLinesTablet}
     <ul class="row wlp_bought_list">
       {foreach from=$products item=product name=i}
-        {math equation="(total%perLine)" total=$smarty.foreach.i.total perLine=$nbItemsPerLine assign=totModulo}
-        {math equation="(total%perLineT)" total=$smarty.foreach.i.total perLineT=$nbItemsPerLineTablet assign=totModuloTablet}
-        {if $totModulo == 0}{assign var='totModulo' value=$nbItemsPerLine}{/if}
-        {if $totModuloTablet == 0}{assign var='totModuloTablet' value=$nbItemsPerLineTablet}{/if}
         <li id="wlp_{$product.id_product}_{$product.id_product_attribute}"
-            class="col-xs-12 col-sm-4 col-md-3 {if $smarty.foreach.i.iteration%$nbItemsPerLine == 0} last-in-line{elseif $smarty.foreach.i.iteration%$nbItemsPerLine == 1} first-in-line{/if} {if $smarty.foreach.i.iteration > ($smarty.foreach.i.total - $totModulo)}last-line{/if} {if $smarty.foreach.i.iteration%$nbItemsPerLineTablet == 0}last-item-of-tablet-line{elseif $smarty.foreach.i.iteration%$nbItemsPerLineTablet == 1}first-item-of-tablet-line{/if} {if $smarty.foreach.i.iteration > ($smarty.foreach.i.total - $totModuloTablet)}last-tablet-line{/if}">
+            class="col-xs-12 col-sm-4 col-md-3">
           <div class="row">
             <div class="col-xs-6 col-sm-12">
               <div class="product_image">
@@ -169,10 +160,10 @@
         <table class="wlp_bought_infos unvisible table table-bordered">
           <thead>
           <tr>
-            <th class="first_item">{l s='Product' mod='blockwishlist'}</th>
-            <th class="item">{l s='Quantity' mod='blockwishlist'}</th>
-            <th class="item">{l s='Offered by' mod='blockwishlist'}</th>
-            <th class="last_item">{l s='Date' mod='blockwishlist'}</th>
+            <th>{l s='Product' mod='blockwishlist'}</th>
+            <th>{l s='Quantity' mod='blockwishlist'}</th>
+            <th>{l s='Offered by' mod='blockwishlist'}</th>
+            <th>{l s='Date' mod='blockwishlist'}</th>
           </tr>
           </thead>
           <tbody>
@@ -180,7 +171,7 @@
             {foreach from=$product.bought item=bought name=j}
               {if $bought.quantity > 0}
                 <tr>
-                  <td class="first_item">
+                  <td>
                     <span style="float:left;">
                       <img
                         src="{$link->getImageLink($product.link_rewrite, $product.cover, 'small_default')|escape:'html':'UTF-8'}"
@@ -194,13 +185,13 @@
                       {/if}
                     </span>
                   </td>
-                  <td class="item align_center">
+                  <td class="align_center">
                     {$bought.quantity|intval}
                   </td>
-                  <td class="item align_center">
+                  <td class="align_center">
                     {$bought.firstname} {$bought.lastname}
                   </td>
-                  <td class="last_item align_center">
+                  <td class="align_center">
                     {$bought.date_add|date_format:"%Y-%m-%d"}
                   </td>
                 </tr>

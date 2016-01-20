@@ -8,14 +8,14 @@
       <table id="order-list" class="table table-bordered">
         <thead>
         <tr>
-          <th class="first_item">{l s='Order' mod='loyalty'}</th>
-          <th class="item">{l s='Date' mod='loyalty'}</th>
-          <th class="item">{l s='Points' mod='loyalty'}</th>
-          <th class="last_item">{l s='Points Status' mod='loyalty'}</th>
+          <th>{l s='Order' mod='loyalty'}</th>
+          <th>{l s='Date' mod='loyalty'}</th>
+          <th>{l s='Points' mod='loyalty'}</th>
+          <th>{l s='Points Status' mod='loyalty'}</th>
         </tr>
         </thead>
         <tfoot>
-        <tr class="alternate_item">
+        <tr>
           <td colspan="2" class="history_method bold" style="text-align:center;">{l s='Total points available:' mod='loyalty'}</td>
           <td class="history_method" style="text-align:left;">{$totalPoints|intval}</td>
           <td class="history_method">&nbsp;</td>
@@ -23,7 +23,7 @@
         </tfoot>
         <tbody>
         {foreach from=$displayorders item='order'}
-          <tr class="alternate_item">
+          <tr>
             <td class="history_link bold">{l s='#' mod='loyalty'}{$order.id|string_format:"%06d"}</td>
             <td class="history_date">{dateFormat date=$order.date full=1}</td>
             <td class="history_method">{$order.points|intval}</td>
@@ -109,18 +109,18 @@
       <table id="order-list" class="table table-bordered">
         <thead>
         <tr>
-          <th class="first_item">{l s='Created' mod='loyalty'}</th>
-          <th class="item">{l s='Value' mod='loyalty'}</th>
-          <th class="item">{l s='Code' mod='loyalty'}</th>
-          <th class="item">{l s='Valid from' mod='loyalty'}</th>
-          <th class="item">{l s='Valid until' mod='loyalty'}</th>
-          <th class="item">{l s='Status' mod='loyalty'}</th>
-          <th class="last_item">{l s='Details' mod='loyalty'}</th>
+          <th>{l s='Created' mod='loyalty'}</th>
+          <th>{l s='Value' mod='loyalty'}</th>
+          <th>{l s='Code' mod='loyalty'}</th>
+          <th>{l s='Valid from' mod='loyalty'}</th>
+          <th>{l s='Valid until' mod='loyalty'}</th>
+          <th>{l s='Status' mod='loyalty'}</th>
+          <th>{l s='Details' mod='loyalty'}</th>
         </tr>
         </thead>
         <tbody>
         {foreach from=$discounts item=discount name=myLoop}
-          <tr class="alternate_item">
+          <tr>
             <td class="history_date">{dateFormat date=$discount->date_add}</td>
             <td class="history_price"><span class="price">{if $discount->reduction_percent > 0}
                   {$discount->reduction_percent}%

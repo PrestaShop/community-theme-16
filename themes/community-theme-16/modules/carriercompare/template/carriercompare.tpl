@@ -31,10 +31,10 @@
         <table cellspacing="0" cellpadding="0" id="availableCarriers_table" class="table table-bordered">
           <thead>
           <tr>
-            <th class="carrier_action first_item"></th>
-            <th class="carrier_name item">{l s='Carrier' mod='carriercompare'}</th>
-            <th class="carrier_infos item">{l s='Information' mod='carriercompare'}</th>
-            <th class="carrier_price last_item">{l s='Price' mod='carriercompare'}</th>
+            <th class="carrier_action"></th>
+            <th class="carrier_name">{l s='Carrier' mod='carriercompare'}</th>
+            <th class="carrier_infos">{l s='Information' mod='carriercompare'}</th>
+            <th class="carrier_price">{l s='Price' mod='carriercompare'}</th>
           </tr>
           </thead>
           <tbody id="carriers_list">
