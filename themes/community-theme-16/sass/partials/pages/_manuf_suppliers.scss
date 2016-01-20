@@ -86,35 +86,6 @@
         }
       }
     }
-    // > 1199
-    @media (min-width: $screen-lg) {
-      li.first-in-line {
-        clear: left;
-      }
-      li.last-line {
-        .product-container {
-          border-bottom: none;
-        }
-      }
-    }
-    //768 -> 1199
-    @media (min-width: $screen-sm) and (max-width: $screen-md-max) {
-      li.first-item-of-tablet-line {
-        clear: left;
-      }
-      li.last-tablet-line {
-        .product-container {
-          border-bottom: none;
-        }
-      }
-    }
-    // < 768
-    @media (max-width: $screen-xs-max) {
-      li.item-last {}
-      .product-container {
-        border-bottom: none;
-      }
-    }
   }
 }
 

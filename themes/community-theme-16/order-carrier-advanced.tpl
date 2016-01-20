@@ -36,7 +36,7 @@
             </p>
             <div class="delivery_options">
               {foreach $option_list as $key => $option}
-                <div class="delivery_option {if ($option@index % 2)}alternate_{/if}item">
+                <div class="delivery_option">
                   <div>
                     <table class="resume table table-bordered{if !$option.unique_carrier} hide{/if}">
                       <tr>
@@ -98,7 +98,7 @@
                       <table class="delivery_option_carrier{if isset($delivery_option[$id_address]) && $delivery_option[$id_address] == $key} selected{/if} resume table table-bordered{if $option.unique_carrier} hide{/if}">
                         <tr>
                           {if !$option.unique_carrier}
-                            <td rowspan="{$option.carrier_list|@count}" class="delivery_option_radio first_item">
+                            <td rowspan="{$option.carrier_list|@count}" class="delivery_option_radio">
                               <input id="delivery_option_{$id_address|intval}_{$option@index}" class="delivery_option_radio" type="radio" name="delivery_option[{$id_address|intval}]" data-key="{$key}" data-id_address="{$id_address|intval}" value="{$key}"{if isset($delivery_option[$id_address]) && $delivery_option[$id_address] == $key} checked="checked"{/if} />
                             </td>
                           {/if}
@@ -110,7 +110,7 @@
                               {$first.instance->name|escape:'htmlall':'UTF-8'}
                             {/if}
                           </td>
-                          <td class="{if $option.unique_carrier}first_item{/if}{if $first.product_list[0].carrier_list[0] eq 0} hide{/if}">
+                          <td class="{if $first.product_list[0].carrier_list[0] eq 0} hide{/if}">
                             <input type="hidden" value="{$first.instance->id|intval}" name="id_carrier" />
                             {if isset($first.instance->delay[$cookie->id_lang])}
                               <i class="icon-info-sign"></i>
@@ -181,7 +181,7 @@
                                   {$carrier.instance->name|escape:'htmlall':'UTF-8'}
                                 {/if}
                               </td>
-                              <td class="{if $option.unique_carrier} first_item{/if}{if $carrier.product_list[0].carrier_list[0] eq 0} hide{/if}">
+                              <td class="{if $carrier.product_list[0].carrier_list[0] eq 0} hide{/if}">
                                 <input type="hidden" value="{$first.instance->id|intval}" name="id_carrier" />
                                 {if isset($carrier.instance->delay[$cookie->id_lang])}
                                   <i class="icon-info-sign"></i>

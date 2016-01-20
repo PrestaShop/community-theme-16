@@ -129,7 +129,7 @@
                   {else}
                     {if $filter.filter_type == 1}
                       <li class="nomargin row">
-                        <div class="col-xs-6 col-sm-12 col-lg-6 first-item">
+                        <div class="col-xs-6 col-sm-12 col-lg-6">
                           {l s='From' mod='blocklayered'}
                           <input class="layered_{$filter.type}_range layered_input_range_min layered_input_range form-control" id="layered_{$filter.type}_range_min" type="text" value="{$filter.values[0]}"/>
                           <span class="layered_{$filter.type}_range_unit">

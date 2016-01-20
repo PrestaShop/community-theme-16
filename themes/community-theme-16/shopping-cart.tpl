@@ -57,18 +57,18 @@
     <table id="cart_summary" class="table table-bordered {if $PS_STOCK_MANAGEMENT}stock-management-on{else}stock-management-off{/if}">
       <thead>
       <tr>
-        <th class="cart_product first_item">{l s='Product'}</th>
-        <th class="cart_description item">{l s='Description'}</th>
+        <th class="cart_product">{l s='Product'}</th>
+        <th class="cart_description">{l s='Description'}</th>
         {if $PS_STOCK_MANAGEMENT}
           {assign var='col_span_subtotal' value='3'}
-          <th class="cart_avail item text-center">{l s='Availability'}</th>
+          <th class="cart_avail text-center">{l s='Availability'}</th>
         {else}
           {assign var='col_span_subtotal' value='2'}
         {/if}
-        <th class="cart_unit item text-right">{l s='Unit price'}</th>
-        <th class="cart_quantity item text-center">{l s='Qty'}</th>
-        <th class="cart_delete last_item">&nbsp;</th>
-        <th class="cart_total item text-right">{l s='Total'}</th>
+        <th class="cart_unit text-right">{l s='Unit price'}</th>
+        <th class="cart_quantity text-center">{l s='Qty'}</th>
+        <th class="cart_delete">&nbsp;</th>
+        <th class="cart_total text-right">{l s='Total'}</th>
       </tr>
       </thead>
       <tfoot>
@@ -291,7 +291,7 @@
           {foreach $customizedDatas.$productId.$productAttributeId[$product.id_address_delivery] as $id_customization=>$customization}
             <tr
               id="product_{$product.id_product}_{$product.id_product_attribute}_{$id_customization}_{$product.id_address_delivery|intval}"
-              class="product_customization_for_{$product.id_product}_{$product.id_product_attribute}_{$product.id_address_delivery|intval}{if $odd} odd{else} even{/if} customization alternate_item {if $product@last && $customization@last && !count($gift_products)}last_item{/if}">
+              class="product_customization_for_{$product.id_product}_{$product.id_product_attribute}_{$product.id_address_delivery|intval}{if $odd} odd{else} even{/if} customization">
               <td></td>
               <td colspan="3">
                 {foreach $customization.datas as $type => $custom_data}
@@ -397,7 +397,7 @@
           {if ($discount.value_real|floatval == 0 && $discount.free_shipping != 1) || ($discount.value_real|floatval == 0 && $discount.code == '')}
             {continue}
           {/if}
-          <tr class="cart_discount {if $discount@last}last_item{elseif $discount@first}first_item{else}item{/if}" id="cart_discount_{$discount.id_discount}">
+          <tr class="cart_discount" id="cart_discount_{$discount.id_discount}">
             <td class="cart_discount_name" colspan="{if $PS_STOCK_MANAGEMENT}3{else}2{/if}">{$discount.name}</td>
             <td class="cart_discount_price">
               <span class="price-discount">
@@ -454,7 +454,7 @@
       {if !isset($formattedAddresses) || (count($formattedAddresses.invoice) == 0 && count($formattedAddresses.delivery) == 0) || (count($formattedAddresses.invoice.formated) == 0 && count($formattedAddresses.delivery.formated) == 0)}
         {if $delivery->id}
           <div class="col-xs-12 col-sm-6"{if !$have_non_virtual_products} style="display: none;"{/if}>
-            <ul id="delivery_address" class="address item box">
+            <ul id="delivery_address" class="address box">
               <li><h3 class="page-subheading">{l s='Delivery address'}&nbsp;<span class="address_alias">({$delivery->alias})</span></h3></li>
               {if $delivery->company}<li class="address_company">{$delivery->company|escape:'html':'UTF-8'}</li>{/if}
               <li class="address_name">{$delivery->firstname|escape:'html':'UTF-8'} {$delivery->lastname|escape:'html':'UTF-8'}</li>
@@ -467,7 +467,7 @@
         {/if}
         {if $invoice->id}
           <div class="col-xs-12 col-sm-6">
-            <ul id="invoice_address" class="address alternate_item box">
+            <ul id="invoice_address" class="address box">
               <li><h3 class="page-subheading">{l s='Invoice address'}&nbsp;<span class="address_alias">({$invoice->alias})</span></h3></li>
               {if $invoice->company}<li class="address_company">{$invoice->company|escape:'html':'UTF-8'}</li>{/if}
               <li class="address_name">{$invoice->firstname|escape:'html':'UTF-8'} {$invoice->lastname|escape:'html':'UTF-8'}</li>
@@ -481,7 +481,7 @@
       {else}
         {foreach from=$formattedAddresses key=k item=address}
           <div class="col-xs-12 col-sm-6"{if $k == 'delivery' && !$have_non_virtual_products} style="display: none;"{/if}>
-            <ul class="address {if $address@last}last_item{elseif $address@first}first_item{/if} {if $address@index % 2}alternate_item{else}item{/if} box">
+            <ul class="address box">
               <li>
                 <h3 class="page-subheading">
                   {if $k eq 'invoice'}

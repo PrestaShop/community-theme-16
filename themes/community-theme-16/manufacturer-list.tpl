@@ -45,19 +45,9 @@
       </div>
     </div> <!-- .content_sortPagiBar -->
 
-    {assign var='nbItemsPerLine' value=3}
-    {assign var='nbItemsPerLineTablet' value=2}
-    {assign var='nbLi' value=$manufacturers|@count}
-    {math equation="nbLi/nbItemsPerLine" nbLi=$nbLi nbItemsPerLine=$nbItemsPerLine assign=nbLines}
-    {math equation="nbLi/nbItemsPerLineTablet" nbLi=$nbLi nbItemsPerLineTablet=$nbItemsPerLineTablet assign=nbLinesTablet}
-
     <ul id="manufacturers_list" class="list row">
       {foreach from=$manufacturers item=manufacturer name=manufacturers}
-        {math equation="(total%perLine)" total=$smarty.foreach.manufacturers.total perLine=$nbItemsPerLine assign=totModulo}
-        {math equation="(total%perLineT)" total=$smarty.foreach.manufacturers.total perLineT=$nbItemsPerLineTablet assign=totModuloTablet}
-        {if $totModulo == 0}{assign var='totModulo' value=$nbItemsPerLine}{/if}
-        {if $totModuloTablet == 0}{assign var='totModuloTablet' value=$nbItemsPerLineTablet}{/if}
-        <li class="{if $smarty.foreach.manufacturers.iteration%$nbItemsPerLine == 0} last-in-line{elseif $smarty.foreach.manufacturers.iteration%$nbItemsPerLine == 1} first-in-line{/if} {if $smarty.foreach.manufacturers.iteration > ($smarty.foreach.manufacturers.total - $totModulo)}last-line{/if} {if $smarty.foreach.manufacturers.iteration%$nbItemsPerLineTablet == 0}last-item-of-tablet-line{elseif $smarty.foreach.manufacturers.iteration%$nbItemsPerLineTablet == 1}first-item-of-tablet-line{/if} {if $smarty.foreach.manufacturers.iteration > ($smarty.foreach.manufacturers.total - $totModuloTablet)}last-tablet-line{/if}{if $smarty.foreach.manufacturers.last} item-last{/if} col-xs-12">
+        <li class="col-xs-12">
           <div class="mansup-container">
             <div class="row">
               <div class="left-side col-xs-12 col-sm-3">

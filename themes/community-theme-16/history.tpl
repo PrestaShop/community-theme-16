@@ -16,18 +16,18 @@
     <table id="order-list" class="table table-bordered footab">
       <thead>
       <tr>
-        <th class="first_item" data-sort-ignore="true">{l s='Order reference'}</th>
-        <th class="item">{l s='Date'}</th>
-        <th data-hide="phone" class="item">{l s='Total price'}</th>
-        <th data-sort-ignore="true" data-hide="phone,tablet" class="item">{l s='Payment'}</th>
-        <th class="item">{l s='Status'}</th>
-        <th data-sort-ignore="true" data-hide="phone,tablet" class="item">{l s='Invoice'}</th>
-        <th data-sort-ignore="true" data-hide="phone,tablet" class="last_item">&nbsp;</th>
+        <th data-sort-ignore="true">{l s='Order reference'}</th>
+        <th>{l s='Date'}</th>
+        <th data-hide="phone">{l s='Total price'}</th>
+        <th data-sort-ignore="true" data-hide="phone,tablet">{l s='Payment'}</th>
+        <th>{l s='Status'}</th>
+        <th data-sort-ignore="true" data-hide="phone,tablet">{l s='Invoice'}</th>
+        <th data-sort-ignore="true" data-hide="phone,tablet">&nbsp;</th>
       </tr>
       </thead>
       <tbody>
       {foreach from=$orders item=order name=myLoop}
-        <tr class="{if $smarty.foreach.myLoop.first}first_item{elseif $smarty.foreach.myLoop.last}last_item{else}item{/if} {if $smarty.foreach.myLoop.index % 2}alternate_item{/if}">
+        <tr>
           <td class="history_link bold">
             {if isset($order.invoice) && $order.invoice && isset($order.virtual) && $order.virtual}
               <img class="icon" src="{$img_dir}icon/download_product.gif" alt="{l s='Products to download'}" title="{l s='Products to download'}" />

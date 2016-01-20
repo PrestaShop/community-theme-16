@@ -11,15 +11,15 @@
     <table id="order-list" class="table table-bordered footab">
       <thead>
       <tr>
-        <th data-sort-ignore="true" class="first_item">{l s='Credit slip'}</th>
-        <th data-sort-ignore="true" class="item">{l s='Order'}</th>
-        <th class="item">{l s='Date issued'}</th>
-        <th data-sort-ignore="true" data-hide="phone" class="last_item">{l s='View credit slip'}</th>
+        <th data-sort-ignore="true">{l s='Credit slip'}</th>
+        <th data-sort-ignore="true">{l s='Order'}</th>
+        <th>{l s='Date issued'}</th>
+        <th data-sort-ignore="true" data-hide="phone">{l s='View credit slip'}</th>
       </tr>
       </thead>
       <tbody>
       {foreach from=$ordersSlip item=slip name=myLoop}
-        <tr class="{if $smarty.foreach.myLoop.first}first_item{elseif $smarty.foreach.myLoop.last}last_item{else}item{/if} {if $smarty.foreach.myLoop.index % 2}alternate_item{/if}">
+        <tr>
           <td class="bold">
             <span>
               {l s='#%s' sprintf=$slip.id_order_slip|string_format:"%06d"}

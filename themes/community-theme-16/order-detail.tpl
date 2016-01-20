@@ -36,13 +36,13 @@
       <table class="detail_step_by_step table table-bordered">
         <thead>
         <tr>
-          <th class="first_item">{l s='Date'}</th>
-          <th class="last_item">{l s='Status'}</th>
+          <th>{l s='Date'}</th>
+          <th>{l s='Status'}</th>
         </tr>
         </thead>
         <tbody>
         {foreach from=$order_history item=state name="orderStates"}
-          <tr class="{if $smarty.foreach.orderStates.first}first_item{elseif $smarty.foreach.orderStates.last}last_item{/if} {if $smarty.foreach.orderStates.index % 2}alternate_item{else}item{/if}">
+          <tr>
             <td class="step-by-step-date">{dateFormat date=$state.date_add full=0}</td>
             <td><span{if isset($state.color) && $state.color} style="background-color:{$state.color|escape:'html':'UTF-8'}; border-color:{$state.color|escape:'html':'UTF-8'};"{/if} class="label{if isset($state.color) && Tools::getBrightness($state.color) > 128} dark{/if}">{$state.ostate_name|escape:'html':'UTF-8'}</span></td>
           </tr>
@@ -60,7 +60,7 @@
   <div class="adresses_bloc">
     <div class="row">
       <div class="col-xs-12 col-sm-6"{if $order->isVirtual()} style="display:none;"{/if}>
-        <ul class="address alternate_item box">
+        <ul class="address box">
           <li><h3 class="page-subheading">{l s='Delivery address'} ({$address_delivery->alias})</h3></li>
           {foreach from=$dlv_adr_fields name=dlv_loop item=field_item}
             {if $field_item eq "company" && isset($address_delivery->company)}<li class="address_company">{$address_delivery->company|escape:'html':'UTF-8'}</li>
@@ -74,7 +74,7 @@
         </ul>
       </div>
       <div class="col-xs-12 col-sm-6">
-        <ul class="address item {if $order->isVirtual()}full_width{/if} box">
+        <ul class="address {if $order->isVirtual()}full_width{/if} box">
           <li><h3 class="page-subheading">{l s='Invoice address'} ({$address_invoice->alias})</h3></li>
           {foreach from=$inv_adr_fields name=inv_loop item=field_item}
             {if $field_item eq "company" && isset($address_invoice->company)}<li class="address_company">{$address_invoice->company|escape:'html':'UTF-8'}</li>
@@ -95,20 +95,20 @@
     <table class="table table-bordered">
       <thead>
       <tr>
-        {if $return_allowed}<th class="first_item"><input type="checkbox" /></th>{/if}
-        <th class="{if $return_allowed}item{else}first_item{/if}">{l s='Reference'}</th>
-        <th class="item">{l s='Product'}</th>
-        <th class="item">{l s='Quantity'}</th>
+        {if $return_allowed}<th><input type="checkbox" /></th>{/if}
+        <th>{l s='Reference'}</th>
+        <th>{l s='Product'}</th>
+        <th>{l s='Quantity'}</th>
         {if $order->hasProductReturned()}
-          <th class="item">{l s='Returned'}</th>
+          <th>{l s='Returned'}</th>
         {/if}
-        <th class="item">{l s='Unit price'}</th>
-        <th class="last_item">{l s='Total price'}</th>
+        <th>{l s='Unit price'}</th>
+        <th>{l s='Total price'}</th>
       </tr>
       </thead>
       <tfoot>
       {if $priceDisplay && $use_tax}
-        <tr class="item">
+        <tr>
           <td colspan="{if $return_allowed}2{else}1{/if}">
             <strong>{l s='Items (tax excl.)'}</strong>
           </td>
@@ -117,7 +117,7 @@
           </td>
         </tr>
       {/if}
-      <tr class="item">
+      <tr>
         <td colspan="{if $return_allowed}2{else}1{/if}">
           <strong>{l s='Items'} {if $use_tax}{l s='(tax incl.)'}{/if} </strong>
         </td>
@@ -126,7 +126,7 @@
         </td>
       </tr>
       {if $order->total_discounts > 0}
-        <tr class="item">
+        <tr>
           <td colspan="{if $return_allowed}2{else}1{/if}">
             <strong>{l s='Total vouchers'}</strong>
           </td>
@@ -136,7 +136,7 @@
         </tr>
       {/if}
       {if $order->total_wrapping > 0}
-        <tr class="item">
+        <tr>
           <td colspan="{if $return_allowed}2{else}1{/if}">
             <strong>{l s='Total gift wrapping cost'}</strong>
           </td>
@@ -145,7 +145,7 @@
           </td>
         </tr>
       {/if}
-      <tr class="item">
+      <tr>
         <td colspan="{if $return_allowed}2{else}1{/if}">
           <strong>{l s='Shipping & handling'} {if $use_tax}{l s='(tax incl.)'}{/if} </strong>
         </td>
@@ -153,7 +153,7 @@
           <span class="price-shipping">{displayWtPriceWithCurrency price=$order->total_shipping currency=$currency}</span>
         </td>
       </tr>
-      <tr class="totalprice item">
+      <tr class="totalprice">
         <td colspan="{if $return_allowed}2{else}1{/if}">
           <strong>{l s='Total'}</strong>
         </td>
@@ -174,7 +174,7 @@
           {/if}
           <!-- Customized products -->
           {if isset($product.customizedDatas)}
-            <tr class="item">
+            <tr>
               {if $return_allowed}<td class="order_cb"></td>{/if}
               <td><label for="cb_{$product.id_order_detail|intval}">{if $product.product_reference}{$product.product_reference|escape:'html':'UTF-8'}{else}--{/if}</label></td>
               <td class="bold">
@@ -221,7 +221,7 @@
             </tr>
             {foreach $product.customizedDatas  as $customizationPerAddress}
               {foreach $customizationPerAddress as $customizationId => $customization}
-                <tr class="alternate_item">
+                <tr>
                   {if $return_allowed}<td class="order_cb"><input type="checkbox" id="cb_{$product.id_order_detail|intval}" name="customization_ids[{$product.id_order_detail|intval}][]" value="{$customizationId|intval}" /></td>{/if}
                   <td colspan="2">
                     {foreach from=$customization.datas key='type' item='datas'}
@@ -256,7 +256,7 @@
           {/if}
           <!-- Classic products -->
           {if $product.product_quantity > $product.customizationQuantityTotal}
-            <tr class="item">
+            <tr>
               {if $return_allowed}<td class="order_cb"><input type="checkbox" id="cb_{$product.id_order_detail|intval}" name="ids_order_detail[{$product.id_order_detail|intval}]" value="{$product.id_order_detail|intval}" /></td>{/if}
               <td><label for="cb_{$product.id_order_detail|intval}">{if $product.product_reference}{$product.product_reference|escape:'html':'UTF-8'}{else}--{/if}</label></td>
               <td class="bold">
@@ -314,7 +314,7 @@
         {/if}
       {/foreach}
       {foreach from=$discounts item=discount}
-        <tr class="item">
+        <tr>
           <td>{$discount.name|escape:'html':'UTF-8'}</td>
           <td>{l s='Voucher'} {$discount.name|escape:'html':'UTF-8'}</td>
           <td><span class="order_qte_span editable">1</span></td>
@@ -347,16 +347,16 @@
     <table class="table table-bordered footab">
       <thead>
       <tr>
-        <th class="first_item">{l s='Date'}</th>
-        <th class="item" data-sort-ignore="true">{l s='Carrier'}</th>
-        <th data-hide="phone" class="item">{l s='Weight'}</th>
-        <th data-hide="phone" class="item">{l s='Shipping cost'}</th>
-        <th data-hide="phone" class="last_item" data-sort-ignore="true">{l s='Tracking number'}</th>
+        <th>{l s='Date'}</th>
+        <th data-sort-ignore="true">{l s='Carrier'}</th>
+        <th data-hide="phone">{l s='Weight'}</th>
+        <th data-hide="phone">{l s='Shipping cost'}</th>
+        <th data-hide="phone" data-sort-ignore="true">{l s='Tracking number'}</th>
       </tr>
       </thead>
       <tbody>
       {foreach from=$carriers item=line}
-        <tr class="item">
+        <tr>
           <td data-value="{$line.date_add|regex_replace:"/[\-\:\ ]/":""}">{dateFormat date=$line.date_add full=0}</td>
           <td>{$line.carrier_name}</td>
           <td data-value="{if $line.weight > 0}{$line.weight|string_format:"%.3f"}{else}0{/if}">{if $line.weight > 0}{$line.weight|string_format:"%.3f"} {Configuration::get('PS_WEIGHT_UNIT')}{else}-{/if}</td>
@@ -376,13 +376,13 @@
         <table class="detail_step_by_step table table-bordered">
           <thead>
           <tr>
-            <th class="first_item" style="width:150px;">{l s='From'}</th>
-            <th class="last_item">{l s='Message'}</th>
+            <th style="width:150px;">{l s='From'}</th>
+            <th>{l s='Message'}</th>
           </tr>
           </thead>
           <tbody>
           {foreach from=$messages item=message name="messageList"}
-            <tr class="{if $smarty.foreach.messageList.first}first_item{elseif $smarty.foreach.messageList.last}last_item{/if} {if $smarty.foreach.messageList.index % 2}alternate_item{else}item{/if}">
+            <tr>
               <td>
                 <strong>
                   {if isset($message.elastname) && $message.elastname}

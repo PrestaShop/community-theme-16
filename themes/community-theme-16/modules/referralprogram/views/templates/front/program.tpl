@@ -64,15 +64,15 @@
         <table class="table table-bordered">
           <thead>
           <tr>
-            <th class="first_item">&nbsp;</th>
-            <th class="item">{l s='Last name' mod='referralprogram'}</th>
-            <th class="item">{l s='First name' mod='referralprogram'}</th>
-            <th class="last_item">{l s='E-mail' mod='referralprogram'}</th>
+            <th>&nbsp;</th>
+            <th>{l s='Last name' mod='referralprogram'}</th>
+            <th>{l s='First name' mod='referralprogram'}</th>
+            <th>{l s='E-mail' mod='referralprogram'}</th>
           </tr>
           </thead>
           <tbody>
           {section name=friends start=0 loop=$nbFriends step=1}
-            <tr class="{if $smarty.section.friends.index % 2}item{else}alternate_item{/if}">
+            <tr>
               <td class="align_right">{$smarty.section.friends.iteration}</td>
               <td><input type="text" class="form-control" name="friendsLastName[{$smarty.section.friends.index}]" size="14" value="{if isset($smarty.post.friendsLastName[$smarty.section.friends.index])}{$smarty.post.friendsLastName[$smarty.section.friends.index]|escape:'html':'UTF-8'}{/if}" /></td>
               <td><input type="text" class="form-control" name="friendsFirstName[{$smarty.section.friends.index}]" size="14" value="{if isset($smarty.post.friendsFirstName[$smarty.section.friends.index])}{$smarty.post.friendsFirstName[$smarty.section.friends.index]|escape:'html':'UTF-8'}{/if}" /></td>
@@ -116,11 +116,11 @@
         <table class="table table-bordered">
           <thead>
           <tr>
-            <th class="first_item">&nbsp;</th>
-            <th class="item">{l s='Last name' mod='referralprogram'}</th>
-            <th class="item">{l s='First name' mod='referralprogram'}</th>
-            <th class="item">{l s='E-mail' mod='referralprogram'}</th>
-            <th class="last_item"><b>{l s='Last invitation' mod='referralprogram'}</b></th>
+            <th>&nbsp;</th>
+            <th>{l s='Last name' mod='referralprogram'}</th>
+            <th>{l s='First name' mod='referralprogram'}</th>
+            <th>{l s='E-mail' mod='referralprogram'}</th>
+            <th><b>{l s='Last invitation' mod='referralprogram'}</b></th>
           </tr>
           </thead>
           <tbody>
@@ -162,11 +162,11 @@
       <table class="table table-bordered">
         <thead>
         <tr>
-          <th class="first_item">&nbsp;</th>
-          <th class="item">{l s='Last name' mod='referralprogram'}</th>
-          <th class="item">{l s='First name' mod='referralprogram'}</th>
-          <th class="item">{l s='E-mail' mod='referralprogram'}</th>
-          <th class="last_item">{l s='Inscription date' mod='referralprogram'}</th>
+          <th>&nbsp;</th>
+          <th>{l s='Last name' mod='referralprogram'}</th>
+          <th>{l s='First name' mod='referralprogram'}</th>
+          <th>{l s='E-mail' mod='referralprogram'}</th>
+          <th>{l s='Inscription date' mod='referralprogram'}</th>
         </tr>
         </thead>
         <tbody>

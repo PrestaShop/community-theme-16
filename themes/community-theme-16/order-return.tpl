@@ -11,9 +11,9 @@
     <table class="table table-bordered">
       <thead>
       <tr>
-        <th class="first_item">{l s='Reference'}</th>
-        <th class="item">{l s='Product'}</th>
-        <th class="last_item">{l s='Quantity'}</th>
+        <th>{l s='Reference'}</th>
+        <th>{l s='Product'}</th>
+        <th>{l s='Quantity'}</th>
       </tr>
       </thead>
       <tbody>
@@ -22,7 +22,7 @@
         {assign var='quantityDisplayed' value=0}
         {foreach from=$returnedCustomizations item='customization' name=products}
           {if $customization.product_id == $product.product_id}
-            <tr class="{if $smarty.foreach.products.first}first_item{/if} {if $smarty.foreach.products.index % 2}alternate_item{else}item{/if}">
+            <tr>
               <td>{if $customization.reference}{$customization.reference|escape:'html':'UTF-8'}{else}--{/if}</td>
               <td class="bold">{$customization.name|escape:'html':'UTF-8'}</td>
               <td><span class="order_qte_span editable">{$customization.product_quantity|intval}</span></td>
@@ -32,7 +32,7 @@
             {assign var='customizationId' value=$customization.id_customization}
             {assign var='addressDeliveryId' value=$customization.id_address_delivery}
             {foreach from=$customizedDatas.$productId.$productAttributeId.$addressDeliveryId.$customizationId.datas key='type' item='datas'}
-              <tr class="alternate_item">
+              <tr>
                 <td colspan="3">
                   {if $type == Product::CUSTOMIZE_FILE}
                     <ul class="customizationUploaded">
@@ -56,7 +56,7 @@
         {/foreach}
 
         {if $product.product_quantity > $quantityDisplayed}
-          <tr class="{if $smarty.foreach.products.first}first_item{/if} {if $smarty.foreach.products.index % 2}alternate_item{else}item{/if}">
+          <tr>
             <td>{if $product.product_reference}{$product.product_reference|escape:'html':'UTF-8'}{else}--{/if}</td>
             <td class="bold">{$product.product_name|escape:'html':'UTF-8'}</td>
             <td><span class="order_qte_span editable">{$product.product_quantity|intval}</span></td>

@@ -167,16 +167,6 @@ ul.sf-menu li li li.sfHover ul {
     width: 100%;
     padding-bottom: 20px;
   }
-  @media (min-width: $screen-sm) { // min 768px
-    &.first-in-line-lg {
-      clear: left;
-    }
-  }
-  @media (min-width: $screen-xs) and (max-width: $screen-xs-max) { // min 480px max 767px
-    &.first-in-line-xs {
-      clear: left;
-    }
-  }
 }
 .sf-menu > li > ul > li.category-thumbnail {
   width: 100% !important;

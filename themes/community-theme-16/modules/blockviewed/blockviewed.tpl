@@ -4,7 +4,7 @@
   <div class="block_content products-block">
     <ul>
       {foreach from=$productsViewedObj item=viewedProduct name=myLoop}
-        <li class="clearfix{if $smarty.foreach.myLoop.last} last_item{elseif $smarty.foreach.myLoop.first} first_item{else} item{/if}">
+        <li class="clearfix">
           <a
             class="products-block-image"
             href="{$viewedProduct->product_link|escape:'html':'UTF-8'}"

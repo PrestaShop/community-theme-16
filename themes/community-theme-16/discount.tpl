@@ -8,18 +8,18 @@
   <table class="discount table table-bordered">
     <thead>
     <tr>
-      <th class="discount_code first_item">{l s='Code'}</th>
-      <th class="discount_description item">{l s='Description'}</th>
-      <th class="discount_quantity item">{l s='Quantity'}</th>
-      <th class="discount_value item">{l s='Value'}*</th>
-      <th class="discount_minimum item">{l s='Minimum'}</th>
-      <th class="discount_cumulative item">{l s='Cumulative'}</th>
-      <th class="discount_expiration_date last_item">{l s='Expiration date'}</th>
+      <th class="discount_code">{l s='Code'}</th>
+      <th class="discount_description">{l s='Description'}</th>
+      <th class="discount_quantity">{l s='Quantity'}</th>
+      <th class="discount_value">{l s='Value'}*</th>
+      <th class="discount_minimum">{l s='Minimum'}</th>
+      <th class="discount_cumulative">{l s='Cumulative'}</th>
+      <th class="discount_expiration_date">{l s='Expiration date'}</th>
     </tr>
     </thead>
     <tbody>
     {foreach from=$cart_rules item=discountDetail name=myLoop}
-      <tr class="{if $smarty.foreach.myLoop.first}first_item{elseif $smarty.foreach.myLoop.last}last_item{else}item{/if} {if $smarty.foreach.myLoop.index % 2}alternate_item{/if}">
+      <tr>
         <td class="discount_code">{$discountDetail.code}</td>
         <td class="discount_description">{$discountDetail.name}</td>
         <td class="discount_quantity">{$discountDetail.quantity_for_user}</td>

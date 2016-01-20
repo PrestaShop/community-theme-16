@@ -32,7 +32,7 @@
   </p>
   <div class="row">
     <div class="col-sm-12 col-md-6">
-      <ul class="address alternate_item {if $cart->isVirtualCart()}full_width{/if} box" id="address_invoice">
+      <ul class="address {if $cart->isVirtualCart()}full_width{/if} box" id="address_invoice">
       </ul>
     </div>
   </div>

@@ -174,9 +174,6 @@
       overflow: hidden;
       border-bottom: 1px solid #515151;
       padding: 7px 0;
-      &.last-line {
-        border: none;
-      }
     }
   }
   .cart-buttons {
@@ -232,9 +229,6 @@
     }
     dt {
       background: url(../../../img/cart-shadow.png) repeat-x;
-      &.first_item {
-        background: none;
-      }
     }
     .product-atributes {
       padding-bottom: 10px;

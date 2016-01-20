@@ -8,19 +8,19 @@
   <table id="cart_summary" class="table table-bordered {if $PS_STOCK_MANAGEMENT}stock-management-on{else}stock-management-off{/if}">
     <thead>
     <tr>
-      <th class="cart_product first_item">{l s='Product'}</th>
-      <th class="cart_description item">{l s='Description'}</th>
+      <th class="cart_product">{l s='Product'}</th>
+      <th class="cart_description">{l s='Description'}</th>
       {if $PS_STOCK_MANAGEMENT}
         {assign var='col_span_subtotal' value='3'}
         {assign var='col_span_total' value='7'}
-        <th class="cart_avail item text-center">{l s='Availability'}</th>
+        <th class="cart_avail text-center">{l s='Availability'}</th>
       {else}
         {assign var='col_span_subtotal' value='2'}
         {assign var='col_span_total' value='6'}
       {/if}
-      <th class="cart_unit item text-right">{l s='Unit price'}</th>
-      <th class="cart_quantity item text-center">{l s='Qty'}</th>
-      <th colspan="{$col_span_subtotal}" class="cart_total item text-right">{l s='Total'}</th>
+      <th class="cart_unit text-right">{l s='Unit price'}</th>
+      <th class="cart_quantity text-center">{l s='Qty'}</th>
+      <th colspan="{$col_span_subtotal}" class="cart_total text-right">{l s='Total'}</th>
     </tr>
     </thead>
     <tfoot>
@@ -244,7 +244,7 @@
         {foreach $customizedDatas.$productId.$productAttributeId[$product.id_address_delivery] as $id_customization=>$customization}
           <tr
             id="product_{$product.id_product}_{$product.id_product_attribute}_{$id_customization}_{$product.id_address_delivery|intval}"
-            class="product_customization_for_{$product.id_product}_{$product.id_product_attribute}_{$product.id_address_delivery|intval}{if $odd} odd{else} even{/if} customization alternate_item {if $product@last && $customization@last && !count($gift_products)}last_item{/if}">
+            class="product_customization_for_{$product.id_product}_{$product.id_product_attribute}_{$product.id_address_delivery|intval}{if $odd} odd{else} even{/if} customization">
             <td></td>
             <td colspan="3">
               {foreach $customization.datas as $type => $custom_data}
@@ -304,7 +304,7 @@
         {if $discount.value_real|floatval == 0}
           {continue}
         {/if}
-        <tr class="cart_discount {if $discount@last}last_item{elseif $discount@first}first_item{else}item{/if}" id="cart_discount_{$discount.id_discount}">
+        <tr class="cart_discount" id="cart_discount_{$discount.id_discount}">
           <td class="cart_discount_name" colspan="{if $PS_STOCK_MANAGEMENT}3{else}2{/if}">{$discount.name}</td>
           <td class="cart_discount_price">
             <span class="price-discount">

@@ -29,20 +29,11 @@
   {/if}
 
   <div class="wlp_bought">
-    {assign var='nbItemsPerLine' value=3}
-    {assign var='nbItemsPerLineTablet' value=2}
-    {assign var='nbLi' value=$products|@count}
-    {math equation="nbLi/nbItemsPerLine" nbLi=$nbLi nbItemsPerLine=$nbItemsPerLine assign=nbLines}
-    {math equation="nbLi/nbItemsPerLineTablet" nbLi=$nbLi nbItemsPerLineTablet=$nbItemsPerLineTablet assign=nbLinesTablet}
     <ul class="row wlp_bought_list">
       {foreach from=$products item=product name=i}
-        {math equation="(total%perLine)" total=$smarty.foreach.i.total perLine=$nbItemsPerLine assign=totModulo}
-        {math equation="(total%perLineT)" total=$smarty.foreach.i.total perLineT=$nbItemsPerLineTablet assign=totModuloTablet}
-        {if $totModulo == 0}{assign var='totModulo' value=$nbItemsPerLine}{/if}
-        {if $totModuloTablet == 0}{assign var='totModuloTablet' value=$nbItemsPerLineTablet}{/if}
         <li
           id="wlp_{$product.id_product}_{$product.id_product_attribute}"
-          class="ajax_block_product col-xs-12 col-sm-6 col-md-4 {if $smarty.foreach.i.iteration%$nbItemsPerLine == 0} last-in-line{elseif $smarty.foreach.i.iteration%$nbItemsPerLine == 1} first-in-line{/if} {if $smarty.foreach.i.iteration > ($smarty.foreach.i.total - $totModulo)}last-line{/if} {if $smarty.foreach.i.iteration%$nbItemsPerLineTablet == 0}last-item-of-tablet-line{elseif $smarty.foreach.i.iteration%$nbItemsPerLineTablet == 1}first-item-of-tablet-line{/if} {if $smarty.foreach.i.iteration > ($smarty.foreach.i.total - $totModuloTablet)}last-tablet-line{/if}">
+          class="ajax_block_product col-xs-12 col-sm-6 col-md-4">
           <div class="row">
             <div class="col-xs-6 col-sm-12">
               <div class="product_image">
