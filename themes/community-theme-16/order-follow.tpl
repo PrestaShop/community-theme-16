@@ -38,7 +38,7 @@
     <p>
       <button type="submit" name="submitReturnMerchandise" class="btn btn-success">
        <span>
-         {l s='Make an RMA slip'}<i class="icon-chevron-right right"></i>
+         {l s='Make an RMA slip'} <i class="icon-chevron-right right"></i>
        </span>
       </button>
     </p>

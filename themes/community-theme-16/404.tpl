@@ -16,5 +16,9 @@
     </fieldset>
   </form>
 
-  <div class="buttons"><a class="btn btn-lg btn-success" href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}" title="{l s='Home'}"><span><i class="icon-chevron-left left"></i>{l s='Home page'}</span></a></div>
+  <div class="buttons">
+    <a class="btn btn-lg btn-success" href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}" title="{l s='Home'}">
+      <span><i class="icon-chevron-left left"></i> {l s='Home page'}</span>
+    </a>
+  </div>
 </div>

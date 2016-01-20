@@ -35,7 +35,7 @@
           </td>
           <td class="history_invoice">
             <a class="btn btn-default" href="{$link->getPageLink('pdf-order-slip', true, NULL, "id_order_slip={$slip.id_order_slip|intval}")|escape:'html':'UTF-8'}" title="{l s='Credit slip'} {l s='#%s' sprintf=$slip.id_order_slip|string_format:"%06d"}">
-              <i class="icon-file-text large"></i>{l s='PDF'}
+              <i class="icon-file-text large"></i> {l s='PDF'}
             </a>
           </td>
         </tr>
