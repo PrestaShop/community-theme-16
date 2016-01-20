@@ -52,10 +52,6 @@
         dd {
           padding: 0 0 20px 0;
         }
-        dt.first_item {
-          padding: 0;
-          border-top: none;
-        }
       }
       dt {
         position: relative;
@@ -168,18 +164,6 @@ ul.wlp_bought_list li {
   }
   .btn_action .btn {
     margin: 0 0 10px 0;
-  }
-  /*> 992px*/
-  @media (min-width: $screen-md) {
-    &.first-in-line {
-      clear: left;
-    }
-  }
-  /*768px x 991px*/
-  @media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
-    &.first-item-of-tablet-line  {
-      clear: left;
-    }
   }
 }
 .wishlistLinkTop {
