@@ -22,8 +22,13 @@
             </li>
           {/foreach}
           <li class="address_update">
-            <a class="btn btn-success" href="{$link->getPageLink('address', true, null, "id_address={$address.object.id|intval}")|escape:'html':'UTF-8'}" title="{l s='Update'}"><span>{l s='Update'}<i class="icon-chevron-right right"></i></span></a>
-            <a class="btn btn-danger" href="{$link->getPageLink('address', true, null, "id_address={$address.object.id|intval}&delete")|escape:'html':'UTF-8'}" data-id="addresses_confirm" title="{l s='Delete'}"><span>{l s='Delete'}<i class="icon-remove right"></i></span></a></li>
+            <a class="btn btn-success" href="{$link->getPageLink('address', true, null, "id_address={$address.object.id|intval}")|escape:'html':'UTF-8'}" title="{l s='Update'}">
+              <span>{l s='Update'} <i class="icon-chevron-right right"></i></span>
+            </a>
+            <a class="btn btn-danger" href="{$link->getPageLink('address', true, null, "id_address={$address.object.id|intval}&delete")|escape:'html':'UTF-8'}" data-id="addresses_confirm" title="{l s='Delete'}">
+              <span>{l s='Delete'} <i class="icon-remove right"></i></span>
+            </a>
+          </li>
         </ul>
       </div>
       {if $smarty.foreach.myLoop.index % 2 && !$smarty.foreach.myLoop.last}
@@ -37,7 +42,9 @@
   <div class="alert alert-warning">{l s='No addresses are available.'}&nbsp;<a href="{$link->getPageLink('address', true)|escape:'html':'UTF-8'}">{l s='Add a new address'}</a></div>
 {/if}
 <div class="clearfix form-group">
-  <a href="{$link->getPageLink('address', true)|escape:'html':'UTF-8'}" title="{l s='Add an address'}" class="btn btn-lg btn-success"><span>{l s='Add a new address'}<i class="icon-chevron-right right"></i></span></a>
+  <a href="{$link->getPageLink('address', true)|escape:'html':'UTF-8'}" title="{l s='Add an address'}" class="btn btn-lg btn-success">
+    <span>{l s='Add a new address'} <i class="icon-chevron-right right"></i></span>
+  </a>
 </div>
 <ul class="footer_links clearfix">
   <li><a class="btn btn-default" href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}"><span><i class="icon-chevron-left"></i> {l s='Back to your account'}</span></a></li>

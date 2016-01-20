@@ -51,7 +51,7 @@
       {/if}
       <a class="btn btn-default" href="{$link->getModuleLink('blockwishlist', 'mywishlist', array(), true)|escape:'html':'UTF-8'}" title="{l s='My wishlists' mod='blockwishlist'}">
         <span>
-          {l s='My wishlists' mod='blockwishlist'}<i class="icon-chevron-right right"></i>
+          {l s='My wishlists' mod='blockwishlist'} <i class="icon-chevron-right right"></i>
         </span>
       </a>
     </div> <!-- .lnk -->

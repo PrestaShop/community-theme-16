@@ -65,7 +65,9 @@
         <input type="hidden" name="email" value="{if isset($smarty.get.email)}{$smarty.get.email|escape:'html':'UTF-8'}{else}{if isset($smarty.post.email)}{$smarty.post.email|escape:'html':'UTF-8'}{/if}{/if}" />
 
         <p>
-          <button type="submit" name="submitTransformGuestToCustomer" class="btn btn-lg btn-success"><span>{l s='Send'}<i class="icon-chevron-right right"></i></span></button>
+          <button type="submit" name="submitTransformGuestToCustomer" class="btn btn-lg btn-success">
+            <span>{l s='Send'} <i class="icon-chevron-right right"></i></span>
+          </button>
         </p>
       </fieldset>
     </form>
@@ -88,7 +90,9 @@
         <input class="form-control" type="email" name="email" value="{if isset($smarty.get.email)}{$smarty.get.email|escape:'html':'UTF-8'}{else}{if isset($smarty.post.email)}{$smarty.post.email|escape:'html':'UTF-8'}{/if}{/if}" />
       </div>
       <p>
-        <button type="submit" name="submitGuestTracking" class="btn btn-lg btn-success"><span>{l s='Send'}<i class="icon-chevron-right right"></i></span></button>
+        <button type="submit" name="submitGuestTracking" class="btn btn-lg btn-success">
+          <span>{l s='Send'} <i class="icon-chevron-right right"></i></span>
+        </button>
       </p>
     </fieldset>
   </form>

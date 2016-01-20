@@ -5,7 +5,7 @@
         <input type="hidden" value="{$order->id}" name="id_order"/>
         <input type="hidden" value="" name="submitReorder"/>
 
-        <a href="#" onclick="$(this).closest('form').submit(); return false;" class="btn btn-lg btn-success pull-right"><span>{l s='Reorder'}<i class="icon-chevron-right right"></i></span></a>
+        <a href="#" onclick="$(this).closest('form').submit(); return false;" class="btn btn-lg btn-success pull-right"><span>{l s='Reorder'} <i class="icon-chevron-right right"></i></span></a>
       </form>
     {/if}
     <p>
@@ -22,10 +22,10 @@
       </p>
     {/if}
     {if $order->recyclable}
-      <p><i class="icon-repeat"></i>&nbsp;{l s='You have given permission to receive your order in recycled packaging.'}</p>
+      <p><i class="icon-repeat"></i> {l s='You have given permission to receive your order in recycled packaging.'}</p>
     {/if}
     {if $order->gift}
-      <p><i class="icon-gift"></i>&nbsp;{l s='You have requested gift wrapping for this order.'}</p>
+      <p><i class="icon-gift"></i> {l s='You have requested gift wrapping for this order.'}</p>
       <p><strong>{l s='Message'}</strong> {$order->gift_message|nl2br}</p>
     {/if}
   </div>
@@ -336,7 +336,7 @@
         <textarea class="form-control" cols="67" rows="3" name="returnText"></textarea>
       </p>
       <p class="form-group">
-        <button type="submit" name="submitReturnMerchandise" class="btn btn-success"><span>{l s='Make an RMA slip'}<i class="icon-chevron-right right"></i></span></button>
+        <button type="submit" name="submitReturnMerchandise" class="btn btn-success"><span>{l s='Make an RMA slip'} <i class="icon-chevron-right right"></i></span></button>
         <input type="hidden" class="hidden" value="{$order->id|intval}" name="id_order" />
       </p>
     </div>
@@ -436,10 +436,10 @@
       <div class="submit">
         <input type="hidden" name="id_order" value="{$order->id|intval}" />
         <input type="submit" class="unvisible" name="submitMessage" value="{l s='Send'}"/>
-        <button type="submit" name="submitMessage" class="btn btn-lg btn-success"><span>{l s='Send'}<i class="icon-chevron-right right"></i></span></button>
+        <button type="submit" name="submitMessage" class="btn btn-lg btn-success"><span>{l s='Send'} <i class="icon-chevron-right right"></i></span></button>
       </div>
     </form>
   {else}
-    <div class="alert alert-info"><i class="icon-info-sign"></i>{l s='You cannot return merchandise with a guest account'}</div>
+    <div class="alert alert-info"><i class="icon-info-sign"></i> {l s='You cannot return merchandise with a guest account'}</div>
   {/if}
 {/if}

@@ -56,7 +56,7 @@
           class="btn btn-primary"
           href="{$link->getPageLink('prices-drop')|escape:'html':'UTF-8'}"
           title="{l s='All specials' mod='blockspecials'}">
-          <span>{l s='All specials' mod='blockspecials'}<i class="icon-chevron-right right"></i></span>
+          <span>{l s='All specials' mod='blockspecials'} <i class="icon-chevron-right right"></i></span>
         </a>
       </div>
     {else}

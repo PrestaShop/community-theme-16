@@ -80,7 +80,7 @@
     <div>
       <button name="search_locations" class="btn btn-primary">
         <span>
-          {l s='Search'}<i class="icon-chevron-right right"></i>
+          {l s='Search'} <i class="icon-chevron-right right"></i>
         </span>
       </button>
     </div>

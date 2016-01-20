@@ -23,7 +23,7 @@
     </p>
   </div>
   <p class="cart_navigation" id="cart_navigation">
-    <a href="{$link->getPageLink('order', true)}?step=3" class="btn btn-lg btn-default"><i class="icon-chevron-left"></i>{l s='Other payment methods' mod='cashondelivery'}</a>
+    <a href="{$link->getPageLink('order', true)}?step=3" class="btn btn-lg btn-default"><i class="icon-chevron-left"></i> {l s='Other payment methods' mod='cashondelivery'}</a>
     <button type="submit" class="btn btn-lg btn-success pull-right"><span>{l s='I confirm my order' mod='cashondelivery'}</span></button>
   </p>
 </form>

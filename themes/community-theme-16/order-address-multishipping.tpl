@@ -27,7 +27,7 @@
     </select>
   </div>
   {else}
-    <a href="{$link->getPageLink('address', true, NULL, "back={$back_order_page}?step=1{'&multi-shipping=1'|urlencode}{if $back}&mod={$back}{/if}")|escape:'html':'UTF-8'}" title="{l s='Add'}" class="btn btn-success"><span>{l s='Add a new address'}<i class="icon-chevron-right right"></i></span></a>
+    <a href="{$link->getPageLink('address', true, NULL, "back={$back_order_page}?step=1{'&multi-shipping=1'|urlencode}{if $back}&mod={$back}{/if}")|escape:'html':'UTF-8'}" title="{l s='Add'}" class="btn btn-success"><span>{l s='Add a new address'} <i class="icon-chevron-right right"></i></span></a>
   {/if}
   </p>
   <div class="row">
@@ -37,7 +37,7 @@
     </div>
   </div>
   <p class="address_add submit">
-    <a href="{$link->getPageLink('address', true, NULL, "back={$back_order_page}?step=1{'&multi-shipping=1'|urlencode}{if $back}&mod={$back|urlencode}{/if}")|escape:'html':'UTF-8'}" title="{l s='Add'}" class="btn btn-success"><span>{l s='Add a new address'}<i class="icon-chevron-right right"></i></span></a>
+    <a href="{$link->getPageLink('address', true, NULL, "back={$back_order_page}?step=1{'&multi-shipping=1'|urlencode}{if $back}&mod={$back|urlencode}{/if}")|escape:'html':'UTF-8'}" title="{l s='Add'}" class="btn btn-success"><span>{l s='Add a new address'} <i class="icon-chevron-right right"></i></span></a>
   </p>
   {if !$opc}
   <div id="ordermsg" class="form-group">
@@ -51,11 +51,11 @@
       <input type="hidden" class="hidden" name="step" value="2" />
       <input type="hidden" name="back" value="{$back}" />
       {if $back}
-        <a href="{$link->getPageLink('order', true, NULL, "back={$back}")|escape:'html':'UTF-8'}" title="{l s='Previous'}" class="btn btn-lg btn-default"><i class="icon-chevron-left"></i>{l s='Continue Shopping'}</a>
+        <a href="{$link->getPageLink('order', true, NULL, "back={$back}")|escape:'html':'UTF-8'}" title="{l s='Previous'}" class="btn btn-lg btn-default"><i class="icon-chevron-left"></i> {l s='Continue Shopping'}</a>
       {else}
-        <a href="{$link->getPageLink('order', true, NULL)|escape:'html':'UTF-8'}" title="{l s='Previous'}" class="btn btn-lg btn-default"><i class="icon-chevron-left"></i>{l s='Continue Shopping'}</a>
+        <a href="{$link->getPageLink('order', true, NULL)|escape:'html':'UTF-8'}" title="{l s='Previous'}" class="btn btn-lg btn-default"><i class="icon-chevron-left"></i> {l s='Continue Shopping'}</a>
       {/if}
-      <button type="submit" name="processAddress" class="btn btn-lg btn-success pull-right"><span>{l s='Proceed to checkout'}<i class="icon-chevron-right right"></i></span></button>
+      <button type="submit" name="processAddress" class="btn btn-lg btn-success pull-right"><span>{l s='Proceed to checkout'} <i class="icon-chevron-right right"></i></span></button>
     </p>
   </form>
 {else}
@@ -82,6 +82,6 @@
   {addJsDefL name=titleInvoice}{$smarty.capture.default|@addcslashes:'\''}{/addJsDefL}
   {capture}<h3 class="page-subheading">{l s='Your delivery address' js=1}</h3>{/capture}
   {addJsDefL name=titleDelivery}{$smarty.capture.default|@addcslashes:'\''}{/addJsDefL}
-  {capture}<a class="btn btn-success" href="{$smarty.capture.addressUrlAdd}" title="{l s='Update' js=1}"><span>{l s='Update' js=1}<i class="icon-chevron-right right"></i></span></a>{/capture}
+  {capture}<a class="btn btn-success" href="{$smarty.capture.addressUrlAdd}" title="{l s='Update' js=1}"><span>{l s='Update' js=1} <i class="icon-chevron-right right"></i></span></a>{/capture}
   {addJsDefL name=liUpdate}{$smarty.capture.default|@addcslashes:'\''}{/addJsDefL}
 {/strip}

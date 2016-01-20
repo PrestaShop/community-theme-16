@@ -122,23 +122,6 @@ p.checkbox {
 
 }
 
-// Icons inside buttons
-.button {
-  i {
-    margin-right: 5px;
-    margin-left: 0;
-  }
-}
-
-// Icons inside buttons
-.button,
-.btn {
-  i.right {
-    margin-right: 0;
-    margin-left: 5px;
-  }
-}
-
 // From @import 'compass/reset'
 // @TODO Disable this during development, reset styles for lists separately
 ul {
