@@ -142,21 +142,28 @@ function responsiveResize() {
 }
 
 function blockHover(status) {
+  var screenLg = $('body').find('.container').width() == 1140;
+
   if ($('.product_list').is('.grid'))
+    if (screenLg)
       $('.product_list .button-container').hide();
   else
     $('.product_list .button-container').show();
 
   $(document).off('mouseenter').on('mouseenter', '.product_list.grid li.ajax_block_product .product-container', function(e) {
+    if (screenLg) {
       var pcHeight = $(this).parent().outerHeight();
       var pcPHeight = $(this).parent().find('.button-container').outerHeight() + $(this).parent().find('.comments_note').outerHeight() + $(this).parent().find('.functional-buttons').outerHeight();
       $(this).parent().addClass('hovered').css({'height': pcHeight + pcPHeight, 'margin-bottom': pcPHeight * (-1)});
       $(this).find('.button-container').show();
+    }
   });
 
   $(document).off('mouseleave').on('mouseleave', '.product_list.grid li.ajax_block_product .product-container', function(e) {
+    if (screenLg) {
       $(this).parent().removeClass('hovered').css({'height': 'auto', 'margin-bottom': '0'});
       $(this).find('.button-container').hide();
+    }
   });
 }
 
