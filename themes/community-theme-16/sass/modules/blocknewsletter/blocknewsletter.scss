@@ -64,6 +64,7 @@
         padding: 10px 43px 10px 12px;
         display: inline-block;
         float: left;
+        max-width: 100%;
         &:focus {
           @include box-shadow(black 0px 0px 0px);
         }
