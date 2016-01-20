@@ -14,12 +14,6 @@
       line-height: 16px;
       padding-bottom: 11px;
       a {
-        &:before {
-          content: "\f105";
-          display: inline-block;
-          font-family: $font-icon;
-          padding-right: 10px;
-        }
         &:hover {
           font-weight: bold;
         }
@@ -30,19 +24,6 @@
 
 #listpage_content div.tree_top {
   padding: 5px 0 0 27px;
-  a {
-    &:before {
-      content: "\f015";
-      display: inline-block;
-      font-family: $font-icon;
-      font-size: 20px;
-    }
-    &:hover {
-      &:before {
-        color: $link-hover-color;
-      }
-    }
-  }
 }
 
 ul.tree {
