@@ -371,7 +371,7 @@
         <section class="page-product-box">
           <h3 class="page-product-heading">{l s='Volume discounts'}</h3>
           <div id="quantityDiscount">
-            <table class="std table-product-discounts">
+            <table class="table-product-discounts">
               <thead>
               <tr>
                 <th>{l s='Quantity'}</th>
