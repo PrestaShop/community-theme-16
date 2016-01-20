@@ -68,12 +68,12 @@
             {hook h="displayProductPriceBlock" product=$product type="weight"}
           </div>
           <div class="right-block">
-            <h5 itemprop="name">
+            <h4 itemprop="name">
               {if isset($product.pack_quantity) && $product.pack_quantity}{$product.pack_quantity|intval|cat:' x '}{/if}
               <a class="product-name" href="{$product.link|escape:'html':'UTF-8'}" title="{$product.name|escape:'html':'UTF-8'}" itemprop="url" >
                 {$product.name|truncate:45:'...'|escape:'html':'UTF-8'}
               </a>
-            </h5>
+            </h4>
             {capture name='displayProductListReviews'}{hook h='displayProductListReviews' product=$product}{/capture}
             {if $smarty.capture.displayProductListReviews}
               <div class="hook-reviews">
