@@ -69,19 +69,9 @@ a.fancybox-nav {
         line-height: 22px;
         color: #777676;
         width: 136px;
-        text-align: center;
         font-weight: 700;
         background: rgba(255,255,255,0.5);
         @include box-shadow(0 2px 8px rgba(0,0,0,0.16));
-        &:after{
-          font-family: $font-icon;
-          color: #c0c0c0;
-          font-size: 20px;
-          line-height: 22px;
-          content: "\f00e";
-          font-weight: normal;
-          margin: 0 0 0 4px;
-        }
       }
     }
     a.jqzoom {

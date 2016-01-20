@@ -140,7 +140,7 @@
     <div class="categTree box">
       <h3 class="page-subheading">{l s='Categories'}</h3>
       <div class="tree_top">
-        <a href="{$base_dir_ssl}" title="{$categoriesTree.name|escape:'html':'UTF-8'}"></a>
+        <a href="{$base_dir_ssl}" title="{$categoriesTree.name|escape:'html':'UTF-8'}"><i class="icon icon-home"></i></a>
       </div>
       <ul class="tree">
         {if isset($categoriesTree.children)}

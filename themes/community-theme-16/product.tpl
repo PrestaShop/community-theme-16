@@ -62,7 +62,9 @@
               {else}
                 <img id="bigpic" itemprop="image" src="{$link->getImageLink($product->link_rewrite, $cover.id_image, 'large_default')|escape:'html':'UTF-8'}" title="{if !empty($cover.legend)}{$cover.legend|escape:'html':'UTF-8'}{else}{$product->name|escape:'html':'UTF-8'}{/if}" alt="{if !empty($cover.legend)}{$cover.legend|escape:'html':'UTF-8'}{else}{$product->name|escape:'html':'UTF-8'}{/if}" width="{$largeSize.width}" height="{$largeSize.height}"/>
                 {if !$content_only}
-                  <span class="span_link no-print">{l s='View larger'}</span>
+                  <span class="span_link no-print">
+                    {l s='View larger'} <i class="icon icon-search-plus"></i>
+                  </span>
                 {/if}
               {/if}
             </span>
@@ -71,7 +73,7 @@
               <img itemprop="image" src="{$img_prod_dir}{$lang_iso}-default-large_default.jpg" id="bigpic" alt="" title="{$product->name|escape:'html':'UTF-8'}" width="{$largeSize.width}" height="{$largeSize.height}"/>
               {if !$content_only}
                 <span class="span_link">
-                  {l s='View larger'}
+                  {l s='View larger'} <i class="icon icon-search-plus"></i>
                 </span>
               {/if}
             </span>
