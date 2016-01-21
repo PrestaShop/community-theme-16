@@ -26,7 +26,7 @@
             {if isset($back)}<input type="hidden" class="hidden" name="back" value="{$back|escape:'html':'UTF-8'}" />{/if}
             <button class="btn btn-lg btn-warning" type="submit" id="SubmitCreate" name="SubmitCreate">
               <span>
-                <i class="icon-user left"></i>
+                <i class="icon icon-user"></i>
                 {l s='Create an account'}
               </span>
             </button>
@@ -52,7 +52,7 @@
             {if isset($back)}<input type="hidden" class="hidden" name="back" value="{$back|escape:'html':'UTF-8'}" />{/if}
             <button type="submit" id="SubmitLogin" name="SubmitLogin" class="btn btn-lg btn-success">
               <span>
-                <i class="icon-lock left"></i>
+                <i class="icon icon-lock"></i>
                 {l s='Sign in'}
               </span>
             </button>
@@ -369,7 +369,7 @@
         <button type="submit" class="btn btn-lg btn-success" name="submitGuestAccount" id="submitGuestAccount">
           <span>
             {l s='Proceed to checkout'}
-            <i class="icon-chevron-right right"></i>
+            <i class="icon icon-chevron-right"></i>
           </span>
         </button>
       </p>
@@ -619,7 +619,7 @@
       <input type="hidden" name="is_new_customer" value="1" />
       {if isset($back)}<input type="hidden" class="hidden" name="back" value="{$back|escape:'html':'UTF-8'}" />{/if}
       <button type="submit" name="submitAccount" id="submitAccount" class="btn btn-lg btn-success">
-        <span>{l s='Register'} <i class="icon-chevron-right right"></i></span>
+        <span>{l s='Register'} <i class="icon icon-chevron-right"></i></span>
       </button>
       <p class="pull-right required"><span><sup>*</sup>{l s='Required field'}</span></p>
     </div>

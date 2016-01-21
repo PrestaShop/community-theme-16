@@ -176,7 +176,7 @@
       <button type="submit" name="submitAddress" id="submitAddress" class="btn btn-lg btn-success">
         <span>
           {l s='Save'}
-          <i class="icon-chevron-right right"></i>
+          <i class="icon icon-chevron-right"></i>
         </span>
       </button>
     </p>
@@ -185,7 +185,7 @@
 <ul class="footer_links clearfix">
   <li>
     <a class="btn btn-default" href="{$link->getPageLink('addresses', true)|escape:'html':'UTF-8'}">
-      <span><i class="icon-chevron-left"></i> {l s='Back to your addresses'}</span>
+      <span><i class="icon icon-chevron-left"></i> {l s='Back to your addresses'}</span>
     </a>
   </li>
 </ul>

@@ -9,7 +9,7 @@
           {$product.name|truncate:13:'...'|escape:'html':'UTF-8'}
         </a>
         <a class="ajax_cart_block_remove_link" href="javascript:;" onclick="javascript:WishlistCart('wishlist_block_list', 'delete', '{$product.id_product}', {$product.id_product_attribute}, '0');" rel="nofollow" title="{l s='remove this product from my wishlist' mod='blockwishlist'}">
-          <i class="icon-remove-sign"></i>
+          <i class="icon icon-remove-sign"></i>
         </a>
       </dt>
       {if isset($product.attributes_small)}

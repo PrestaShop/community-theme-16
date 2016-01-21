@@ -57,7 +57,7 @@
       {if isset($product_comments[$id_product]) AND $product_comments[$id_product]}
         <a class="btn btn-default" href="#" data-id-product-comment="{$id_product|intval}" rel="#comments_{$id_product|intval}">
           <span>
-              {l s='View comments' mod='productcomments'} <i class="icon-chevron-right right"></i>
+              {l s='View comments' mod='productcomments'} <i class="icon icon-chevron-right"></i>
           </span>
         </a>
         <div style="display:none" id="comments_{$id_product}">

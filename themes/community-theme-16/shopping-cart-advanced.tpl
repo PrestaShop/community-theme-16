@@ -318,7 +318,7 @@
                 href="{if $opc}{$link->getPageLink('order-opc', true)}{else}{$link->getPageLink('order', true)}{/if}?deleteDiscount={$discount.id_discount}"
                 class="price_discount_delete"
                 title="{l s='Delete'}">
-                <i class="icon-trash"></i>
+                <i class="icon icon-trash"></i>
               </a>
             {/if}
           </td>
@@ -342,7 +342,7 @@
     {assign var='back_link' value=$link->getPageLink('order', true, NULL, "step=2")}
   {/if}
   <a href="{$back_link|escape:'html':'UTF-8'}" title="{l s='Previous'}" class="btn btn-lg btn-default">
-    <i class="icon-chevron-left"></i>
+    <i class="icon icon-chevron-left"></i>
     {l s='Continue shopping'}
   </a>
   <button data-show-if-js="" style="" id="confirmOrder" type="button" class="btn btn-lg btn-success pull-right standard-checkout"><span>{l s='Order With Obligation To Pay'}</span></button>

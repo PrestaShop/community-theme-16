@@ -495,7 +495,7 @@ var ajaxCart = {
         if (parseFloat(jsonData.discounts[i].price_float) > 0) {
           var delete_link = '';
           if (jsonData.discounts[i].code.length)
-            delete_link = '<a class="delete_voucher" href="' + jsonData.discounts[i].link + '" title="' + delete_txt + '"><i class="icon-remove-sign"></i></a>';
+            delete_link = '<a class="delete_voucher" href="' + jsonData.discounts[i].link + '" title="' + delete_txt + '"><i class="icon icon-remove-sign"></i></a>';
           $('.vouchers tbody').append($(
             '<tr class="bloc_cart_voucher" data-id="bloc_cart_voucher_' + jsonData.discounts[i].id + '">' + ' <td class="quantity">1x</td>' + ' <td class="name" title="' + jsonData.discounts[i].description + '">' + jsonData.discounts[i].name + '</td>' + ' <td class="price">-' + jsonData.discounts[i].price + '</td>' + ' <td class="delete">' + delete_link + '</td>' + '</tr>'
           ));

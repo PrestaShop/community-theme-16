@@ -1,12 +1,12 @@
 {if $products}
   {if !$refresh}
     <div class="wishlistLinkTop">
-      <a id="hideWishlist" class="button_account icon pull-right" href="#" onclick="WishlistVisibility('wishlistLinkTop', 'Wishlist'); return false;" rel="nofollow" title="{l s='Close this wishlist' mod='blockwishlist'}">
-        <i class="icon-remove"></i>
+      <a id="hideWishlist" class="button_account pull-right" href="#" onclick="WishlistVisibility('wishlistLinkTop', 'Wishlist'); return false;" rel="nofollow" title="{l s='Close this wishlist' mod='blockwishlist'}">
+        <i class="icon icon-remove"></i>
       </a>
       <ul class="clearfix display_list">
         <li>
-          <a  id="hideBoughtProducts" class="button_account" href="#" onclick="WishlistVisibility('wlp_bought', 'BoughtProducts'); return false;" title="{l s='Hide products' mod='blockwishlist'}">
+          <a id="hideBoughtProducts" class="button_account" href="#" onclick="WishlistVisibility('wlp_bought', 'BoughtProducts'); return false;" title="{l s='Hide products' mod='blockwishlist'}">
             {l s='Hide products' mod='blockwishlist'}
           </a>
           <a id="showBoughtProducts" class="button_account" href="#" onclick="WishlistVisibility('wlp_bought', 'BoughtProducts'); return false;" title="{l s='Show products' mod='blockwishlist'}">
@@ -53,7 +53,7 @@
             <div class="col-xs-6 col-sm-12">
               <div class="product_infos">
                 <a class="lnkdel" href="javascript:;" onclick="WishlistProductManage('wlp_bought', 'delete', '{$id_wishlist}', '{$product.id_product}', '{$product.id_product_attribute}', $('#quantity_{$product.id_product}_{$product.id_product_attribute}').val(), $('#priority_{$product.id_product}_{$product.id_product_attribute}').val());" title="{l s='Delete' mod='blockwishlist'}">
-                  <i class="icon-remove-sign"></i>
+                  <i class="icon icon-remove-sign"></i>
                 </a>
 
                 <p id="s_title" class="product-name">
@@ -129,8 +129,8 @@
   </div>
   {if !$refresh}
     <form method="post" class="wl_send box unvisible" onsubmit="return (false);">
-      <a id="hideSendWishlist" class="button_account btn icon"  href="#" onclick="WishlistVisibility('wl_send', 'SendWishlist'); return false;" rel="nofollow" title="{l s='Close this wishlist' mod='blockwishlist'}">
-        <i class="icon-remove"></i>
+      <a id="hideSendWishlist" class="button_account btn"  href="#" onclick="WishlistVisibility('wl_send', 'SendWishlist'); return false;" rel="nofollow" title="{l s='Close this wishlist' mod='blockwishlist'}">
+        <i class="icon icon-remove"></i>
       </a>
       <fieldset>
         <div class="required form-group">

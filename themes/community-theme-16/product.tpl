@@ -120,7 +120,7 @@
           <p class="resetimg clear no-print">
             <span id="wrapResetImages" style="display: none;">
               <a href="{$link->getProductLink($product)|escape:'html':'UTF-8'}" data-id="resetImages">
-                <i class="icon-repeat"></i>
+                <i class="icon icon-repeat"></i>
                 {l s='Display all pictures'}
               </a>
             </span>
@@ -287,10 +287,10 @@
                     <label for="quantity_wanted">{l s='Quantity'}</label>
                     <input type="number" min="1" name="qty" id="quantity_wanted" class="text" value="{if isset($quantityBackup)}{$quantityBackup|intval}{else}{if $product->minimal_quantity > 1}{$product->minimal_quantity}{else}1{/if}{/if}" />
                     <a href="#" data-field-qty="qty" class="btn btn-default button-minus product_quantity_down">
-                      <span><i class="icon-minus"></i></span>
+                      <span><i class="icon icon-minus"></i></span>
                     </a>
                     <a href="#" data-field-qty="qty" class="btn btn-default button-plus product_quantity_up">
-                      <span><i class="icon-plus"></i></span>
+                      <span><i class="icon icon-plus"></i></span>
                     </a>
                     <span class="clearfix"></span>
                   </p>
@@ -539,7 +539,7 @@
                 <h4><a href="{$link->getPageLink('attachment', true, NULL, "id_attachment={$attachment.id_attachment}")|escape:'html':'UTF-8'}">{$attachment.name|escape:'html':'UTF-8'}</a></h4>
                 <p class="text-muted">{$attachment.description|escape:'html':'UTF-8'}</p>
                 <a class="btn btn-default btn-block" href="{$link->getPageLink('attachment', true, NULL, "id_attachment={$attachment.id_attachment}")|escape:'html':'UTF-8'}">
-                  <i class="icon-download"></i>
+                  <i class="icon icon-download"></i>
                   {l s="Download"} ({Tools::formatBytes($attachment.file_size, 2)})
                 </a>
                 <hr />

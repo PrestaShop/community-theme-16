@@ -66,7 +66,7 @@
 
         <p>
           <button type="submit" name="submitTransformGuestToCustomer" class="btn btn-lg btn-success">
-            <span>{l s='Send'} <i class="icon-chevron-right right"></i></span>
+            <span>{l s='Send'} <i class="icon icon-chevron-right"></i></span>
           </button>
         </p>
       </fieldset>
@@ -91,7 +91,7 @@
       </div>
       <p>
         <button type="submit" name="submitGuestTracking" class="btn btn-lg btn-success">
-          <span>{l s='Send'} <i class="icon-chevron-right right"></i></span>
+          <span>{l s='Send'} <i class="icon icon-chevron-right"></i></span>
         </button>
       </p>
     </fieldset>

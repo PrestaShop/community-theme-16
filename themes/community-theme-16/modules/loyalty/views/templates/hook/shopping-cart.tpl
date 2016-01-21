@@ -1,6 +1,6 @@
 <!-- MODULE Loyalty -->
 <p id="loyalty">
-  <i class="icon-flag"></i>
+  <i class="icon icon-flag"></i>
   {if $points > 0}
     {l s='By checking out this shopping cart you can collect up to' mod='loyalty'} <b>
     {if $points > 1}{l s='%d loyalty points' sprintf=$points mod='loyalty'}{else}{l s='%d loyalty point' sprintf=$points mod='loyalty'}{/if}</b>

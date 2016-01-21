@@ -1,3 +1,5 @@
+{include file="./test.tpl"}
+
 {if isset($HOOK_HOME_TAB_CONTENT) && $HOOK_HOME_TAB_CONTENT|trim}
   {if isset($HOOK_HOME_TAB) && $HOOK_HOME_TAB|trim}
     <ul id="home-page-tabs" class="nav nav-tabs clearfix">

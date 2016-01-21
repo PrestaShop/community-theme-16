@@ -28,7 +28,7 @@
         </div>
         <p class="submit">
           <button id="submitWishlist" class="btn btn-lg btn-success" type="submit" name="submitWishlist">
-            <span>{l s='Save' mod='blockwishlist'} <i class="icon-chevron-right right"></i></span>
+            <span>{l s='Save' mod='blockwishlist'} <i class="icon icon-chevron-right"></i></span>
           </button>
         </p>
       </fieldset>
@@ -87,8 +87,8 @@
                 {/if}
               </td>
               <td class="wishlist_delete">
-                <a class="icon" href="#" onclick="javascript:event.preventDefault();return (WishlistDelete('wishlist_{$wishlists[i].id_wishlist|intval}', '{$wishlists[i].id_wishlist|intval}', '{l s='Do you really want to delete this wishlist ?' mod='blockwishlist' js=1}'));">
-                  <i class="icon-remove"></i>
+                <a href="#" onclick="javascript:event.preventDefault();return (WishlistDelete('wishlist_{$wishlists[i].id_wishlist|intval}', '{$wishlists[i].id_wishlist|intval}', '{l s='Do you really want to delete this wishlist ?' mod='blockwishlist' js=1}'));">
+                  <i class="icon icon-remove"></i>
                 </a>
               </td>
             </tr>
@@ -103,14 +103,14 @@
     <li>
       <a class="btn btn-default" href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}">
         <span>
-          <i class="icon-chevron-left"></i> {l s='Back to Your Account' mod='blockwishlist'}
+          <i class="icon icon-chevron-left"></i> {l s='Back to Your Account' mod='blockwishlist'}
         </span>
       </a>
     </li>
     <li>
       <a class="btn btn-default" href="{$base_dir|escape:'html':'UTF-8'}">
         <span>
-          <i class="icon-chevron-left"></i> {l s='Home' mod='blockwishlist'}
+          <i class="icon icon-chevron-left"></i> {l s='Home' mod='blockwishlist'}
         </span>
       </a>
     </li>
