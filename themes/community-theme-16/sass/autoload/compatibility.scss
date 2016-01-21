@@ -12,6 +12,7 @@
 @import "./../vendor_mixins";
 
 // Compatibility styles, split into partials
+@import "compatibility/font-awesome";
 @import "compatibility/forms";
 @import "compatibility/alerts";
 @import "compatibility/buttons";
