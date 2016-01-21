@@ -47,10 +47,10 @@
       </div>
       <p class="SE_SubmitRefreshCard">
         <button class="btn btn-default" id="carriercompare_submit" type="button" name="carriercompare_submit">
-          <span>{l s='Update cart' mod='carriercompare'} <i class="icon-chevron-right right"></i></span>
+          <span>{l s='Update cart' mod='carriercompare'} <i class="icon icon-chevron-right"></i></span>
         </button>
         <button id="update_carriers_list" type="button" class="btn btn-default">
-          <span>{l s='Update carrier list' mod='carriercompare'} <i class="icon-chevron-right right"></i></span>
+          <span>{l s='Update carrier list' mod='carriercompare'} <i class="icon icon-chevron-right"></i></span>
         </button>
       </p>
     </fieldset>

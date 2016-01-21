@@ -3,6 +3,6 @@
 </div>
 {if $telnumber}
   <span class="shop-phone{if isset($is_logged) && $is_logged} is_logged{/if}">
-    <i class="icon-phone"></i> {l s='Call us now:' mod='blockcontact'} <strong>{$telnumber}</strong>
+    <i class="icon icon-phone"></i> {l s='Call us now:' mod='blockcontact'} <strong>{$telnumber}</strong>
   </span>
 {/if}

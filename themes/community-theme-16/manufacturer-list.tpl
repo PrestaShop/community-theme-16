@@ -28,12 +28,12 @@
             </li>
             <li id="grid">
               <a rel="nofollow" href="#" title="{l s='Grid'}">
-                <i class="icon-th-large"></i> {l s='Grid'}
+                <i class="icon icon-th-large"></i> {l s='Grid'}
               </a>
             </li>
             <li id="list">
               <a rel="nofollow" href="#" title="{l s='List'}">
-                <i class="icon-th-list"></i> {l s='List'}
+                <i class="icon icon-th-list"></i> {l s='List'}
               </a>
             </li>
           </ul>
@@ -104,7 +104,7 @@
                       class="btn btn-lg btn-default"
                       href="{$link->getmanufacturerLink($manufacturer.id_manufacturer, $manufacturer.link_rewrite)|escape:'html':'UTF-8'}">
                       <span>
-                        {l s='view products'} <i class="icon-chevron-right right"></i>
+                        {l s='view products'} <i class="icon icon-chevron-right"></i>
                       </span>
                     </a>
                   {/if}

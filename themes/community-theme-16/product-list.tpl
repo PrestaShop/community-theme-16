@@ -12,7 +12,7 @@
               {if isset($quick_view) && $quick_view}
                 <div class="quick-view-wrapper-mobile">
                   <a class="quick-view-mobile" href="{$product.link|escape:'html':'UTF-8'}" rel="{$product.link|escape:'html':'UTF-8'}">
-                    <i class="icon-eye-open"></i>
+                    <i class="icon icon-eye-open"></i>
                   </a>
                 </div>
                 <a class="quick-view" href="{$product.link|escape:'html':'UTF-8'}" rel="{$product.link|escape:'html':'UTF-8'}">

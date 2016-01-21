@@ -114,7 +114,7 @@
                           <td class="{if $first.product_list[0].carrier_list[0] eq 0} hide{/if}">
                             <input type="hidden" value="{$first.instance->id|intval}" name="id_carrier" />
                             {if isset($first.instance->delay[$cookie->id_lang])}
-                              <i class="icon-info-sign"></i>
+                              <i class="icon icon-info-sign"></i>
                               {strip}
                                 {$first.instance->delay[$cookie->id_lang]|escape:'htmlall':'UTF-8'}
                                 &nbsp;
@@ -185,7 +185,7 @@
                               <td class="{if $carrier.product_list[0].carrier_list[0] eq 0} hide{/if}">
                                 <input type="hidden" value="{$first.instance->id|intval}" name="id_carrier" />
                                 {if isset($carrier.instance->delay[$cookie->id_lang])}
-                                  <i class="icon-info-sign"></i>
+                                  <i class="icon icon-info-sign"></i>
                                   {strip}
                                     {$carrier.instance->delay[$cookie->id_lang]|escape:'htmlall':'UTF-8'}
                                     &nbsp;
@@ -352,18 +352,18 @@
     {if !$is_guest}
       {if $back}
         <a href="{$link->getPageLink('order', true, NULL, "step=1&back={$back}{if $multi_shipping}&multi-shipping={$multi_shipping}{/if}")|escape:'html':'UTF-8'}" title="{l s='Previous'}" class="btn btn-lg btn-default">
-          <i class="icon-chevron-left"></i>
+          <i class="icon icon-chevron-left"></i>
           {l s='Continue shopping'}
         </a>
       {else}
         <a href="{$link->getPageLink('order', true, NULL, "step=1{if $multi_shipping}&multi-shipping={$multi_shipping}{/if}")|escape:'html':'UTF-8'}" title="{l s='Previous'}" class="btn btn-lg btn-default">
-          <i class="icon-chevron-left"></i>
+          <i class="icon icon-chevron-left"></i>
           {l s='Continue shopping'}
         </a>
       {/if}
     {else}
       <a href="{$link->getPageLink('order', true, NULL, "{if $multi_shipping}multi-shipping={$multi_shipping}{/if}")|escape:'html':'UTF-8'}" title="{l s='Previous'}" class="btn btn-lg btn-default">
-        <i class="icon-chevron-left"></i>
+        <i class="icon icon-chevron-left"></i>
         {l s='Continue shopping'}
       </a>
     {/if}
@@ -371,7 +371,7 @@
       <button type="submit" name="processCarrier" class="btn btn-lg btn-success pull-right standard-checkout">
         <span>
           {l s='Proceed to checkout'}
-          <i class="icon-chevron-right right"></i>
+          <i class="icon icon-chevron-right right"></i>
         </span>
       </button>
     {/if}

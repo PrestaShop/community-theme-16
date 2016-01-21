@@ -38,7 +38,7 @@
     <p>
       <button type="submit" name="submitReturnMerchandise" class="btn btn-success">
        <span>
-         {l s='Make an RMA slip'} <i class="icon-chevron-right right"></i>
+         {l s='Make an RMA slip'} <i class="icon icon-chevron-right"></i>
        </span>
       </button>
     </p>
@@ -100,7 +100,7 @@
           <td class="history_invoice">
             {if $return.state == 2}
               <a class="btn btn-default" href="{$link->getPageLink('pdf-order-return', true, NULL, "id_order_return={$return.id_order_return|intval}")|escape:'html':'UTF-8'}" title="{l s='Order return'} {l s='#'}{$return.id_order_return|string_format:"%06d"}">
-                <i class="icon-file-text"></i> {l s='Print out'}
+                <i class="icon icon-file-text"></i> {l s='Print out'}
               </a>
             {else}
               --
@@ -120,14 +120,14 @@
   <li>
     <a class="btn btn-default" href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}">
       <span>
-        <i class="icon-chevron-left"></i> {l s='Back to your account'}
+        <i class="icon icon-chevron-left"></i> {l s='Back to your account'}
       </span>
     </a>
   </li>
   <li>
     <a class="btn btn-default" href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}">
       <span>
-        <i class="icon-chevron-left"></i> {l s='Home'}
+        <i class="icon icon-chevron-left"></i> {l s='Home'}
       </span>
     </a>
   </li>

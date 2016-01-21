@@ -99,7 +99,7 @@
                           <td class="{if $first.product_list[0].carrier_list[0] eq 0} hide{/if}">
                             <input type="hidden" value="{$first.instance->id|intval}" name="id_carrier" />
                             {if isset($first.instance->delay[$cookie->id_lang])}
-                              <i class="icon-info-sign"></i>
+                              <i class="icon icon-info-sign"></i>
                               {strip}
                                 {$first.instance->delay[$cookie->id_lang]|escape:'htmlall':'UTF-8'}
                                 &nbsp;
@@ -170,7 +170,7 @@
                               <td class="{if $carrier.product_list[0].carrier_list[0] eq 0} hide{/if}">
                                 <input type="hidden" value="{$first.instance->id|intval}" name="id_carrier" />
                                 {if isset($carrier.instance->delay[$cookie->id_lang])}
-                                  <i class="icon-info-sign"></i>
+                                  <i class="icon icon-info-sign"></i>
                                   {strip}
                                     {$carrier.instance->delay[$cookie->id_lang]|escape:'htmlall':'UTF-8'}
                                     &nbsp;

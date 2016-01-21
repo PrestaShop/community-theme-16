@@ -109,7 +109,7 @@
                       <td class="delete">
                         {if strlen($discount.code)}
                           <a class="delete_voucher" href="{$link->getPageLink("$order_process", true)}?deleteDiscount={$discount.id_discount|intval}" title="{l s='Delete' mod='blockcart'}" rel="nofollow">
-                            <i class="icon-remove-sign"></i>
+                            <i class="icon icon-remove-sign"></i>
                           </a>
                         {/if}
                       </td>
@@ -167,7 +167,7 @@
             </div>
             <p class="cart-buttons">
               <a id="button_order_cart" class="btn btn-success" href="{$link->getPageLink("$order_process", true)|escape:"html":"UTF-8"}" title="{l s='Check out' mod='blockcart'}" rel="nofollow">
-                {l s='Check out' mod='blockcart'} <i class="icon-angle-right"></i>
+                {l s='Check out' mod='blockcart'} <i class="icon icon-angle-right"></i>
               </a>
             </p>
           </div>
@@ -185,7 +185,7 @@
       <div class="layer_cart_product col-xs-12 col-md-6">
         <span class="cross" title="{l s='Close window' mod='blockcart'}"></span>
           <span class="title">
-            <i class="icon-check"></i> {l s='Product successfully added to your shopping cart' mod='blockcart'}
+            <i class="icon icon-check"></i> {l s='Product successfully added to your shopping cart' mod='blockcart'}
           </span>
         <div class="product-image-container layer_cart_img">
         </div>
@@ -294,12 +294,12 @@
         <div class="button-container">
           <span class="btn btn-lg btn-default continue" title="{l s='Continue shopping' mod='blockcart'}">
             <span>
-                <i class="icon-chevron-left left"></i> {l s='Continue shopping' mod='blockcart'}
+                <i class="icon icon-chevron-left"></i> {l s='Continue shopping' mod='blockcart'}
             </span>
           </span>
           <a class="btn btn-lg btn-success" href="{$link->getPageLink("$order_process", true)|escape:"html":"UTF-8"}" title="{l s='Proceed to checkout' mod='blockcart'}" rel="nofollow">
             <span>
-              {l s='Proceed to checkout' mod='blockcart'} <i class="icon-chevron-right right"></i>
+              {l s='Proceed to checkout' mod='blockcart'} <i class="icon icon-chevron-right"></i>
             </span>
           </a>
         </div>

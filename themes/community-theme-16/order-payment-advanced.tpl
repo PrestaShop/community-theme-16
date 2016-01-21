@@ -51,7 +51,7 @@
                     {$paymentOption->getCallToActionText()}
                   </span>
                   <span class="pull-right payment_option_selected">
-                    <i class="icon-check"></i>
+                    <i class="icon icon-check"></i>
                   </span>
               </a>
 

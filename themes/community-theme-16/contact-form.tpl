@@ -8,7 +8,7 @@
     <li>
       <a class="btn btn-default" href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}">
         <span>
-          <i class="icon-chevron-left"></i> {l s='Home'}
+          <i class="icon icon-chevron-left"></i> {l s='Home'}
         </span>
       </a>
     </li>
@@ -19,7 +19,7 @@
     <li>
       <a class="btn btn-default" href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}">
         <span>
-          <i class="icon-chevron-left"></i> {l s='Home'}
+          <i class="icon icon-chevron-left"></i> {l s='Home'}
         </span>
       </a>
     </li>
@@ -58,7 +58,7 @@
         <p id="desc_contact0" class="desc_contact{if isset($smarty.request.id_contact)} unvisible{/if}">&nbsp;</p>
         {foreach from=$contacts item=contact}
           <p id="desc_contact{$contact.id_contact|intval}" class="desc_contact contact-title{if !isset($smarty.request.id_contact) || $smarty.request.id_contact|intval != $contact.id_contact|intval} unvisible{/if}">
-            <i class="icon-comment-alt"></i> {$contact.description|escape:'html':'UTF-8'}
+            <i class="icon icon-comment-alt"></i> {$contact.description|escape:'html':'UTF-8'}
           </p>
         {/foreach}
         {/if}
@@ -123,7 +123,7 @@
       </div>
       <div class="submit">
         <button type="submit" name="submitMessage" id="submitMessage" class="btn btn-lg btn-success">
-          <span>{l s='Send'} <i class="icon-chevron-right right"></i></span>
+          <span>{l s='Send'} <i class="icon icon-chevron-right"></i></span>
         </button>
       </div>
     </fieldset>

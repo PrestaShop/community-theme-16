@@ -57,13 +57,13 @@
           {assign var='p_previous' value=$p-1}
           <li id="pagination_previous{if isset($paginationId)}_{$paginationId}{/if}" class="pagination_previous">
             <a{$no_follow_text} href="{$link->goPage($requestPage, $p_previous)}" rel="prev">
-              <i class="icon-chevron-left"></i> <b>{l s='Previous'}</b>
+              <i class="icon icon-chevron-left"></i> <b>{l s='Previous'}</b>
             </a>
           </li>
         {else}
           <li id="pagination_previous{if isset($paginationId)}_{$paginationId}{/if}" class="disabled pagination_previous">
             <span>
-              <i class="icon-chevron-left"></i> <b>{l s='Previous'}</b>
+              <i class="icon icon-chevron-left"></i> <b>{l s='Previous'}</b>
             </span>
           </li>
         {/if}
@@ -148,13 +148,13 @@
           {assign var='p_next' value=$p+1}
           <li id="pagination_next{if isset($paginationId)}_{$paginationId}{/if}" class="pagination_next">
             <a{$no_follow_text} href="{$link->goPage($requestPage, $p_next)}" rel="next">
-              <b>{l s='Next'}</b> <i class="icon-chevron-right"></i>
+              <b>{l s='Next'}</b> <i class="icon icon-chevron-right"></i>
             </a>
           </li>
         {else}
           <li id="pagination_next{if isset($paginationId)}_{$paginationId}{/if}" class="disabled pagination_next">
             <span>
-              <b>{l s='Next'}</b> <i class="icon-chevron-right"></i>
+              <b>{l s='Next'}</b> <i class="icon icon-chevron-right"></i>
             </span>
           </li>
         {/if}

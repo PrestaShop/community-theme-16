@@ -55,7 +55,7 @@
           <td class="history_invoice">
             {if (isset($order.invoice) && $order.invoice && isset($order.invoice_number) && $order.invoice_number) && isset($invoiceAllowed) && $invoiceAllowed == true}
               <a class="btn btn-default" href="{$link->getPageLink('pdf-invoice', true, NULL, "id_order={$order.id_order}")|escape:'html':'UTF-8'}" title="{l s='Invoice'}" target="_blank">
-                <i class="icon-file-text large"></i> {l s='PDF'}
+                <i class="icon icon-file-text large"></i> {l s='PDF'}
               </a>
             {else}
               -
@@ -64,7 +64,7 @@
           <td class="history_detail">
             <a class="btn btn-default" href="javascript:showOrder(1, {$order.id_order|intval}, '{$link->getPageLink('order-detail', true, NULL, "id_order={$order.id_order|intval}")|escape:'html':'UTF-8'}');">
               <span>
-                {l s='Details'} <i class="icon-chevron-right right"></i>
+                {l s='Details'} <i class="icon icon-chevron-right"></i>
               </span>
             </a>
             {if isset($opc) && $opc}
@@ -73,7 +73,7 @@
               <a class="btn btn-default" href="{$link->getPageLink('order', true, NULL, "submitReorder&id_order={$order.id_order|intval}")|escape:'html':'UTF-8'}" title="{l s='Reorder'}">
                 {/if}
                 {if isset($reorderingAllowed) && $reorderingAllowed}
-                  <i class="icon-refresh"></i> {l s='Reorder'}
+                  <i class="icon icon-refresh"></i> {l s='Reorder'}
                 {/if}
               </a>
           </td>
@@ -90,13 +90,13 @@
   <li>
     <a class="btn btn-default" href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}">
       <span>
-        <i class="icon-chevron-left"></i> {l s='Back to Your Account'}
+        <i class="icon icon-chevron-left"></i> {l s='Back to Your Account'}
       </span>
     </a>
   </li>
   <li>
     <a class="btn btn-default" href="{$base_dir}">
-      <span><i class="icon-chevron-left"></i> {l s='Home'}</span>
+      <span><i class="icon icon-chevron-left"></i> {l s='Home'}</span>
     </a>
   </li>
 </ul>
