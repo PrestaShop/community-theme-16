@@ -234,7 +234,7 @@ function display(view) {
       html += '<div class="left-block col-xs-4 col-sm-5 col-md-4">' + $(element).find('.left-block').html() + '</div>';
       html += '<div class="center-block col-xs-4 col-sm-7 col-md-4">';
       html += '<div class="product-flags">' + $(element).find('.product-flags').html() + '</div>';
-      html += '<h5 itemprop="name">' + $(element).find('h5').html() + '</h5>';
+      html += '<h4 itemprop="name">' + $(element).find('h4').html() + '</h4>';
       var hookReviews = $(element).find('.hook-reviews');
       if (hookReviews.length) {
         html += hookReviews.clone().wrap('<div>').parent().html();
@@ -272,7 +272,7 @@ function display(view) {
       html += '<div class="left-block">' + $(element).find('.left-block').html() + '</div>';
       html += '<div class="right-block">';
       html += '<div class="product-flags">' + $(element).find('.product-flags').html() + '</div>';
-      html += '<h5 itemprop="name">' + $(element).find('h5').html() + '</h5>';
+      html += '<h4 itemprop="name">' + $(element).find('h4').html() + '</h4>';
       var hookReviews = $(element).find('.hook-reviews');
       if (hookReviews.length) {
         html += hookReviews.clone().wrap('<div>').parent().html();
