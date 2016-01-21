@@ -6,126 +6,14 @@
 // you may remove this file if you can take care of any
 // theme style compatibility issues with custom modules.
 
-// @TODO Replace button-variant with legacy-button-variant (generate less CSS)
-
+// Variable imports
 @import "./../theme_variables";
 @import "./../vendor_variables";
 @import "./../vendor_mixins";
 
-@mixin legacy-button-variant($color, $background, $border) {
-  span {
-    color: $color;
-    background-color: $background;
-    border-color: $border;
-  }
-
-  &:hover {
-    span {
-      border-color: darken($border, 12%);
-      color: $color;
-      background-color: darken($background, 10%);
-    }
-  }
-}
-
-$btn-legacy-yellow-color  : $btn-default-color;
-$btn-legacy-yellow-bg     : #f4b61b;
-$btn-legacy-yellow-border : #cc9900;
-
-$btn-legacy-gray-color    : #fff;
-$btn-legacy-gray-bg       : #6f6f6f;
-$btn-legacy-gray-border   : #5f5f5f;
-
-$btn-legacy-green-color   : #fff;
-$btn-legacy-green-bg      : #43b754;
-$btn-legacy-green-border  : #399a49;
-
-$btn-legacy-orange-color  : #fff;
-$btn-legacy-orange-bg     : #fdaa02;
-$btn-legacy-orange-border : #d98305;
-
-$btn-legacy-default-color : #333;
-$btn-legacy-default-bg    : #f7f7f7;
-$btn-legacy-default-border: #b7b7b7;
-
-$btn-legacy-buy-color     : #fff;
-$btn-legacy-buy-bg        : #007ab7;
-$btn-legacy-buy-border    : #006fa8;
-
-// Old checkbox markup which doesn't follow Bootstrap's checkbox markup
-p.checkbox {
-  input[type="checkbox"] {
-    margin-left: 0;
-  }
-}
-
-// Non-bootstrap confirmation alert from PrestaShop 1.5
-.confirmation {
-  background-color: #ffffe0;
-  border: 1px solid #e6db55;
-  padding: $alert-padding;
-  margin-bottom: $line-height-computed;
-}
-
-// Small default button
-.button {
-  display: inline-block;
-  margin-bottom: 0;
-  font-weight: $btn-font-weight;
-  text-align: center;
-  vertical-align: middle;
-  touch-action: manipulation;
-  cursor: pointer;
-  background-image: none;
-  border: none;
-  white-space: nowrap;
-
-  @include button-size(0, 0, $font-size-base, $line-height-base, $btn-border-radius-base);
-  @include user-select(none);
-
-  span {
-    display: block;
-    padding: 3px 8px;
-    border: 1px solid transparent;
-  }
-
-  &.button-small {
-    @include legacy-button-variant($btn-legacy-gray-color, $btn-legacy-gray-bg, $btn-legacy-gray-border);
-  }
-
-  // Large buttons
-  &.button-medium,
-  &.exclusive-medium,
-  &.ajax_add_to_cart_button,
-  &.lnk_view {
-    @include button-size(0, 0, $font-size-large, $line-height-large, $btn-border-radius-large);
-    span {
-      padding: 10px;
-    }
-  }
-
-  &.button-medium {
-    @include legacy-button-variant($btn-legacy-green-color, $btn-legacy-green-bg, $btn-legacy-green-border);
-    &.exclusive {
-      @include legacy-button-variant($btn-legacy-orange-color, $btn-legacy-orange-bg, $btn-legacy-orange-border);
-    }
-  }
-
-  &.exclusive-medium,
-  &.lnk_view {
-    @include legacy-button-variant($btn-legacy-default-color, $btn-legacy-default-bg, $btn-legacy-default-border);
-  }
-
-  &.ajax_add_to_cart_button {
-    @include legacy-button-variant($btn-legacy-buy-color, $btn-legacy-buy-bg, $btn-legacy-buy-border);
-  }
-
-}
-
-// From @import 'compass/reset'
-// @TODO Disable this during development, reset styles for lists separately
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
+// Compatibility styles, split into partials
+@import "compatibility/forms";
+@import "compatibility/alerts";
+@import "compatibility/buttons";
+@import "compatibility/type";
+@import "compatibility/icons";
