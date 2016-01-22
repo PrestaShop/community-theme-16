@@ -9,14 +9,14 @@
         <!-- Error return block -->
         <div id="opc_login_errors" class="alert alert-danger" style="display:none;"></div>
         <!-- END Error return block -->
-        <p class="form-group">
+        <div class="form-group">
           <label for="login_email">{l s='Email address'}</label>
           <input type="email" class="form-control validate" id="login_email" name="email" data-validate="isEmail" />
-        </p>
-        <p class="form-group">
+        </div>
+        <div class="form-group">
           <label for="login_passwd">{l s='Password'}</label>
           <input class="form-control validate" type="password" id="login_passwd" name="login_passwd" data-validate="isPasswd" />
-        </p>
+        </div>
         <a href="{$link->getPageLink('password', true)|escape:'html':'UTF-8'}" class="lost_password">{l s='Forgot your password?'}</a>
         <p class="submit">
           {if isset($back)}<input type="hidden" class="hidden" name="back" value="{$back|escape:'html':'UTF-8'}" />{/if}

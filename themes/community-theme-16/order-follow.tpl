@@ -23,10 +23,10 @@
     {l s='Please provide an explanation for your RMA.'}
   </div>
   <form method="POST"  id="returnOrderMessage">
-    <p class="textarea form-group">
+    <div class="textarea form-group">
       <label>{l s='Please provide an explanation for your RMA:'}</label>
       <textarea name="returnText" class="form-control"></textarea>
-    </p>
+    </div>
     {foreach $ids_order_detail as $id_order_detail}
       <input type="hidden" name="ids_order_detail[{$id_order_detail|intval}]" value="{$id_order_detail|intval}"/>
     {/foreach}
