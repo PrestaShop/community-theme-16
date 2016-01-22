@@ -4,7 +4,8 @@ This release focuses on cleaning up the global styles of theme,
 mostly fonts, buttons, icons. Base styles are now much closed to
 Bootstrap and can be customized more easily. PrestaShop component
 styles haven't been touched (mostly). Project now contains only one
-LICENSE in the root folder so you copyright your theme more easily
+LICENSE in the root folder so you copyright your theme more easily.
+Warning! This release is **not production ready**.
 
 ## Changes
 
