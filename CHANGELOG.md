@@ -1,6 +1,31 @@
+# v0.4.0 (2016-01-23)
+
+This release focuses on cleaning up the global styles of theme,
+mostly fonts, buttons, icons. Base styles are now much closed to
+Bootstrap and can be customized more easily. PrestaShop component
+styles haven't been touched (mostly). Project now contains only one
+LICENSE in the root folder so you copyright your theme more easily
+
+## Changes
+
+- All `.form-group` elements are now `div` (#89)
+- Refactored icons and their classes (#76, #81, #82)
+- All alerts are now `div` (#69)
+- Refactored buttons and their styles (#60, #64, #80)
+- Trimmed component styles (#58)
+- Trimmed templates (#72)
+- Removed `compass/reset` (#73)
+- Trimmed global styles and variables (#56, #67, #68, #70, #71, #78)
+- Reorganized `global.sccs` partials (#53)
+- Changes license to `AFL v3.0`, removed license header from files (#52, 74dbeca)
+- Removed fixed `27px` `.form-control` height (#51)
+- Removed text shadows from CSS (#49)
+- Removed Open Sans font (#47)
+- Fixed indentation in `.scss` files (#45)
+
 # v0.3.0 (2016-01-13)
 
-Released containing cleaned up and formatted theme files.
+Release containing cleaned up and formatted theme files.
 Uniform.js has been removed. Theme now uses default Bootstrap vars.
 JavaScript formatting step has been added to build process.
 
