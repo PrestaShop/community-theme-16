@@ -332,13 +332,13 @@
     <div id="returnOrderMessage">
       <h3 class="page-heading bottom-indent">{l s='Merchandise return'}</h3>
       <p>{l s='If you wish to return one or more products, please mark the corresponding boxes and provide an explanation for the return. When complete, click the button below.'}</p>
-      <p class="form-group">
+      <div class="form-group">
         <textarea class="form-control" cols="67" rows="3" name="returnText"></textarea>
-      </p>
-      <p class="form-group">
+      </div>
+      <div class="form-group">
         <button type="submit" name="submitReturnMerchandise" class="btn btn-success"><span>{l s='Make an RMA slip'} <i class="icon icon-chevron-right"></i></span></button>
         <input type="hidden" class="hidden" value="{$order->id|intval}" name="id_order" />
-      </p>
+      </div>
     </div>
   {/if}
   {if !$is_guest}</form>{/if}
@@ -421,7 +421,7 @@
     <form action="{$link->getPageLink('order-detail', true)|escape:'html':'UTF-8'}" method="post" class="std" id="sendOrderMessage">
       <h3 class="page-heading bottom-indent">{l s='Add a message'}</h3>
       <p>{l s='If you would like to add a comment about your order, please write it in the field below.'}</p>
-      <p class="form-group">
+      <div class="form-group">
         <label for="id_product">{l s='Product'}</label>
         <select name="id_product" class="form-control">
           <option value="0">{l s='-- Choose --'}</option>
@@ -429,10 +429,10 @@
             <option value="{$product.product_id}">{$product.product_name}</option>
           {/foreach}
         </select>
-      </p>
-      <p class="form-group">
+      </div>
+      <div class="form-group">
         <textarea class="form-control" cols="67" rows="3" name="msgText"></textarea>
-      </p>
+      </div>
       <div class="submit">
         <input type="hidden" name="id_order" value="{$order->id|intval}" />
         <input type="submit" class="unvisible" name="submitMessage" value="{l s='Send'}"/>

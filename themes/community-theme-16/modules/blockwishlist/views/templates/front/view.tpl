@@ -60,18 +60,18 @@
                   {/if}
                 </p>
                 <div class="wishlist_product_detail">
-                  <p class="form-group">
+                  <div class="form-group">
                     <label for="quantity_{$product.id_product}_{$product.id_product_attribute}">
                       {l s='Quantity' mod='blockwishlist'}:
                     </label>
                     <input class="form-control" type="text"
                            id="quantity_{$product.id_product}_{$product.id_product_attribute}"
                            value="{$product.quantity|intval}" size="3"/>
-                  </p>
+                  </div>
 
-                  <p class="form-group selector1">
+                  <div class="form-group selector1">
                     <span><strong>{l s='Priority' mod='blockwishlist'}:</strong> {$product.priority_name}</span>
-                  </p>
+                  </div>
                   <div class="btn_action">
                     {if (isset($product.attribute_quantity) && $product.attribute_quantity >= 1) || (!isset($product.attribute_quantity) && $product.product_quantity >= 1) || (isset($product.allow_oosp) && $product.allow_oosp)}
                       {if !$ajax}

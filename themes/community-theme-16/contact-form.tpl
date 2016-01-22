@@ -62,14 +62,14 @@
           </p>
         {/foreach}
         {/if}
-        <p class="form-group">
+        <div class="form-group">
           <label for="email">{l s='Email address'}</label>
           {if isset($customerThread.email)}
             <input class="form-control" type="text" id="email" name="from" value="{$customerThread.email|escape:'html':'UTF-8'}" readonly="readonly" />
           {else}
             <input class="form-control validate" type="text" id="email" name="from" data-validate="isEmail" value="{$email|escape:'html':'UTF-8'}" />
           {/if}
-        </p>
+        </div>
         {if !$PS_CATALOG_MODE}
           {if (!isset($customerThread.id_order) || $customerThread.id_order > 0)}
             <div class="form-group selector1">
@@ -107,11 +107,11 @@
           {/if}
         {/if}
         {if $fileupload == 1}
-          <p class="form-group">
+          <div class="form-group">
             <label for="fileUpload">{l s='Attach File'}</label>
             <input type="hidden" name="MAX_FILE_SIZE" value="{if isset($max_upload_size) && $max_upload_size}{$max_upload_size|intval}{else}2000000{/if}" />
             <input type="file" name="fileUpload" id="fileUpload" class="form-control" />
-          </p>
+          </div>
         {/if}
       </div>
       <div class="col-xs-12 col-md-9">

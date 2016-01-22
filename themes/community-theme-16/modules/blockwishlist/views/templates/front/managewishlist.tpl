@@ -24,10 +24,10 @@
           </li>
         {/if}
       </ul>
-      <p class="wishlisturl form-group">
+      <div class="wishlisturl form-group">
         <label>{l s='Permalink' mod='blockwishlist'}:</label>
         <input type="text" class="form-control" value="{$link->getModuleLink('blockwishlist', 'view', ['token' => $token_wish])|escape:'html':'UTF-8'}" readonly="readonly"/>
-      </p>
+      </div>
       <p class="submit">
       <div id="showSendWishlist">
         <a class="btn btn-success" href="#" onclick="WishlistVisibility('wl_send', 'SendWishlist'); return false;" title="{l s='Send this wishlist' mod='blockwishlist'}">
@@ -67,14 +67,14 @@
                   {/if}
                 </p>
                 <div class="wishlist_product_detail">
-                  <p class="form-group">
+                  <div class="form-group">
                     <label for="quantity_{$product.id_product}_{$product.id_product_attribute}">
                       {l s='Quantity' mod='blockwishlist'}:
                     </label>
                     <input type="text" class="form-control" id="quantity_{$product.id_product}_{$product.id_product_attribute}" value="{$product.quantity|intval}" size="3"/>
-                  </p>
+                  </div>
 
-                  <p class="form-group">
+                  <div class="form-group">
                     <label for="priority_{$product.id_product}_{$product.id_product_attribute}">
                       {l s='Priority' mod='blockwishlist'}:
                     </label>
@@ -89,7 +89,7 @@
                         {l s='Low' mod='blockwishlist'}
                       </option>
                     </select>
-                  </p>
+                  </div>
                 </div>
                 <div class="btn_action">
                   <a class="btn btn-success"  href="javascript:;" onclick="WishlistProductManage('wlp_bought_{$product.id_product_attribute}', 'update', '{$id_wishlist}', '{$product.id_product}', '{$product.id_product_attribute}', $('#quantity_{$product.id_product}_{$product.id_product_attribute}').val(), $('#priority_{$product.id_product}_{$product.id_product_attribute}').val());" title="{l s='Save' mod='blockwishlist'}">
