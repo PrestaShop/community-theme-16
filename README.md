@@ -50,12 +50,10 @@ E.g. `.product-list-item`.
 
 Here is what is currently planned for this theme:
 
-- Version 0.4.0
-  * No major refactoring of page elements
-  * Removal of redundant styles, markup
-  * Minor .js improvements
 - Version 0.5.0+
   * Refactoring of page elements
+  * Refactoring of page layout
+  * Refactoring of page header and footer
   * New features
 
 ## Libraries and dependencies

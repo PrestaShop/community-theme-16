@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<theme version="0.3.0" name="PrestaShop 1.6 Community Theme" directory="community-theme-16">
+<theme version="0.4.0" name="PrestaShop 1.6 Community Theme" directory="community-theme-16">
     <author name="PrestaShop Community" email="contact@prestashop.com" url="http://www.prestashop.com"/>
     <descriptions>
         <description iso="en">Community theme is a theme developed and maintained by the PrestaShop community.</description>
