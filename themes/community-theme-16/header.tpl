@@ -93,7 +93,7 @@
       </div>
       <div class="row">
         {if isset($left_column_size) && !empty($left_column_size)}
-          <div id="left_column" class="column col-xs-12 col-sm-{$left_column_size|intval}">{$HOOK_LEFT_COLUMN}</div>
+          <aside id="left_column" class="column col-xs-12 col-sm-{$left_column_size|intval}">{$HOOK_LEFT_COLUMN}</aside>
         {/if}
         {if isset($left_column_size) && isset($right_column_size)}{assign var='cols' value=(12 - $left_column_size - $right_column_size)}{else}{assign var='cols' value=12}{/if}
         <div id="center_column" class="center_column col-xs-12 col-sm-{$cols|intval}">
