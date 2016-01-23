@@ -38,6 +38,7 @@
 </head>
 <body{if isset($page_name)} id="{$page_name|escape:'html':'UTF-8'}"{/if} class="{if isset($page_name)}{$page_name|escape:'html':'UTF-8'}{/if}{if isset($body_classes) && $body_classes|@count} {implode value=$body_classes separator=' '}{/if}{if $hide_left_column} hide-left-column{else} show-left-column{/if}{if $hide_right_column} hide-right-column{else} show-right-column{/if}{if isset($content_only) && $content_only} content_only{/if} lang_{$lang_iso}">
 {if !isset($content_only) || !$content_only}
+
 {if isset($restricted_country_mode) && $restricted_country_mode}
   <div id="restricted-country">
     <p>{l s='You cannot place a new order from your country.'}{if isset($geolocation_country) && $geolocation_country} <span class="bold">{$geolocation_country|escape:'html':'UTF-8'}</span>{/if}</p>
@@ -80,20 +81,20 @@
 </header>
 
 <div id="page">
-    <div id="columns" class="container">
-      {if $page_name !='index' && $page_name !='pagenotfound'}
-        {include file="$tpl_dir./breadcrumb.tpl"}
+  <div id="columns" class="container">
+    {if $page_name !='index' && $page_name !='pagenotfound'}
+      {include file="$tpl_dir./breadcrumb.tpl"}
+    {/if}
+    <div id="slider_row">
+      {capture name='displayTopColumn'}{hook h='displayTopColumn'}{/capture}
+      {if $smarty.capture.displayTopColumn}
+        <div id="top_column">{$smarty.capture.displayTopColumn}</div>
       {/if}
-      <div id="slider_row">
-        {capture name='displayTopColumn'}{hook h='displayTopColumn'}{/capture}
-        {if $smarty.capture.displayTopColumn}
-          <div id="top_column">{$smarty.capture.displayTopColumn}</div>
-        {/if}
-      </div>
-      <div class="row">
-        {if isset($left_column_size) && !empty($left_column_size)}
-          <aside id="left_column" class="column col-xs-12 col-sm-{$left_column_size|intval}">{$HOOK_LEFT_COLUMN}</aside>
-        {/if}
-        {if isset($left_column_size) && isset($right_column_size)}{assign var='cols' value=(12 - $left_column_size - $right_column_size)}{else}{assign var='cols' value=12}{/if}
-        <main id="center_column" class="center_column col-xs-12 col-sm-{$cols|intval}" role="main">
-          {/if}
+    </div>
+    <div class="row">
+      {if isset($left_column_size) && !empty($left_column_size)}
+        <aside id="left_column" class="column col-xs-12 col-sm-{$left_column_size|intval}">{$HOOK_LEFT_COLUMN}</aside>
+      {/if}
+      {if isset($left_column_size) && isset($right_column_size)}{assign var='cols' value=(12 - $left_column_size - $right_column_size)}{else}{assign var='cols' value=12}{/if}
+      <main id="center_column" class="center_column col-xs-12 col-sm-{$cols|intval}" role="main">
+{/if}
