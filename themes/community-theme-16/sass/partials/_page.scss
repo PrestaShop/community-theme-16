@@ -6,6 +6,10 @@ body {
   background-color: #fff;
 }
 
+#header-blocks {
+  background-color: #fff;
+}
+
 #header {
   z-index: 5003;
 }
@@ -22,11 +26,9 @@ body {
   }
 }
 
-header {
+#header {
   z-index: 1;
   position: relative;
-  background: #fff;
-  padding-bottom: 15px;
   .banner {
     background: black;
     max-height: 100%;
