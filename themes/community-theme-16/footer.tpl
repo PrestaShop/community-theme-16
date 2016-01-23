@@ -5,7 +5,6 @@
         {/if}
         </div><!-- .row -->
       </div><!-- #columns -->
-    </div><!-- .columns-container -->
 
   </div><!-- #page -->
 

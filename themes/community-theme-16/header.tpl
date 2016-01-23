@@ -80,7 +80,6 @@
 </header>
 
 <div id="page">
-  <div class="columns-container">
     <div id="columns" class="container">
       {if $page_name !='index' && $page_name !='pagenotfound'}
         {include file="$tpl_dir./breadcrumb.tpl"}
