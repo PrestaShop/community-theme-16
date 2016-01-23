@@ -85,10 +85,10 @@
       {if $page_name !='index' && $page_name !='pagenotfound'}
         {include file="$tpl_dir./breadcrumb.tpl"}
       {/if}
-      <div id="slider_row" class="row">
+      <div id="slider_row">
         {capture name='displayTopColumn'}{hook h='displayTopColumn'}{/capture}
         {if $smarty.capture.displayTopColumn}
-          <div id="top_column" class="center_column col-xs-12 col-sm-12">{$smarty.capture.displayTopColumn}</div>
+          <div id="top_column">{$smarty.capture.displayTopColumn}</div>
         {/if}
       </div>
       <div class="row">
