@@ -179,14 +179,13 @@
       }
     }
   }
-  .bottom-footer {
-    div {
-      margin-top: 15px;
-      padding: 15px 0;
-      border-top: 1px solid #515151;
-      width: 100%;
-    }
-  }
+}
+
+#copyright-footer {
+  margin-top: 15px;
+  padding: 15px 0;
+  border-top: 1px solid #515151;
+  text-align: center;
 }
 
 // BLOCK .footer_links (cms pages)
