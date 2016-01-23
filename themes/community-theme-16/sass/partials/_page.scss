@@ -1,9 +1,17 @@
-#header {
-  z-index: 5003;
+body {
+  background-color: #ccc;
 }
 
-.columns-container {
-  background: #fff;
+#columns {
+  background-color: #fff;
+}
+
+#header-blocks {
+  background-color: #fff;
+}
+
+#header {
+  z-index: 5003;
 }
 
 #columns {
@@ -18,11 +26,9 @@
   }
 }
 
-header {
+#header {
   z-index: 1;
   position: relative;
-  background: #fff;
-  padding-bottom: 15px;
   .banner {
     background: black;
     max-height: 100%;
@@ -63,8 +69,4 @@ header {
       float: right;
     }
   }
-}
-
-.header-container {
-  background: #fff;
 }
