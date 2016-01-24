@@ -46,16 +46,14 @@
 {/if}
 
 <header id="header">
+
   {capture name='displayBanner'}{hook h='displayBanner'}{/capture}
   {if $smarty.capture.displayBanner}
-    <div class="banner">
-      <div class="container">
-        <div class="row">
-          {$smarty.capture.displayBanner}
-        </div>
-      </div>
+    <div id="header-banners">
+      {$smarty.capture.displayBanner}
     </div>
   {/if}
+
   {capture name='displayNav'}{hook h='displayNav'}{/capture}
   {if $smarty.capture.displayNav}
     <div class="nav">
