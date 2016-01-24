@@ -3,32 +3,15 @@
 @import "./../../vendor_variables";
 
 #search_block_top {
-  padding-top: 50px;
-  #searchbox {
-    float: left;
-    width: 100%;
+  margin-top: 30px;
+  @media (max-width: $screen-xs-max) {
+    margin-top: 15px;
   }
-  .btn.button-search {
-    background: #333;
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    border: none;
-    color: #fff;
-    width: 50px;
-    text-align: center;
-    padding: 10px 0 11px 0;
-    font-size: 17px;
-    &:hover {
-      color: #6f6f6f
-    }
+  @media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+    margin-top: 10px;
   }
-  #search_query_top {
-    display: inline;
-    padding: 13px 60px 13px 13px;
-    height: 45px;
-    margin-right: 1px;
+  @media (min-width: $screen-md) and (max-width: $screen-md-max) {
+    margin-top: 20px;
   }
 }
 
