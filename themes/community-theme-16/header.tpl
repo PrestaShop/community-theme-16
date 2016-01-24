@@ -77,27 +77,16 @@
 
         {hook h='displayHeaderNavbar'}
 
-        {capture name='displayHeaderNavbarRightNav'}{hook h='displayHeaderNavbarRightNav'}{/capture}
-        {if $smarty.capture.displayHeaderNavbarRightNav}
+        {capture name='displayNav'}{hook h='displayNav'}{/capture}
+        {if $smarty.capture.displayNav}
           <ul id="header-navbar-right-nav" class="nav navbar-nav navbar-right">
-            {$smarty.capture.displayHeaderNavbarRightNav}
+            {$smarty.capture.displayNav}
           </ul>
         {/if}
 
       </div>
     </div>
   </nav>
-
-  {capture name='displayNav'}{hook h='displayNav'}{/capture}
-  {if $smarty.capture.displayNav}
-    <div class="nav">
-      <div class="container">
-        <div class="row">
-          <nav>{$smarty.capture.displayNav}</nav>
-        </div>
-      </div>
-    </div>
-  {/if}
 
   <div id="header-blocks" class="container">
     <div class="row">
