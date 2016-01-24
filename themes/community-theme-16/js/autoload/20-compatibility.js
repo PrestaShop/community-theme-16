@@ -10,3 +10,6 @@
 function bindUniform() {
   return true;
 }
+
+// Used by blocklanguages and blockcurrencies in the default template
+function dropDown() {}
