@@ -12,7 +12,6 @@ $(document).ready(function() {
   }
   if (typeof quickView !== 'undefined' && quickView)
     quick_view();
-  dropDown();
 
   if (typeof page_name != 'undefined' && !in_array(page_name, ['index', 'product'])) {
     bindGrid();
@@ -300,38 +299,6 @@ function display(view) {
     $('.display').find('li#list').removeAttr('class');
     $.totalStorage('display', 'grid');
   }
-}
-
-function dropDown() {
-  elementClick = '#header .current';
-  elementSlide =  'ul.toogle_content';
-  activeClass = 'active';
-
-  $(elementClick).on('click', function(e) {
-    e.stopPropagation();
-    var subUl = $(this).next(elementSlide);
-    if (subUl.is(':hidden')) {
-      subUl.slideDown();
-      $(this).addClass(activeClass);
-    } else {
-      subUl.slideUp();
-      $(this).removeClass(activeClass);
-    }
-    $(elementClick).not(this).next(elementSlide).slideUp();
-    $(elementClick).not(this).removeClass(activeClass);
-    e.preventDefault();
-  });
-
-  $(elementSlide).on('click', function(e) {
-    e.stopPropagation();
-  });
-
-  $(document).on('click', function(e) {
-    e.stopPropagation();
-    var elementHide = $(elementClick).next(elementSlide);
-    $(elementHide).slideUp();
-    $(elementClick).removeClass('active');
-  });
 }
 
 function accordionFooter(status) {
