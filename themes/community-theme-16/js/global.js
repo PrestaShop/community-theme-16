@@ -141,7 +141,7 @@ function responsiveResize() {
 }
 
 function blockHover(status) {
-  var screenLg = $('body').find('.container').width() == 1140;
+  var screenLg = $('body').find('.container').width() == 1170;
 
   if ($('.product_list').is('.grid'))
     if (screenLg)
