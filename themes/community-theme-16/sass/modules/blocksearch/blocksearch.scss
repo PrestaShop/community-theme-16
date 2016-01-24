@@ -15,22 +15,15 @@
   }
 }
 
-.ac_results {
-  background: #fff;
-  border: 1px solid $ps-border-color;
-  width: 271px;
-  margin-top: -1px;
-  li {
-    padding: 0 10px;
-    font-weight: normal;
-    color: #686666;
-    font-size: 13px;
-    line-height: 22px;
-    &.ac_odd {
-      background: #fff;
-    }
-    &:hover, &.ac_over {
-      background: #fbfbfb;
+.prestashop {
+  .ac_results {
+    border: 1px solid $ps-border-color;
+    margin-top: -1px;
+    li {
+      &:hover, &.ac_over {
+        color: #fff;
+        background-color: $brand-primary;
+      }
     }
   }
 }
