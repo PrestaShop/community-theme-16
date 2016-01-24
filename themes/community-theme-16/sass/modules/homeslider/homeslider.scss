@@ -13,7 +13,7 @@
   max-height: 100%;
   overflow: hidden;
   position: relative;
-  z-index: 1;
+  // z-index: 1;
   float: left;
   @media (max-width: $screen-xs-max) { // max 767px
     width: 100%;
