@@ -1,3 +1,5 @@
+$header-banner-bg: #000;
+
 body {
   background-color: #ccc;
 }
@@ -29,13 +31,6 @@ body {
 #header {
   // z-index: 1;
   position: relative;
-  .banner {
-    background: black;
-    max-height: 100%;
-    .row {
-      margin: 0px;
-    }
-  }
   .nav {
     background: #333;
     .row {
@@ -69,4 +64,8 @@ body {
       float: right;
     }
   }
+}
+
+#header-banners {
+  background-color: $header-banner-bg;
 }
