@@ -7,7 +7,7 @@
 ********************************************************************/
 #header .shopping_cart {
   position: relative;
-  padding-top: 50px;
+  margin-top: 30px;
   > a:first-child {
     &:after {
       content: "\f0d7";
@@ -25,17 +25,21 @@
       padding: 4px 0px 2px 0px;
     }
   }
+
+  @media (max-width: $screen-xs-max) {
+    margin-top: 15px;
+  }
+
+  @media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+    margin-top: 10px;
+  }
+
+  @media (min-width: $screen-md) and (max-width: $screen-md-max) {
+    margin-top: 20px;
+  }
 }
+
 .shopping_cart {
-  width: 270px;
-  @media (max-width: $screen-xs) {
-    padding-top: 20px;
-  }
-  @media (max-width: $screen-lg){
-    margin: 0 auto;
-    float: none;
-    width: 100%;
-  }
   > a:first-child {
     padding: 10px 10px 10px 16px;
     background: #333;
