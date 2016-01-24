@@ -20,3 +20,9 @@ body {
 #header-banners {
   background-color: $header-banner-bg;
 }
+
+#header {
+  .navbar {
+    margin-bottom: 0;
+  }
+}
