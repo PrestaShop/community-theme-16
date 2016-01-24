@@ -57,7 +57,7 @@
   <nav class="navbar navbar-inverse">
     <div class="container">
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header-navbar" aria-expanded="false">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
@@ -66,7 +66,7 @@
         <a class="navbar-brand" href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}">{$PS_SHOP_NAME|escape:'html':'UTF-8'}</a>
       </div>
 
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <div class="collapse navbar-collapse" id="header-navbar">
         <ul class="nav navbar-nav">
           <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
           <li><a href="#">Link</a></li>
