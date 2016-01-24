@@ -75,6 +75,8 @@
           </ul>
         {/if}
 
+        {hook h='displayHeaderNavbar'}
+
         {capture name='displayHeaderNavbarRightNav'}{hook h='displayHeaderNavbarRightNav'}{/capture}
         {if $smarty.capture.displayHeaderNavbarRightNav}
           <ul id="header-navbar-right-nav" class="nav navbar-nav navbar-right">
