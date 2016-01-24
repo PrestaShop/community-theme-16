@@ -5,7 +5,7 @@ $(document).ready(function() {
 
   var $input = $('#search_query_' + blocksearch_type);
 
-  var width_ac_results = $input.parent('form').outerWidth();
+  var width_ac_results = $input.parents('form').outerWidth();
   if (typeof ajaxsearch != 'undefined' && ajaxsearch) {
     $input.autocomplete(
       search_url,
