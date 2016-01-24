@@ -68,19 +68,20 @@
 
       <div class="collapse navbar-collapse" id="header-navbar">
 
-        {capture name='displayHeaderNavbarLeft'}{hook h='displayHeaderNavbarLeft'}{/capture}
-        {if $smarty.capture.displayHeaderNavbarLeft}
-          <ul class="nav navbar-nav">
-            {$smarty.capture.displayHeaderNavbarLeft}
+        {capture name='displayHeaderNavbarLeftNav'}{hook h='displayHeaderNavbarLeftNav'}{/capture}
+        {if $smarty.capture.displayHeaderNavbarLeftNav}
+          <ul id="header-navbar-left-nav" class="nav navbar-nav">
+            {$smarty.capture.displayHeaderNavbarLeftNav}
           </ul>
         {/if}
 
-        {capture name='displayHeaderNavbarRight'}{hook h='displayHeaderNavbarRight'}{/capture}
-        {if $smarty.capture.displayHeaderNavbarRight}
-          <ul class="nav navbar-nav navbar-right">
-            {$smarty.capture.displayHeaderNavbarRight}
+        {capture name='displayHeaderNavbarRightNav'}{hook h='displayHeaderNavbarRightNav'}{/capture}
+        {if $smarty.capture.displayHeaderNavbarRightNav}
+          <ul id="header-navbar-right-nav" class="nav navbar-nav navbar-right">
+            {$smarty.capture.displayHeaderNavbarRightNav}
           </ul>
         {/if}
+
       </div>
     </div>
   </nav>
