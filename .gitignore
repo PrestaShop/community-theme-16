@@ -7,6 +7,7 @@
 
 !/modules/
 /modules/*
+!/modules/cttopmenu/
 
 !/CHANGELOG.md
 !/Config.xml
@@ -24,6 +25,7 @@
 
 # Ignore everywhere
 index.php
+.sass-cache/
 
 /themes/community-theme-16/.sass-cache/
 /themes/community-theme-16/cache/*
