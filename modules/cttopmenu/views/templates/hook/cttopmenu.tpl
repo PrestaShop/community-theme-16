@@ -5,7 +5,7 @@
 
 {if !empty($menu_items) || $show_search_form}
 
-  <div id="cttopmenu" class="col-xs-12{if 1 || $use_hover} js-use-hover{/if}{if $show_search_form} with-search-form{/if}">
+  <div id="cttopmenu" class="col-xs-12{if $use_hover} js-use-hover{/if}{if $show_search_form} with-search-form{/if}">
     <div class="navbar navbar-default yamm">
       <div class="navbar-header">
         <button type="button" data-toggle="collapse" data-target="#cttopmenu-navbar-collapse" class="navbar-toggle">
@@ -60,7 +60,7 @@
                 <input id="search_query_cttopmenu" type="search" name="search_query" class="form-control" placeholder="{l s='Search' mod='cttopmenu'}" value="" required>
                 <span class="input-group-btn">
                   <button type="submit" name="submit_search" class="btn btn-primary" title="{l s='Search' mod='cttopmenu'}">
-                   <i class="icon icon-search"></i>
+                    <i class="icon icon-search"></i>
                   </button>
                 </span>
               </div>
