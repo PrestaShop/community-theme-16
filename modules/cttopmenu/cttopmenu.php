@@ -116,7 +116,7 @@ class CTTopMenu extends Module
         // Deregister admin controller
         $id_tab = (int)Tab::getIdFromClassName('AdminCTTopMenuItem');
         $tab = new Tab($id_tab);
-        if ($tab->delete()) {
+        if (!$tab->delete()) {
             return false;
         }
 
