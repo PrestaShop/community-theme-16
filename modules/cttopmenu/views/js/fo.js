@@ -37,9 +37,16 @@ $(function() {
     }
   }
 
+  // Mark active links with JS
+  var $links = $menu.find('.cttm-link');
+  $links.each(function() {
+    if ($(this).prop('href') == window.location.href) {
+      $(this).parent().addClass('active');
+    }
+  });
+
   // Option: show dropdowns on mouse enter
   if (useHover) {
-    var $links       = $menu.find('.cttm-link');
     var $linksToggle = $links.filter('.dropdown-toggle');
     var $dropdowns   = $menu.find('.dropdown');
 
