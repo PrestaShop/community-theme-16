@@ -8,6 +8,7 @@ require_once('classes/CTTopMenuItem.php');
  * @property $bootstrap
  *
  * @TODO Custom dropdown HTMl for custom_link
+ * @TODO Consider adding TYPE_SHOP_LINK and demo data as home button
  */
 class CTTopMenu extends Module
 {
