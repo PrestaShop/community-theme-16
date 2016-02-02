@@ -108,16 +108,12 @@ class AdminCTTopMenuItemController extends ModuleAdminController
             $this->menuItemTypes,
             array_keys($this->menuItemTypes)
         );
-
-        // @TODO Solve update bugs + fields options bugs
     }
 
     /**
-     * Renders options panel
-     *
-     * @return string
+     * @TODO Cannot move this in the constructor, list add button becomes save button :( ??
      */
-    public function renderOptions()
+    protected function initOptionFields()
     {
         $this->fields_options = array(
             'general' => array(
@@ -139,6 +135,18 @@ class AdminCTTopMenuItemController extends ModuleAdminController
                 'submit' => array('title' => $this->l('Save'))
             ),
         );
+    }
+
+    /**
+     * Renders options panel
+     *
+     * @return string
+     */
+    public function renderOptions()
+    {
+        if (empty($this->fields_options)) {
+            $this->initOptionFields();
+        }
 
         return parent::renderOptions();
     }
@@ -169,6 +177,10 @@ class AdminCTTopMenuItemController extends ModuleAdminController
      */
     protected function processUpdateOptions()
     {
+        if (empty($this->fields_options)) {
+            $this->initOptionFields();
+        }
+
         parent::processUpdateOptions();
         Hook::exec('actionCTTopMenuCompositionChanged');
     }
@@ -242,7 +254,7 @@ class AdminCTTopMenuItemController extends ModuleAdminController
                 'type'    => 'bool',
                 'class'   => 'fixed-width-sm',
                 'orderby' => false,
-                ),
+            ),
             'active' => array(
                 'title'   => $this->l('Active'),
                 'align'   => 'center',
