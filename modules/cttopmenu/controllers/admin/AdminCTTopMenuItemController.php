@@ -150,7 +150,8 @@ class AdminCTTopMenuItemController extends ModuleAdminController
     {
         parent::initProcess();
 
-        if (Tools::getValue($this->identifier)) {
+        // @TODO Refactor 'if' statement to match other controllers, the way they add extra actions
+        if (empty($this->action) && Tools::getValue($this->identifier)) {
             if (Tools::getIsset('no_follow'.$this->table) || Tools::getIsset('no_follow')) {
                 if ($this->tabAccess['edit'] === '1') {
                     $this->action = 'no_follow';
