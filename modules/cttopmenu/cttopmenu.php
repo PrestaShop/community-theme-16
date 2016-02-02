@@ -540,7 +540,7 @@ class CTTopMenu extends Module
     protected function buildCategoryTreeItem(array $category, $id_shop, $id_lang, $depth, $maxDepth)
     {
         $subItems = array();
-        if ($depth < $maxDepth && !empty($category['children'])) {
+        if (($maxDepth == 0 || $depth < $maxDepth) && !empty($category['children'])) {
             foreach ($category['children'] as $subCategory) {
                 $subItems[] = $this->buildCategoryTreeItem($subCategory, $id_shop, $id_lang, $depth + 1, $maxDepth);
             }
@@ -716,7 +716,7 @@ class CTTopMenu extends Module
             'sub_items' => array(),
         );
 
-        if ($maxDepth == 0 || $depth <= $maxDepth) {
+        if ($maxDepth == 0 || $depth < $maxDepth) {
             foreach ($cmsCategory['cms'] as $cms) {
                 $cmsCategoryTreeItem['sub_items'][] = $this->buildCmsCategoryTreeCmsItem($cms);
             }
