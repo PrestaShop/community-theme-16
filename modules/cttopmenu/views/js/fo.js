@@ -37,6 +37,7 @@ $(function() {
     }
   });
 
+  // @TODO Refactor
   // Option: show dropdowns on mouse enter
   if (useHover) {
     var $linksToggle = $links.filter('.dropdown-toggle');

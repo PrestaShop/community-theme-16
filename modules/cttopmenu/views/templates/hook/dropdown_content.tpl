@@ -1,3 +1,5 @@
+{* @TODO More elegant solution? *}
+
 {$total_items = count($menu_item.sub_items)}
 {$column_count = min(4, $total_items)}
 
