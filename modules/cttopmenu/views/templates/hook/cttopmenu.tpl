@@ -73,5 +73,3 @@
   </div>
 
 {/if}
-
-{* <pre style="margin-top: 50px" class="col-xs-12">{$menu_items|print_r}</pre> *}
