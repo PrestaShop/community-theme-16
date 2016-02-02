@@ -1,12 +1,11 @@
-{* @TODO Escape *}
 {* @TODO Sort trees into 4 columns *}
-{* @TODO Nicer class names *}
 {* @TODO Output max depth *}
 
 {if !empty($menu_items) || $show_search_form}
 
   <div id="cttopmenu" class="col-xs-12{if $use_hover} js-use-hover{/if}{if $show_search_form} with-search-form{/if}">
     <div class="navbar navbar-default yamm">
+
       <div class="navbar-header">
         <button type="button" data-toggle="collapse" data-target="#cttopmenu-navbar-collapse" class="navbar-toggle">
           <span class="icon-bar"></span>
@@ -15,6 +14,7 @@
         </button>
         <a href="#" class="navbar-brand visible-xs">{l s='Menu' mod='cttopmenu'}</a>
       </div>
+
       <div id="cttopmenu-navbar-collapse" class="navbar-collapse collapse">
 
         {if !empty($menu_items)}
