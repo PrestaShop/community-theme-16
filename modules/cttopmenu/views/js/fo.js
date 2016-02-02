@@ -23,12 +23,6 @@ $(function() {
     buffer = setTimeout(detectCollapsedMenu, 250);
   });
 
-  function detectCollapsedMenu() {
-    var collapsed = $navbarHeader.is(':visible');
-    $menu.toggleClass('is-collapsed', collapsed);
-    menuIsCollapsed = collapsed;
-  }
-
   // Write the search_query with JS so we don't have to cache block for evey search
   if ($search.length) {
     var search_query = window.location.search.match(/[\?&]search_query=([^&#]*)/);
@@ -77,6 +71,12 @@ $(function() {
     $linksToggle.on('click', function() {
       window.location = $(this).attr('href');
     });
+  }
+
+  function detectCollapsedMenu() {
+    var collapsed = $navbarHeader.is(':visible');
+    $menu.toggleClass('is-collapsed', collapsed);
+    menuIsCollapsed = collapsed;
   }
 
 });
