@@ -37,7 +37,8 @@ $(function() {
     }
   });
 
-  // @TODO Refactor
+  // @TODO Refactor or remove on hover functionality
+  // @TODO Refactor responsive collapsed hover, also multiline (overflown) menu
   // Option: show dropdowns on mouse enter
   if (useHover) {
     var $linksToggle = $links.filter('.dropdown-toggle');
