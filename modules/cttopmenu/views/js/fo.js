@@ -1,7 +1,5 @@
 $(function() {
 
-  // @TODO Mark active item
-
   var $menu    = $('#cttopmenu');
   var $search  = $('#search_query_cttopmenu');
   var useHover = $menu.hasClass('js-use-hover');
