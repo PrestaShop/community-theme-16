@@ -944,7 +944,7 @@ class CTTopMenu extends Module
                 'title'     => $supplier['name'],
                 'icon'      => '',
                 'no_follow' => false,
-                'id'        => $supplier['id_manufacturer'],
+                'id'        => $supplier['id_supplier'],
                 'type'      => 'supplier-list-link',
                 'sub_items' => array(),
             );
