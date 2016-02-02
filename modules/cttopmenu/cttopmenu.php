@@ -88,6 +88,12 @@ class CTTopMenu extends Module
         Configuration::updateValue('CT_TOP_MENU_SEARCH', false);
         Configuration::updateValue('CT_TOP_MENU_ITEM_HOVER', false);
 
+        // Demo data
+        $menuItem = new CTTopMenuItem();
+        $menuItem->type = CTTopMenuItem::TYPE_CUSTOM_LINK;
+        $menuItem->icon = 'home';
+        $menuItem->url = $this->context->link->getPageLink('index');
+
         return true;
     }
 
