@@ -7,6 +7,12 @@
   margin-top: 15px;
 }
 
+.cttm-link {
+  .icon {
+    min-width: 1em  ;
+  }
+}
+
 // @TODO Better solution
 @media (min-width: 768px) {
   #cttopmenu-navbar-collapse {
