@@ -1,6 +1,11 @@
 <section id="blockmyaccountfooter" class="col-xs-12 col-sm-2">
-  <h4><a href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}" title="{l s='Manage my customer account' mod='blockmyaccountfooter'}" rel="nofollow">{l s='My account' mod='blockmyaccountfooter'}</a></h4>
+  <h4>{l s='My account' mod='blockmyaccountfooter'}</h4>
   <ul class="list-unstyled">
+    <li>
+      <a href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}" title="{l s='Manage my customer account' mod='blockmyaccountfooter'}" rel="nofollow">
+        {l s='My account' mod='blockmyaccountfooter'}
+      </a>
+    </li>
     <li>
       <a href="{$link->getPageLink('history', true)|escape:'html':'UTF-8'}" title="{l s='My orders' mod='blockmyaccountfooter'}" rel="nofollow">
         {l s='My orders' mod='blockmyaccountfooter'}
