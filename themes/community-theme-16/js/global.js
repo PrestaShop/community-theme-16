@@ -301,19 +301,6 @@ function display(view) {
   }
 }
 
-function accordionFooter(status) {
-  if (status == 'enable') {
-    $('#footer .footer-block h4').on('click', function(e) {
-      $(this).toggleClass('active').parent().find('.toggle-footer').stop().slideToggle('medium');
-      e.preventDefault();
-    });
-    $('#footer').addClass('accordion').find('.toggle-footer').slideUp('fast');
-  } else {
-    $('.footer-block h4').removeClass('active').off().parent().find('.toggle-footer').removeAttr('style').slideDown('fast');
-    $('#footer').removeClass('accordion');
-  }
-}
-
 function accordion(status) {
   if (status == 'enable') {
     var accordion_selector = '#right_column .block .title_block, #left_column .block .title_block, #left_column #newsletter_block_left h4,' +
