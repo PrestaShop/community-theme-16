@@ -1,26 +1,29 @@
-<!-- MODULE Block contact infos -->
-<section id="block_contact_infos" class="footer-block col-xs-12 col-sm-4">
-  <div>
-    <h4>{l s='Store Information' mod='blockcontactinfos'}</h4>
-    <ul class="toggle-footer">
-      {if $blockcontactinfos_company != ''}
+<section id="blockcontactinfos" class="col-xs-12 col-sm-2">
+  <h4>{l s='Store Information' mod='blockcontactinfos'}</h4>
+  <address>
+    <ul class="list-unstyled">
+      {if !empty($blockcontactinfos_company)}
         <li>
-          <i class="icon icon-map-marker"></i> {$blockcontactinfos_company|escape:'html':'UTF-8'}{if $blockcontactinfos_address != ''}, {$blockcontactinfos_address|escape:'html':'UTF-8'}{/if}
+          <b>{$blockcontactinfos_company|escape:'html':'UTF-8'}</b>
         </li>
       {/if}
-      {if $blockcontactinfos_phone != ''}
+      {if !empty($blockcontactinfos_address)}
         <li>
-          <i class="icon icon-phone"></i> {l s='Call us now:' mod='blockcontactinfos'}
-          <span>{$blockcontactinfos_phone|escape:'html':'UTF-8'}</span>
+          {$blockcontactinfos_address|escape:'html':'UTF-8'}
         </li>
       {/if}
-      {if $blockcontactinfos_email != ''}
+      {if !empty($blockcontactinfos_phone)}
         <li>
-          <i class="icon icon-envelope-alt"></i> {l s='Email:' mod='blockcontactinfos'}
-          <span>{mailto address=$blockcontactinfos_email|escape:'html':'UTF-8' encode="hex"}</span>
+          <i class="icon icon-phone"></i>
+          <a href="{$blockcontactinfos_phone|escape:'html':'UTF-8'}">{$blockcontactinfos_phone|escape:'html':'UTF-8'}</a>
+        </li>
+      {/if}
+      {if !empty($blockcontactinfos_email)}
+        <li>
+          <i class="icon icon-envelope-alt"></i>
+          {mailto address=$blockcontactinfos_email|escape:'html':'UTF-8' encode="hex"}
         </li>
       {/if}
     </ul>
-  </div>
+  </address>
 </section>
-<!-- /MODULE Block contact infos -->
