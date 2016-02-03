@@ -7,14 +7,7 @@
   .footer-block {
     margin-top: 15px;
   }
-  a {
-    color: #777777;
-    &:hover {
-      color: #fff;
-    }
-  }
   h4 {
-    color: #fff;
     margin: 0 0 13px 0;
     // max 767px
     @media (max-width: $screen-xs-max) {
