@@ -26,9 +26,6 @@
         content: "\f056";
       }
     }
-    a {
-      color: #fff;
-    }
   }
   ul {
     li {
@@ -39,9 +36,6 @@
     ul {
       li {
         padding: 0 0 8px 0;
-        span, a {
-          color: #fff;
-        }
         i {
           font-size: 25px;
           min-width: 35px;
@@ -76,7 +70,6 @@
         }
         a {
           display: inline-block;
-          color: #908f8f;
           font-size: 28px;
           // min 768px max 991px
           @media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
@@ -92,9 +85,6 @@
             font-weight: normal;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-          }
-          &:hover {
-            color: #fff;
           }
         }
         &.facebook {
