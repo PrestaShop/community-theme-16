@@ -1,24 +1,21 @@
-<!-- Block Newsletter module-->
-<div id="newsletter_block_left" class="block">
+<section id="blocknewsletter" class="col-xs-12 col-sm-2">
   <h4>{l s='Newsletter' mod='blocknewsletter'}</h4>
-  <div class="block_content">
-    <form action="{$link->getPageLink('index', null, null, null, false, null, true)|escape:'html':'UTF-8'}" method="post">
-      <div class="form-group{if isset($msg) && $msg } {if $nw_error}form-error{else}form-ok{/if}{/if}" >
-        <div class="input-group">
-          <input class="inputNew form-control newsletter-input" id="newsletter-input" type="text" name="email" size="18" value="{if isset($msg) && $msg}{$msg}{elseif isset($value) && $value}{$value}{else}{l s='Enter your e-mail' mod='blocknewsletter'}{/if}" />
-          <span class="input-group-btn">
-            <button type="submit" name="submitNewsletter" class="btn btn-primary">
-              <i class="icon icon-chevron-right"></i>
-            </button>
-          </span>
-        </div>
-        <input type="hidden" name="action" value="0" />
+  <form action="{$link->getPageLink('index', null, null, null, false, null, true)|escape:'html':'UTF-8'}" method="post">
+    <div class="form-group{if isset($msg) && $msg } {if $nw_error}form-error{else}form-ok{/if}{/if}" >
+      <div class="input-group">
+        <input class="form-control" id="newsletter-input" type="text" name="email" size="18" value="{if isset($msg) && $msg}{$msg}{elseif isset($value) && $value}{$value}{else}{l s='Enter your e-mail' mod='blocknewsletter'}{/if}" />
+        <span class="input-group-btn">
+          <button type="submit" name="submitNewsletter" class="btn btn-primary">
+            <i class="icon icon-chevron-right"></i>
+          </button>
+        </span>
       </div>
-    </form>
-  </div>
+      <input type="hidden" name="action" value="0" />
+    </div>
+  </form>
   {hook h="displayBlockNewsletterBottom" from='blocknewsletter'}
-</div>
-<!-- /Block Newsletter module-->
+</section>
+
 {strip}
   {if isset($msg) && $msg}
     {addJsDef msg_newsl=$msg|@addcslashes:'\''}
