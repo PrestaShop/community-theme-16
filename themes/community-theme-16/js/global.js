@@ -130,11 +130,9 @@ function responsiveResize() {
   compensante = scrollCompensate();
   if (($(window).width() + scrollCompensate()) <= 767 && responsiveflag == false) {
     accordion('enable');
-    accordionFooter('enable');
     responsiveflag = true;
   } else if (($(window).width() + scrollCompensate()) >= 768) {
     accordion('disable');
-    accordionFooter('disable');
     responsiveflag = false;
   }
   blockHover();
@@ -298,19 +296,6 @@ function display(view) {
     $('.display').find('li#grid').addClass('selected');
     $('.display').find('li#list').removeAttr('class');
     $.totalStorage('display', 'grid');
-  }
-}
-
-function accordionFooter(status) {
-  if (status == 'enable') {
-    $('#footer .footer-block h4').on('click', function(e) {
-      $(this).toggleClass('active').parent().find('.toggle-footer').stop().slideToggle('medium');
-      e.preventDefault();
-    });
-    $('#footer').addClass('accordion').find('.toggle-footer').slideUp('fast');
-  } else {
-    $('.footer-block h4').removeClass('active').off().parent().find('.toggle-footer').removeAttr('style').slideDown('fast');
-    $('#footer').removeClass('accordion');
   }
 }
 

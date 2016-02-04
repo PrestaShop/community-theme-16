@@ -13,3 +13,5 @@ function bindUniform() {
 
 // Used by blocklanguages and blockcurrencies in the default template
 function dropDown() {}
+
+function accordionFooter() {}
