@@ -1,4 +1,4 @@
-<section id="blockcontactinfos" class="col-xs-12 col-sm-2">
+<section id="blockcontactinfos" class="col-xs-12 col-sm-3">
   <h4>{l s='Store Information' mod='blockcontactinfos'}</h4>
   <address>
     <ul class="list-unstyled">
