@@ -40,7 +40,7 @@
   {/foreach}
   <!-- /Block CMS module -->
 {else}
-  <section id="blockcms-footer" class="blockcms col-xs-12 col-sm-2">
+  <section id="blockcms-footer" class="blockcms col-xs-12 col-sm-3">
     <h4>{l s='Information' mod='blockcms'}</h4>
     <ul class="list-unstyled">
       {if isset($show_price_drop) && $show_price_drop && !$PS_CATALOG_MODE}

@@ -1,4 +1,4 @@
-<section id="blockmyaccountfooter" class="col-xs-12 col-sm-2">
+<section id="blockmyaccountfooter" class="col-xs-12 col-sm-3">
   <h4>{l s='My account' mod='blockmyaccountfooter'}</h4>
   <ul class="list-unstyled">
     <li>
