@@ -35,8 +35,6 @@ class CTConfiguration extends Module
     {
         parent::install();
 
-        epr('Install ctconfiguration');
-
         $hooksToUnhook = array(
             array('module' => 'blockcategories', 'hook' => 'footer',)
         );
