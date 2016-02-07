@@ -8,6 +8,7 @@
 !/modules/
 /modules/*
 !/modules/cttopmenu/
+!/modules/ctconfiguration/
 
 !/CHANGELOG.md
 !/Config.xml
