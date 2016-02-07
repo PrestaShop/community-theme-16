@@ -15,7 +15,7 @@ class CTConfiguration extends Module
         $this->name    = 'ctconfiguration';
         $this->tab     = 'front_office_features';
         $this->version = '1.0.0';
-        $this->author  = 'Community Theme';
+        $this->author  = 'PrestaShop Community';
 
         parent::__construct();
 

@@ -4,7 +4,7 @@
 	<displayName><![CDATA[Community Configuration]]></displayName>
 	<version><![CDATA[1.0.0]]></version>
 	<description><![CDATA[Configuration for community theme blocks and content.]]></description>
-	<author><![CDATA[Community Theme]]></author>
+	<author><![CDATA[PrestaShop Community]]></author>
 	<tab><![CDATA[front_office_features]]></tab>
 	<is_configurable>1</is_configurable>
 	<need_instance>1</need_instance>
