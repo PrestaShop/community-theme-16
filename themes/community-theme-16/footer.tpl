@@ -14,10 +14,9 @@
       </div>
     {/if}
 
-    {* @TODO Use a setting from community theme configuration module to toggle this *}
-    {if 1 || !empty($display_copyright) && $display_copyright}
+    {if !empty($ctheme.footer.copyright.display)}
       <div id="copyright-footer">
-          {l s='%1$s %2$s Acme Coporation ' mod='blockcms' sprintf=['©', 'Y'|date]}
+        {$ctheme.footer.copyright.html}
       </div>
     {/if}
 
