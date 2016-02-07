@@ -21,7 +21,7 @@ class CTConfiguration extends Module
 
         $this->displayName = $this->l('Community Configuration');
         $this->description = $this->l('Configuration for community theme blocks and content.');
-        $this->ps_versions_compliancy = array('min' => '1.6', 'max' => '1.6.1.4');
+        $this->ps_versions_compliancy = array('min' => '1.6.0.3', 'max' => _PS_VERSION_);
 
         $this->bootstrap = true;
     }
