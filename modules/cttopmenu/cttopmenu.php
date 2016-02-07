@@ -20,13 +20,13 @@ class CTTopMenu extends Module
         $this->name    = 'cttopmenu';
         $this->tab     = 'front_office_features';
         $this->version = '1.0.0';
-        $this->author  = 'Community Theme';
+        $this->author  = 'PrestaShop Community';
 
         parent::__construct();
 
         $this->displayName = $this->l('Community Theme Top Menu');
         $this->description = $this->l('Adds a new horizontal menu to the top of your e-commerce website.');
-        $this->ps_versions_compliancy = array('min' => '1.6', 'max' => '1.6.1.4');
+        $this->ps_versions_compliancy = array('min' => '1.6.0.3', 'max' => _PS_VERSION_);
 
         $this->bootstrap = true;
 
