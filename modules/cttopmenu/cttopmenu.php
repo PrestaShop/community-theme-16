@@ -183,7 +183,8 @@ class CTTopMenu extends Module
         $this->context->controller->addCSS($this->_path.'views/css/fo.css');
         $this->context->controller->addJS($this->_path.'views/js/fo.js');
 
-        if (!$this->isCached('cttopmenu.tpl')) {
+        $cacheKey = $this->getCacheId('cttopmenu.tpl');
+        if (!$this->isCached('cttopmenu.tpl', $cacheKey)) {
             $id_lang = $this->context->language->id;
             $id_shop = Shop::getContextShopID();
 
@@ -194,19 +195,7 @@ class CTTopMenu extends Module
             ));
         }
 
-        return $this->display(__FILE__, 'cttopmenu.tpl');
-    }
-
-    /**
-     * Returns cached template ID, based on context
-     *
-     * @param string|null $name
-     * @return string
-     */
-    public function getCacheId($name = null)
-    {
-        // TODO: Check if caching key is correct
-        return parent::getCacheId($name);
+        return $this->display(__FILE__, 'cttopmenu.tpl', $cacheKey);
     }
 
     /**
