@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <module>
 	<name>ctconfiguration</name>
-	<displayName><![CDATA[Community Configuration]]></displayName>
+	<displayName><![CDATA[Community Theme Configuration]]></displayName>
 	<version><![CDATA[1.0.0]]></version>
 	<description><![CDATA[Configuration for community theme blocks and content.]]></description>
 	<author><![CDATA[PrestaShop Community]]></author>
