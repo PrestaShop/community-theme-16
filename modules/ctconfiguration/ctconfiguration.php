@@ -114,30 +114,16 @@ class CTConfiguration extends Module
      */
     public function getContent()
     {
-        $this->postProcess();
+        if (Tools::isSubmit('submit'.$this->name)) {
+            $this->postProcess();
+        }
 
         $moduleUrl = $this->context->link->getAdminLink('AdminModules').'&configure='.$this->name;
 
         $fieldSets = array(
             'general' => array(
                 'title'  => $this->l('Module settings'),
-                'fields' => array(
-                    'CT_CFG_BLOCKCATEGORIES_FOOTER' => array(
-                        'title' => $this->l('Show blockcategories footer block'),
-                        'desc'  => $this->l('If enabled, shows category tree block in the footer.'),
-                        'cast'  => 'boolval',
-                        'type'  => 'bool',
-                    ),
-                    'CT_CFG_COPYRIGHT_CONTENT' => array(
-                        'title' => $this->l('Copyright footer text'),
-                        'desc'  => $this->l('Text to be displayed in the copyright footer block.')
-                            .' '.$this->l('Leave empty to not displayed the block.'),
-                        'hint'  => $this->l('HTML is allowed. Enter &amp;copy; for copyright symbol.'),
-                        'cast'  => 'strval',
-                        'type'  => 'textareaLang',
-                        'size'  => 50,
-                    ),
-                ),
+                'fields' => $this->getOptionFields(),
                 'buttons' => array(
                     'cancelBlock' => array(
                         'title' => $this->l('Cancel'),
@@ -161,12 +147,65 @@ class CTConfiguration extends Module
     }
 
     /**
+     * Return HelperOptions fields that are using in module configuration form.
+     *
+     * @return array
+     */
+    protected function getOptionFields()
+    {
+        return array(
+            'CT_CFG_BLOCKCATEGORIES_FOOTER' => array(
+                'title' => $this->l('Show blockcategories footer block'),
+                'desc'  => $this->l('If enabled, shows category tree block in the footer.'),
+                'cast'  => 'boolval',
+                'type'  => 'bool',
+            ),
+            'CT_CFG_COPYRIGHT_CONTENT' => array(
+                'title' => $this->l('Copyright footer text'),
+                'desc'  => $this->l('Text to be displayed in the copyright footer block.')
+                    .' '.$this->l('Leave empty to not displayed the block.'),
+                'hint'  => $this->l('HTML is allowed. Enter &amp;copy; for copyright symbol.'),
+                'cast'  => 'strval',
+                'type'  => 'textareaLang',
+                'size'  => 50,
+            ),
+        );
+    }
+
+    /**
      * Processes submitted configuration variables
      */
     protected function postProcess()
     {
-        $blockcategoriesFooter = (int)Tools::getValue('CT_CFG_BLOCKCATEGORIES_FOOTER');
-        if ($blockcategoriesFooter) {
+        // @TODO Nicer solution ?
+        $castFunctions = array('boolval', 'doubleval', 'floatval', 'intval', 'strval');
+        $langIds = Language::getIDs(false);
+
+        $values = array();
+        foreach ($this->getOptionFields() as $key => $field) {
+            if ($field['type'] == 'textareaLang' || $field['type'] == 'textLang') {
+                $values[$key] = array();
+                foreach ($langIds as $id_lang) {
+                    $value = Tools::getValue($key.'_'.$id_lang);
+                    if ($field['cast'] && in_array($field['cast'], $castFunctions)) {
+                        $value = call_user_func($field['cast'], $value);
+                    }
+
+                    $values[$key][$id_lang] = $value;
+                }
+            } else {
+                $value = Tools::getValue($key);
+                if ($field['cast'] && in_array($field['cast'], $castFunctions)) {
+                    $value = call_user_func($field['cast'], $value);
+                }
+
+                $values[$key] = $value;
+            }
+
+            Configuration::updateValue($key, $values[$key]);
+        }
+
+        if ($values['CT_CFG_BLOCKCATEGORIES_FOOTER']) {
             $this->hookModule('blockcategories', 'footer');
         } else {
             $this->unhookModule('blockcategories', 'footer');
