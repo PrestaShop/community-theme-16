@@ -28,10 +28,6 @@
   margin-top: 15px;
 }
 
-.cttm-link .icon {
-  min-width: 1em;
-}
-
 @media (min-width: 768px) {
   #cttopmenu-navbar-collapse {
     padding-left: 0;

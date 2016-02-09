@@ -24,7 +24,7 @@
 
                 <li class="cttm-item-{$menu_item.type|escape:'html':'UTF-8'}{if !empty($menu_item.class)} {$menu_item.class|escape:'html':'UTF-8'}{/if}">
                   <a id="cttm-item-{$menu_item.id|escape:'html':'UTF-8'}" href="{$menu_item.url|escape:'html':'UTF-8'}" class="cttm-link" title="{$menu_item.title|escape:'html':'UTF-8'}"{if $menu_item.no_follow} rel="nofollow"{/if}>
-                    {if !empty($menu_item.icon)}<i class="icon icon-{$menu_item.icon|escape:'html':'UTF-8'}"></i>{/if}
+                    {if !empty($menu_item.icon)}<i class="icon icon-fw icon-{$menu_item.icon|escape:'html':'UTF-8'}"></i>{/if}
                     {$menu_item.name|escape:'html':'UTF-8'}
                   </a>
                 </li>
@@ -33,7 +33,7 @@
 
                 <li class="dropdown yamm-fw cttm-item-{$menu_item.type|escape:'html':'UTF-8'}{if !empty($menu_item.class)} {$menu_item.class|escape:'html':'UTF-8'}{/if}">
                   <a id="cttm-item-{$menu_item.id|escape:'html':'UTF-8'}" href="{$menu_item.url|escape:'html':'UTF-8'}" data-toggle="dropdown" class="dropdown-toggle cttm-link" aria-expanded="false" title="{$menu_item.title|escape:'html':'UTF-8'}"{if $menu_item.no_follow} rel="nofollow"{/if}>
-                    {if !empty($menu_item.icon)}<i class="icon icon-{$menu_item.icon|escape:'html':'UTF-8'}"></i>{/if}
+                    {if !empty($menu_item.icon)}<i class="icon icon-fw icon-{$menu_item.icon|escape:'html':'UTF-8'}"></i>{/if}
                     {$menu_item.name|escape:'html':'UTF-8'}<b class="caret"></b>
                   </a>
                   <ul class="dropdown-menu">
