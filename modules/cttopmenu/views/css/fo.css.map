@@ -1,7 +1,7 @@
 {
 "version": 3,
 "mappings": ";;;;;;AAcE,2DAAoC;EAClC,QAAQ,EAAE,MAAM;;AAIlB,gBAAW;EACT,QAAQ,EAAE,QAAQ;;AAIpB,oBAAe;EACb,IAAI,EAAE,IAAI;;AAIZ,mBAAc;EACZ,OAAO,EAAE,SAAS;;AAIpB,sCAAiC;EAC/B,IAAI,EAAE,CAAC;EAAE,KAAK,EAAE,CAAC;;;;;;AC9BrB,UAAW;EACT,UAAU,EAAE,IAAI;;;AAIhB,gBAAM;EACJ,SAAS,EAAE,GAAG;;;AAKlB,yBAA0B;EACxB,0BAA2B;IACzB,YAAY,EAAE,CAAC",
-"sources": ["../../sass/vendor/_yamm.scss","../../sass/fo.scss"],
+"sources": ["../sass/vendor/_yamm.scss","../sass/fo.scss"],
 "names": [],
 "file": "fo.css"
 }
