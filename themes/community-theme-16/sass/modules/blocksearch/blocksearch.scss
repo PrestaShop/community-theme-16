@@ -17,8 +17,8 @@
 
 // .ac_results results is appended to body,
 // use body.prestashop to override the default styles
-.prestashop {
-  .ac_results {
+.blocksearch {
+  &.ac_results {
     border: 1px solid $ps-border-color;
     margin-top: -1px;
     li {

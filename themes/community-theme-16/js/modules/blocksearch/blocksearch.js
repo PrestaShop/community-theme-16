@@ -19,6 +19,7 @@ $(function() {
 
   function bindAjaxSearch() {
     $input.autocomplete(module.searchUrl, {
+        resultsClass: 'ac_results blocksearch',
         minChars: 3,
         max: 10,
         width: blockWidth,
