@@ -22,7 +22,7 @@
     border: 1px solid $ps-border-color;
     margin-top: -1px;
     li {
-      &:hover {
+      &.ac_over {
         color: #fff;
         background-color: $brand-primary;
       }
