@@ -1,18 +1,28 @@
-var instantSearchQueries = [];
-$(document).ready(function() {
-  if (typeof blocksearch_type == 'undefined')
-    return;
+$(function() {
 
-  var $input = $('#search_query_' + blocksearch_type);
 
-  var width_ac_results = $input.parents('form').outerWidth();
-  if (typeof ajaxsearch != 'undefined' && ajaxsearch) {
-    $input.autocomplete(
-      search_url,
-      {
+  var module = {
+    blockType     :   window.blocksearch_type,
+    searchUrl     :   window.search_url,
+    ajaxSearch    : !!window.ajaxsearch,
+    instantSearch : !!window.instantsearch
+  };
+  var id_lang    = window.id_lang || 1;
+  var $input     = $('#search_query_top');
+  var blockWidth = $input.parents('form').outerWidth();
+
+  if (module.instantSearch) {
+    bindInstantSearch();
+  } else if (module.ajaxSearch) {
+    bindAjaxSearch();
+  }
+
+  function bindAjaxSearch() {
+    $input.autocomplete(module.searchUrl, {
+        resultsClass: 'ac_results blocksearch',
         minChars: 3,
         max: 10,
-        width: (width_ac_results > 0 ? width_ac_results : 500),
+        width: blockWidth,
         selectFirst: false,
         scroll: false,
         dataType: 'json',
@@ -20,73 +30,103 @@ $(document).ready(function() {
           return value;
         },
         parse: function(data) {
-          var mytab = [];
-          for (var i = 0; i < data.length; i++)
-            mytab[mytab.length] = {data: data[i], value: data[i].cname + ' > ' + data[i].pname};
-          return mytab;
+          return data.map(function(product) {
+            return {
+              data : product,
+              value: product.cname + ' > ' +product.pname
+            }
+          });
         },
         extraParams: {
           ajaxSearch: 1,
           id_lang: id_lang
         }
-      }
-      )
+      })
       .result(function(event, data, formatted) {
         $input.val(data.pname);
-        document.location.href = data.product_link;
+        window.location.href = data.product_link;
       });
   }
 
-  if (typeof instantsearch != 'undefined' && instantsearch) {
+  function bindInstantSearch() {
+
+    var buffer = null;
+    var latestQuery = '';
+
     $input.on('keyup', function() {
-      if ($(this).val().length > 4) {
-        stopInstantSearchQueries();
-        instantSearchQuery = $.ajax({
-          url: search_url + '?rand=' + new Date().getTime(),
-          data: {
-            instantSearch: 1,
-            id_lang: id_lang,
-            q: $(this).val()
-          },
-          dataType: 'html',
-          type: 'POST',
-          headers: {'cache-control': 'no-cache'},
-          async: true,
-          cache: false,
-          success: function(data) {
-            if ($input.val().length > 0) {
-              tryToCloseInstantSearch();
-              $('#center_column').attr('id', 'old_center_column');
-              $('#old_center_column').after('<div id="center_column" class="' + $('#old_center_column').attr('class') + '">' + data + '</div>').hide();
-              // Button override
-              ajaxCart.overrideButtonsInThePage();
-              $('#instant_search_results a.close').on('click', function() {
-                $input.val('');
-                return tryToCloseInstantSearch();
-              });
-              return false;
-            } else
-              tryToCloseInstantSearch();
-          }
-        });
-        instantSearchQueries.push(instantSearchQuery);
-      } else
-        tryToCloseInstantSearch();
+      clearTimeout(buffer);
+      buffer = setTimeout(checkInput, 450);
     });
+
+    $(document).on('click', '.js-close-instant-search', function(e) {
+      e.preventDefault();
+      $input.val('');
+      closeInstantResults();
+    });
+
+    function checkInput() {
+      var query = $input.val();
+
+      // Ignore keyup events from up/down keys, etc.
+      if (query == latestQuery) {
+        return;
+      }
+
+      latestQuery = query;
+
+      if (query.length < 4) {
+        closeInstantResults();
+        return;
+      }
+
+      $('#center_column').addClass('loading-overlay');
+      fetchInstantResults(query, function(html) {
+        if (query == latestQuery) {
+          showInstantResults(html);
+        }
+      });
+    }
+
+    function fetchInstantResults(query, cb) {
+      $.ajax({
+        url: module.searchUrl + '?rand=' + new Date().getTime(),
+        data: {
+          instantSearch: 1,
+          id_lang: id_lang,
+          q: query
+        },
+        dataType: 'html',
+        type: 'POST',
+        headers: {'cache-control': 'no-cache'},
+        async: true,
+        cache: false,
+        success: cb
+      });
+    }
+
+    function showInstantResults(html) {
+
+      closeInstantResults();
+
+      $('#center_column').removeClass('loading-overlay').attr('id', 'old_center_column');
+      var $oldCenterColumn = $('#old_center_column');
+
+      $oldCenterColumn.after(
+        '<div id="center_column" class="' + $oldCenterColumn.attr('class') + '">' + html + '</div>'
+      ).hide();
+
+      // Button override
+      ajaxCart.overrideButtonsInThePage();
+    }
+
+    function closeInstantResults() {
+      var $oldCenterColumn = $('#old_center_column');
+      if ($oldCenterColumn.length > 0) {
+        $('#center_column').remove();
+        $oldCenterColumn.attr('id', 'center_column').removeClass('loading-overlay').show();
+      }
+    }
+
   }
+
 });
-
-function tryToCloseInstantSearch() {
-  var $oldCenterColumn = $('#old_center_column');
-  if ($oldCenterColumn.length > 0) {
-    $('#center_column').remove();
-    $oldCenterColumn.attr('id', 'center_column').show();
-    return false;
-  }
-}
-
-function stopInstantSearchQueries() {
-  for (var i = 0; i < instantSearchQueries.length; i++)
-    instantSearchQueries[i].abort();
-  instantSearchQueries = [];
-}

@@ -15,26 +15,17 @@
   }
 }
 
-.prestashop {
-  .ac_results {
+// .ac_results results is appended to body,
+// use body.prestashop to override the default styles
+.blocksearch {
+  &.ac_results {
     border: 1px solid $ps-border-color;
     margin-top: -1px;
     li {
-      &:hover, &.ac_over {
+      &.ac_over {
         color: #fff;
         background-color: $brand-primary;
       }
     }
-  }
-}
-
-form#searchbox {
-  position: relative;
-  input#search_query_block {
-    margin-right:10px;
-    max-width:222px;
-    margin-bottom:10px;
-    display:inline-block;
-    float:left;
   }
 }
