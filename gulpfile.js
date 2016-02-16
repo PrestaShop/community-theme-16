@@ -1,7 +1,7 @@
 var gulp        = require('gulp');
 var del         = require('del');
 var mkdirp      = require('mkdirp');
-var glob        = require('glob');
+var glob        = require('glob-all');
 var exec        = require('child_process').exec;
 var argv        = require('yargs').argv;
 var fs          = require('fs-extra');
@@ -73,7 +73,7 @@ gulp.task('clean-up', function(){
 gulp.task('copy-index', function(callback){
     var total;
     var done  = 0;
-    glob('themes/community-theme-16/**/', { ignore : copyIndexIgnore }, function(err, folders) {
+    glob(['themes/community-theme-16/**/', 'modules/*/**/'], { ignore : copyIndexIgnore }, function(err, folders) {
         total = folders.length;
         if (total < 1 && callback) {
             callback();
