@@ -121,7 +121,11 @@ gulp.task('create-zip', function(){
             themeVersion = matches[1].trim();
         }
 
-        return gulp.src(['./themes*/community-theme-16*/**', './Config.xml'])
+        return gulp.src([
+            './themes*/community-theme-16*/**',
+            './modules*/**',
+            './Config.xml'
+        ])
             .pipe(zip('v' + themeVersion + '-community-theme-16.zip'))
             .pipe(gulp.dest('./'));
     });
