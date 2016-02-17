@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+	<name>ctdev</name>
+	<displayName><![CDATA[Community Theme Development Package]]></displayName>
+	<version><![CDATA[1.0.0]]></version>
+	<description><![CDATA[Provides test pages where developers can view customized theme styles.]]></description>
+	<author><![CDATA[PrestaShop Community]]></author>
+	<tab><![CDATA[others]]></tab>
+	<is_configurable>1</is_configurable>
+	<need_instance>1</need_instance>
+	<limited_countries></limited_countries>
+</module>
