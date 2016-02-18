@@ -53,10 +53,7 @@ class CTDev extends Module
      */
     public function getContent()
     {
-        return Tools::file_exists_cache(_PS_MODULE_DIR_.$this->name.'/views/templates/front/components.tpl');
-
         $url = $this->context->link->getModuleLink($this->name, 'components');
-
         return '<a href="'.$url.'">'.$url.'</a>';
     }
 }
