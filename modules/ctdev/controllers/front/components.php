@@ -3,7 +3,7 @@
 /**
  * Class CTDevComponentsModuleFrontController
  *
- * @property CTDevD $module
+ * @property CTDev $module
  */
 class CTDevComponentsModuleFrontController extends ModuleFrontController
 {
