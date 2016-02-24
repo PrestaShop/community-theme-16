@@ -374,6 +374,7 @@ class CTTopMenu extends Module
             'icon'      => $menuItem['icon'],
             'no_follow' => $menuItem['no_follow'],
             'id'        => $menuItem['id_ct_top_menu_item'],
+            'class'     => $menuItem['class'],
             'type'      => 'custom-link',
             'sub_items' => array(),
         );
