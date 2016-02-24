@@ -421,6 +421,7 @@ class CTTopMenu extends Module
             'icon'      => $menuItem['icon'],
             'no_follow' => $menuItem['no_follow'],
             'id'        => $menuItem['id_ct_top_menu_item'],
+            'class'     => $menuItem['class'],
             'type'      => 'product-link',
             'sub_items' => array(),
         );
@@ -467,6 +468,7 @@ class CTTopMenu extends Module
             'icon'      => $menuItem['icon'],
             'no_follow' => $menuItem['no_follow'],
             'id'        => $menuItem['id_ct_top_menu_item'],
+            'class'     => $menuItem['class'],
             'type'      => 'category-link',
             'sub_items' => array(),
         );
@@ -517,6 +519,7 @@ class CTTopMenu extends Module
             'icon'      => $menuItem['icon'],
             'no_follow' => $menuItem['no_follow'],
             'id'        => $menuItem['id_ct_top_menu_item'],
+            'class'     => $menuItem['class'],
             'type'      => 'category-tree',
             'sub_items' => $subItems,
         );
@@ -550,6 +553,7 @@ class CTTopMenu extends Module
             'icon'      => '',
             'no_follow' => false,
             'id'        => 'cat'.$category['id_category'],
+            'class'     => '',
             'type'      => 'sub-category-link',
             'sub_items' => $subItems,
         );
@@ -596,6 +600,7 @@ class CTTopMenu extends Module
             'icon'      => $menuItem['icon'],
             'no_follow' => $menuItem['no_follow'],
             'id'        => $menuItem['id_ct_top_menu_item'],
+            'class'     => $menuItem['class'],
             'type'      => 'cms-link',
             'sub_items' => array(),
         );
@@ -642,6 +647,7 @@ class CTTopMenu extends Module
             'icon'      => $menuItem['icon'],
             'no_follow' => $menuItem['no_follow'],
             'id'        => $menuItem['id_ct_top_menu_item'],
+            'class'     => $menuItem['class'],
             'type'      => 'cms-link',
             'sub_items' => array(),
         );
@@ -676,6 +682,7 @@ class CTTopMenu extends Module
             'icon'      => $menuItem['icon'],
             'no_follow' => $menuItem['no_follow'],
             'id'        => $menuItem['id_ct_top_menu_item'],
+            'class'     => $menuItem['class'],
             'type'      => 'cms-category-tree',
             'sub_items' => array(),
         );
@@ -709,6 +716,7 @@ class CTTopMenu extends Module
             'icon'      => '',
             'no_follow' => false,
             'id'        => $cmsCategory['id_cms_category'],
+            'class'     => '',
             'type'      => 'sub-cms-category-link',
             'sub_items' => array(),
         );
@@ -746,6 +754,7 @@ class CTTopMenu extends Module
             'icon'      => '',
             'no_follow' => false,
             'id'        => $cms['id_cms'],
+            'class'     => '',
             'type'      => 'sub-cms-link',
             'sub_items' => array(),
         );
@@ -793,6 +802,7 @@ class CTTopMenu extends Module
             'icon'      => $menuItem['icon'],
             'no_follow' => $menuItem['no_follow'],
             'id'        => $menuItem['id_ct_top_menu_item'],
+            'class'     => $menuItem['class'],
             'type'      => 'manufacturer-link',
             'sub_items' => array(),
         );
@@ -838,6 +848,7 @@ class CTTopMenu extends Module
                 'icon'      => '',
                 'no_follow' => false,
                 'id'        => $manufacturer['id_manufacturer'],
+                'class'     => '',
                 'type'      => 'manufacturer-list-link',
                 'sub_items' => array(),
             );
@@ -850,6 +861,7 @@ class CTTopMenu extends Module
             'icon'      => $menuItem['icon'],
             'no_follow' => $menuItem['no_follow'],
             'id'        => $menuItem['id_ct_top_menu_item'],
+            'class'     => $menuItem['class'],
             'type'      => 'manufacturer-list',
             'sub_items' => $subItems,
         );
@@ -897,6 +909,7 @@ class CTTopMenu extends Module
             'icon'      => $menuItem['icon'],
             'no_follow' => $menuItem['no_follow'],
             'id'        => $menuItem['id_ct_top_menu_item'],
+            'class'     => $menuItem['class'],
             'type'      => 'supplier-link',
             'sub_items' => array(),
         );
@@ -942,6 +955,7 @@ class CTTopMenu extends Module
                 'icon'      => '',
                 'no_follow' => false,
                 'id'        => $supplier['id_supplier'],
+                'class'     => '',
                 'type'      => 'supplier-list-link',
                 'sub_items' => array(),
             );
@@ -954,6 +968,7 @@ class CTTopMenu extends Module
             'icon'      => $menuItem['icon'],
             'no_follow' => $menuItem['no_follow'],
             'id'        => $menuItem['id_ct_top_menu_item'],
+            'class'     => $menuItem['class'],
             'type'      => 'supplier-list',
             'sub_items' => $subItems,
         );
