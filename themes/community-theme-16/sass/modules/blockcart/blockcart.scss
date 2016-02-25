@@ -44,29 +44,20 @@
 
 .shopping_cart {
   > a:first-child {
-    padding: 10px 10px 10px 16px;
     background: #333;
     display: block;
-    font-weight: bold;
-    color: #777777;
     overflow: hidden;
     span.ajax_cart_product_txt, span.ajax_cart_product_txt_s {
       @media (min-width: $screen-sm) and (max-width: $screen-sm-max) { // min 768px max 991px
         display: none !important;
       }
     }
-    b {
-      color: #fff;
-      font-weight: 600;
-      font-size: 18px;
-      line-height: 22px;
-      padding-right: 5px;
-    }
   }
   .ajax_cart_total {
     display: none !important;
   }
-  .block_cart_expand, .block_cart_collapse {
+  .block_cart_expand,
+  .block_cart_collapse {
     &:after {
       content: "\f0d7";
       font-family: $font-icon;
@@ -80,7 +71,7 @@
   .block_cart_collapse {
     &:after {
       content: "\f0d8";
-      padding: 4px 0px 2px 0px;
+      padding: 4px 0 2px 0;
     }
   }
 }
@@ -216,9 +207,6 @@
     .price {
       color: #fff;
     }
-    dt {
-      background: url(../../../img/cart-shadow.png) repeat-x;
-    }
     .product-atributes {
       padding-bottom: 10px;
       font-size: 11px;
@@ -231,10 +219,10 @@
     }
     .cart-prices {
       border: none;
-      background: url(../../../img/cart-shadow.png) repeat-x #3d3d3d;
+      background: #3d3d3d;
     }
     .cart-buttons {
-      background: url(../../../img/cart-shadow.png) repeat-x #333;
+      background: #333;
     }
   }
   .block_content {
@@ -260,8 +248,7 @@
 .cart_block table.vouchers {
   clear: both;
   width: 80%;
-  margin: 0 auto;
-  margin-bottom: 10px;
+  margin: 0 auto 10px;
   tr td {
     padding: 2px;
     &.quantity{
@@ -399,7 +386,7 @@
       bottom: 0;
       left: 0;
       width: 100%;
-      padding: 0px 30px 20px 30px;
+      padding: 0 30px 20px 30px;
       .btn {
         margin-bottom: 10px;
       }
@@ -435,7 +422,7 @@
     cursor: pointer;
   }
   p {
-    padding: 0px;
+    padding: 0;
   }
 }
 /************************************************************************
@@ -464,7 +451,7 @@
         li {
           float: left;
           width: 178px;
-          margin: 0 0px 0 0;
+          margin: 0;
           .product-image-container {
             border: 1px solid $ps-border-color;
             text-align: center;
