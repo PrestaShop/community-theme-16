@@ -22,6 +22,17 @@
     }
   }
 
+  > a:first-child {
+    background: #333;
+    display: block;
+    overflow: hidden;
+    span.ajax_cart_product_txt, span.ajax_cart_product_txt_s {
+      @media (min-width: $screen-sm) and (max-width: $screen-sm-max) { // min 768px max 991px
+        display: none !important;
+      }
+    }
+  }
+
   @media (max-width: $screen-xs-max) {
     margin-top: 15px;
   }
