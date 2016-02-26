@@ -42,24 +42,18 @@
   padding: 0 15px;
   height: 46px;
   line-height: 46px;
-  background: #333;
   display: block;
   overflow: hidden;
 
   &:after {
     content: "\f0d7";
     font-family: $font-icon;
-    display: inline-block;
     float: right;
-    font-size: 18px;
-    color: #686666;
-    padding: 0;
   }
 
   &:hover {
     &:after {
       content: "\f0d8";
-      padding: 0;
     }
   }
 

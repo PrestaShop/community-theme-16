@@ -2,10 +2,8 @@
 
   position: absolute;
   z-index: 100;
-  display: none;
-  height: auto;
-  background: #484848;
-  color: #fff;
+  display: block !important;
+  background: #fff;
   width: 100%;
 
   .cart_block_list {
@@ -16,19 +14,10 @@
     }
     .remove_link a,
     .ajax_cart_block_remove_link {
-      color: $link-color;
-      display: block;
-      width: 100%;
-      height: 100%;
       &:before {
         display: inline-block;
         content: "\f057";
         font-family: $font-icon;
-        font-size: 18px;
-        line-height: 18px;
-      }
-      &:hover {
-        color: $link-hover-color;
       }
     }
   }
@@ -44,20 +33,12 @@
       padding-bottom: 5px;
       margin-top: -4px;
       a {
-        font-size: 13px;
-        line-height: 18px;
         display: inline-block;
       }
     }
     .quantity-formated {
       display: inline-block;
-      color: #9c9b9b;
-      text-transform: uppercase;
-      font-size: 10px;
       padding-right: 5px;
-      .quantity {
-        font-size: 15px;
-      }
     }
   }
   dt {
@@ -99,7 +80,6 @@
     overflow: hidden;
     padding: 20px 20px 10px 20px;
     margin: 0;
-    background: #f6f6f6;
     a {
       width: 100%;
       float: left;
@@ -109,39 +89,8 @@
     }
   }
 
-  a {
-    color: #fff;
-  }
-  .cart_block_list {
-    .remove_link a,
-    .ajax_cart_block_remove_link {
-      color: #fff;
-      outline: none;
-      text-decoration: none;
-      &:hover {
-        color: #9c9b9b;
-      }
-    }
-  }
-  .price {
-    color: #fff;
-  }
   .product-atributes {
     padding-bottom: 10px;
-    font-size: 11px;
-    a {
-      color: #9c9b9b;
-      &:hover {
-        color: #fff;
-      }
-    }
-  }
-  .cart-prices {
-    border: none;
-    background: #3d3d3d;
-  }
-  .cart-buttons {
-    background: #333;
   }
 
   table.vouchers {
