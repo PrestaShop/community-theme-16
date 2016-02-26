@@ -776,55 +776,59 @@ var ajaxCart = {
    * Update general cart information everywhere in the page
    *
    * @param {{ productTotal, shippingCostFloat, shippingCost, free_ship, isVirtualCart, taxCost, wrappingCost,
-    *          total, total_price_wt, freeShipping, freeShippingFloat, nbTotalProducts }} jsonData
+    *          total, total_price_wt, freeShipping, freeShippingFloat, nbTotalProducts }} cart
    */
-  updateCartEverywhere: function(jsonData) {
+  updateCartEverywhere: function(cart) {
 
-    var $total        = $('.ajax_cart_total');
-    var $shippingCost = $('.ajax_cart_shipping_cost');
-    var $freeShipping = $('.freeshipping');
-    var $quantity     = $('.ajax_cart_quantity');
-    var $productTxt   = $('.ajax_cart_product_txt');
-    var $productTxtS  = $('.ajax_cart_product_txt_s');
-    var $noProduct    = $('.ajax_cart_no_product');
+    var $total           = $('.ajax_cart_total');
+    var $shippingCost    = $('.ajax_cart_shipping_cost');
+    var $shippingCostRow = $shippingCost.closest('.cart-prices-line');
+    var $freeShipping    = $('.freeshipping');
+    var $quantity        = $('.ajax_cart_quantity');
+    var $productTxt      = $('.ajax_cart_product_txt');
+    var $productTxtS     = $('.ajax_cart_product_txt_s');
+    var $noProduct       = $('.ajax_cart_no_product');
 
-    $total.text($.trim(jsonData.productTotal));
+    $total.text($.trim(cart.productTotal));
 
     if (typeof hasDeliveryAddress == 'undefined')
       window.hasDeliveryAddress = false;
 
-    if (parseFloat(jsonData.shippingCostFloat) > 0)
-      $shippingCost.text(jsonData.shippingCost).parent().find('.unvisible').show();
+    if (parseFloat(cart.shippingCostFloat) > 0) {
+      $shippingCost.text(cart.shippingCost);
+      $shippingCostRow.show();
+    }
     else if ((hasDeliveryAddress || typeof(orderProcess) !== 'undefined' && orderProcess == 'order-opc') && typeof(freeShippingTranslation) != 'undefined')
       $shippingCost.html(freeShippingTranslation);
     else if ((typeof toBeDetermined !== 'undefined') && !hasDeliveryAddress)
       $shippingCost.html(toBeDetermined);
 
-    if (!jsonData.shippingCostFloat && !jsonData.free_ship)
-      $shippingCost.parent().find('.unvisible').hide();
-    else if (hasDeliveryAddress && !jsonData.isVirtualCart)
-      $shippingCost.parent().find('.unvisible').show();
+    if (!cart.shippingCostFloat && !cart.free_ship) {
+      $shippingCostRow.hide();
+    } else if (hasDeliveryAddress && !cart.isVirtualCart) {
+      $shippingCostRow.show();
+    }
 
-    $('.ajax_cart_tax_cost').text(jsonData.taxCost);
-    $('.cart_block_wrapping_cost').text(jsonData.wrappingCost);
-    $('.ajax_block_cart_total').text(jsonData.total);
-    $('.ajax_block_products_total').text(jsonData.productTotal);
-    $('.ajax_total_price_wt').text(jsonData.total_price_wt);
+    $('.ajax_cart_tax_cost').text(cart.taxCost);
+    $('.cart_block_wrapping_cost').text(cart.wrappingCost);
+    $('.ajax_block_cart_total').text(cart.total);
+    $('.ajax_block_products_total').text(cart.productTotal);
+    $('.ajax_total_price_wt').text(cart.total_price_wt);
 
-    if (parseFloat(jsonData.freeShippingFloat) > 0) {
-      $('.ajax_cart_free_shipping').html(jsonData.freeShipping);
+    if (parseFloat(cart.freeShippingFloat) > 0) {
+      $('.ajax_cart_free_shipping').html(cart.freeShipping);
       $freeShipping.fadeIn(0);
-    } else if (parseFloat(jsonData.freeShippingFloat) == 0)
+    } else if (parseFloat(cart.freeShippingFloat) == 0)
       $freeShipping.fadeOut(0);
 
-    this.nb_total_products = jsonData.nbTotalProducts;
+    this.nb_total_products = cart.nbTotalProducts;
 
-    if (parseInt(jsonData.nbTotalProducts) > 0) {
+    if (parseInt(cart.nbTotalProducts) > 0) {
 
-      var multipleProducts = parseInt(jsonData.nbTotalProducts) > 1;
+      var multipleProducts = parseInt(cart.nbTotalProducts) > 1;
 
       $noProduct.hide();
-      $quantity.text(jsonData.nbTotalProducts).fadeIn('slow');
+      $quantity.text(cart.nbTotalProducts).fadeIn('slow');
       $total.fadeIn('slow');
       $productTxt.toggle(!multipleProducts);
       $productTxtS.toggle(multipleProducts);
