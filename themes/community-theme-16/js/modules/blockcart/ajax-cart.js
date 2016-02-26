@@ -604,7 +604,7 @@ var ajaxCart = {
           content += '<div class="cart-info"><div class="product-name">' + '<span class="quantity-formated"><span class="quantity">' + p.quantity + '</span>&nbsp;x&nbsp;</span><a href="' + p.link + '" title="' + p.name + '" class="cart_block_product_name">' + name + '</a></div>';
 
           if (p.hasAttributes)
-            content += '<div class="product-atributes"><a href="' + p.link + '" title="' + p.name + '">' + p.attributes + '</a></div>';
+            content += '<div class="product-attributes"><a href="' + p.link + '" title="' + p.name + '">' + p.attributes + '</a></div>';
           if (typeof(freeProductTranslation) != 'undefined')
             content += '<span class="price">' + (parseFloat(p.price_float) > 0 ? p.priceByLine : freeProductTranslation) + '</span></div>';
 
