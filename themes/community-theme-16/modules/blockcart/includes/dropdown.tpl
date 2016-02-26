@@ -8,7 +8,7 @@
             {assign var='productId' value=$product.id_product}
             {assign var='productAttributeId' value=$product.id_product_attribute}
 
-            <dt data-id="cart_block_product_{$product.id_product|intval}_{if $product.id_product_attribute}{$product.id_product_attribute|intval}{else}0{/if}_{if $product.id_address_delivery}{$product.id_address_delivery|intval}{else}0{/if}">
+            <dt class="clearfix" data-id="cart_block_product_{$product.id_product|intval}_{if $product.id_product_attribute}{$product.id_product_attribute|intval}{else}0{/if}_{if $product.id_address_delivery}{$product.id_address_delivery|intval}{else}0{/if}">
               <a class="cart-images" href="{$link->getProductLink($product.id_product, $product.link_rewrite, $product.category)|escape:'html':'UTF-8'}" title="{$product.name|escape:'html':'UTF-8'}"><img src="{$link->getImageLink($product.link_rewrite, $product.id_image, 'cart_default')}" alt="{$product.name|escape:'html':'UTF-8'}" /></a>
               <div class="cart-info">
                 <div class="product-name">
@@ -65,9 +65,9 @@
         </dl>
       {/if}
 
-      <p class="cart_block_no_products{if $products} unvisible{/if}">
+      <div class="cart_block_no_products"{if $products} style="display: none;"{/if}>
         {l s='No products' mod='blockcart'}
-      </p>
+      </div>
 
       {if !empty($discounts)}
         <table class="vouchers{if $discounts|@count == 0} unvisible{/if}">
