@@ -293,8 +293,8 @@ var ajaxCart = {
       cache: false,
       dataType: 'json',
       data: 'controller=cart&add=1&ajax=true&qty=' + ((quantity && quantity != null) ? quantity : '1') + '&id_product='
-        + idProduct + '&token=' + static_token + ((parseInt(idCombination) && idCombination != null) ? '&ipa='
-        + parseInt(idCombination) : '' + '&id_customization=' + ((typeof customizationId !== 'undefined') ? customizationId : 0)),
+      + idProduct + '&token=' + static_token + ((parseInt(idCombination) && idCombination != null) ? '&ipa='
+      + parseInt(idCombination) : '' + '&id_customization=' + ((typeof customizationId !== 'undefined') ? customizationId : 0)),
 
       /**
        * @param {{ errors, hasError, crossSelling, products }} jsonData
@@ -310,32 +310,41 @@ var ajaxCart = {
           else
             ajaxCart.updateCartInformation(jsonData, addedFromProductPage);
 
-          if (jsonData.crossSelling)
+          if (jsonData.crossSelling) {
             $('.crossseling').html(jsonData.crossSelling);
+          }
 
-          if (idCombination)
+          if (idCombination) {
             $(jsonData.products).each(function() {
               if (this.id != undefined && this.id == parseInt(idProduct) && this.idCombination == parseInt(idCombination))
-                if (contentOnly)
+              {
+                if (contentOnly) {
                   window.parent.ajaxCart.updateLayer(this);
-              else
-                ajaxCart.updateLayer(this);
+                } else {
+                  ajaxCart.updateLayer(this);
+                }
+              }
             });
-          else
+          } else {
             $(jsonData.products).each(function() {
               if (this.id != undefined && this.id == parseInt(idProduct))
                 if (contentOnly)
                   window.parent.ajaxCart.updateLayer(this);
-              else
-                ajaxCart.updateLayer(this);
+                else
+                  ajaxCart.updateLayer(this);
             });
-          if (contentOnly)
+          }
+
+          if (contentOnly) {
             parent.$.fancybox.close();
+          }
+
         } else {
           if (contentOnly)
             window.parent.ajaxCart.updateCart(jsonData);
           else
             ajaxCart.updateCart(jsonData);
+
           if (addedFromProductPage)
             $productPageBtn.removeProp('disabled').removeClass('disabled');
           else
@@ -583,93 +592,93 @@ var ajaxCart = {
        */
       function(index, p) {
 
-      //fix ie6 bug (one more item 'undefined' in IE6)
-      if (p.id != undefined) {
-        //create a container for listing the products and hide the 'no product in the cart' message (only if the cart was empty)
+        //fix ie6 bug (one more item 'undefined' in IE6)
+        if (p.id != undefined) {
+          //create a container for listing the products and hide the 'no product in the cart' message (only if the cart was empty)
 
-        if ($('.cart_block:first dl.products').length == 0) {
-          $('.cart_block_no_products').before('<dl class="products"></dl>').hide();
-        }
-        //if product is not in the displayed cart, add a new product's line
-        var domIdProduct = p.id + '_' + (p.idCombination ? p.idCombination : '0') + '_' + (p.idAddressDelivery ? p.idAddressDelivery : '0');
-        var domIdProductAttribute = p.id + '_' + (p.idCombination ? p.idCombination : '0');
+          if ($('.cart_block:first dl.products').length == 0) {
+            $('.cart_block_no_products').before('<dl class="products"></dl>').hide();
+          }
+          //if product is not in the displayed cart, add a new product's line
+          var domIdProduct = p.id + '_' + (p.idCombination ? p.idCombination : '0') + '_' + (p.idAddressDelivery ? p.idAddressDelivery : '0');
+          var domIdProductAttribute = p.id + '_' + (p.idCombination ? p.idCombination : '0');
 
-        var $cartProductLine = $('dt[data-id="cart_block_product_' + domIdProduct + '"]');
-        if ($cartProductLine.length == 0) {
+          var $cartProductLine = $('dt[data-id="cart_block_product_' + domIdProduct + '"]');
+          if ($cartProductLine.length == 0) {
 
-          var productId = parseInt(p.id);
+            var productId = parseInt(p.id);
 
 
-          // var productAttributeId = (p.hasAttributes ? parseInt(p.attributes) : 0);
+            // var productAttributeId = (p.hasAttributes ? parseInt(p.attributes) : 0);
 
-          var content =  '<dt class="unvisible" data-id="cart_block_product_' + domIdProduct + '">';
-          var name = $.trim($('<span />').html(p.name).text());
+            var content =  '<dt class="unvisible" data-id="cart_block_product_' + domIdProduct + '">';
+            var name = $.trim($('<span />').html(p.name).text());
 
-          name = (name.length > 12 ? name.substring(0, 10) + '...' : name);
+            name = (name.length > 12 ? name.substring(0, 10) + '...' : name);
 
-          content += '<a class="cart-images" href="' + p.link + '" title="' + name + '"><img  src="' + p.image_cart + '" alt="' + p.name + '"></a>';
-          content += '<div class="cart-info"><div class="product-name">' + '<span class="quantity-formatted"><span class="quantity">'
-            + p.quantity + '</span>&nbsp;x&nbsp;</span><a href="' + p.link + '" title="' + p.name + '" class="cart_block_product_name">' + name + '</a></div>';
+            content += '<a class="cart-images" href="' + p.link + '" title="' + name + '"><img  src="' + p.image_cart + '" alt="' + p.name + '"></a>';
+            content += '<div class="cart-info"><div class="product-name">' + '<span class="quantity-formatted"><span class="quantity">'
+              + p.quantity + '</span>&nbsp;x&nbsp;</span><a href="' + p.link + '" title="' + p.name + '" class="cart_block_product_name">' + name + '</a></div>';
 
-          if (p.hasAttributes)
-            content += '<div class="product-attributes"><a href="' + p.link + '" title="' + p.name + '">' + p.attributes + '</a></div>';
-          if (typeof(freeProductTranslation) != 'undefined')
-            content += '<span class="price">' + (parseFloat(p.price_float) > 0 ? p.priceByLine : freeProductTranslation) + '</span></div>';
+            if (p.hasAttributes)
+              content += '<div class="product-attributes"><a href="' + p.link + '" title="' + p.name + '">' + p.attributes + '</a></div>';
+            if (typeof(freeProductTranslation) != 'undefined')
+              content += '<span class="price">' + (parseFloat(p.price_float) > 0 ? p.priceByLine : freeProductTranslation) + '</span></div>';
 
-          if (typeof(p.is_gift) == 'undefined' || p.is_gift == 0)
-            content += '<span class="remove_link"><a rel="nofollow" class="ajax_cart_block_remove_link" href="' + baseUri
-              + '?controller=cart&amp;delete=1&amp;id_product=' + productId + '&amp;token=' + static_token
-              + (p.hasAttributes ? '&amp;ipa=' + parseInt(p.idCombination) : '') + '"><i class="icon icon-times"></i></a></span>';
-          else
-            content += '<span class="remove_link"><i class="icon icon-times"></i></span>';
-
-          content += '</dt>';
-
-          if (p.hasAttributes)
-            content += '<dd data-id="cart_block_combination_of_' + domIdProduct + '" class="unvisible">';
-
-          if (p.hasCustomizedDatas)
-            content += ajaxCart.displayNewCustomizedDatas(p);
-
-          if (p.hasAttributes) content += '</dd>';
-
-          $('.cart_block dl.products').append(content);
-        }
-        //else update the product's line
-        else {
-
-          if ($.trim($cartProductLine.find('.quantity').html()) != p.quantity || $.trim($cartProductLine.find('.price').html()) != p.priceByLine) {
-            // Usual product
-            if (!p.is_gift)
-              $cartProductLine.find('.price').text(p.priceByLine);
+            if (typeof(p.is_gift) == 'undefined' || p.is_gift == 0)
+              content += '<span class="remove_link"><a rel="nofollow" class="ajax_cart_block_remove_link" href="' + baseUri
+                + '?controller=cart&amp;delete=1&amp;id_product=' + productId + '&amp;token=' + static_token
+                + (p.hasAttributes ? '&amp;ipa=' + parseInt(p.idCombination) : '') + '"><i class="icon icon-times"></i></a></span>';
             else
-              $cartProductLine.find('.price').html(freeProductTranslation);
-            ajaxCart.updateProductQuantity(p, p.quantity);
+              content += '<span class="remove_link"><i class="icon icon-times"></i></span>';
 
-            // Customized product
-            if (p.hasCustomizedDatas) {
-              var customizationFormatedDatas = ajaxCart.displayNewCustomizedDatas(p);
+            content += '</dt>';
 
-              var $customizationList = $('ul[data-id="customization_' + domIdProductAttribute + '"]');
-              if (!$customizationList.length) {
-                if (p.hasAttributes)
-                  $('dd[data-id="cart_block_combination_of_' + domIdProduct + '"]').append(customizationFormatedDatas);
-                else
-                  $('.cart_block dl.products').append(customizationFormatedDatas);
-              } else {
-                $customizationList.html('').append(customizationFormatedDatas);
+            if (p.hasAttributes)
+              content += '<dd data-id="cart_block_combination_of_' + domIdProduct + '" class="unvisible">';
+
+            if (p.hasCustomizedDatas)
+              content += ajaxCart.displayNewCustomizedDatas(p);
+
+            if (p.hasAttributes) content += '</dd>';
+
+            $('.cart_block dl.products').append(content);
+          }
+          //else update the product's line
+          else {
+
+            if ($.trim($cartProductLine.find('.quantity').html()) != p.quantity || $.trim($cartProductLine.find('.price').html()) != p.priceByLine) {
+              // Usual product
+              if (!p.is_gift)
+                $cartProductLine.find('.price').text(p.priceByLine);
+              else
+                $cartProductLine.find('.price').html(freeProductTranslation);
+              ajaxCart.updateProductQuantity(p, p.quantity);
+
+              // Customized product
+              if (p.hasCustomizedDatas) {
+                var customizationFormatedDatas = ajaxCart.displayNewCustomizedDatas(p);
+
+                var $customizationList = $('ul[data-id="customization_' + domIdProductAttribute + '"]');
+                if (!$customizationList.length) {
+                  if (p.hasAttributes)
+                    $('dd[data-id="cart_block_combination_of_' + domIdProduct + '"]').append(customizationFormatedDatas);
+                  else
+                    $('.cart_block dl.products').append(customizationFormatedDatas);
+                } else {
+                  $customizationList.html('').append(customizationFormatedDatas);
+                }
               }
             }
           }
-        }
-        $('.cart_block dl.products .unvisible').slideDown(450).removeClass('unvisible');
+          $('.cart_block dl.products .unvisible').slideDown(450).removeClass('unvisible');
 
-        var $removeLinks = $cartProductLine.find('a.ajax_cart_block_remove_link');
-        if (p.hasCustomizedDatas && $removeLinks.length) {
-          $removeLinks.remove();
+          var $removeLinks = $cartProductLine.find('a.ajax_cart_block_remove_link');
+          if (p.hasCustomizedDatas && $removeLinks.length) {
+            $removeLinks.remove();
+          }
         }
-      }
-    });
+      });
   },
 
   displayNewCustomizedDatas: function(product) {
