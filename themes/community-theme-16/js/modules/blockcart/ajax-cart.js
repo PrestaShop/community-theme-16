@@ -49,7 +49,7 @@ $(function() {
   });
 
   $cartDropDown.on('mouseleave', function() {
-    setTimeout(function () {
+    setTimeout(function() {
       if (!oBlockcart.isHoveringOver())
         $cartDropDown.stop(true, true).slideUp(450);
     }, 200);
@@ -240,9 +240,9 @@ var ajaxCart = {
       async: true,
       cache: false,
       dataType: 'json',
-      data: 'controller=cart&add=1&ajax=true&qty=' + ((quantity && quantity != null) ? quantity : '1') + '&id_product='
-      + idProduct + '&token=' + static_token + ((parseInt(idCombination) && idCombination != null) ? '&ipa='
-      + parseInt(idCombination) : '' + '&id_customization=' + ((typeof customizationId !== 'undefined') ? customizationId : 0)),
+      data: 'controller=cart&add=1&ajax=true&qty=' + ((quantity && quantity != null) ? quantity : '1') + '&id_product=' +
+      idProduct + '&token=' + static_token + ((parseInt(idCombination) && idCombination != null) ? '&ipa=' +
+      parseInt(idCombination) : '' + '&id_customization=' + ((typeof customizationId !== 'undefined') ? customizationId : 0)),
 
       /**
        * @param {{ errors, hasError, crossSelling, products }} jsonData
@@ -264,8 +264,7 @@ var ajaxCart = {
 
           if (idCombination) {
             $(jsonData.products).each(function() {
-              if (this.id != undefined && this.id == parseInt(idProduct) && this.idCombination == parseInt(idCombination))
-              {
+              if (this.id != undefined && this.id == parseInt(idProduct) && this.idCombination == parseInt(idCombination)) {
                 if (contentOnly) {
                   window.parent.ajaxCart.updateLayer(this);
                 } else {
@@ -278,8 +277,8 @@ var ajaxCart = {
               if (this.id != undefined && this.id == parseInt(idProduct))
                 if (contentOnly)
                   window.parent.ajaxCart.updateLayer(this);
-                else
-                  ajaxCart.updateLayer(this);
+              else
+                ajaxCart.updateLayer(this);
             });
           }
 
@@ -303,8 +302,8 @@ var ajaxCart = {
 
       },
       error: function(XMLHttpRequest, textStatus, errorThrown) {
-        var error = 'Impossible to add the product to the cart.<br/>textStatus: \'' + textStatus + '\'<br/>errorThrown: \''
-          + errorThrown + '\'<br/>responseText:<br/>' + XMLHttpRequest.responseText;
+        var error = 'Impossible to add the product to the cart.<br/>textStatus: \'' + textStatus + '\'<br/>errorThrown: \'' +
+          errorThrown + '\'<br/>responseText:<br/>' + XMLHttpRequest.responseText;
         if (!!$.prototype.fancybox)
           $.fancybox.open([
               {
@@ -337,9 +336,9 @@ var ajaxCart = {
       async: true,
       cache: false,
       dataType: 'json',
-      data: 'controller=cart&delete=1&id_product=' + idProduct + '&ipa=' + ((idCombination != null && parseInt(idCombination)) ? idCombination : '')
-      + ((customizationId && customizationId != null) ? '&id_customization=' + customizationId : '') + '&id_address_delivery='
-      + idAddressDelivery + '&token=' + static_token + '&ajax=true',
+      data: 'controller=cart&delete=1&id_product=' + idProduct + '&ipa=' + ((idCombination != null && parseInt(idCombination)) ? idCombination : '') +
+      ((customizationId && customizationId != null) ? '&id_customization=' + customizationId : '') + '&id_address_delivery=' +
+      idAddressDelivery + '&token=' + static_token + '&ajax=true',
       success: function(jsonData) {
         ajaxCart.updateCart(jsonData);
         var bodyId = $('body').attr('id');
@@ -444,9 +443,9 @@ var ajaxCart = {
 
     var removeLinks = $('.deleteCustomizableProduct[data-id="' + domIdProduct + '"]').find('.ajax_cart_block_remove_link');
     if (!product.hasCustomizedDatas && !removeLinks.length)
-      $('div[data-id="' + domIdProduct + '"]' + ' span.remove_link').html('<a class="ajax_cart_block_remove_link" rel="nofollow" href="'
-        + baseUri + '?controller=cart&amp;delete=1&amp;id_product=' + product['id'] + '&amp;ipa=' + product['idCombination']
-        + '&amp;token=' + static_token + '"><i class="icon icon-times"></i></a>');
+      $('div[data-id="' + domIdProduct + '"]' + ' span.remove_link').html('<a class="ajax_cart_block_remove_link" rel="nofollow" href="' +
+        baseUri + '?controller=cart&amp;delete=1&amp;id_product=' + product['id'] + '&amp;ipa=' + product['idCombination'] +
+        '&amp;token=' + static_token + '"><i class="icon icon-times"></i></a>');
     if (product.is_gift)
       $('div[data-id="' + domIdProduct + '"]' + ' span.remove_link').html('');
   },
@@ -493,9 +492,9 @@ var ajaxCart = {
           if (discount.code.length)
             delete_link = '<a class="delete_voucher" href="' + discount.link + '" title="' + delete_txt + '"><i class="icon icon-times"></i></a>';
           $vouchersTbody.append($(
-            '<tr class="bloc_cart_voucher" data-id="bloc_cart_voucher_' + discount.id + '">' + ' <td class="quantity">1x</td>' + ' <td class="name" title="'
-            + discount.description + '">' + discount.name + '</td>' + ' <td class="price">-' + discount.price + '</td>'
-            + ' <td class="delete">' + delete_link + '</td>' + '</tr>'
+            '<tr class="bloc_cart_voucher" data-id="bloc_cart_voucher_' + discount.id + '">' + ' <td class="quantity">1x</td>' + ' <td class="name" title="' +
+            discount.description + '">' + discount.name + '</td>' + ' <td class="price">-' + discount.price + '</td>' +
+            ' <td class="delete">' + delete_link + '</td>' + '</tr>'
           ));
         }
       }
@@ -511,8 +510,8 @@ var ajaxCart = {
    * @param quantity
    */
   updateProductQuantity: function(product, quantity) {
-    $('dt[data-id=cart_block_product_' + product.id + '_' + (product.idCombination ? product.idCombination : '0') + '_'
-      + (product.idAddressDelivery ? product.idAddressDelivery : '0') + '] .quantity').fadeTo('fast', 0, function() {
+    $('dt[data-id=cart_block_product_' + product.id + '_' + (product.idCombination ? product.idCombination : '0') + '_' +
+      (product.idAddressDelivery ? product.idAddressDelivery : '0') + '] .quantity').fadeTo('fast', 0, function() {
       $(this).text(quantity);
       $(this).fadeTo('fast', 1, function() {
         $(this).fadeTo('fast', 0, function() {
@@ -529,7 +528,6 @@ var ajaxCart = {
   //display the products witch are in json data but not already displayed
   displayNewProducts: function(jsonData) {
     //add every new products or update displaying of every updated products
-
 
     $(jsonData.products).each(
       /**
@@ -556,7 +554,6 @@ var ajaxCart = {
 
             var productId = parseInt(p.id);
 
-
             // var productAttributeId = (p.hasAttributes ? parseInt(p.attributes) : 0);
 
             var content =  '<dt class="unvisible" data-id="cart_block_product_' + domIdProduct + '">';
@@ -565,8 +562,8 @@ var ajaxCart = {
             name = (name.length > 12 ? name.substring(0, 10) + '...' : name);
 
             content += '<a class="cart-images" href="' + p.link + '" title="' + name + '"><img  src="' + p.image_cart + '" alt="' + p.name + '"></a>';
-            content += '<div class="cart-info"><div class="product-name">' + '<span class="quantity-formatted"><span class="quantity">'
-              + p.quantity + '</span>&nbsp;x&nbsp;</span><a href="' + p.link + '" title="' + p.name + '" class="cart_block_product_name">' + name + '</a></div>';
+            content += '<div class="cart-info"><div class="product-name">' + '<span class="quantity-formatted"><span class="quantity">' +
+              p.quantity + '</span>&nbsp;x&nbsp;</span><a href="' + p.link + '" title="' + p.name + '" class="cart_block_product_name">' + name + '</a></div>';
 
             if (p.hasAttributes)
               content += '<div class="product-attributes"><a href="' + p.link + '" title="' + p.name + '">' + p.attributes + '</a></div>';
@@ -574,9 +571,9 @@ var ajaxCart = {
               content += '<span class="price">' + (parseFloat(p.price_float) > 0 ? p.priceByLine : freeProductTranslation) + '</span></div>';
 
             if (typeof(p.is_gift) == 'undefined' || p.is_gift == 0)
-              content += '<span class="remove_link"><a rel="nofollow" class="ajax_cart_block_remove_link" href="' + baseUri
-                + '?controller=cart&amp;delete=1&amp;id_product=' + productId + '&amp;token=' + static_token
-                + (p.hasAttributes ? '&amp;ipa=' + parseInt(p.idCombination) : '') + '"><i class="icon icon-times"></i></a></span>';
+              content += '<span class="remove_link"><a rel="nofollow" class="ajax_cart_block_remove_link" href="' + baseUri +
+                '?controller=cart&amp;delete=1&amp;id_product=' + productId + '&amp;token=' + static_token +
+                (p.hasAttributes ? '&amp;ipa=' + parseInt(p.idCombination) : '') + '"><i class="icon icon-times"></i></a></span>';
             else
               content += '<span class="remove_link"><i class="icon icon-times"></i></span>';
 
@@ -648,11 +645,11 @@ var ajaxCart = {
       // @TODO Is this global of scoped?
       customizationId = parseInt(this.customizationId);
       productAttributeId = typeof(product.idCombination) == 'undefined' ? 0 : parseInt(product.idCombination);
-      content += '<li name="customization"><div class="deleteCustomizableProduct" data-id="deleteCustomizableProduct_'
-        + customizationId + '_' + productId + '_' + (productAttributeId ?  productAttributeId : '0')
-        + '"><a rel="nofollow" class="ajax_cart_block_remove_link" href="' + baseUri + '?controller=cart&amp;delete=1&amp;id_product='
-        + productId + '&amp;ipa=' + productAttributeId + '&amp;id_customization=' + customizationId + '&amp;token=' + static_token
-        + '"><i class="icon icon-times"></i></a></div>';
+      content += '<li name="customization"><div class="deleteCustomizableProduct" data-id="deleteCustomizableProduct_' +
+        customizationId + '_' + productId + '_' + (productAttributeId ?  productAttributeId : '0') +
+        '"><a rel="nofollow" class="ajax_cart_block_remove_link" href="' + baseUri + '?controller=cart&amp;delete=1&amp;id_product=' +
+        productId + '&amp;ipa=' + productAttributeId + '&amp;id_customization=' + customizationId + '&amp;token=' + static_token +
+        '"><i class="icon icon-times"></i></a></div>';
 
       // Give to the customized product the first textfield value as name
       $(this.datas).each(function() {
@@ -699,7 +696,7 @@ var ajaxCart = {
 
     var n = parseInt($(window).scrollTop()) + 'px';
 
-    $('.layer_cart_overlay').css({'width' : '100%', 'height' : '100%'}).show();
+    $('.layer_cart_overlay').css({'width': '100%', 'height': '100%'}).show();
     $('#layer_cart').css({'top': n}).fadeIn('fast');
     crossselling_serialScroll();
   },
@@ -764,8 +761,7 @@ var ajaxCart = {
     if (parseFloat(cart.shippingCostFloat) > 0) {
       $shippingCost.text(cart.shippingCost);
       $shippingCostRow.show();
-    }
-    else if ((hasDeliveryAddress || typeof(orderProcess) !== 'undefined' && orderProcess == 'order-opc') && typeof(freeShippingTranslation) != 'undefined')
+    } else if ((hasDeliveryAddress || typeof(orderProcess) !== 'undefined' && orderProcess == 'order-opc') && typeof(freeShippingTranslation) != 'undefined')
       $shippingCost.html(freeShippingTranslation);
     else if ((typeof toBeDetermined !== 'undefined') && !hasDeliveryAddress)
       $shippingCost.html(toBeDetermined);

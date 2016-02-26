@@ -1,11 +1,10 @@
 $(function() {
 
-
   var module = {
-    blockType     :   window.blocksearch_type,
-    searchUrl     :   window.search_url,
-    ajaxSearch    : !!window.ajaxsearch,
-    instantSearch : !!window.instantsearch
+    blockType:   window.blocksearch_type,
+    searchUrl:   window.search_url,
+    ajaxSearch: !!window.ajaxsearch,
+    instantSearch: !!window.instantsearch
   };
   var id_lang    = window.id_lang || 1;
   var $input     = $('#search_query_top');
@@ -32,9 +31,9 @@ $(function() {
         parse: function(data) {
           return data.map(function(product) {
             return {
-              data : product,
-              value: product.cname + ' > ' +product.pname
-            }
+              data: product,
+              value: product.cname + ' > ' + product.pname
+            };
           });
         },
         extraParams: {
