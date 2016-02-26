@@ -8,7 +8,7 @@
             {assign var='productId' value=$product.id_product}
             {assign var='productAttributeId' value=$product.id_product_attribute}
 
-            <dt class="clearfix" data-id="cart_block_product_{$product.id_product|intval}_{if $product.id_product_attribute}{$product.id_product_attribute|intval}{else}0{/if}_{if $product.id_address_delivery}{$product.id_address_delivery|intval}{else}0{/if}">
+            <dt data-id="cart_block_product_{$product.id_product|intval}_{if $product.id_product_attribute}{$product.id_product_attribute|intval}{else}0{/if}_{if $product.id_address_delivery}{$product.id_address_delivery|intval}{else}0{/if}" class="clearfix">
               <a class="cart-images" href="{$link->getProductLink($product.id_product, $product.link_rewrite, $product.category)|escape:'html':'UTF-8'}" title="{$product.name|escape:'html':'UTF-8'}"><img src="{$link->getImageLink($product.link_rewrite, $product.id_image, 'cart_default')}" alt="{$product.name|escape:'html':'UTF-8'}" /></a>
               <div class="cart-info">
                 <div class="product-name">
@@ -32,7 +32,9 @@
               </div>
               <span class="remove_link">
                 {if !isset($customizedDatas.$productId.$productAttributeId) && (!isset($product.is_gift) || !$product.is_gift)}
-                  <a class="ajax_cart_block_remove_link" href="{$link->getPageLink('cart', true, NULL, "delete=1&id_product={$product.id_product|intval}&ipa={$product.id_product_attribute|intval}&id_address_delivery={$product.id_address_delivery|intval}&token={$static_token}")|escape:'html':'UTF-8'}" rel="nofollow" title="{l s='remove this product from my cart' mod='blockcart'}">&nbsp;</a>
+                  <a class="ajax_cart_block_remove_link" href="{$link->getPageLink('cart', true, NULL, "delete=1&id_product={$product.id_product|intval}&ipa={$product.id_product_attribute|intval}&id_address_delivery={$product.id_address_delivery|intval}&token={$static_token}")|escape:'html':'UTF-8'}" rel="nofollow" title="{l s='remove this product from my cart' mod='blockcart'}">
+                    <i class="icon icon-times"></i>
+                  </a>
                 {/if}
               </span>
             </dt>
@@ -48,7 +50,9 @@
                 {foreach from=$customizedDatas.$productId.$productAttributeId[$product.id_address_delivery] key='id_customization' item='customization' name='customizations'}
                   <li name="customization">
                     <div data-id="deleteCustomizableProduct_{$id_customization|intval}_{$product.id_product|intval}_{$product.id_product_attribute|intval}_{$product.id_address_delivery|intval}" class="deleteCustomizableProduct">
-                      <a class="ajax_cart_block_remove_link" href="{$link->getPageLink('cart', true, NULL, "delete=1&id_product={$product.id_product|intval}&ipa={$product.id_product_attribute|intval}&id_customization={$id_customization|intval}&token={$static_token}")|escape:'html':'UTF-8'}" rel="nofollow">&nbsp;</a>
+                      <a class="ajax_cart_block_remove_link" href="{$link->getPageLink('cart', true, NULL, "delete=1&id_product={$product.id_product|intval}&ipa={$product.id_product_attribute|intval}&id_customization={$id_customization|intval}&token={$static_token}")|escape:'html':'UTF-8'}" rel="nofollow">
+                        <i class="icon icon-times"></i>
+                      </a>
                     </div>
                     {if isset($customization.datas.$CUSTOMIZE_TEXTFIELD.0)}
                       {$customization.datas.$CUSTOMIZE_TEXTFIELD[0].value|replace:"<br />":" "|truncate:28:'...'|escape:'html':'UTF-8'}
@@ -65,9 +69,9 @@
         </dl>
       {/if}
 
-      <div class="cart_block_no_products"{if $products} style="display: none;"{/if}>
+      <p class="cart_block_no_products"{if $products} style="display: none;"{/if}>
         {l s='No products' mod='blockcart'}
-      </div>
+      </p>
 
       {if !empty($discounts)}
         <table class="vouchers{if $discounts|@count == 0} unvisible{/if}">
