@@ -556,7 +556,7 @@ var ajaxCart = {
 
             // var productAttributeId = (p.hasAttributes ? parseInt(p.attributes) : 0);
 
-            var content =  '<dt class="unvisible" data-id="cart_block_product_' + domIdProduct + '">';
+            var content =  '<dt class="unvisible clearfix" data-id="cart_block_product_' + domIdProduct + '">';
             var name = $.trim($('<span />').html(p.name).text());
 
             name = (name.length > 12 ? name.substring(0, 10) + '...' : name);
