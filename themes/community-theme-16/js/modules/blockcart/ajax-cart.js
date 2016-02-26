@@ -4,16 +4,6 @@ $(function() {
 
   ajaxCart.overrideButtonsInThePage();
 
-  $(document).on('click', '.block_cart_collapse', function(e) {
-    e.preventDefault();
-    ajaxCart.collapse();
-  });
-
-  $(document).on('click', '.block_cart_expand', function(e) {
-    e.preventDefault();
-    ajaxCart.expand();
-  });
-
   var current_timestamp = parseInt(new Date().getTime() / 1000);
 
   if (typeof $('.ajax_cart_quantity').html() == 'undefined' || (typeof generated_date != 'undefined' && generated_date != null && (parseInt(generated_date) + 30) < current_timestamp))
@@ -167,54 +157,12 @@ var ajaxCart = {
 
   // try to expand the cart
   expand: function() {
-    if ($('.cart_block_list').hasClass('collapsed')) {
-      $('.cart_block_list.collapsed').slideDown({
-        duration: 450,
-        complete: function() {
-          $(this).parent().show(); // parent is hidden in global.js::accordion()
-          $(this).addClass('expanded').removeClass('collapsed');
-        }
-      });
-
-      // save the expand status in the user cookie
-      $.ajax({
-        type: 'POST',
-        headers: {'cache-control': 'no-cache'},
-        url: baseDir + 'modules/blockcart/blockcart-set-collapse.php' + '?rand=' + new Date().getTime(),
-        async: true,
-        cache: false,
-        data: 'ajax_blockcart_display=expand',
-        complete: function() {
-          $('.block_cart_expand').fadeOut('fast', function() {
-            $('.block_cart_collapse').fadeIn('fast');
-          });
-        }
-      });
-    }
+    // disabled
   },
 
   // try to collapse the cart
   collapse: function() {
-    if ($('.cart_block_list').hasClass('expanded')) {
-      $('.cart_block_list.expanded').slideUp('slow', function() {
-        $(this).addClass('collapsed').removeClass('expanded');
-      });
-
-      // save the expand status in the user cookie
-      $.ajax({
-        type: 'POST',
-        headers: {'cache-control': 'no-cache'},
-        url: baseDir + 'modules/blockcart/blockcart-set-collapse.php' + '?rand=' + new Date().getTime(),
-        async: true,
-        cache: false,
-        data: 'ajax_blockcart_display=collapse' + '&rand=' + new Date().getTime(),
-        complete: function() {
-          $('.block_cart_collapse').fadeOut('fast', function() {
-            $('.block_cart_expand').fadeIn('fast');
-          });
-        }
-      });
-    }
+    // disabled
   },
   // Fix display when using back and previous browsers buttons
   refresh: function() {

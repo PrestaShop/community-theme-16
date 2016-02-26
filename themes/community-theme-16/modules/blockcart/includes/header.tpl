@@ -15,8 +15,4 @@
     {/if}
   </span>
   <span class="ajax_cart_no_product"{if $cart_qties > 0} style="display: none;"{/if}>{l s='(empty)' mod='blockcart'}</span>
-  {if $ajax_allowed && isset($blockcart_top) && !$blockcart_top}
-    <span class="block_cart_expand"{if !isset($colapseExpandStatus) || (isset($colapseExpandStatus) && $colapseExpandStatus eq 'expanded')} style="display: none;"{/if}>&nbsp;</span>
-    <span class="block_cart_collapse"{if isset($colapseExpandStatus) && $colapseExpandStatus eq 'collapsed'} style="display: none;"{/if}>&nbsp;</span>
-  {/if}
 </a>

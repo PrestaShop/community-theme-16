@@ -21,24 +21,6 @@ $bc-header-color: #fff;
 .ajax_cart_total {
   display: none !important;
 }
-.block_cart_expand,
-.block_cart_collapse {
-  &:after {
-    content: "\f0d7";
-    font-family: $font-icon;
-    display: inline-block;
-    float: right;
-    font-size: 18px;
-    color: #686666;
-    padding: 0;
-  }
-}
-.block_cart_collapse {
-  &:after {
-    content: "\f0d8";
-    padding: 4px 0 2px 0;
-  }
-}
 
 #blockcart-header {
 
