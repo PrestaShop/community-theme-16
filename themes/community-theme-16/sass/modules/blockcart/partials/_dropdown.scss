@@ -34,9 +34,6 @@
     .product-name {
       padding-bottom: 5px;
       margin-top: -4px;
-      a {
-        display: inline-block;
-      }
     }
     .quantity-formated {
       display: inline-block;
@@ -69,26 +66,19 @@
     padding: 10px 20px;
   }
   .cart-prices {
-    border-top: 1px solid $ps-border-color;
     font-weight: bold;
-    padding: 10px 20px 22px 20px;
+    padding: 0 15px;
     .cart-prices-line {
       overflow: hidden;
-      border-bottom: 1px solid #515151;
+      border-top: 1px solid #000;
       padding: 7px 0;
+      &:last-of-type {
+        padding-top: 0;
+      }
     }
   }
   .cart-buttons {
-    overflow: hidden;
-    padding: 20px 20px 10px 20px;
-    margin: 0;
-    a {
-      width: 100%;
-      float: left;
-      text-align: center;
-      margin-bottom: 10px;
-      margin-right: 10px;
-    }
+    padding: 15px;
   }
 
   .product-atributes {
