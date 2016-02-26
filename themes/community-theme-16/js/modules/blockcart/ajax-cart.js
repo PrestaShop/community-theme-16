@@ -476,7 +476,7 @@ var ajaxCart = {
           var ids = tmp.split('_');
           if ((parseInt(product.idCombination) == parseInt(ids[2])) && !ajaxCart.doesCustomizationStillExist(product, ids[0]))
             $('div[data-id="' + customizationDiv + '"]').parent().addClass('strike').fadeTo('slow', 0, function() {
-              $(this).slideUp('slow');
+              $(this).slideUp();
               $(this).remove();
             });
         });
@@ -828,8 +828,8 @@ var ajaxCart = {
       var multipleProducts = parseInt(cart.nbTotalProducts) > 1;
 
       $noProduct.hide();
-      $quantity.text(cart.nbTotalProducts).fadeIn('slow');
-      $total.fadeIn('slow');
+      $quantity.text(cart.nbTotalProducts).fadeIn();
+      $total.fadeIn();
       $productTxt.toggle(!multipleProducts);
       $productTxtS.toggle(multipleProducts);
 
