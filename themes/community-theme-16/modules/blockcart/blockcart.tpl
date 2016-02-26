@@ -1,10 +1,8 @@
 {if isset($blockcart_top) && $blockcart_top}
-<div id="blockcart" class="col-sm-4 col-md-3{if $PS_CATALOG_MODE} header_user_catalog{/if}">
+<div class="col-sm-4 col-md-3{if $PS_CATALOG_MODE} header_user_catalog{/if}">
   {/if}
-  <div class="shopping_cart">
-
+  <div id="blockcart" class="shopping_cart">
     {include file='./includes/header.tpl'}
-
     {if !$PS_CATALOG_MODE}
       {include file='./includes/dropdown.tpl'}
     {/if}
