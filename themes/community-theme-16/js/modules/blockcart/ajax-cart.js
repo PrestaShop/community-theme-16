@@ -485,7 +485,7 @@ var ajaxCart = {
 
     var removeLinks = $('.deleteCustomizableProduct[data-id="' + domIdProduct + '"]').find('.ajax_cart_block_remove_link');
     if (!product.hasCustomizedDatas && !removeLinks.length)
-      $('div[data-id="' + domIdProduct + '"]' + ' span.remove_link').html('<a class="ajax_cart_block_remove_link" rel="nofollow" href="' + baseUri + '?controller=cart&amp;delete=1&amp;id_product=' + product['id'] + '&amp;ipa=' + product['idCombination'] + '&amp;token=' + static_token + '"> </a>');
+      $('div[data-id="' + domIdProduct + '"]' + ' span.remove_link').html('<a class="ajax_cart_block_remove_link" rel="nofollow" href="' + baseUri + '?controller=cart&amp;delete=1&amp;id_product=' + product['id'] + '&amp;ipa=' + product['idCombination'] + '&amp;token=' + static_token + '"><i class="icon icon-times"></i></a>');
     if (product.is_gift)
       $('div[data-id="' + domIdProduct + '"]' + ' span.remove_link').html('');
   },
@@ -530,7 +530,7 @@ var ajaxCart = {
         if (parseFloat(discount.price_float) > 0) {
           var delete_link = '';
           if (discount.code.length)
-            delete_link = '<a class="delete_voucher" href="' + discount.link + '" title="' + delete_txt + '"><i class="icon icon-remove-sign"></i></a>';
+            delete_link = '<a class="delete_voucher" href="' + discount.link + '" title="' + delete_txt + '"><i class="icon icon-times"></i></a>';
           $vouchersTbody.append($(
             '<tr class="bloc_cart_voucher" data-id="bloc_cart_voucher_' + discount.id + '">' + ' <td class="quantity">1x</td>' + ' <td class="name" title="' + discount.description + '">' + discount.name + '</td>' + ' <td class="price">-' + discount.price + '</td>' + ' <td class="delete">' + delete_link + '</td>' + '</tr>'
           ));
@@ -609,9 +609,9 @@ var ajaxCart = {
             content += '<span class="price">' + (parseFloat(p.price_float) > 0 ? p.priceByLine : freeProductTranslation) + '</span></div>';
 
           if (typeof(p.is_gift) == 'undefined' || p.is_gift == 0)
-            content += '<span class="remove_link"><a rel="nofollow" class="ajax_cart_block_remove_link" href="' + baseUri + '?controller=cart&amp;delete=1&amp;id_product=' + productId + '&amp;token=' + static_token + (p.hasAttributes ? '&amp;ipa=' + parseInt(p.idCombination) : '') + '"> </a></span>';
+            content += '<span class="remove_link"><a rel="nofollow" class="ajax_cart_block_remove_link" href="' + baseUri + '?controller=cart&amp;delete=1&amp;id_product=' + productId + '&amp;token=' + static_token + (p.hasAttributes ? '&amp;ipa=' + parseInt(p.idCombination) : '') + '"><i class="icon icon-times"></i></a></span>';
           else
-            content += '<span class="remove_link"></span>';
+            content += '<span class="remove_link"><i class="icon icon-times"></i></span>';
 
           content += '</dt>';
 
@@ -673,7 +673,7 @@ var ajaxCart = {
       if (!product.hasAttributes)
         content += '<dd data-id="cart_block_combination_of_' + productId + '" class="unvisible">';
       if ($customizationList.val() == undefined)
-        content += '<ul class="cart_block_customizations" data-id="customization_' + productId + '_' + productAttributeId + '">';
+        content += '<ul class="cart_block_customizations list-unstyled" data-id="customization_' + productId + '_' + productAttributeId + '">';
     }
 
     $(product.customizedDatas).each(function() {
@@ -685,7 +685,7 @@ var ajaxCart = {
         + customizationId + '_' + productId + '_' + (productAttributeId ?  productAttributeId : '0')
         + '"><a rel="nofollow" class="ajax_cart_block_remove_link" href="' + baseUri + '?controller=cart&amp;delete=1&amp;id_product='
         + productId + '&amp;ipa=' + productAttributeId + '&amp;id_customization=' + customizationId + '&amp;token=' + static_token
-        + '"></a></div>';
+        + '"><i class="icon icon-times"></i></a></div>';
 
       // Give to the customized product the first textfield value as name
       $(this.datas).each(function() {

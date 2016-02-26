@@ -3,7 +3,7 @@
     <div class="cart_block_list{if isset($blockcart_top) && !$blockcart_top}{if isset($colapseExpandStatus) && $colapseExpandStatus eq 'expanded' || !$ajax_allowed || !isset($colapseExpandStatus)} expanded{else} collapsed unvisible{/if}{/if}">
       {if $products}
         <dl class="products">
-          {foreach from=$products item='product' name='myLoop'}
+          {foreach from=$products item='product'}
 
             {assign var='productId' value=$product.id_product}
             {assign var='productAttributeId' value=$product.id_product_attribute}
@@ -38,15 +38,18 @@
                 {/if}
               </span>
             </dt>
+
             {if isset($product.attributes_small)}
               <dd data-id="cart_block_combination_of_{$product.id_product|intval}{if $product.id_product_attribute}_{$product.id_product_attribute|intval}{/if}_{$product.id_address_delivery|intval}">
             {/if}
-            <!-- Customizable datas -->
+
             {if isset($customizedDatas.$productId.$productAttributeId[$product.id_address_delivery])}
+
               {if !isset($product.attributes_small)}
                 <dd data-id="cart_block_combination_of_{$product.id_product|intval}_{if $product.id_product_attribute}{$product.id_product_attribute|intval}{else}0{/if}_{if $product.id_address_delivery}{$product.id_address_delivery|intval}{else}0{/if}">
               {/if}
-              <ul class="cart_block_customizations" data-id="customization_{$productId}_{$productAttributeId}">
+
+              <ul class="cart_block_customizations list-unstyled" data-id="customization_{$productId}_{$productAttributeId}">
                 {foreach from=$customizedDatas.$productId.$productAttributeId[$product.id_address_delivery] key='id_customization' item='customization' name='customizations'}
                   <li name="customization">
                     <div data-id="deleteCustomizableProduct_{$id_customization|intval}_{$product.id_product|intval}_{$product.id_product_attribute|intval}_{$product.id_address_delivery|intval}" class="deleteCustomizableProduct">
@@ -62,8 +65,11 @@
                   </li>
                 {/foreach}
               </ul>
+
               {if !isset($product.attributes_small)}</dd>{/if}
+
             {/if}
+
             {if isset($product.attributes_small)}</dd>{/if}
           {/foreach}
         </dl>
@@ -74,11 +80,11 @@
       </p>
 
       {if !empty($discounts)}
-        <table class="vouchers{if $discounts|@count == 0} unvisible{/if}">
+        <table class="table vouchers">
           {foreach from=$discounts item=discount}
             {if $discount.value_real > 0}
               <tr class="bloc_cart_voucher" data-id="bloc_cart_voucher_{$discount.id_discount|intval}">
-                <td class="quantity">1x</td>
+                <td class="quantity">1 x</td>
                 <td class="name" title="{$discount.description}">
                   {$discount.name|truncate:18:'...'|escape:'html':'UTF-8'}
                 </td>
@@ -88,7 +94,7 @@
                 <td class="delete">
                   {if strlen($discount.code)}
                     <a class="delete_voucher" href="{$link->getPageLink("$order_process", true)}?deleteDiscount={$discount.id_discount|intval}" title="{l s='Delete' mod='blockcart'}" rel="nofollow">
-                      <i class="icon icon-remove-sign"></i>
+                      <i class="icon icon-times"></i>
                     </a>
                   {/if}
                 </td>
@@ -101,6 +107,8 @@
       {assign var='free_ship' value=count($cart->getDeliveryAddressesWithoutCarriers(true, $errors))}
 
       <div class="cart-prices">
+
+
 
         <div class="cart-prices-line">
           <span class="price cart_block_shipping_cost ajax_cart_shipping_cost{if !($page_name == 'order-opc') && $shipping_cost_float == 0 && (!$cart_qties || $cart->isVirtualCart() || !isset($cart->id_address_delivery) || !$cart->id_address_delivery || $free_ship)} unvisible{/if}">
