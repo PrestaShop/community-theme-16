@@ -769,12 +769,6 @@ var ajaxCart = {
       ajaxCart.hideOldProducts(jsonData);
       ajaxCart.displayNewProducts(jsonData);
       ajaxCart.refreshVouchers(jsonData);
-
-      //update 'first' and 'last' item classes
-      $('.cart_block .products dt').removeClass('first_item').removeClass('last_item').removeClass('item');
-      $('.cart_block .products dt:first').addClass('first_item');
-      $('.cart_block .products dt:not(:first,:last)').addClass('item');
-      $('.cart_block .products dt:last').addClass('last_item');
     }
   },
 
