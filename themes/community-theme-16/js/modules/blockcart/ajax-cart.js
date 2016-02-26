@@ -48,12 +48,12 @@ $(function() {
   $cartHeader.on({
     mouseenter: function() {
       if (ajaxCart.nb_total_products > 0 || parseInt($('.ajax_cart_quantity').html()) > 0)
-        $cartDropDown.stop(true, true).slideDown(450);
+        $cartDropDown.stop(true, true).slideDown();
     },
     mouseleave: function() {
       setTimeout(function() {
         if (!shopping_cart.isHoveringOver() && !cart_block.isHoveringOver())
-          $cartDropDown.stop(true, true).slideUp(450);
+          $cartDropDown.stop(true, true).slideUp();
       }, 200);
     }
   });

@@ -301,15 +301,13 @@ function display(view) {
 
 function accordion(status) {
   if (status == 'enable') {
-    var accordion_selector = '#right_column .block .title_block, #left_column .block .title_block, #left_column #newsletter_block_left h4,' +
-      '#left_column .shopping_cart > a:first-child, #right_column .shopping_cart > a:first-child';
+    var accordion_selector = '#right_column .block .title_block, #left_column .block .title_block, #left_column #newsletter_block_left h4';
 
     $(accordion_selector).on('click', function(e) {
       $(this).toggleClass('active').parent().find('.block_content').stop().slideToggle('medium');
     });
     $('#right_column, #left_column').addClass('accordion').find('.block .block_content').slideUp('fast');
-    if (typeof(ajaxCart) !== 'undefined')
-      ajaxCart.collapse();
+
   } else {
     $('#right_column .block .title_block, #left_column .block .title_block, #left_column #newsletter_block_left h4').removeClass('active').off().parent().find('.block_content').removeAttr('style').slideDown('fast');
     $('#left_column, #right_column').removeClass('accordion');

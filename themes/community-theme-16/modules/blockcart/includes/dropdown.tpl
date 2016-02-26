@@ -1,4 +1,4 @@
-<div id="blockcart-dropdown" class="cart_block">
+<div id="blockcart-dropdown" class="cart_block" style="display: none;">
   <div class="cart_block_list{if isset($blockcart_top) && !$blockcart_top}{if isset($colapseExpandStatus) && $colapseExpandStatus eq 'expanded' || !$ajax_allowed || !isset($colapseExpandStatus)} expanded{else} collapsed unvisible{/if}{/if}">
     {if $products}
       <dl class="products">
