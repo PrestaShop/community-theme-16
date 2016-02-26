@@ -176,7 +176,7 @@ var ajaxCart = {
         }
       });
 
-      // save the expand statut in the user cookie
+      // save the expand status in the user cookie
       $.ajax({
         type: 'POST',
         headers: {'cache-control': 'no-cache'},
@@ -380,7 +380,9 @@ var ajaxCart = {
       async: true,
       cache: false,
       dataType: 'json',
-      data: 'controller=cart&delete=1&id_product=' + idProduct + '&ipa=' + ((idCombination != null && parseInt(idCombination)) ? idCombination : '') + ((customizationId && customizationId != null) ? '&id_customization=' + customizationId : '') + '&id_address_delivery=' + idAddressDelivery + '&token=' + static_token + '&ajax=true',
+      data: 'controller=cart&delete=1&id_product=' + idProduct + '&ipa=' + ((idCombination != null && parseInt(idCombination)) ? idCombination : '')
+      + ((customizationId && customizationId != null) ? '&id_customization=' + customizationId : '') + '&id_address_delivery='
+      + idAddressDelivery + '&token=' + static_token + '&ajax=true',
       success: function(jsonData) {
         ajaxCart.updateCart(jsonData);
         var bodyId = $('body').attr('id');
@@ -485,7 +487,9 @@ var ajaxCart = {
 
     var removeLinks = $('.deleteCustomizableProduct[data-id="' + domIdProduct + '"]').find('.ajax_cart_block_remove_link');
     if (!product.hasCustomizedDatas && !removeLinks.length)
-      $('div[data-id="' + domIdProduct + '"]' + ' span.remove_link').html('<a class="ajax_cart_block_remove_link" rel="nofollow" href="' + baseUri + '?controller=cart&amp;delete=1&amp;id_product=' + product['id'] + '&amp;ipa=' + product['idCombination'] + '&amp;token=' + static_token + '"><i class="icon icon-times"></i></a>');
+      $('div[data-id="' + domIdProduct + '"]' + ' span.remove_link').html('<a class="ajax_cart_block_remove_link" rel="nofollow" href="'
+        + baseUri + '?controller=cart&amp;delete=1&amp;id_product=' + product['id'] + '&amp;ipa=' + product['idCombination']
+        + '&amp;token=' + static_token + '"><i class="icon icon-times"></i></a>');
     if (product.is_gift)
       $('div[data-id="' + domIdProduct + '"]' + ' span.remove_link').html('');
   },
@@ -532,7 +536,9 @@ var ajaxCart = {
           if (discount.code.length)
             delete_link = '<a class="delete_voucher" href="' + discount.link + '" title="' + delete_txt + '"><i class="icon icon-times"></i></a>';
           $vouchersTbody.append($(
-            '<tr class="bloc_cart_voucher" data-id="bloc_cart_voucher_' + discount.id + '">' + ' <td class="quantity">1x</td>' + ' <td class="name" title="' + discount.description + '">' + discount.name + '</td>' + ' <td class="price">-' + discount.price + '</td>' + ' <td class="delete">' + delete_link + '</td>' + '</tr>'
+            '<tr class="bloc_cart_voucher" data-id="bloc_cart_voucher_' + discount.id + '">' + ' <td class="quantity">1x</td>' + ' <td class="name" title="'
+            + discount.description + '">' + discount.name + '</td>' + ' <td class="price">-' + discount.price + '</td>'
+            + ' <td class="delete">' + delete_link + '</td>' + '</tr>'
           ));
         }
       }
@@ -548,7 +554,8 @@ var ajaxCart = {
    * @param quantity
    */
   updateProductQuantity: function(product, quantity) {
-    $('dt[data-id=cart_block_product_' + product.id + '_' + (product.idCombination ? product.idCombination : '0') + '_' + (product.idAddressDelivery ? product.idAddressDelivery : '0') + '] .quantity').fadeTo('fast', 0, function() {
+    $('dt[data-id=cart_block_product_' + product.id + '_' + (product.idCombination ? product.idCombination : '0') + '_'
+      + (product.idAddressDelivery ? product.idAddressDelivery : '0') + '] .quantity').fadeTo('fast', 0, function() {
       $(this).text(quantity);
       $(this).fadeTo('fast', 1, function() {
         $(this).fadeTo('fast', 0, function() {
@@ -601,7 +608,8 @@ var ajaxCart = {
           name = (name.length > 12 ? name.substring(0, 10) + '...' : name);
 
           content += '<a class="cart-images" href="' + p.link + '" title="' + name + '"><img  src="' + p.image_cart + '" alt="' + p.name + '"></a>';
-          content += '<div class="cart-info"><div class="product-name">' + '<span class="quantity-formatted"><span class="quantity">' + p.quantity + '</span>&nbsp;x&nbsp;</span><a href="' + p.link + '" title="' + p.name + '" class="cart_block_product_name">' + name + '</a></div>';
+          content += '<div class="cart-info"><div class="product-name">' + '<span class="quantity-formatted"><span class="quantity">'
+            + p.quantity + '</span>&nbsp;x&nbsp;</span><a href="' + p.link + '" title="' + p.name + '" class="cart_block_product_name">' + name + '</a></div>';
 
           if (p.hasAttributes)
             content += '<div class="product-attributes"><a href="' + p.link + '" title="' + p.name + '">' + p.attributes + '</a></div>';
@@ -609,7 +617,9 @@ var ajaxCart = {
             content += '<span class="price">' + (parseFloat(p.price_float) > 0 ? p.priceByLine : freeProductTranslation) + '</span></div>';
 
           if (typeof(p.is_gift) == 'undefined' || p.is_gift == 0)
-            content += '<span class="remove_link"><a rel="nofollow" class="ajax_cart_block_remove_link" href="' + baseUri + '?controller=cart&amp;delete=1&amp;id_product=' + productId + '&amp;token=' + static_token + (p.hasAttributes ? '&amp;ipa=' + parseInt(p.idCombination) : '') + '"><i class="icon icon-times"></i></a></span>';
+            content += '<span class="remove_link"><a rel="nofollow" class="ajax_cart_block_remove_link" href="' + baseUri
+              + '?controller=cart&amp;delete=1&amp;id_product=' + productId + '&amp;token=' + static_token
+              + (p.hasAttributes ? '&amp;ipa=' + parseInt(p.idCombination) : '') + '"><i class="icon icon-times"></i></a></span>';
           else
             content += '<span class="remove_link"><i class="icon icon-times"></i></span>';
 
