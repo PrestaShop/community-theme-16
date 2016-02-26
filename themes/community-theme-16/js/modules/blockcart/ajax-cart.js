@@ -9,24 +9,24 @@ $(function() {
   if (typeof $('.ajax_cart_quantity').html() == 'undefined' || (typeof generated_date != 'undefined' && generated_date != null && (parseInt(generated_date) + 30) < current_timestamp))
     ajaxCart.refresh();
 
-  /* roll over cart */
-  var cart_block = new HoverWatcher('#header .cart_block');
-  var shopping_cart = new HoverWatcher('#header .shopping_cart');
-  var is_touch_enabled = false;
+  /** Hover observers */
+  var oBlockcartDropDown = new HoverWatcher('#blockcart-dropdown');
+  var oBlockcart         = new HoverWatcher('#blockcart');
 
+  var $cartDropDown = $('#blockcart-dropdown');
+  var $cartHeader   = $('#blockcart-header');
+
+  var is_touch_enabled = false;
   if ('ontouchstart' in document.documentElement)
     is_touch_enabled = true;
 
-  var $cartDropDown = $('#header .cart_block');
-  var $cartHeader   = $('#header .shopping_cart a:first');
-
-  $(document).on('click', '#header .shopping_cart > a:first', function(e) {
+  $(document).on('click', '#blockcart-header', function(e) {
     e.preventDefault();
     e.stopPropagation();
 
     // Simulate hover when browser says device is touch based
     if (is_touch_enabled) {
-      if ($(this).next('.cart_block:visible').length && !cart_block.isHoveringOver())
+      if ($(this).next('.cart_block:visible').length && !oBlockcartDropDown.isHoveringOver())
         $cartDropDown.stop(true, true).slideUp(450);
       else if (ajaxCart.nb_total_products > 0 || parseInt($('.ajax_cart_quantity').html()) > 0)
         $cartDropDown.stop(true, true).slideDown(450);
@@ -42,7 +42,7 @@ $(function() {
     },
     mouseleave: function() {
       setTimeout(function() {
-        if (!shopping_cart.isHoveringOver() && !cart_block.isHoveringOver())
+        if (!oBlockcart.isHoveringOver() && !oBlockcartDropDown.isHoveringOver())
           $cartDropDown.stop(true, true).slideUp();
       }, 200);
     }
@@ -50,7 +50,7 @@ $(function() {
 
   $cartDropDown.on('mouseleave', function() {
     setTimeout(function () {
-      if (!shopping_cart.isHoveringOver())
+      if (!oBlockcart.isHoveringOver())
         $cartDropDown.stop(true, true).slideUp(450);
     }, 200);
   });
@@ -184,7 +184,7 @@ var ajaxCart = {
   updateCartInformation: function(jsonData, addedFromProductPage) {
     ajaxCart.updateCart(jsonData);
     var $productPageBtn = $('#add_to_cart').find('button');
-    //reactive the button when adding has finished
+    // reactive the button when adding has finished
     if (addedFromProductPage) {
       $productPageBtn.removeProp('disabled').removeClass('disabled');
       $productPageBtn.toggleClass('added', !jsonData.hasError || jsonData.hasError == false);
