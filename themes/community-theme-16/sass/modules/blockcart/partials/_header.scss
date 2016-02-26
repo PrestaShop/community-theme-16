@@ -1,3 +1,6 @@
+$bc-header-bg: $brand-primary;
+$bc-header-color: #fff;
+
 #blockcart {
   position: relative;
   margin-top: 30px;
@@ -39,9 +42,15 @@
 
 #blockcart-header {
 
-  padding: 0 15px;
-  height: 46px;
-  line-height: 46px;
+  // Make this block the same dimensions as input-lg (search block to the left)
+  // @see /sass/vendor/bootstrap/bootstrap/_forms.scss
+  height: $input-height-large;
+  padding: 0 $padding-large-horizontal;
+  // font-size: $font-size-large;
+  line-height: $input-height-large;
+
+  background: $bc-header-bg;
+  color: $bc-header-color;
   display: block;
   overflow: hidden;
 
