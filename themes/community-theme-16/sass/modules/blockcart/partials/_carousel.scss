@@ -1,0 +1,85 @@
+#layer_cart {
+  .crossseling {
+    .crossseling-content {
+      border-top: 1px solid $ps-border-color;
+      padding: 26px 30px 40px 30px;
+      position: relative;
+    }
+    h2 {
+      font-weight: 400;
+      font-size: 23px;
+      line-height: 26px;
+      margin-bottom: 25px;
+    }
+    #blockcart_list {
+      max-width: 773px;
+      width: 84%;
+      margin: 0 auto;
+      overflow: hidden;
+      ul {
+        display: block;
+        li {
+          float: left;
+          width: 178px;
+          margin: 0;
+          .product-image-container {
+            border: 1px solid $ps-border-color;
+            text-align: center;
+            padding: 5px;
+            margin-bottom: 15px;
+
+            img {
+              width: 100%;
+            }
+          }
+          .product-name {
+            padding-bottom: 5px;
+
+            a {
+              font-size: 15px;
+              line-height: 20px;
+            }
+          }
+        }
+      }
+      a.bx-prev,
+      a.bx-next {
+        display: block;
+        font-family: $font-icon;
+        font-size: 20px;
+        line-height: 20px;
+        width: 20px;
+        height: 20px;
+        text-indent: -5000px;
+        position: absolute;
+        top: 45%;
+        margin-top: -20px;
+        &:after {
+          display: block;
+          text-indent: 0;
+        }
+        &:hover {
+          color: #c0c0c0;
+        }
+        &.disabled {
+          display: none;
+        }
+      }
+      a.bx-prev {
+        left: 5%;
+        &:after {
+          content: "\f137";
+        }
+      }
+      a.bx-next {
+        right: 5%;
+        &:after {
+          content: "\f138";
+        }
+      }
+      .bx-controls {
+        overflow: hidden;
+      }
+    }
+  }
+}

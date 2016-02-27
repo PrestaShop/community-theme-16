@@ -1,5 +1,5 @@
 {if !isset($content_only) || !$content_only}
-      </div>{* #center_column *}
+      </main>{* #center_column *}
     {if isset($right_column_size) && !empty($right_column_size)}
       <aside id="right_column" class="col-xs-12 col-sm-{$right_column_size|intval} column">{$HOOK_RIGHT_COLUMN}</aside>
     {/if}

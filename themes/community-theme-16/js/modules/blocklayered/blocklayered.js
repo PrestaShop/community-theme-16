@@ -180,8 +180,7 @@ function initSliders() {
 
     var from = '';
     var to = '';
-    switch (slider['format'])
-    {
+    switch (slider['format']) {
       case 1:
       case 2:
       case 3:
