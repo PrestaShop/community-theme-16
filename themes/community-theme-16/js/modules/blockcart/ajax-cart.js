@@ -432,33 +432,34 @@ var ajaxCart = {
    * @param domIdProduct
    */
   hideOldProductCustomizations: function(product, domIdProduct) {
-    var customizationList = $('ul[data-id="customization_' + product['id'] + '_' + product['idCombination'] + '"]');
-    if (customizationList.length > 0) {
-      $(customizationList).find('li').each(function() {
-        $(this).find('div').each(function() {
+    var $customizationList = $('ul[data-id="customization_' + product['id'] + '_' + product['idCombination'] + '"]');
+    if ($customizationList.length > 0) {
+      $($customizationList).find('li').each(function() {
+        $(this).find('.deleteCustomizableProduct').each(function() {
           var customizationDiv = $(this).data('id');
           var tmp = customizationDiv.replace('deleteCustomizableProduct_', '');
           var ids = tmp.split('_');
           if ((parseInt(product.idCombination) == parseInt(ids[2])) && !ajaxCart.doesCustomizationStillExist(product, ids[0])) {
-            $('div[data-id="' + customizationDiv + '"]').parent().addClass('strike').fadeTo('slow', 0, function() {
-              $(this).slideUp();
-              $(this).remove();
+            $('div[data-id="' + customizationDiv + '"]').parent().fadeTo('slow', 0, function() {
+              $(this).slideUp().remove();
             });
           }
         });
       });
     }
 
-    var removeLinks = $('.deleteCustomizableProduct[data-id="' + domIdProduct + '"]').find('.ajax_cart_block_remove_link');
+    var $removeLinks = $('.deleteCustomizableProduct[data-id="' + domIdProduct + '"]').find('.ajax_cart_block_remove_link');
 
-    if (!product.hasCustomizedDatas && !removeLinks.length) {
-      $('div[data-id="' + domIdProduct + '"]' + ' span.remove_link').html('<a class="ajax_cart_block_remove_link" rel="nofollow" href="' +
+    // @TODO This is never called
+    if (!product.hasCustomizedDatas && !$removeLinks.length) {
+      $('div[data-id="' + domIdProduct + '"] span.remove_link').html('<a class="ajax_cart_block_remove_link" rel="nofollow" href="' +
         baseUri + '?controller=cart&amp;delete=1&amp;id_product=' + product['id'] + '&amp;ipa=' + product['idCombination'] +
         '&amp;token=' + static_token + '"><i class="icon icon-times"></i></a>');
     }
 
+    // @TODO This is never called
     if (product.is_gift) {
-      $('div[data-id="' + domIdProduct + '"]' + ' span.remove_link').html('');
+      $('div[data-id="' + domIdProduct + '"] span.remove_link').html('');
     }
   },
 
@@ -506,7 +507,7 @@ var ajaxCart = {
           }
 
           $vouchersTbody.append($(
-            '<tr class="bloc_cart_voucher" data-id="bloc_cart_voucher_' + discount.id + '">' + ' <td class="quantity">1x</td>' + ' <td class="name" title="' +
+            '<tr class="bloc_cart_voucher" data-id="bloc_cart_voucher_' + discount.id + '">' + ' <td class="quantity">1 x</td>' + ' <td class="name" title="' +
             discount.description + '">' + discount.name + '</td>' + ' <td class="price">-' + discount.price + '</td>' +
             ' <td class="delete">' + delete_link + '</td>' + '</tr>'
           ));
@@ -574,6 +575,7 @@ var ajaxCart = {
             name = (name.length > 12 ? name.substring(0, 10) + '...' : name);
 
             content += '<a class="cart-images" href="' + p.link + '" title="' + name + '"><img  src="' + p.image_cart + '" alt="' + p.name + '"></a>';
+
             content += '<div class="cart-info"><div class="product-name">' + '<span class="quantity-formatted"><span class="quantity">' +
               p.quantity + '</span>&nbsp;x&nbsp;</span><a href="' + p.link + '" title="' + p.name + '" class="cart_block_product_name">' + name + '</a></div>';
 
@@ -582,8 +584,10 @@ var ajaxCart = {
             }
 
             if (typeof(freeProductTranslation) != 'undefined') {
-              content += '<span class="price">' + (parseFloat(p.price_float) > 0 ? p.priceByLine : freeProductTranslation) + '</span></div>';
+              content += '<span class="price">' + (parseFloat(p.price_float) > 0 ? p.priceByLine : freeProductTranslation) + '</span>';
             }
+
+            content += '</div>';
 
             if (typeof(p.is_gift) == 'undefined' || p.is_gift == 0) {
               content += '<span class="remove_link"><a rel="nofollow" class="ajax_cart_block_remove_link" href="' + baseUri +
@@ -642,6 +646,7 @@ var ajaxCart = {
 
           $('.cart_block dl.products .unvisible').slideDown().removeClass('unvisible');
 
+          // Remove default product remove button, leave remove buttons on customized rows only
           var $removeLinks = $cartProductLine.find('a.ajax_cart_block_remove_link');
           if (p.hasCustomizedDatas && $removeLinks.length) {
             $removeLinks.remove();
@@ -668,9 +673,10 @@ var ajaxCart = {
 
     $(product.customizedDatas).each(function() {
       var done = 0;
-      // @TODO Is this global of scoped?
-      customizationId = parseInt(this.customizationId);
+      var customizationId = parseInt(this.customizationId);
+
       productAttributeId = typeof(product.idCombination) == 'undefined' ? 0 : parseInt(product.idCombination);
+
       content += '<li name="customization"><div class="deleteCustomizableProduct" data-id="deleteCustomizableProduct_' +
         customizationId + '_' + productId + '_' + (productAttributeId ?  productAttributeId : '0') +
         '"><a rel="nofollow" class="ajax_cart_block_remove_link" href="' + baseUri + '?controller=cart&amp;delete=1&amp;id_product=' +
