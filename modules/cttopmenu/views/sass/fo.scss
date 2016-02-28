@@ -5,6 +5,9 @@
  */
 #cttopmenu {
   margin-top: 15px;
+  .dropdown-menu {
+    z-index: 1;
+  }
 }
 
 // @TODO Better solution

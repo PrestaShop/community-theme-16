@@ -27,6 +27,9 @@
 #cttopmenu {
   margin-top: 15px;
 }
+#cttopmenu .dropdown-menu {
+  z-index: 1;
+}
 
 @media (min-width: 768px) {
   #cttopmenu-navbar-collapse {
