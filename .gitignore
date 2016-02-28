@@ -26,6 +26,7 @@
 # Ignore everywhere
 index.php
 .sass-cache/
+*.css.map
 
 /themes/community-theme-16/.sass-cache/
 /themes/community-theme-16/cache/*
