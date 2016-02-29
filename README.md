@@ -50,11 +50,22 @@ E.g. `.product-list-item`.
 
 Here is what is currently planned for this theme:
 
-- Version 0.5.0+
-  * Refactoring of page elements
-  * Refactoring of page layout
-  * Refactoring of page header and footer
-  * New features
+- Version 0.6.0
+  * Refactored page elements (headings, boxes, typography, etc)
+  * Refactored `blockcategories` and column blocks
+- Version 0.7.0
+  * Refactored product lists and category page
+- Version 0.8.0
+  * Refactored product page and related styles
+- Version 0.9.0
+  * Refactoring of order and registration page
+- Version 0.10.0
+  * Refactoring of account pages
+- Version 0.11.0
+  * Refactoring of CMS and CMS category pages
+- Version 0.12.0
+  * ??
+
 
 ## Libraries and dependencies
 
