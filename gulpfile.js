@@ -123,7 +123,7 @@ gulp.task('create-zip', function(){
 
         return gulp.src([
             './themes*/community-theme-16*/**',
-            './modules*/**',
+            './modules*/ct*/**',
             './Config.xml'
         ])
             .pipe(zip('v' + themeVersion + '-community-theme-16.zip'))
