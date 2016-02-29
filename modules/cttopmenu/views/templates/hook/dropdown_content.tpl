@@ -1,32 +1,29 @@
 {* @TODO More elegant solution? *}
 
 {$total_items = count($menu_item.sub_items)}
-{$column_count = min(4, $total_items)}
 
-{if $column_count == 4}
-  {$column_class = 'col-xs-12 col-sm-6 col-md-3'}
-{elseif $column_count == 3}
-  {$column_class = 'col-xs-12 col-sm-6 col-md-4'}
-{elseif $column_count == 2}
-  {$column_class = 'col-xs-12 col-sm-6'}
+{if $total_items > 4}
+  {$column_count = 6}
+  {$column_class = 'col-xs-12 col-sm-4 col-md-2'}
 {else}
-  {$column_class = 'col-xs-12'}
+  {$column_count = 4}
+  {$column_class = 'col-xs-12 col-sm-4 col-md-3'}
 {/if}
 
 {$per_column = ($total_items / $column_count)}
 
 <div class="row">
-  {$i = 1}
+  {$i = 0}
   {$column = 1}
-  <div class="col-xs-12 {$column_class}">
-    <ul>
+  <div class="{$column_class}">
+    <ul class="list-unstyled">
       {foreach from=$menu_item.sub_items item=sub_item}
 
-        {if $i > $column * $per_column}
+        {if $i >= $column * $per_column}
             </ul>
           </div>
-          <div class="col-xs-12 {$column_class}">
-            <ul>
+          <div class="{$column_class}">
+            <ul class="list-unstyled">
           {$column = $column + 1}
         {/if}
 

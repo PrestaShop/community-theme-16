@@ -29,6 +29,14 @@
 }
 #cttopmenu .dropdown-menu {
   z-index: 1;
+  font-size: 1.2em;
+}
+#cttopmenu .dropdown-content {
+  padding: 10px 15px;
+}
+#cttopmenu .sub-list {
+  padding-left: 1.35em;
+  list-style: disc;
 }
 
 @media (min-width: 768px) {
