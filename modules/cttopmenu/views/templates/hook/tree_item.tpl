@@ -4,7 +4,7 @@
     {$item.name|escape:'html':'UTF-8'}
   </a>
   {if !empty($item.sub_items)}
-    <ul>
+    <ul class="sub-list">
       {foreach from=$item.sub_items item=sub_item}
         {include file='./tree_item.tpl' item=$sub_item}
       {/foreach}
