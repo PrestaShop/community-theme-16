@@ -739,7 +739,6 @@ var ajaxCart = {
 
     $('.layer_cart_overlay').css({'width': '100%', 'height': '100%'}).show();
     $('#layer_cart').css({'top': n}).fadeIn('fast');
-    crossselling_serialScroll();
   },
 
   // General update of the cart display
@@ -866,22 +865,5 @@ function HoverWatcher(selector) {
     mouseleave: function() {
       self.hovering = false;
     }
-  });
-}
-
-function crossselling_serialScroll() {
-  if (!!$.prototype.bxSlider) {
-    return;
-  }
-
-  $('#blockcart_caroucel').bxSlider({
-    minSlides: 2,
-    maxSlides: 4,
-    slideWidth: 178,
-    slideMargin: 20,
-    moveSlides: 1,
-    infiniteLoop: false,
-    hideControlOnEnd: true,
-    pager: false
   });
 }
