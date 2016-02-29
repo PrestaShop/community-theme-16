@@ -19,14 +19,14 @@
   {$i = 1}
   {$column = 1}
   <div class="col-xs-12 {$column_class}">
-    <ul>
+    <ul class="list-unstyled">
       {foreach from=$menu_item.sub_items item=sub_item}
 
         {if $i > $column * $per_column}
             </ul>
           </div>
           <div class="col-xs-12 {$column_class}">
-            <ul>
+            <ul class="list-unstyled">
           {$column = $column + 1}
         {/if}
 
