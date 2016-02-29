@@ -1,3 +1,33 @@
+# v0.5.0 (2016-02-29)
+
+This release adds refactored header and footer blocks as well as
+improved page layout (more semantic). Top navigation bar has been replaced by
+Bootstrap's `.navbar`. **Warning! This may cause some compatibility issues with 3rd party modules.**
+Default module `blocktopmenu` has been replaced with more flexible `cttopmenu` modules,
+which provides a clean, formatted array of menu items to templates. Other new modules:
+`ctconfiguration`, `ctdev`.
+
+## Changes
+
+- Refactored page layout, introduced semantic elements (#92)
+- Normalized `z-indexes` in some blocks (#93)
+- Replaced breadcrumb template with new template (#94)
+- Refactored `blockbanner` (#95)
+- Refactored top navigation to Bootstrap's `.navbar` (#97)
+- Refactored `blockuserinfo` for new nav (#98)
+- Refactored `blockcurrencies` for new nav (#99)
+- Refactored `blocklanguages` for new nav (#100)
+- Refactored `blockcontact` for new nav (#101, #102)
+- Refactored shop logo block (#103, #106)
+- Refactored `blocksearch` (#104, #107, #125)
+- Refactored `blockcart` header block (#105, #131, #132)
+- Refactored `blockcart` popup and crossselling carousel (#137)
+- Replaced `blocktopmenu` with `cttopmenu` to be able to build
+menu templates (#115, #122, #123, #128, #129, #133, #136)
+- Refactored footer block to be simple link lists (#116, #117)
+- Added `ctconfiguration` module to configure content block in theme pages (#118, #124)
+- Added `ctdev` module, which display theme component styles. Not installed by default. (#127)
+
 # v0.4.0 (2016-01-23)
 
 This release focuses on cleaning up the global styles of theme,
