@@ -498,6 +498,23 @@ span.view_scroll_spacer {
     text-decoration: none;
   }
 }
+
+.btn-add-to-cart {
+  &.added {
+    .icon:before {
+      content: '\f00c'; // fa-check
+    }
+  }
+  &.disabled {
+    .icon {
+      @include animation(icon-spin 2s infinite linear);
+      &:before {
+        content: '\f1ce'; // fa-circle-o-notch
+      }
+    }
+  }
+}
+
 .box-info-product {
   background: $list-info-bg;
   border: 1px solid #d2d0d0;
@@ -505,93 +522,6 @@ span.view_scroll_spacer {
   border-bottom: 1px solid #b0afaf;
   p{
     margin-bottom: 7px;
-  }
-  .exclusive{
-    padding: 0;
-    border-top: 1px solid #0079b6;
-    border-right: 1px solid #006fa8;
-    border-left: 1px solid #006fa8;
-    border-bottom: 1px solid #012740;
-    @include border-radius(5px);
-    position: relative;
-    display: block;
-    @include background-image(linear-gradient(#009ad0, #007ab7));
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#009ad0', endColorstr='#007ab7',GradientType=0 );
-    &:before{
-      font-family: $font-icon;
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      color: #fff;
-      font-size: 25px;
-      line-height: 47px;
-      content: "\f07a";
-      z-index: 2;
-      width: 51px;
-      text-align: center;
-      border: 1px solid #06b2e6;
-      @include border-radius(5px 0 0 5px);
-      @media (max-width: $screen-sm-max) { //max 991px
-        display: none;
-      }
-    }
-    &.added {
-      &:before {
-        content: "\f00c";
-      }
-    }
-    &.added.disabled,
-    &.disabled {
-      &:before {
-        height: 51px;
-        content: "\f110";
-        animation: 2s linear 0s normal none infinite spin;
-        -webkit-animation: 2s linear 0s normal none infinite spin;
-        -moz-animation: 2s linear 0s normal none infinite spin;
-        border: none;
-      }
-    }
-    &:after{
-      background: url(../img/border-1.gif) repeat-y 0 0;
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 51px;
-      content: "";
-      width: 1px;
-      z-index: 2;
-      @media (max-width: $screen-sm-max) { // max 991px
-        display: none;
-      }
-    }
-    span{
-      @include border-radius(5px);
-      font-weight: 700;
-      font-size: 20px;
-      line-height: 22px;
-      border-top: 1px solid #06b2e6;
-      border-right: 1px solid #06b2e6;
-      border-left: 1px solid #06b2e6;
-      border-bottom: 1px solid #06b2e6;
-      padding: 12px 36px 14px 60px;
-      color: #fff;
-      display: block !important;
-      @include transition(all 0.3s ease);
-      @media  (max-width: $screen-md-max) { //max 1199px
-        padding: 12px 22px 14px 55px;
-        font-size: 14px;
-      }
-      @media (max-width: $screen-sm-max) {  //max 991px
-        padding: 8px 12px 10px;
-        text-align: left;
-      }
-    }
-    &:hover{
-      @include background-image(linear-gradient(#007ab7, #009ad0));
-      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#007ab7', endColorstr='#009ad0',GradientType=0 );
-      background-position: 0 0;
-    }
   }
 }
 
@@ -602,89 +532,6 @@ span.view_scroll_spacer {
       border: 1px solid #d2d0d0;
       border-top: 1px solid #b0afaf;
       border-bottom: 1px solid #b0afaf;
-      .exclusive{
-        padding: 0;
-        border-top: 1px solid #0079b6;
-        border-right: 1px solid #006fa8;
-        border-left: 1px solid #006fa8;
-        border-bottom: 1px solid #012740;
-        @include border-radius(5px);
-        position: relative;
-        display: block;
-        @include background-image(linear-gradient(#009ad0, #007ab7));
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#009ad0', endColorstr='#007ab7',GradientType=0 );
-        &:before{
-          font-family: $font-icon;
-          position: relative;
-          top: 0;
-          left: 0;
-          bottom: 0;
-          color: #fff;
-          font-size: 25px;
-          line-height: 47px;
-          content: "\f07a";
-          z-index: 2;
-          width: 51px;
-          text-align: center;
-          border: none;
-          @include border-radius(0);
-          @media (max-width: $screen-sm-max) { //max 991px
-            display: none;
-          }
-        }
-        &.added {
-          &:before {
-            content: "\f00c";
-          }
-        }
-        &.added.disabled,
-        &.disabled {
-          &:before {
-            content: "\f110";
-            animation: 2s linear 0s normal none infinite spin;
-            -webkit-animation: 2s linear 0s normal none infinite spin;
-            -moz-animation: 2s linear 0s normal none infinite spin;
-            border: none;
-          }
-        }
-        &:after{
-          background: none;
-          position: absolute;
-          top: 0;
-          bottom: 0;
-          left: 51px;
-          content: "";
-          width: 1px;
-          z-index: 2;
-          @media (max-width: $screen-sm-max) { // max 991px
-            display: none;
-          }
-        }
-        span{
-          font-weight: 500;
-          font-size: 18px;
-          line-height: 22px;
-          border: none;
-          border-top: 1px solid #006fa8;
-          padding: 12px 16px 14px;
-          color: #fff;
-          display: block !important;
-          @include border-radius(0);
-          @include transition(all 0.3s ease);
-          @media  (max-width: $screen-md-max) { //max 1199px
-            font-size: 16px;
-          }
-          @media (max-width: $screen-sm-max) {  //max 991px
-            padding: 8px 12px 10px;
-            text-align: center;
-          }
-        }
-        &:hover{
-          @include background-image(linear-gradient(#007ab7, #009ad0));
-          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#007ab7', endColorstr='#009ad0',GradientType=0 );
-          background-position: 0 0;
-        }
-      }
     }
   }
 }
@@ -735,7 +582,6 @@ table.table-product-discounts{
     border-top: 1px solid #d6d4d4;
     border-right: none;
     text-transform: none;
-    font-weight: 13px;
     line-height: 18px;
     border-bottom: none;
   }
@@ -1212,4 +1058,10 @@ Quick View Styles
   .zoomdiv {
     display: none !important;
   }
+}
+
+// Used in add to cart button
+@include keyframes(icon-spin) {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(359deg); }
 }
