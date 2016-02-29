@@ -30,6 +30,9 @@
 #cttopmenu .dropdown-menu {
   z-index: 1;
 }
+#cttopmenu .dropdown-content {
+  padding: 10px 15px;
+}
 
 @media (min-width: 768px) {
   #cttopmenu-navbar-collapse {
