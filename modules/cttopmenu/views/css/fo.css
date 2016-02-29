@@ -29,6 +29,7 @@
 }
 #cttopmenu .dropdown-menu {
   z-index: 1;
+  font-size: 1.25em;
 }
 #cttopmenu .dropdown-content {
   padding: 10px 15px;
