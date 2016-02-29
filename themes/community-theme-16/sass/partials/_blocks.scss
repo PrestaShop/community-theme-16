@@ -9,10 +9,11 @@ $block-line-border: #ccc;
   .title_block {
     color: $text-color;
     font-size: $font-size-h4;
+    line-height: $line-height-base;
     font-weight: bold;
     background: $block-heading-bg;
     border-bottom: 1px solid $block-heading-border;
-    padding: 15px;
+    padding: 10px 15px;
     margin: 0 0 15px;
   }
 
