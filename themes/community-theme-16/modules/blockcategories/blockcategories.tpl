@@ -1,6 +1,12 @@
 {if !empty($blockCategTree) && !empty($blockCategTree.children)}
   <section id="blockcategories" class="blockcategories block">
-    <h4 class="title_block">{l s='Categories' mod='blockcategories'}</h4>
+    <h4 class="title_block">
+      {if isset($currentCategory)}
+        {$currentCategory->name|escape:'html':'UTF-8'}
+      {else}
+        {l s='Categories' mod='blockcategories'}
+      {/if}
+    </h4>
     <div class="list-group block_content">
       {foreach from=$blockCategTree.children item=list_item_child}
         {include file='./list_group_item.tpl' list_item=$list_item_child level=1}
