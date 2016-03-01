@@ -12,9 +12,8 @@
 {literal}
 <script type="text/javascript">
 $(function() {
-  var $menus = $('.blockcategories');
 
-  $menus.each(function() {
+  $('.blockcategories').each(function() {
     var $collapse = $(this).find('.collapse');
     var $triggers = $(this).find('.btn-toggle');
 
@@ -43,6 +42,7 @@ $(function() {
         '[data-target="#' + $(this).prop('id') + '"]').parent().removeClass('active');
     });
   });
+
 });
 </script>
 {/literal}
