@@ -219,7 +219,8 @@ ul.product_list.grid {
       position: relative;
       .product-image-container {
         border: 1px solid $base-listing-border-color;
-        padding: 9px;
+        // @Warning! Floating point size of scaled image might break <li> lines
+        padding: 5px;
         margin-bottom: 13px;
         position: relative;
         @media (max-width: $screen-xs-max) { // max 767px
