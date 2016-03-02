@@ -322,7 +322,7 @@ ul.product_list.grid {
     }
   }
   li.hovered{
-    h5{
+    h4 {
       min-height: 30px;
     }
   }
@@ -348,7 +348,8 @@ ul.product_list.list {
     .product-image-container {
       position: relative;
       border: 1px solid $base-listing-border-color;
-      padding: 9px;
+      // @Warning! Floating point size of scaled image might break <li> lines
+      padding: 5px;
       @media (max-width: $screen-xs - 1) { // max 479px
         max-width: 290px;
         margin: 0 auto;
@@ -363,7 +364,7 @@ ul.product_list.list {
         color: #f13340;
       }
     }
-    h5 {
+    h4 {
       padding-bottom: 8px;
     }
     .product-desc {
