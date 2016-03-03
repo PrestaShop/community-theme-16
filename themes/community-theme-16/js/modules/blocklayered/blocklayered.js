@@ -5,7 +5,6 @@ var slidersInit = false;
 
 $(document).ready(function() {
   cancelFilter();
-  openCloseFilter();
 
   // Click on color
   $(document).on('click', '#layered_form input[type=button], #layered_form label.layered_color', function(e) {
@@ -307,22 +306,6 @@ function cancelFilter() {
       }
     }
     reloadContent(true);
-    e.preventDefault();
-  });
-}
-
-function openCloseFilter() {
-  $(document).on('click', '#layered_form span.layered_close a', function(e) {
-    if ($(this).html() == '&lt;') {
-      $('#' + $(this).data('rel')).show();
-      $(this).html('v');
-      $(this).parent().removeClass('closed');
-    } else {
-      $('#' + $(this).data('rel')).hide();
-      $(this).html('&lt;');
-      $(this).parent().addClass('closed');
-    }
-
     e.preventDefault();
   });
 }
