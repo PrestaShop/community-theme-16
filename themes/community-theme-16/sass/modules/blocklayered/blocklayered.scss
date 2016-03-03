@@ -32,10 +32,10 @@
   width:13px;
   text-decoration: none;
   text-indent:-5000px;
-  background:url(img/icon/less.gif) no-repeat 2px 2px;
+  background:url('img/icon/less.gif') no-repeat 2px 2px;
 }
 #layered_block_left span.closed a {
-  background:url(img/icon/more.gif) no-repeat 2px 2px;
+  background:url('img/icon/more.gif') no-repeat 2px 2px;
 }
 
 #layered_block_left .layered_subtitle {
@@ -62,7 +62,7 @@
 #layered_block_left #enabled_filters , #layered_url_filter_block{
   padding-bottom: 10px;
   margin-bottom: 5px;
-  margin-top: 0px;
+  margin-top: 0;
   border-bottom: 1px dotted #CCC;
 }
 #layered_block_left #enabled_filters ul li {
@@ -148,7 +148,6 @@
   text-align: center;
 }
 .hide-action {
-  text-align: center;
   text-align: right;
   display: block;
   cursor: pointer;
@@ -165,8 +164,8 @@
   label {
     font-weight: normal;
   }
-  layered_subtitle {
-    font-size: 1.2 em;
+  .layered_subtitle {
+    font-size: 1.2em;
   }
 }
 #layered_block_left ul li{
