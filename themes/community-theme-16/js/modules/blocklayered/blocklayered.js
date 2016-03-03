@@ -3,15 +3,19 @@ var ajaxLoaderOn = 0;
 var sliderList = [];
 var slidersInit = false;
 
-$(document).ready(function() {
+$(function() {
   cancelFilter();
 
   // Click on color
   $(document).on('click', '#layered_form input[type=button], #layered_form label.layered_color', function(e) {
-    if (!$('input[name=' + $(this).attr('name') + '][type=hidden]').length)
+    var $hiddenInput = $('input[name=' + $(this).attr('name') + '][type=hidden]');
+
+    if (!$hiddenInput.length) {
       $('<input />').attr('type', 'hidden').attr('name', $(this).attr('name')).val($(this).data('rel')).appendTo('#layered_form');
-    else
-      $('input[name=' + $(this).attr('name') + '][type=hidden]').remove();
+    } else {
+      $hiddenInput.remove();
+    }
+
     reloadContent(true);
   });
 
@@ -26,31 +30,34 @@ $(document).ready(function() {
 
   // Changing content of an input text
   $(document).on('keyup', '#layered_form input.layered_input_range', function(e) {
-    if ($(this).attr('timeout_id'))
-      window.clearTimeout($(this).attr('timeout_id'));
 
-    // IE Hack, setTimeout do not acept the third parameter
+    if ($(this).attr('timeout_id')) {
+      window.clearTimeout($(this).attr('timeout_id'));
+    }
+
+    // IE Hack, setTimeout do not accept the third parameter
     var reference = this;
 
     $(this).attr('timeout_id', window.setTimeout(function(it) {
-      if (!$(it).attr('id'))
+      if (!$(it).attr('id')) {
         it = reference;
+      }
 
       var filter = $(it).attr('id').replace(/^layered_(.+)_range_.*$/, '$1');
 
-      var value_min = parseInt($('#layered_' + filter + '_range_min').val());
-      if (isNaN(value_min))
-        value_min = 0;
-      $('#layered_' + filter + '_range_min').val(value_min);
+      var $filterRangeMin = $('#layered_' + filter + '_range_min');
+      var $filterRangeMax = $('#layered_' + filter + '_range_max');
 
-      var value_max = parseInt($('#layered_' + filter + '_range_max').val());
-      if (isNaN(value_max))
-        value_max = 0;
-      $('#layered_' + filter + '_range_max').val(value_max);
+      var value_min = parseInt($filterRangeMin.val()) || 0;
+      $filterRangeMin.val(value_min);
+
+      var value_max = parseInt($filterRangeMax.val()) || 0;
+      $filterRangeMax.val(value_max);
 
       if (value_max < value_min) {
-        $('#layered_' + filter + '_range_max').val($(it).val());
-        $('#layered_' + filter + '_range_min').val($(it).val());
+
+        $filterRangeMin.val($(it).val());
+        $filterRangeMax.val($(it).val());
       }
       reloadContent();
     }, 500, this));
@@ -75,14 +82,19 @@ $(document).ready(function() {
   });
 
   layered_hidden_list = {};
-  $('.hide-action').on('click', function(e) {
-    if (typeof(layered_hidden_list[$(this).parent().find('ul').attr('id')]) == 'undefined' || layered_hidden_list[$(this).parent().find('ul').attr('id')] == false)
+
+  var $hideAction = $('.hide-action');
+
+  $hideAction.on('click', function(e) {
+    if (typeof(layered_hidden_list[$(this).parent().find('ul').attr('id')]) == 'undefined' || layered_hidden_list[$(this).parent().find('ul').attr('id')] == false) {
       layered_hidden_list[$(this).parent().find('ul').attr('id')] = true;
-    else
+    } else {
       layered_hidden_list[$(this).parent().find('ul').attr('id')] = false;
+    }
     hideFilterValueAction(this);
   });
-  $('.hide-action').each(function() {
+
+  $hideAction.each(function() {
     hideFilterValueAction(this);
   });
 
@@ -175,7 +187,11 @@ function addSlider(type, data, unit, format) {
 
 function initSliders() {
   $(sliderList).each(function(i, slider) {
-    $('#layered_' + slider['type'] + '_slider').slider(slider['data']);
+
+    var $slider = $('#layered_' + slider['type'] + '_slider');
+    var $sliderRange = $('#layered_' + slider['type'] + '_range');
+
+    $slider.slider(slider['data']);
 
     var from = '';
     var to = '';
@@ -184,15 +200,15 @@ function initSliders() {
       case 2:
       case 3:
       case 4:
-        from = formatCurrency($('#layered_' + slider['type'] + '_slider').slider('values', 0), slider['format'], slider['unit']);
-        to = formatCurrency($('#layered_' + slider['type'] + '_slider').slider('values', 1), slider['format'], slider['unit']);
+        from = formatCurrency($slider.slider('values', 0), slider['format'], slider['unit']);
+        to   = formatCurrency($slider.slider('values', 1), slider['format'], slider['unit']);
         break;
       case 5:
-        from =  $('#layered_' + slider['type'] + '_slider').slider('values', 0) + slider['unit'];
-        to = $('#layered_' + slider['type'] + '_slider').slider('values', 1) + slider['unit'];
+        from = $slider.slider('values', 0) + slider['unit'];
+        to   = $slider.slider('values', 1) + slider['unit'];
         break;
     }
-    $('#layered_' + slider['type'] + '_range').html(from + ' - ' + to);
+    $sliderRange.html(from + ' - ' + to);
   });
 }
 
@@ -213,10 +229,12 @@ function paginationButton(nbProductsIn, nbProductOut) {
 
   $('div.pagination a').not(':hidden').each(function() {
 
-    if ($(this).attr('href').search(/(\?|&)p=/) == -1)
-      var page = 1;
-    else
-      var page = parseInt($(this).attr('href').replace(/^.*(\?|&)p=(\d+).*$/, '$2'));
+    var page;
+    if ($(this).attr('href').search(/(\?|&)p=/) == -1) {
+      page = 1;
+    } else {
+      page = parseInt($(this).attr('href').replace(/^.*(\?|&)p=(\d+).*$/, '$2'));
+    }
 
     var location = window.location.href.replace(/#.*$/, '');
     $(this).attr('href', location + current_friendly_url.replace(/\/page-(\d+)/, '') + '/page-' + page);
@@ -224,17 +242,19 @@ function paginationButton(nbProductsIn, nbProductOut) {
 
   $('div.pagination li').not('.current, .disabled').each(function() {
     var nbPage = 0;
-    if ($(this).hasClass('pagination_next'))
+    if ($(this).hasClass('pagination_next')) {
       nbPage = parseInt($('div.pagination li.current').children().children().html()) + 1;
-    else if ($(this).hasClass('pagination_previous'))
+    } else if ($(this).hasClass('pagination_previous')) {
       nbPage = parseInt($('div.pagination li.current').children().children().html()) - 1;
+    }
 
     $(this).children().children().on('click', function(e) {
       e.preventDefault();
-      if (nbPage == 0)
+      if (nbPage == 0) {
         p = parseInt($(this).html()) + parseInt(nbPage);
-      else
+      } else {
         p = nbPage;
+      }
       p = '&p=' + p;
       reloadContent(p);
       nbPage = 0;
@@ -243,16 +263,23 @@ function paginationButton(nbProductsIn, nbProductOut) {
 
   //product count refresh
   if (nbProductsIn != false) {
+
+    var $productCount = $('.product-count');
+
     if (isNaN(nbProductsIn) == 0) {
       // add variables
-      var productCountRow = $('.product-count').html();
+
+      var productCountRow = $productCount.html();
       var nbPage = parseInt($('div.pagination li.current').children().children().html());
       var nb_products = nbProductsIn;
+      var nbPerPage;
+      var $option = $('#nb_item').find('option:selected');
 
-      if ($('#nb_item option:selected').length == 0)
-        var nbPerPage = nb_products;
-      else
-        var nbPerPage = parseInt($('#nb_item option:selected').val());
+      if ($option.length == 0) {
+        nbPerPage = nb_products;
+      } else {
+        nbPerPage = parseInt($option.val());
+      }
 
       nbPage = isNaN(nbPage) ? 1 : nbPage;
       nbPerPage * nbPage < nb_products ? productShowing = nbPerPage * nbPage : productShowing = (nbPerPage * nbPage - nb_products - nbPerPage * nbPage) * -1;
@@ -263,25 +290,35 @@ function paginationButton(nbProductsIn, nbProductOut) {
       productCountRow = productCountRow.split(' ');
 
       var backStart = [];
-      for (row in productCountRow)
-        if (parseInt(productCountRow[row]) + 0 == parseInt(productCountRow[row]))
-          backStart.push(row);
+      for (var row in productCountRow) {
+        if (productCountRow.hasOwnProperty(row)) {
+          if (parseInt(productCountRow[row]) + 0 == parseInt(productCountRow[row])) {
+            backStart.push(row);
+          }
+        }
+      }
 
-      if (typeof backStart[0] !== 'undefined')
+      if (typeof backStart[0] !== 'undefined') {
         productCountRow[backStart[0]] = productShowingStart;
-      if (typeof backStart[1] !== 'undefined')
-        productCountRow[backStart[1]] = (nbProductOut != 'undefined') && (nbProductOut > productShowing) ? nbProductOut : productShowing;
-      if (typeof backStart[2] !== 'undefined')
-        productCountRow[backStart[2]] = nb_products;
+      }
 
-      if (typeof backStart[1] !== 'undefined' && typeof backStart[2] !== 'undefined' && productCountRow[backStart[1]] > productCountRow[backStart[2]])
+      if (typeof backStart[1] !== 'undefined') {
+        productCountRow[backStart[1]] = (nbProductOut != 'undefined') && (nbProductOut > productShowing) ? nbProductOut : productShowing;
+      }
+
+      if (typeof backStart[2] !== 'undefined') {
+        productCountRow[backStart[2]] = nb_products;
+      }
+
+      if (typeof backStart[1] !== 'undefined' && typeof backStart[2] !== 'undefined' && productCountRow[backStart[1]] > productCountRow[backStart[2]]) {
         productCountRow[backStart[1]] = productCountRow[backStart[2]];
+      }
 
       productCountRow = productCountRow.join(' ');
-      $('.product-count').html(productCountRow);
-      $('.product-count').show();
-    } else
-      $('.product-count').hide();
+      $productCount.html(productCountRow).show();
+    } else {
+      $productCount.hide();
+    }
   }
 }
 
@@ -313,8 +350,10 @@ function cancelFilter() {
 function stopAjaxQuery() {
   if (typeof(ajaxQueries) == 'undefined')
     ajaxQueries = [];
-  for (i = 0; i < ajaxQueries.length; i++)
+  for (var i = 0; i < ajaxQueries.length; i++) {
     ajaxQueries[i].abort();
+  }
+
   ajaxQueries = [];
 }
 
@@ -543,7 +582,7 @@ function updateProductUrl() {
   // Adding the filters to URL product
   if (typeof(param_product_url) != 'undefined' && param_product_url != '' && param_product_url != '#') {
     $.each($('ul.product_list li.ajax_block_product .product_img_link,' +
-      'ul.product_list li.ajax_block_product h5 a,' +
+      'ul.product_list li.ajax_block_product h4 a,' +
       'ul.product_list li.ajax_block_product .product_desc a,' +
       'ul.product_list li.ajax_block_product .lnk_view'), function() {
       $(this).attr('href', $(this).attr('href') + param_product_url);
@@ -558,17 +597,19 @@ function utf8_decode(utfstr) {
   var res = '';
   for (var i = 0; i < utfstr.length;) {
     var c = utfstr.charCodeAt(i);
+    var c1;
+    var c2;
 
     if (c < 128) {
       res += String.fromCharCode(c);
       i++;
     } else if ((c > 191) && (c < 224)) {
-      var c1 = utfstr.charCodeAt(i + 1);
+      c1 = utfstr.charCodeAt(i + 1);
       res += String.fromCharCode(((c & 31) << 6) | (c1 & 63));
       i += 2;
     } else {
-      var c1 = utfstr.charCodeAt(i + 1);
-      var c2 = utfstr.charCodeAt(i + 2);
+      c1 = utfstr.charCodeAt(i + 1);
+      c2 = utfstr.charCodeAt(i + 2);
       res += String.fromCharCode(((c & 15) << 12) | ((c1 & 63) << 6) | (c2 & 63));
       i += 3;
     }
