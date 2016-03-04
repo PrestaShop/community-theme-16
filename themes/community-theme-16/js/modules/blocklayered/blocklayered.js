@@ -30,7 +30,7 @@ $(function() {
   });
 
   // Changing content of an input text
-  $(document).on('keyup', '#layered_form input.layered_input_range', function(e) {
+  $(document).on('keyup', '#layered_form input.layered_input_range', function() {
 
     if ($(this).attr('timeout_id')) {
       window.clearTimeout($(this).attr('timeout_id'));
@@ -56,15 +56,15 @@ $(function() {
       $filterRangeMax.val(value_max);
 
       if (value_max < value_min) {
-
         $filterRangeMin.val($(it).val());
         $filterRangeMax.val($(it).val());
       }
       reloadContent();
+
     }, 500, this));
   });
 
-  $(document).on('click', '#layered_block_left .radio', function(e) {
+  $(document).on('click', '#layered_block_left .radio', function() {
     var name = $(this).attr('name');
     $.each($(this).parent().parent().find('input[type=button]'), function(it, item) {
       if ($(item).hasClass('on') && $(item).attr('name') != name)
@@ -97,9 +97,9 @@ $(function() {
 
   $(document).off('change', '.selectProductSort').on('change', '.selectProductSort', function() {
     $('.selectProductSort').val($(this).val());
-
-    if ($('#layered_form').length > 0)
+    if ($('#layered_form').length > 0) {
       reloadContent('forceSlide');
+    }
   });
 
   $(document).off('change', 'select[name="n"]').on('change', 'select[name="n"]', function() {
@@ -114,8 +114,9 @@ $(function() {
 function initFilters() {
   if (typeof filters !== 'undefined') {
     for (var key in filters) {
-      if (filters.hasOwnProperty(key))
+      if (filters.hasOwnProperty(key)) {
         var filter = filters[key];
+      }
 
       if (typeof filter.slider !== 'undefined' && parseInt(filter.filter_type) == 0) {
         var filterRange = parseInt(filter.max) - parseInt(filter.min);
@@ -183,13 +184,14 @@ function addSlider(type, data, unit, format) {
 function initSliders() {
   $(sliderList).each(function(i, slider) {
 
-    var $slider = $('#layered_' + slider['type'] + '_slider');
+    var $slider      = $('#layered_' + slider['type'] + '_slider');
     var $sliderRange = $('#layered_' + slider['type'] + '_range');
 
     $slider.slider(slider['data']);
 
     var from = '';
     var to = '';
+
     switch (slider['format']) {
       case 1:
       case 2:
@@ -473,8 +475,10 @@ function reloadContent(params_plus) {
       }
 
       $('.product_list').css('opacity', '1');
-      if ($.browser.msie) // Fix bug with IE8 and aliasing
+      if ($.browser.msie)  {
+        // Fix bug with IE8 and aliasing
         $('.product_list').css('filter', '');
+      }
 
       if (result.pagination.search(/[^\s]/) >= 0) {
         var pagination = $('<div/>').html(result.pagination);
@@ -547,12 +551,13 @@ function reloadContent(params_plus) {
         if ($slider.length) {
           // Check if slider is enable & if slider is used
           if (typeof($slider.slider('values', 0)) != 'object') {
-            if ($slider.slider('values', 0) != $slider.slider('option' , 'min') ||
-              $slider.slider('values', 1) != $slider.slider('option' , 'max'))
+            if ($slider.slider('values', 0) != $slider.slider('option' , 'min') || $slider.slider('values', 1) != $slider.slider('option' , 'max')) {
               current_friendly_url += '/' + blocklayeredSliderName[sliderType] + '-' + $slider.slider('values', 0) + '-' + $slider.slider('values', 1);
+            }
           }
-        } else if ($sliderRangerMin.length)
+        } else if ($sliderRangerMin.length) {
           current_friendly_url += '/' + blocklayeredSliderName[sliderType] + '-' + $sliderRangerMin.val() + '-' + $sliderRangeMax.val();
+        }
       });
 
       window.location.href = current_friendly_url;
@@ -584,14 +589,17 @@ function reloadContent(params_plus) {
 }
 
 function initLocationChange(func, time) {
-  if (!time)
+  if (!time) {
     time = 500;
+  }
+
   var current_friendly_url = getUrlParams();
   setInterval(function() {
     if (getUrlParams() != current_friendly_url && !lockLocationChecking) {
       // Don't reload page if current_friendly_url and real url match
-      if (current_friendly_url.replace(/^#(\/)?/, '') == getUrlParams().replace(/^#(\/)?/, ''))
+      if (current_friendly_url.replace(/^#(\/)?/, '') == getUrlParams().replace(/^#(\/)?/, '')) {
         return;
+      }
 
       lockLocationChecking = true;
       reloadContent('&selected_filters=' + getUrlParams().replace(/^#/, ''));
@@ -603,12 +611,15 @@ function initLocationChange(func, time) {
 }
 
 function getUrlParams() {
-  if (typeof(current_friendly_url) === 'undefined')
+  if (typeof(current_friendly_url) === 'undefined') {
     current_friendly_url = '#';
+  }
 
   var params = current_friendly_url;
-  if (window.location.href.split('#').length == 2 && window.location.href.split('#')[1] != '')
+  if (window.location.href.split('#').length == 2 && window.location.href.split('#')[1] != '') {
     params = '#' + window.location.href.split('#')[1];
+  }
+
   return params;
 }
 
