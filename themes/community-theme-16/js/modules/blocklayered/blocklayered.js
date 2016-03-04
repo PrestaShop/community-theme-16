@@ -82,18 +82,17 @@ $(function() {
     }
   });
 
-  layered_hidden_list = {};
+  // Global var
+  window.layered_hidden_list = {};
 
-  var $hideAction = $('.hide-action');
-
-  $hideAction.on('click', function() {
-    var val = typeof(layered_hidden_list[$(this).parent().find('ul').attr('id')]) == 'undefined' || layered_hidden_list[$(this).parent().find('ul').attr('id')] == false;
-    layered_hidden_list[$(this).parent().find('ul').attr('id')] = val;
-    hideFilterValueAction(this);
+  $(document).on('click', '.hide-action', function() {
+    var id = $(this).closest('ul').attr('id');
+    layered_hidden_list[id] = !layered_hidden_list[id];
+    hideFilterValueAction($(this));
   });
 
-  $hideAction.each(function() {
-    hideFilterValueAction(this);
+  $('.hide-action').each(function() {
+    hideFilterValueAction($(this));
   });
 
   $(document).off('change', '.selectProductSort').on('change', '.selectProductSort', function() {
@@ -122,36 +121,37 @@ function initFilters() {
         var filterRange = parseInt(filter.max) - parseInt(filter.min);
         var step = filterRange / 100;
 
-        if (step > 1)
+        if (step > 1) {
           step = parseInt(step);
+        }
 
-        addSlider(filter.type,
-          {
-            range: true,
-            step: step,
-            min: parseInt(filter.min),
-            max: parseInt(filter.max),
-            values: [filter.values[0], filter.values[1]],
-            slide: function(event, ui) {
-              stopAjaxQuery();
+        var sliderOptions = {
+          range: true,
+          step: step,
+          min: parseInt(filter.min),
+          max: parseInt(filter.max),
+          values: [filter.values[0], filter.values[1]],
+          slide: function(event, ui) {
+            stopAjaxQuery();
 
-              var from, to;
-              if (parseInt($(event.target).data('format')) < 5) {
-                from = formatCurrency(ui.values[0], parseInt($(event.target).data('format')),
-                  $(event.target).data('unit'));
-                to = formatCurrency(ui.values[1], parseInt($(event.target).data('format')),
-                  $(event.target).data('unit'));
-              } else {
-                from = ui.values[0] + $(event.target).data('unit');
-                to = ui.values[1] + $(event.target).data('unit');
-              }
-
-              $('#layered_' + $(event.target).data('type') + '_range').html(from + ' - ' + to);
-            },
-            stop: function() {
-              reloadContent(true);
+            var from, to;
+            if (parseInt($(event.target).data('format')) < 5) {
+              from = formatCurrency(ui.values[0], parseInt($(event.target).data('format')), $(event.target).data('unit'));
+              to   = formatCurrency(ui.values[1], parseInt($(event.target).data('format')), $(event.target).data('unit'));
+            } else {
+              from = ui.values[0] + $(event.target).data('unit');
+              to   = ui.values[1] + $(event.target).data('unit');
             }
-          }, filter.unit, parseInt(filter.format));
+
+            $('#layered_' + $(event.target).data('type') + '_range').html(from + ' - ' + to);
+          },
+          stop: function() {
+            reloadContent(true);
+          }
+        };
+
+        addSlider(filter.type, sliderOptions, filter.unit, parseInt(filter.format));
+
       } else if (typeof filter.slider !== 'undefined' && parseInt(filter.filter_type) == 1) {
         $('#layered_' + filter.type + '_range_min').attr('limitValue', filter.min);
         $('#layered_' + filter.type + '_range_max').attr('limitValue', filter.max);
@@ -162,17 +162,13 @@ function initFilters() {
   }
 }
 
-function hideFilterValueAction(it) {
-  if (typeof(layered_hidden_list[$(it).parent().find('ul').attr('id')]) == 'undefined' ||
-    layered_hidden_list[$(it).parent().find('ul').attr('id')] == false) {
-    $(it).parent().find('.hiddable').hide();
-    $(it).parent().find('.hide-action.less').hide();
-    $(it).parent().find('.hide-action.more').show();
-  } else {
-    $(it).parent().find('.hiddable').show();
-    $(it).parent().find('.hide-action.less').show();
-    $(it).parent().find('.hide-action.more').hide();
-  }
+function hideFilterValueAction($toggle) {
+  var $list  = $toggle.closest('ul');
+  var listId = $list.attr('id');
+  var expand = !!layered_hidden_list[listId];
+  $list.find('.hiddable').toggle(expand);
+  $list.find('.hide-action.less').toggle(expand);
+  $list.find('.hide-action.more').toggle(!expand);
 }
 
 function addSlider(type, data, unit, format) {
@@ -573,7 +569,7 @@ function reloadContent(params_plus) {
       updateProductUrl();
 
       $('.hide-action').each(function() {
-        hideFilterValueAction(this);
+        hideFilterValueAction($(this));
       });
 
       if (display instanceof Function) {
