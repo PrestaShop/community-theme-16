@@ -560,7 +560,11 @@ function reloadContent(params_plus) {
         }
       });
 
-      window.location.href = current_friendly_url;
+      if (history.pushState) {
+        history.pushState(null, '', current_friendly_url);
+      } else {
+        window.location.hash = current_friendly_url;
+      }
 
       if (current_friendly_url != '#/show-all') {
         $('.js-per-page').show();
