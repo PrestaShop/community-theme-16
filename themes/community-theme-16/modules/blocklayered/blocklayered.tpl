@@ -109,7 +109,7 @@
                         {/if}
                       {/foreach}
                     {else}
-                      <select class="select form-control" {if $filter.filter_show_limit > 1}multiple="multiple" size="{$filter.filter_show_limit}"{/if}>
+                      <select class="form-control" {if $filter.filter_show_limit > 1}multiple="multiple" size="{$filter.filter_show_limit}"{/if}>
                         <option value="">{l s='No filters' mod='blocklayered'}</option>
                         {foreach from=$filter.values key=id_value item=value}
                           {if $value.nbr || !$hide_0_values}
