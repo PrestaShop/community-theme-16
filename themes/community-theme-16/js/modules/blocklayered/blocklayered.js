@@ -20,12 +20,12 @@ $(function() {
   });
 
   // @TODO Click on label
-  $(document).on('click', '#layered_form input[type=checkbox], #layered_form input[type=radio]', function() {
+  $(document).on('click', '#layered_form input[type=checkbox]', function() {
     reloadContent(true);
   });
 
   // Doesn't work with document element
-  $('body').on('change', '#layered_form select', function() {
+  $('body').on('change', '#layered_form select, #layered_form input[type=radio]', function() {
     reloadContent(true);
   });
 
