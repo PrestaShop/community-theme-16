@@ -51,9 +51,9 @@
   <div class="col-xs-12 col-sm-6">
     <div class="categTree box">
       <h3 class="page-subheading">{l s='Categories'}</h3>
-      <div class="tree_top">
+      {*<div class="tree_top">
         <a href="{$base_dir_ssl}" title="{$categoriesTree.name|escape:'html':'UTF-8'}"><i class="icon icon-home"></i></a>
-      </div>
+      </div>*}
       <ul class="tree">
         {if !empty($categoriesTree.children)}
           {foreach $categoriesTree.children as $child}
