@@ -10,6 +10,10 @@
     font-size: $font-size-base;
     line-height: ($font-size-h1 * $headings-line-height);
     float: right;
+    @media (max-width: $screen-xs-max) {
+      float: none;
+      display: block;
+    }
   }
 
   span.lighter {
