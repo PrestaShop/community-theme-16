@@ -2,46 +2,12 @@
 @import "theme_variables";
 @import "vendor_variables";
 
-/******************************************************************
-                    Sitemap Page Styles
-*******************************************************************/
-#sitemap {
-  .sitemap_block {
-    .page-subheading {
-      margin-bottom: 16px;
-    }
-    li {
-      line-height: 16px;
-      padding-bottom: 11px;
-      a {
-        &:hover {
-          font-weight: bold;
-        }
-      }
-    }
-  }
-}
+// #sitemap {}
 
-#listpage_content div.tree_top {
-  padding: 5px 0 0 27px;
-}
-
-ul.tree {
-  padding-left: 24px;
-  li {
-    margin: 0 0 0 21px;
-    padding: 5px 0 0 33px;
-    border-left: 1px solid $ps-border-color;
-    background: url(../img/sitemap-horizontal.png) no-repeat left 15px transparent;
-    a:hover {
-      font-weight: bold;
-    }
-  }
-  > li {
-    margin: 0 0 0 11px;
-  }
-  li.last {
-    border: medium none;
-    background: url(../img/sitemap-last.png) no-repeat 0px -4px transparent;
+.sitemap_block,
+.categTree {
+  ul ul {
+    padding-left: 2em;
+    list-style: disc;
   }
 }
