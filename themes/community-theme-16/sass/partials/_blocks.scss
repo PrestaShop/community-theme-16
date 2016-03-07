@@ -44,6 +44,9 @@ $block-line-border: #ccc;
       padding: 0 0 15px 0;
       margin-bottom: 15px;
       border-bottom: 1px solid $block-line-border;
+      &:last-of-type {
+        border-bottom: none;
+      }
       .products-block-image {
         float: left;
         border: 1px solid $ps-border-color;
