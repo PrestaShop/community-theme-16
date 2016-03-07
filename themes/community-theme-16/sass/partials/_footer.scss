@@ -11,15 +11,11 @@
   text-align: center;
 }
 
-// BLOCK .footer_links (cms pages)
-ul.footer_links {
+// BLOCK .footer_links (cms, account pages)
+.footer_links {
   padding: 20px 0 0 0;
   border-top: 1px solid $ps-border-color;
-  height: 65px;
   li {
-    float: left;
-    &+li {
-      margin-left: 10px;
-    }
+    display: inline-block;
   }
 }
