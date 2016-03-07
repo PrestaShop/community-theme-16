@@ -54,7 +54,7 @@
       {*<div class="tree_top">
         <a href="{$base_dir_ssl}" title="{$categoriesTree.name|escape:'html':'UTF-8'}"><i class="icon icon-home"></i></a>
       </div>*}
-      <ul class="tree">
+      <ul>
         {if !empty($categoriesTree.children)}
           {foreach $categoriesTree.children as $child}
             {include file="$tpl_dir./category-tree-branch.tpl" node=$child}
