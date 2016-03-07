@@ -1,7 +1,6 @@
 /* global param_product_url */
 
 var ajaxQueries = [];
-var ajaxLoaderOn = 0;
 var sliderList = [];
 var slidersInit = false;
 
@@ -365,10 +364,8 @@ function reloadContent(params_plus) {
 
   stopAjaxQuery();
 
-  if (!ajaxLoaderOn) {
-    $('.product_list').css('opacity', '0.7').prepend($('#layered_ajax_loader').html());
-    ajaxLoaderOn = 1;
-  }
+  $form.addClass('loading-overlay');
+  $('.product_list').css('opacity', '0.5');
 
   var data = $form.serialize();
   $('.layered_slider').each(function() {
@@ -471,14 +468,11 @@ function reloadContent(params_plus) {
       if (result.productList) {
         $('.product_list').replaceWith(utf8_decode(result.productList));
       } else {
-        $('.product_list').html('');
+        $('.product_list').html('').css('opacity', '1');
+        $.browser.msie && $('.product_list').css('filter', '');
       }
 
-      $('.product_list').css('opacity', '1');
-      if ($.browser.msie)  {
-        // Fix bug with IE8 and aliasing
-        $('.product_list').css('filter', '');
-      }
+      $form.removeClass('loading-overlay');
 
       if (result.pagination.search(/[^\s]/) >= 0) {
         var pagination = $('<div/>').html(result.pagination);
