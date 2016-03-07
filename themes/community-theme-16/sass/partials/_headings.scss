@@ -1,57 +1,32 @@
 .page-heading {
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 22px;
-  text-transform: uppercase;
-  padding: 0 0 17px 0;
-  margin-bottom: 30px;
+  padding: 10px;
+  background-color: #f5f5f5;
+  margin: 0 0 20px;
   border-bottom: 1px solid $ps-border-color;
-  overflow: hidden;
+
+  // &.product-listing {}
+
   span.heading-counter {
-    font-weight: bold;
-    font-size: 13px;
-    line-height: 22px;
+    font-size: $font-size-base;
+    line-height: ($font-size-h1 * $headings-line-height);
     float: right;
-    text-transform: none;
-    margin-bottom: 10px;
-    @media (max-width: $screen-xs) {
-      float: none;
-      display: block;
-      padding-top: 5px;
-    }
   }
+
   span.lighter {
-    color: #9c9c9c;
-  }
-  &.bottom-indent {
-    margin-bottom: 16px;
-  }
-  &.product-listing {
-    border-bottom: none;
-    margin-bottom: 0;
+    color: $text-muted;
   }
 }
 
 .page-subheading {
-  font-weight: 600;
-  text-transform: uppercase;
-  font-size: 18px;
-  padding: 0 0 15px;
-  line-height: normal;
-  margin-bottom: 12px;
+  font-size: $font-size-h3;
+  padding: 0 0 8px;
+  margin: 0 0 10px;
   border-bottom: 1px solid $ps-border-color;
 }
 
-.page_product_box h3,
-h3.page-product-heading {
-  text-transform: uppercase;
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 20px;
-  padding: 14px 20px 17px;
-  margin: 0 0 20px;
-  position: relative;
-  border: 1px solid $ps-border-color;
-  border-bottom: none;
-  background: #fbfbfb;
+.page-product-heading {
+  padding: 10px;
+  margin: 0 0 15px;
+  border-bottom: 1px solid $ps-border-color;
+  background: #f5f5f5;
 }
