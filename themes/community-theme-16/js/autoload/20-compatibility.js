@@ -15,3 +15,5 @@ function bindUniform() {
 function dropDown() {}
 
 function accordionFooter() {}
+
+function accordion(s) {}
