@@ -50,9 +50,6 @@ E.g. `.product-list-item`.
 
 Here is what is currently planned for this theme:
 
-- Version 0.6.0
-  * Refactored page elements (headings, boxes, typography, etc)
-  * Refactored `blockcategories` and column blocks
 - Version 0.7.0
   * Refactored product lists and category page
 - Version 0.8.0

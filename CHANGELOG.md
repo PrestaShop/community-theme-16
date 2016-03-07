@@ -1,3 +1,20 @@
+# v0.6.0 (2016-03-07)
+
+This release contains a refactored `blockcategories` template
+and cleaned up `blocklayered` (but not fully refactored). Other changes include
+refactored heading and box elements.
+
+- Minor fixes to various page styles (#152, #153)
+- Headings `h1`, `h2`, ... have been reduced in size (#152)
+- Sitemap page was refactored along with tree management removal (#151)
+- Removed accordion and tree managements script (#150)
+- Refactored page heading and subheadings + `.box` (#149)
+- `blocklayered` has undergone severe wound treatment. Some complications may still come up. (#148)
+- `blockcategories` left column block refactored Bootstrap's `.list-group` (#144)
+- `.block` styles have been refactored (#142, #143)
+- Fixed module include in build process (#140)
+
+
 # v0.5.0 (2016-02-29)
 
 This release adds refactored header and footer blocks as well as
