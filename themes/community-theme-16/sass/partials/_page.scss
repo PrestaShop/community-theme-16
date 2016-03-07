@@ -4,6 +4,9 @@ $page-content-bg: #fff;
 
 body {
   background-color: $page-body-bg;
+  &.content_only {
+    background-color: $page-content-bg;
+  }
 }
 
 #header-blocks {
