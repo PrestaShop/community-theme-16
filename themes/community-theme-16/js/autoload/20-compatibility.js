@@ -15,3 +15,9 @@ function bindUniform() {
 function dropDown() {}
 
 function accordionFooter() {}
+
+function accordion(s) {}
+
+function openBranch($, n) {}
+function closeBranch($, n) {}
+function toggleBranch($, n) {}
