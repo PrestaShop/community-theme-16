@@ -1,6 +1,4 @@
-//product elements
-.product-name {
-}
+// .product-name {}
 
 .price {
   color: $product-price-color;
@@ -44,110 +42,41 @@
   }
 }
 
-//Labels New/Sale
-.new-box,
-.sale-box {
+.product-label-container {
   position: absolute;
-  top: -4px;
-  overflow: hidden;
-  height: 85px;
-  width: 85px;
-  text-align: center;
-  z-index: 0;
+  top: 0;
+  left: 0;
+  @include clearfix();
+  .product-label {
+    float: left;
+  }
 }
 
-.new-box {
-  left: -4px;
-}
-
-.sale-box {
-  right: -5px;
-}
-
-.new-label {
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 12px;
+.product-label {
+  font-size: 0.9em;
+  margin: 4px 0 0 4px;
+  padding: 2px 5px;
+  font-weight: bold;
+  background-color: #ccc;
   color: #fff;
+  @include box-shadow(0 1px 2px rgba(0,0,0,0.15));
+  &:last-of-type {
+    margin-right: 0;
+  }
+}
+
+.product-label-new {
   background: #6ad4ff;
-  text-transform: uppercase;
-  padding: 9px 0 7px;
-  width: 130px;
-  text-align: center;
-  display: block;
-  position: absolute;
-  left: -33px;
-  top: 16px;
-  z-index: 1;
-  @include rotate(-45deg);
-  &:before {
-    position: absolute;
-    bottom: -3px;
-    right: 5px;
-    width: 0px;
-    height: 0px;
-    border-style: solid;
-    border-width: 4px 4px 0px 4px;
-    border-color: #21a3d8 transparent transparent transparent;
-    content: ".";
-    text-indent: -5000px;
-    @include rotate(225deg);
-  }
-  &:after {
-    position: absolute;
-    bottom: -3px;
-    left: 3px;
-    width: 0px;
-    height: 0px;
-    border-style: solid;
-    border-width: 4px 4px 0px 4px;
-    border-color: #21a3d8 transparent transparent transparent;
-    content: ".";
-    text-indent: -5000px;
-    @include rotate(135deg);
-  }
 }
 
-.sale-label {
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 12px;
-  color: #fff;
+.product-label-sale {
   background: #f13340;
-  text-transform: uppercase;
-  padding: 9px 0 7px;
-  width: 130px;
-  text-align: center;
-  display: block;
-  position: absolute;
-  right: -33px;
-  top: 16px;
-  z-index: 1;
-  @include rotate(45deg);
-  &:before {
-    position: absolute;
-    bottom: -3px;
-    right: 4px;
-    width: 0px;
-    height: 0px;
-    border-style: solid;
-    border-width: 4px 4px 0px 4px;
-    border-color: #ad2b34 transparent transparent transparent;
-    content: ".";
-    text-indent: -5000px;
-    @include rotate(225deg);
-  }
-  &:after {
-    position: absolute;
-    bottom: -3px;
-    left: 5px;
-    width: 0px;
-    height: 0px;
-    border-style: solid;
-    border-width: 4px 4px 0px 4px;
-    border-color: #ad2b34 transparent transparent transparent;
-    content: ".";
-    text-indent: -5000px;
-    @include rotate(135deg);
-  }
+}
+
+.product-label-discount {
+  background-color: #f13340;
+}
+
+.product-label-online {
+  background-color: orange;
 }

@@ -83,10 +83,6 @@ a.fancybox-nav {
     .zoomPad {
       z-index : auto!important;
     }
-    .new-box,
-    .sale-box {
-      z-index: 5002
-    }
   }
 }
 
@@ -692,9 +688,6 @@ table.table-product-discounts{
 .content_prices {
   padding: 13px 19px;
 }
-.discount {
-  display: none;
-}
 .our_price_display {
   font-weight: 600;
   font-size: 29px;
@@ -740,13 +733,6 @@ table.table-product-discounts{
   }
 }
 
-/* online_only */
-.pb-center-column p.online_only {
-  font-weight: 700;
-  font-size: 13px;
-  color: #f13340;
-  text-align: left;
-}
 .buttons_bottom_block {
   clear: both;
   padding: 13px 19px 0;

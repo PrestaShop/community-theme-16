@@ -4,6 +4,7 @@
       <li class="ajax_block_product{if $page_name == 'index' || $page_name == 'product'} col-xs-12 col-sm-4 col-md-3{else} col-xs-12 col-sm-6 col-md-4{/if}">
         <div class="product-container" itemscope itemtype="https://schema.org/Product">
           <div class="left-block">
+
             <div class="product-image-container">
               <a class="product_img_link" href="{$product.link|escape:'html':'UTF-8'}" title="{$product.name|escape:'html':'UTF-8'}" itemprop="url">
                 <img class="replace-2x img-responsive" src="{$link->getImageLink($product.link_rewrite, $product.id_image, 'home_default')|escape:'html':'UTF-8'}" alt="{if !empty($product.legend)}{$product.legend|escape:'html':'UTF-8'}{else}{$product.name|escape:'html':'UTF-8'}{/if}" title="{if !empty($product.legend)}{$product.legend|escape:'html':'UTF-8'}{else}{$product.name|escape:'html':'UTF-8'}{/if}" {if isset($homeSize)} width="{$homeSize.width}" height="{$homeSize.height}"{/if} itemprop="image" />
@@ -51,17 +52,25 @@
                   {/if}
                 </div>
               {/if}
-              {if isset($product.new) && $product.new == 1}
-                <a class="new-box" href="{$product.link|escape:'html':'UTF-8'}">
-                  <span class="new-label">{l s='New'}</span>
-                </a>
-              {/if}
-              {if isset($product.on_sale) && $product.on_sale && isset($product.show_price) && $product.show_price && !$PS_CATALOG_MODE}
-                <a class="sale-box" href="{$product.link|escape:'html':'UTF-8'}">
-                  <span class="sale-label">{l s='Sale!'}</span>
-                </a>
-              {/if}
+
+              <div class="product-label-container">
+                {if (!$PS_CATALOG_MODE AND ((isset($product.show_price) && $product.show_price) || (isset($product.available_for_order) && $product.available_for_order)))}
+                  {if isset($product.online_only) && $product.online_only}
+                    <span class="product-label product-label-online">{l s='Online only'}</span>
+                  {/if}
+                {/if}
+                {if isset($product.new) && $product.new == 1}
+                  <span class="product-label product-label-new">{l s='New'}</span>
+                {/if}
+                {if isset($product.on_sale) && $product.on_sale && isset($product.show_price) && $product.show_price && !$PS_CATALOG_MODE}
+                  <span class="product-label product-label-sale">{l s='Sale!'}</span>
+                {elseif isset($product.reduction) && $product.reduction && isset($product.show_price) && $product.show_price && !$PS_CATALOG_MODE}
+                  <span class="product-label product-label-discount">{l s='Reduced price!'}</span>
+                {/if}
+              </div>
+
             </div>
+
             {if isset($product.is_virtual) && !$product.is_virtual}{hook h="displayProductDeliveryTime" product=$product}{/if}
             {hook h="displayProductPriceBlock" product=$product type="weight"}
           </div>
@@ -124,17 +133,6 @@
             {if isset($product.color_list)}
               <div class="color-list-container">{$product.color_list}</div>
             {/if}
-            <div class="product-flags">
-              {if (!$PS_CATALOG_MODE AND ((isset($product.show_price) && $product.show_price) || (isset($product.available_for_order) && $product.available_for_order)))}
-                {if isset($product.online_only) && $product.online_only}
-                  <span class="online_only">{l s='Online only'}</span>
-                {/if}
-              {/if}
-              {if isset($product.on_sale) && $product.on_sale && isset($product.show_price) && $product.show_price && !$PS_CATALOG_MODE}
-              {elseif isset($product.reduction) && $product.reduction && isset($product.show_price) && $product.show_price && !$PS_CATALOG_MODE}
-                <span class="discount">{l s='Reduced price!'}</span>
-              {/if}
-            </div>
             {if (!$PS_CATALOG_MODE && $PS_STOCK_MANAGEMENT && ((isset($product.show_price) && $product.show_price) || (isset($product.available_for_order) && $product.available_for_order)))}
               {if isset($product.available_for_order) && $product.available_for_order && !isset($restricted_country_mode)}
                 <span class="availability">

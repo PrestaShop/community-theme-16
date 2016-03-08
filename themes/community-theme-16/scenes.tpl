@@ -20,12 +20,17 @@
               <div class="description">{$product.details->description_short|strip_tags|truncate:170:'...'}</div>
               {if !$PS_CATALOG_MODE AND $product.details->show_price}
                 <div class="prices">
-                  {if isset($product.details->new) AND $product.details->new}<span class="new-box"><span class="new-label">{l s='New'}</span></span>{/if}
+                  {if isset($product.details->online_only) AND $product.details->online_only}
+                    <span class="product-label product-label-online">{l s='Online only'}</span>
+                  {/if}
+                  {if isset($product.details->new) AND $product.details->new}
+                    <span class="product-label product-label-new">{l s='New'}</span>
+                  {/if}
                   <p class="price product-price">{if $priceDisplay}{convertPrice price=$product.details->getPrice(false, $product.details->getDefaultAttribute($product.id_product))}{else}{convertPrice price=$product.details->getPrice(true, $product.details->getDefaultAttribute($product.id_product))}{/if}</p>
                   {if $product.details->on_sale}
-                    <span class="sale-box"><span class="sale-label">{l s='Sale'}</span></span>
+                    <span class="product-label product-label-sale">{l s='Sale'}</span>
                   {elseif isset($product.reduction) && $product.reduction}
-                    <span class="discount">{l s='Reduced price!'}</span>
+                    <span class="product-label product-label-discount">{l s='Reduced price!'}</span>
                   {/if}
                 </div>
               {/if}

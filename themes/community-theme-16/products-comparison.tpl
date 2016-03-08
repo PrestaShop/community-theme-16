@@ -30,18 +30,23 @@
                   src="{$link->getImageLink($product->link_rewrite, $product->id_image, 'home_default')|escape:'html':'UTF-8'}"
                   alt="{$product->name|escape:'html':'UTF-8'}" />
               </a>
-              {if isset($product->new) && $product->new == 1}
-                <a class="new-box" href="{$product->getLink()|escape:'html':'UTF-8'}">
-                  <span class="new-label">{l s='New'}</span>
-                </a>
-              {/if}
-              {if isset($product->show_price) && $product->show_price && !isset($restricted_country_mode) && !$PS_CATALOG_MODE}
-                {if $product->on_sale}
-                  <a class="sale-box" href="{$product->getLink()|escape:'html':'UTF-8'}">
-                    <span class="sale-label">{l s='Sale!'}</span>
-                  </a>
+
+              <div class="product-label-container">
+                {if (!$PS_CATALOG_MODE AND ((isset($product->show_price) && $product->show_price) || (isset($product->available_for_order) && $product->available_for_order)))}
+                  {if isset($product->online_only) && $product->online_only}
+                    <span class="product-label product-label-online">{l s='Online only'}</span>
+                  {/if}
                 {/if}
-              {/if}
+                {if isset($product->new) && $product->new == 1}
+                  <span class="product-label product-label-new">{l s='New'}</span>
+                {/if}
+                {if isset($product->on_sale) && $product->on_sale && isset($product->show_price) && $product->show_price && !$PS_CATALOG_MODE}
+                  <span class="product-label product-label-sale">{l s='Sale!'}</span>
+                {elseif isset($product->reduction) && $product->reduction && isset($product->show_price) && $product->show_price && !$PS_CATALOG_MODE}
+                  <span class="product-label product-label-discount">{l s='Reduced price!'}</span>
+                {/if}
+              </div>
+
             </div> <!-- end product-image-block -->
             <h5>
               <a class="product-name" href="{$product->getLink()|escape:'html':'UTF-8'}" title="{$product->name|truncate:32:'...'|escape:'html':'UTF-8'}">
