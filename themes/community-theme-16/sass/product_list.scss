@@ -4,17 +4,14 @@
 
 //---------- Product Listing
 $base-listing-border-color: $ps-border-color;
+$quick-view-btn-size: 31px;
 
 /*******************************************************
 Product list Styles
 ********************************************************/
 
 ul.product_list {
-  .product-name {
-    display: inline-block;
-    width: 100%;
-    overflow: hidden;
-  }
+  // .product-name {}
   .availability {
     span {
       display: inline-block;
@@ -51,82 +48,16 @@ ul.product_list {
     img {
       margin: 0 auto;
     }
-    .quick-view-wrapper-mobile {
-      display: none;
-      .quick-view-mobile {
-        display: none;
-        @media (max-width: $screen-md-max) {
-          display: block;
-          position: relative;
-          background-color: rgba(208, 208, 211, 0.57);
-          height: 130px;
-          width: 85px;
-          top: 80px;
-          right: -162px;
-          -moz-transform: rotate(45deg);
-          -o-transform: rotate(45deg);
-          -webkit-transform: rotate(45deg);
-          -ms-transform: rotate(45deg);
-          transform: rotate(45deg);
-          zoom: 1;
-          pointer-events: all;
-          i {
-            position: relative;
-            top: 48px;
-            left: -20px;
-            font-size: x-large;
-            color: black;
-          }
-          i:before{
-            -moz-transform: rotate(315deg);
-            -o-transform: rotate(315deg);
-            -webkit-transform: rotate(315deg);
-            -ms-transform: rotate(315deg);
-            transform: rotate(315deg);
-          }
-        }
-      }
-      .quick-view-mobile:hover{
-        @media (max-width: $screen-md-max) {
-          background-color: rgba(167, 167, 167, 0.57);
-        }
-      }
-      @media (max-width: $screen-md-max) {
-        display: block;
-        background-color: transparent;
-        height: 155px;
-        width: 215px;
-        position: absolute;
-        overflow: hidden;
-        pointer-events: none;
-        bottom: 0px;
-        right: 0px;
-      }
-    }
     .quick-view {
-      font-weight: 700;
-      font-size: 13px;
-      line-height: 16px;
-      color: #777676;
+      width: $quick-view-btn-size;
       position: absolute;
-      left: 50%;
-      top: 50%;
-      margin: -21px 0 0 -53px;
-      padding: 13px 0 0;
-      background: rgba(255,255,255,0.82);
-      width: 107px;
-      height: 43px;
+      top: 0;
+      right: 0;
       text-align: center;
-      @include box-shadow(rgba(black, 0.16) 0 2px 8px);
-      @media (max-width: $screen-md-max) {
-        display: none;
-      }
-      @media (min-width: $screen-lg) { // min 1200px
-        display: none;
-      }
-      @media (max-width: $screen-xs-max) { // max 767px
-        display: none;
-      }
+      padding: 5px 8px;
+      border: 1px solid #ccc;
+      border-right: none;
+      border-top: none;
     }
   }
   .comments_note {
@@ -227,6 +158,10 @@ ul.product_list.grid {
           margin-left: auto;
           margin-right: auto;
         }
+        .product-label-container {
+          padding-right: $quick-view-btn-size;
+        }
+
         .content_price {
           position: absolute;
           left: 0;
@@ -307,9 +242,6 @@ ul.product_list.grid {
           }
           .product-image-container {
             .content_price {
-              display: block;
-            }
-            .quick-view {
               display: block;
             }
           }
@@ -461,15 +393,6 @@ ul.product_list.list {
         }
       }
     }
-    @media (min-width: $screen-lg) { // min 1200px
-      &:hover {
-        .product-image-container {
-          .quick-view {
-            display: block;
-          }
-        }
-      }
-    }
     @media (max-width: $screen-xs - 1) { // max 479px
       text-align: center;
     }
@@ -493,13 +416,5 @@ Product list(Index page) Styles
         display: none;
       }
     }
-  }
-}
-/***** IE code *****/
-
-.ie8 {
-  .quick-view {
-    background: #fff;
-    border: 1px solid $ps-border-color;
   }
 }
