@@ -68,7 +68,7 @@
     <h5 class="h4" itemprop="name">
       {if isset($product.pack_quantity) && $product.pack_quantity}{$product.pack_quantity|intval|cat:' x '}{/if}
       <a class="product-name" href="{$product.link|escape:'html':'UTF-8'}" title="{$product.name|escape:'html':'UTF-8'}" itemprop="url" >
-        {$product.name|truncate:45:'...'|escape:'html':'UTF-8'}
+        {$product.name|escape:'html':'UTF-8'}
       </a>
     </h5>
     {capture name='displayProductListReviews'}{hook h='displayProductListReviews' product=$product}{/capture}
