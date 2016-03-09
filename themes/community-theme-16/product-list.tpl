@@ -1,7 +1,8 @@
-{if isset($products) && $products}
-  <ul{if isset($id) && $id} id="{$id}"{/if} class="product_list grid row{if isset($class) && $class} {$class}{/if}">
+{if !empty($products)}
+  <ul{if !empty($id)} id="{$id}"{/if} class="product_list grid row{if !empty($class)} {$class}{/if}">
     {foreach from=$products item=product name=products}
       <li class="ajax_block_product{if $page_name == 'index' || $page_name == 'product'} col-xs-12 col-sm-4 col-md-3{else} col-xs-12 col-sm-6 col-md-4{/if}">
+
         <div class="product-container" itemscope itemtype="https://schema.org/Product">
           <div class="left-block">
 
@@ -159,11 +160,14 @@
             </div>
           {/if}
         </div>
+
       </li>
     {/foreach}
   </ul>
+
   {addJsDefL name=min_item}{l s='Please select at least one product' js=1}{/addJsDefL}
   {addJsDefL name=max_item}{l s='You cannot add more than %d product(s) to the product comparison' sprintf=$comparator_max_item js=1}{/addJsDefL}
   {addJsDef comparator_max_item=$comparator_max_item}
   {addJsDef comparedProductsIds=$compared_products}
+
 {/if}
