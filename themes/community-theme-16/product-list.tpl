@@ -1,7 +1,16 @@
 {if !empty($products)}
+
+  {if $page_name == 'index' || $page_name == 'product'}
+    {$product_block_size_class = 'col-xs-12 col-sm-4 col-md-3'}
+  {else}
+    {$product_block_size_class = 'col-xs-12 col-sm-6 col-md-4'}
+  {/if}
+
+  {$show_functional_buttons = $page_name != 'index'}
+
   <ul{if !empty($id)} id="{$id}"{/if} class="product_list grid row{if !empty($class)} {$class}{/if}">
     {foreach from=$products item=product}
-      <li class="ajax_block_product{if $page_name == 'index' || $page_name == 'product'} col-xs-12 col-sm-4 col-md-3{else} col-xs-12 col-sm-6 col-md-4{/if}">
+      <li class="ajax_block_product {$product_block_size_class}">
 
         <div class="product-container" itemscope itemtype="https://schema.org/Product">
           <div class="left-block">
@@ -149,7 +158,8 @@
               {/if}
             {/if}
           </div>
-          {if $page_name != 'index'}
+
+          {if $show_functional_buttons}
             <div class="functional-buttons clearfix">
               {hook h='displayProductListFunctionalButtons' product=$product}
               {if isset($comparator_max_item) && $comparator_max_item}
@@ -159,6 +169,7 @@
               {/if}
             </div>
           {/if}
+
         </div>
 
       </li>
