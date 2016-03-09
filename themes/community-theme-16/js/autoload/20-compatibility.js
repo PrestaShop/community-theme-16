@@ -21,3 +21,4 @@ function accordion(s) {}
 function openBranch($, n) {}
 function closeBranch($, n) {}
 function toggleBranch($, n) {}
+function blockHover(s) {}
