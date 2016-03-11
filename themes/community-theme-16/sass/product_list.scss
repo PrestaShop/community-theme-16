@@ -33,6 +33,7 @@ $quick-view-btn-size: 31px;
 // Component classes
 //
 .quick-view {
+  display: none;
   width: $quick-view-btn-size;
   position: absolute;
   top: 0;
@@ -72,17 +73,24 @@ $quick-view-btn-size: 31px;
 .product-container {
   text-align: center;
   margin-bottom: 30px;
+  border-bottom: 1px solid transparent; // Preserves block heights on hover
+  &:hover {
+    .quick-view {
+      display: block;
+    }
+  }
 }
 
 .content_price {
   text-align: center;
-  font-size: 1.25em;
+  font-size: 1.4em;
 }
 
 .product-image-container {
   position: relative;
   border: 1px solid #ccc;
   .content_price {
+    display: none;
     position: absolute;
     left: 0;
     bottom: 0;
@@ -102,6 +110,21 @@ $quick-view-btn-size: 31px;
   }
   .availability {
     margin-bottom: 10px;
+  }
+}
+
+.product-grid {
+  .product-container {
+    &:hover {
+      border: 1px solid #ccc;
+      .product-image-container{
+        border: none;
+        border-bottom: 1px solid transparent;
+        .content_price {
+          display: block;
+        }
+      }
+    }
   }
 }
 
