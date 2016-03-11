@@ -8,13 +8,19 @@ $product-grid-item-hover-bg: #f6f6f6;
 //
 // Transformation classes
 //
-.show-if-product-item-hover,
-.show-if-product-grid-hover,
-.show-if-product-list-hover {
-  display: none;
+.product_list {
+  .show-if-product-item-hover {
+    display: none;
+  }
+  .product-container:hover {
+    .show-if-product-item-hover {
+      display: block;
+    }
+  }
 }
 
 .product_list.list {
+  .show-if-product-list-hover,
   .hide-if-product-list {
     display: none;
   }
@@ -26,6 +32,7 @@ $product-grid-item-hover-bg: #f6f6f6;
 }
 
 .product_list.grid {
+  .show-if-product-grid-hover,
   .hide-if-product-grid {
     display: none;
   }
@@ -80,11 +87,6 @@ $product-grid-item-hover-bg: #f6f6f6;
   text-align: center;
   margin-bottom: 30px;
   border-bottom: 1px solid transparent; // Preserves block heights on hover
-  &:hover {
-    .show-if-product-item-hover {
-      display: block;
-    }
-  }
 }
 
 .hook-reviews {
@@ -140,8 +142,10 @@ $product-grid-item-hover-bg: #f6f6f6;
       .button-container {
         display: block;
       }
-      .content_price {
-        @include opacity(0);
+      .product-actions-container {
+        .content_price {
+          @include opacity(0);
+        }
       }
     }
   }
