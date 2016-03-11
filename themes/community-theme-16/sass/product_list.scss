@@ -127,6 +127,12 @@ $product-grid-item-hover-bg: #f6f6f6;
     margin-bottom: 45px;
     &:hover {
       background-color: $product-grid-item-hover-bg;
+      border: 1px solid #ccc;
+      .product-image-container {
+        border-left: none;
+        border-right: none;
+        border-top: none;
+      }
     }
   }
   .functional-buttons {
@@ -134,9 +140,11 @@ $product-grid-item-hover-bg: #f6f6f6;
     left: 0;
     width: 100%;
     z-index: 1;
-    border-top: 1px solid #ccc;
+    border: 1px solid #ccc;
     background-color: $product-grid-item-hover-bg;
     padding: 3px 5px;
+    margin-left: -1px;
+    margin-right: -1px;
     > div {
       float: left;
       width: 50%;
