@@ -3,13 +3,42 @@
 @import "vendor_variables";
 
 $quick-view-btn-size: 31px;
+$product-grid-item-hover-bg: #f6f6f6;
 
+//
+// Transformation classes
+//
 .show-if-product-item-hover,
 .show-if-product-grid-hover,
 .show-if-product-list-hover {
   display: none;
 }
 
+.product-list {
+  .hide-if-product-list {
+    display: none;
+  }
+  .product-container:hover {
+    .show-if-product-list-hover {
+      display: block;
+    }
+  }
+}
+
+.product-grid {
+  .hide-if-product-grid {
+    display: none;
+  }
+  .product-container:hover {
+    .show-if-product-grid-hover {
+      display: block;
+    }
+  }
+}
+
+//
+// Component classes
+//
 .quick-view {
   width: $quick-view-btn-size;
   position: absolute;
@@ -94,15 +123,9 @@ $quick-view-btn-size: 31px;
 }
 
 .product-grid {
-  .hide-if-product-grid {
-    display: none;
-  }
   .product-container {
     &:hover {
-      background-color: #d4d4d4;
-      .show-if-product-grid-hover {
-        display: block;
-      }
+      background-color: $product-grid-item-hover-bg;
     }
   }
   .functional-buttons {
@@ -110,7 +133,8 @@ $quick-view-btn-size: 31px;
     left: 0;
     width: 100%;
     z-index: 1;
-    background-color: #d4d4d4;
+    border-top: 1px solid #ccc;
+    background-color: $product-grid-item-hover-bg;
     padding: 3px 5px;
     > div {
       float: left;
@@ -120,19 +144,11 @@ $quick-view-btn-size: 31px;
 }
 
 .product-list {
-  .hide-if-product-list {
-    display: none;
-  }
   .ajax_block_product {
     width: 100%;
   }
   .product-container {
     @include clearfix();
-    &:hover {
-      .show-if-product-list-hover {
-        display: block;
-      }
-    }
   }
   .product-image-container,
   .product-description-container,
