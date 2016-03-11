@@ -1,8 +1,6 @@
 <div class="product-container" itemscope itemtype="https://schema.org/Product">
-  <div class="row no-gutter">
-    <div class="col-xs-12 col-sm-4 block-if-product-grid">
 
-      <div class="product-image-container">
+  <div class="product-image-container">
         <a class="product_img_link" href="{$product.link|escape:'html':'UTF-8'}" title="{$product.name|escape:'html':'UTF-8'}" itemprop="url">
           <img class="replace-2x img-responsive center-block" src="{$link->getImageLink($product.link_rewrite, $product.id_image, 'home_default')|escape:'html':'UTF-8'}" alt="{if !empty($product.legend)}{$product.legend|escape:'html':'UTF-8'}{else}{$product.name|escape:'html':'UTF-8'}{/if}" title="{if !empty($product.legend)}{$product.legend|escape:'html':'UTF-8'}{else}{$product.name|escape:'html':'UTF-8'}{/if}" {if isset($homeSize)} width="{$homeSize.width}" height="{$homeSize.height}"{/if} itemprop="image" />
         </a>
@@ -65,10 +63,7 @@
 
       </div>
 
-    </div>
-    <div class="col-xs-12 col-sm-4 block-if-product-grid">
-
-      <div class="product-description-container">
+  <div class="product-description-container">
         <h5 class="h4 product-name" itemprop="name">
           {if isset($product.pack_quantity) && $product.pack_quantity}{$product.pack_quantity|intval|cat:' x '}{/if}
           <a class="product-name" href="{$product.link|escape:'html':'UTF-8'}" title="{$product.name|escape:'html':'UTF-8'}" itemprop="url" >
@@ -90,10 +85,7 @@
         </p>
       </div>
 
-    </div>
-    <div class="col-xs-12 col-sm-4 block-if-product-grid">
-
-      <div class="product-actions-container">
+  <div class="product-actions-container">
         {if (!$PS_CATALOG_MODE AND ((isset($product.show_price) && $product.show_price) || (isset($product.available_for_order) && $product.available_for_order)))}
           <div class="content_price">
             {if isset($product.show_price) && $product.show_price && !isset($restricted_country_mode)}
@@ -164,6 +156,4 @@
         {/if}
       </div>
 
-    </div>
-  </div>
 </div>
