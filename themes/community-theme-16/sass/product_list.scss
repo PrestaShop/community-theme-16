@@ -44,7 +44,7 @@ $quick-view-btn-size: 31px;
 
 .content_price {
   text-align: center;
-  font-size: 1.2em;
+  font-size: 1.25em;
 }
 
 .product-image-container {
@@ -54,7 +54,14 @@ $quick-view-btn-size: 31px;
     left: 0;
     bottom: 0;
     width: 100%;
-    background: rgba(50, 50, 50, 0.55);
+    background: rgba(50, 50, 50, 0.65);
     padding: 3px;
+    color: #fff;
+  }
+}
+
+.product-actions-container {
+  .content_price {
+    margin-bottom: 10px;
   }
 }
