@@ -124,6 +124,7 @@ $product-grid-item-hover-bg: #f6f6f6;
 
 .product-grid {
   .product-container {
+    margin-bottom: 45px;
     &:hover {
       background-color: $product-grid-item-hover-bg;
     }
