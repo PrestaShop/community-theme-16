@@ -44,6 +44,31 @@ $quick-view-btn-size: 31px;
   border-top: none;
 }
 
+.color-list-container {
+  margin-bottom: 10px;
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    line-height: 0;
+    li {
+      display: inline-block;
+      border: 1px solid $ps-border-color;
+      a {
+        display: block;
+        width: 22px;
+        height: 22px;
+        margin: 1px;
+        img {
+          display: block;
+          width: 22px;
+          height: 22px;
+        }
+      }
+    }
+  }
+}
+
 .product-container {
   text-align: center;
 }
