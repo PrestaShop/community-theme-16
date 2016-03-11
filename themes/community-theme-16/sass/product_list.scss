@@ -4,6 +4,12 @@
 
 $quick-view-btn-size: 31px;
 
+.show-if-product-item-hover,
+.show-if-product-grid-hover,
+.show-if-product-list-hover {
+  display: none;
+}
+
 .quick-view {
   width: $quick-view-btn-size;
   position: absolute;
@@ -45,6 +51,11 @@ $quick-view-btn-size: 31px;
   text-align: center;
   margin-bottom: 30px;
   border-bottom: 1px solid transparent; // Preserves block heights on hover
+  &:hover {
+    .show-if-product-item-hover {
+      display: block;
+    }
+  }
 }
 
 .content_price {
@@ -69,6 +80,8 @@ $quick-view-btn-size: 31px;
 }
 
 .product-actions-container {
+  position: relative;
+  overflow: visible;
   .content_price {
     margin-bottom: 10px;
   }
@@ -87,9 +100,18 @@ $quick-view-btn-size: 31px;
   .product-container {
     &:hover {
       background-color: #d4d4d4;
+      .show-if-product-grid-hover {
+        display: block;
+      }
     }
   }
   .functional-buttons {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    background-color: #d4d4d4;
+    padding: 3px 5px;
     > div {
       float: left;
       width: 50%;
@@ -106,6 +128,11 @@ $quick-view-btn-size: 31px;
   }
   .product-container {
     @include clearfix();
+    &:hover {
+      .show-if-product-list-hover {
+        display: block;
+      }
+    }
   }
   .product-image-container,
   .product-description-container,

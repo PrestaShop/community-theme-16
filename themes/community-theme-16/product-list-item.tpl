@@ -6,13 +6,13 @@
         </a>
 
         {if isset($quick_view) && $quick_view}
-          <a class="quick-view" href="{$product.link|escape:'html':'UTF-8'}" title="{l s='Open quick view window'}" rel="{$product.link|escape:'html':'UTF-8'}">
+          <a class="quick-view show-if-product-item-hover" href="{$product.link|escape:'html':'UTF-8'}" title="{l s='Open quick view window'}" rel="{$product.link|escape:'html':'UTF-8'}">
             <i class="icon icon-eye-open"></i>
           </a>
         {/if}
 
         {if (!$PS_CATALOG_MODE && ((isset($product.show_price) && $product.show_price) || (isset($product.available_for_order) && $product.available_for_order)))}
-          <div class="content_price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+          <div class="content_price show-if-product-grid-hover" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
             {if isset($product.show_price) && $product.show_price && !isset($restricted_country_mode)}
               <span itemprop="price" class="price product-price">
                 {hook h="displayProductPriceBlock" product=$product type="before_price"}
@@ -145,7 +145,7 @@
           {/if}
         {/if}
         {if $show_functional_buttons}
-          <div class="functional-buttons clearfix">
+          <div class="functional-buttons clearfix show-if-product-grid-hover">
             {hook h='displayProductListFunctionalButtons' product=$product}
             {if isset($comparator_max_item) && $comparator_max_item}
               <div class="compare">
