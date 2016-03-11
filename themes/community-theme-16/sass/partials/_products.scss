@@ -6,17 +6,17 @@
 }
 
 .old-price {
-  color: $product-old-price-color;
+  color: $product-price-old-color;
   text-decoration: line-through;
   // &.product-price {}
 }
 
 .special-price {
-  color: $product-special-price-color;
+  color: $product-price-special-color;
 }
 
 .price-percent-reduction {
-  background: #f13340;
+  background: $product-price-reduction-color;
   color: #fff;
   padding: 0 0.25em;
   display: inline-block;

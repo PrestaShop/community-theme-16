@@ -77,7 +77,7 @@ table#product_comparison {
   .product_discount {
     padding-top: 5px;
     .reduced-price {
-      color: $product-reduced-price-color;
+      color: $product-price-reduction-color;
       font-weight: 700;
     }
   }
@@ -91,7 +91,6 @@ table#product_comparison {
   }
   .comparison_unit_price {
     font-size: 17px;
-    color: $product-price-color;
     font-style: italic;
   }
   .product-rating {
