@@ -8,11 +8,19 @@ $quick-view-btn-size: 31px;
 // Transformation classes
 //
 .product-grid {
-
+  .block-if-product-grid {
+    display: block;
+    width: 100%;
+    float: none;
+  }
 }
 
 .product-list {
-
+  .block-if-product-list {
+    display: block;
+    width: 100%;
+    float: none;
+  }
 }
 
 //
