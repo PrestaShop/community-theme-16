@@ -162,7 +162,7 @@ $product-grid-item-hover-bg: #f6f6f6;
     border: 1px solid #ccc;
     background-color: $product-grid-item-hover-bg;
     margin-left: -1px;
-    margin-right: -1px;
+    @include box-sizing(content-box);
     > div {
       padding: 3px;
       float: left;
