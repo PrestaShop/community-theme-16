@@ -19,14 +19,14 @@
       {/if}
       {foreachelse}
       <a href="#" id="wishlist_button_nopop" onclick="WishlistCart('wishlist_block_list', 'add', '{$id_product|intval}', $('#idCombination').val(), document.getElementById('quantity_wanted').value); return false;" rel="nofollow"  title="{l s='Add to my wishlist' mod='blockwishlist'}">
-        {l s='Add to wishlist' mod='blockwishlist'}
+        <i class="icon icon-star-o"></i> {l s='Add to wishlist' mod='blockwishlist'}
       </a>
     {/foreach}
   </div>
 {else}
   <div class="wishlist">
     <a class="addToWishlist wishlistProd_{$product.id_product|intval}" href="#" rel="{$product.id_product|intval}" onclick="WishlistCart('wishlist_block_list', 'add', '{$product.id_product|intval}', false, 1); return false;">
-      {l s="Add to Wishlist" mod='blockwishlist'}
+      <i class="icon icon-star-o"></i> {l s="Add to Wishlist" mod='blockwishlist'}
     </a>
   </div>
 {/if}

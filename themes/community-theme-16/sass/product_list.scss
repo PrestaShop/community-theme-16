@@ -161,14 +161,18 @@ $product-grid-item-hover-bg: #f6f6f6;
     z-index: 1;
     border: 1px solid #ccc;
     background-color: $product-grid-item-hover-bg;
-    padding: 3px 5px;
     margin-left: -1px;
     margin-right: -1px;
     > div {
+      padding: 3px;
       float: left;
       width: 50%;
     }
   }
+}
+
+.add_to_compare.checked .icon:before {
+  content: '\f068';
 }
 
 .product-list {
