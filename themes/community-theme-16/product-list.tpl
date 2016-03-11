@@ -8,7 +8,7 @@
 
   {$show_functional_buttons = $page_name != 'index'}
 
-  <ul{if !empty($id)} id="{$id}"{/if} class="product_list list-grid row{if !empty($class)} {$class}{/if}">
+  <ul{if !empty($id)} id="{$id}"{/if} class="product_list product-grid list-grid row{if !empty($class)} {$class}{/if}">
 
     {* IMPORTANT! There must be no spaces betweem </li><li> tags! *}
     {foreach from=$products item=product}<li class="ajax_block_product block-if-product-list {$product_block_size_class}">
