@@ -85,7 +85,7 @@
         {if isset($product.is_virtual) && !$product.is_virtual}{hook h="displayProductDeliveryTime" product=$product}{/if}
         {hook h="displayProductPriceBlock" product=$product type="weight"}
 
-        <p class="product-desc" itemprop="description">
+        <p class="product-desc hide-if-product-grid" itemprop="description">
           {$product.description_short|strip_tags:'UTF-8'|truncate:360:'...'}
         </p>
       </div>
