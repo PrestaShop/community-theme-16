@@ -13,6 +13,9 @@ $quick-view-btn-size: 31px;
     width: 100%;
     float: none;
   }
+  .hide-if-product-grid {
+    display: none;
+  }
 }
 
 .product-list {
@@ -20,6 +23,9 @@ $quick-view-btn-size: 31px;
     display: block;
     width: 100%;
     float: none;
+  }
+  .hide-if-product-list {
+    display: none;
   }
 }
 
