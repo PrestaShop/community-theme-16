@@ -347,7 +347,6 @@ span.view_scroll_spacer {
   h1 {
     padding-bottom: 16px;
     font-size: 20px;
-    color: $product-name-color;
   }
   p {
     margin-bottom: 10px;
@@ -598,10 +597,6 @@ table.table-product-discounts{
     a{
       font-size: 15px;
       line-height: 18px;
-      color: $product-name-color;
-      &:hover{
-        color: $product-name-hover-color;
-      }
     }
   }
   div ul li {
