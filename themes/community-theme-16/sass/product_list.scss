@@ -14,7 +14,7 @@ $product-grid-item-hover-bg: #f6f6f6;
   display: none;
 }
 
-.product-list {
+.product_list.list {
   .hide-if-product-list {
     display: none;
   }
@@ -25,7 +25,7 @@ $product-grid-item-hover-bg: #f6f6f6;
   }
 }
 
-.product-grid {
+.product_list.grid {
   .hide-if-product-grid {
     display: none;
   }
@@ -126,7 +126,7 @@ $product-grid-item-hover-bg: #f6f6f6;
   }
 }
 
-.product-grid {
+.product_list.grid {
   .product-container {
     margin-bottom: 45px;
     &:hover {
@@ -180,7 +180,7 @@ $product-grid-item-hover-bg: #f6f6f6;
   content: '\f068';
 }
 
-.product-list {
+.product_list.list {
   .ajax_block_product {
     width: 100%;
   }
