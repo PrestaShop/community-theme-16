@@ -133,7 +133,26 @@ $product-grid-item-hover-bg: #f6f6f6;
         border-right: none;
         border-top: none;
       }
+      .button-container {
+        display: block;
+      }
+      .content_price {
+        @include opacity(0);
+      }
     }
+  }
+  .product-price-button-wrapper {
+    position: relative;
+    // This needs to have minimum height of the buttons that will be displayed on hover
+    // @see bootstrap/_buttons.scss
+    min-height: 2*$padding-base-vertical + 2*1 + $font-size-base*$line-height-base;
+  }
+  .button-container {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
   }
   .functional-buttons {
     position: absolute;
