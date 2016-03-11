@@ -145,7 +145,8 @@ $product-grid-item-hover-bg: #f6f6f6;
     position: relative;
     // This needs to have minimum height of the buttons that will be displayed on hover
     // @see bootstrap/_buttons.scss
-    min-height: 2*$padding-base-vertical + 2*1 + $font-size-base*$line-height-base;
+    min-height: round(2*$padding-base-vertical + 2*1 + $font-size-base*$line-height-base);
+    margin-bottom: 10px;
   }
   .button-container {
     display: none;
