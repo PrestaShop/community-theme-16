@@ -17,9 +17,9 @@
           <div class="content_price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
             {if isset($product.show_price) && $product.show_price && !isset($restricted_country_mode)}
               <span itemprop="price" class="price product-price">
-              {hook h="displayProductPriceBlock" product=$product type="before_price"}
+                {hook h="displayProductPriceBlock" product=$product type="before_price"}
                 {if !$priceDisplay}{convertPrice price=$product.price}{else}{convertPrice price=$product.price_tax_exc}{/if}
-            </span>
+              </span>
               <meta itemprop="priceCurrency" content="{$currency->iso_code}" />
               {if $product.price_without_reduction > 0 && isset($product.specific_prices) && $product.specific_prices && isset($product.specific_prices.reduction) && $product.specific_prices.reduction > 0}
                 {hook h="displayProductPriceBlock" product=$product type="old_price"}
@@ -69,7 +69,7 @@
     <div class="col-xs-12 col-sm-4 block-if-product-grid">
 
       <div class="product-description-container">
-        <h5 class="h4" itemprop="name">
+        <h5 class="h4 product-name" itemprop="name">
           {if isset($product.pack_quantity) && $product.pack_quantity}{$product.pack_quantity|intval|cat:' x '}{/if}
           <a class="product-name" href="{$product.link|escape:'html':'UTF-8'}" title="{$product.name|escape:'html':'UTF-8'}" itemprop="url" >
             {$product.name|escape:'html':'UTF-8'}
