@@ -1,24 +1,14 @@
 // .product-name {}
 
 .price {
-  color: $product-price-color;
   white-space: nowrap;
-}
-
-.price.product-price {
-  font-weight: 600;
-  font-size: 21px;
-  line-height: 26px;
-  color: $product-price-color;
+  // &.product-price {}
 }
 
 .old-price {
   color: $product-old-price-color;
   text-decoration: line-through;
-}
-
-.old-price.product-price {
-  font-size: 17px;
+  // &.product-price {}
 }
 
 .special-price {
@@ -27,19 +17,10 @@
 
 .price-percent-reduction {
   background: #f13340;
-  border: 1px solid #d02a2c;
-  font-weight: 600;
-  font-size: 21px;
-  line-height: 24px;
   color: #fff;
-  padding: 0 5px 0 3px;
+  padding: 0 0.25em;
   display: inline-block;
-  &.small {
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 17px;
-    padding: 1px 6px;
-  }
+  // &.small {}
 }
 
 .product-label-container {
