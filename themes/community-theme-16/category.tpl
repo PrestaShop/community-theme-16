@@ -1,3 +1,5 @@
+{$display_subcategories = (isset($display_subcategories) && $display_subcategories eq 1) || !isset($display_subcategories)}
+
 {include file="$tpl_dir./errors.tpl"}
 
 {if !empty($category) && $category->id}
@@ -40,35 +42,33 @@
       {include file="$tpl_dir./category-count.tpl"}
     </h1>
 
-    {if isset($subcategories)}
-      {if (isset($display_subcategories) && $display_subcategories eq 1) || !isset($display_subcategories) }
-        <div id="subcategories">
-          <h2 class="page-heading">{l s='Subcategories'}</h2>
-          <ul class="list-grid row">
-            {foreach from=$subcategories item=subcategory}
-              <li class="col-xs-6 col-sm-4 col-md-3">
-                <div class="thumbnail">
-                  <a href="{$link->getCategoryLink($subcategory.id_category, $subcategory.link_rewrite)|escape:'html':'UTF-8'}" title="{$subcategory.name|escape:'html':'UTF-8'}">
-                    {if $subcategory.id_image}
-                      <img class="replace-2x img-responsive" src="{$link->getCatImageLink($subcategory.link_rewrite, $subcategory.id_image, 'medium_default')|escape:'html':'UTF-8'}" alt="{$subcategory.name|escape:'html':'UTF-8'}" width="{$mediumSize.width}" height="{$mediumSize.height}" />
-                    {else}
-                      <img class="replace-2x img-responsive" src="{$img_cat_dir}{$lang_iso}-default-medium_default.jpg" alt="{$subcategory.name|escape:'html':'UTF-8'}" width="{$mediumSize.width}" height="{$mediumSize.height}" />
-                    {/if}
-                  </a>
-                  <div class="caption">
-                    <h3 class="text-center">
-                      <a href="{$link->getCategoryLink($subcategory.id_category, $subcategory.link_rewrite)|escape:'html':'UTF-8'}">{$subcategory.name|escape:'html':'UTF-8'}</a>
-                    </h3>
-                    {if $subcategory.description}
-                      <div>{$subcategory.description}</div>
-                    {/if}
-                  </div>
+    {if !empty($subcategories) && $display_subcategories}
+      <div id="subcategories">
+        <h2 class="page-heading">{l s='Subcategories'}</h2>
+        <ul class="list-grid row">
+          {foreach from=$subcategories item=subcategory}
+            <li class="col-xs-6 col-sm-4 col-md-3">
+              <div class="thumbnail">
+                <a href="{$link->getCategoryLink($subcategory.id_category, $subcategory.link_rewrite)|escape:'html':'UTF-8'}" title="{$subcategory.name|escape:'html':'UTF-8'}">
+                  {if $subcategory.id_image}
+                    <img class="replace-2x img-responsive" src="{$link->getCatImageLink($subcategory.link_rewrite, $subcategory.id_image, 'medium_default')|escape:'html':'UTF-8'}" alt="{$subcategory.name|escape:'html':'UTF-8'}" width="{$mediumSize.width}" height="{$mediumSize.height}" />
+                  {else}
+                    <img class="replace-2x img-responsive" src="{$img_cat_dir}{$lang_iso}-default-medium_default.jpg" alt="{$subcategory.name|escape:'html':'UTF-8'}" width="{$mediumSize.width}" height="{$mediumSize.height}" />
+                  {/if}
+                </a>
+                <div class="caption">
+                  <h3 class="text-center">
+                    <a href="{$link->getCategoryLink($subcategory.id_category, $subcategory.link_rewrite)|escape:'html':'UTF-8'}">{$subcategory.name|escape:'html':'UTF-8'}</a>
+                  </h3>
+                  {if $subcategory.description}
+                    <div>{$subcategory.description}</div>
+                  {/if}
                 </div>
-              </li>
-            {/foreach}
-          </ul>
-        </div>
-      {/if}
+              </div>
+            </li>
+          {/foreach}
+        </ul>
+      </div>
     {/if}
 
     {if !empty($products)}
