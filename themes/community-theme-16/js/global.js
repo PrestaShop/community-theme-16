@@ -133,37 +133,10 @@ function responsiveResize() {
   } else if (($(window).width() + scrollCompensate()) >= 768) {
     responsiveflag = false;
   }
-  blockHover();
-}
-
-function blockHover(status) {
-  var screenLg = $('body').find('.container').width() == 1170;
-
-  if ($('.product_list').is('.grid'))
-    if (screenLg)
-      $('.product_list .button-container').hide();
-  else
-    $('.product_list .button-container').show();
-
-  $(document).off('mouseenter').on('mouseenter', '.product_list.grid li.ajax_block_product .product-container', function(e) {
-    if (screenLg) {
-      var pcHeight = $(this).parent().outerHeight();
-      var pcPHeight = $(this).parent().find('.button-container').outerHeight() + $(this).parent().find('.comments_note').outerHeight() + $(this).parent().find('.functional-buttons').outerHeight();
-      $(this).parent().addClass('hovered').css({'height': pcHeight + pcPHeight, 'margin-bottom': pcPHeight * (-1)});
-      $(this).find('.button-container').show();
-    }
-  });
-
-  $(document).off('mouseleave').on('mouseleave', '.product_list.grid li.ajax_block_product .product-container', function(e) {
-    if (screenLg) {
-      $(this).parent().removeClass('hovered').css({'height': 'auto', 'margin-bottom': '0'});
-      $(this).find('.button-container').hide();
-    }
-  });
 }
 
 function quick_view() {
-  $(document).on('click', '.quick-view:visible, .quick-view-mobile:visible', function(e) {
+  $(document).on('click', '.quick-view', function(e) {
     e.preventDefault();
     var url = this.rel;
     var anchor = '';
@@ -199,14 +172,7 @@ function bindGrid() {
   }
 
   var view = $.totalStorage('display');
-
-  if (!view && (typeof displayList != 'undefined') && displayList)
-    view = 'list';
-
-  if (view && view != 'grid')
-    display(view);
-  else
-    $('.display').find('li#grid').addClass('selected');
+  display(view);
 
   $(document).on('click', '#grid', function(e) {
     e.preventDefault();
@@ -219,80 +185,10 @@ function bindGrid() {
   });
 }
 
-function display(view) {
-  if (view == 'list') {
-    $('ul.product_list').removeClass('grid').addClass('list row');
-    $('.product_list > li').removeClass('col-xs-12 col-sm-6 col-md-4').addClass('col-xs-12');
-    $('.product_list > li').each(function(index, element) {
-      var html = '';
-      html = '<div class="product-container"><div class="row">';
-      html += '<div class="left-block col-xs-4 col-sm-5 col-md-4">' + $(element).find('.left-block').html() + '</div>';
-      html += '<div class="center-block col-xs-4 col-sm-7 col-md-4">';
-      html += '<div class="product-flags">' + $(element).find('.product-flags').html() + '</div>';
-      html += '<h5 itemprop="name">' + $(element).find('h5').html() + '</h5>';
-      var hookReviews = $(element).find('.hook-reviews');
-      if (hookReviews.length) {
-        html += hookReviews.clone().wrap('<div>').parent().html();
-      }
-      html += '<p class="product-desc">' + $(element).find('.product-desc').html() + '</p>';
-      var colorList = $(element).find('.color-list-container').html();
-      if (colorList != null) {
-        html += '<div class="color-list-container">' + colorList + '</div>';
-      }
-      var availability = $(element).find('.availability').html(); // check : catalog mode is enabled
-      if (availability != null) {
-        html += '<span class="availability">' + availability + '</span>';
-      }
-      html += '</div>';
-      html += '<div class="right-block col-xs-4 col-sm-12 col-md-4"><div class="right-block-content row">';
-      var price = $(element).find('.content_price').html();       // check : catalog mode is enabled
-      if (price != null) {
-        html += '<div class="content_price col-xs-5 col-md-12">' + price + '</div>';
-      }
-      html += '<div class="button-container col-xs-7 col-md-12">' + $(element).find('.button-container').html() + '</div>';
-      html += '<div class="functional-buttons clearfix col-sm-12">' + $(element).find('.functional-buttons').html() + '</div>';
-      html += '</div>';
-      html += '</div></div>';
-      $(element).html(html);
-    });
-    $('.display').find('li#list').addClass('selected');
-    $('.display').find('li#grid').removeAttr('class');
-    $.totalStorage('display', 'list');
-  } else {
-    $('ul.product_list').removeClass('list').addClass('grid row');
-    $('.product_list > li').removeClass('col-xs-12').addClass('col-xs-12 col-sm-6 col-md-4');
-    $('.product_list > li').each(function(index, element) {
-      var html = '';
-      html += '<div class="product-container">';
-      html += '<div class="left-block">' + $(element).find('.left-block').html() + '</div>';
-      html += '<div class="right-block">';
-      html += '<div class="product-flags">' + $(element).find('.product-flags').html() + '</div>';
-      html += '<h5 itemprop="name">' + $(element).find('h5').html() + '</h5>';
-      var hookReviews = $(element).find('.hook-reviews');
-      if (hookReviews.length) {
-        html += hookReviews.clone().wrap('<div>').parent().html();
-      }
-      html += '<p itemprop="description" class="product-desc">' + $(element).find('.product-desc').html() + '</p>';
-      var price = $(element).find('.content_price').html(); // check : catalog mode is enabled
-      if (price != null) {
-        html += '<div class="content_price">' + price + '</div>';
-      }
-      html += '<div itemprop="offers" itemscope itemtype="https://schema.org/Offer" class="button-container">' + $(element).find('.button-container').html() + '</div>';
-      var colorList = $(element).find('.color-list-container').html();
-      if (colorList != null) {
-        html += '<div class="color-list-container">' + colorList + '</div>';
-      }
-      var availability = $(element).find('.availability').html(); // check : catalog mode is enabled
-      if (availability != null) {
-        html += '<span class="availability">' + availability + '</span>';
-      }
-      html += '</div>';
-      html += '<div class="functional-buttons clearfix">' + $(element).find('.functional-buttons').html() + '</div>';
-      html += '</div>';
-      $(element).html(html);
-    });
-    $('.display').find('li#grid').addClass('selected');
-    $('.display').find('li#list').removeAttr('class');
-    $.totalStorage('display', 'grid');
-  }
+function display(layoutType) {
+  var grid = layoutType == 'grid';
+  $('.product_list').toggleClass('grid', grid).toggleClass('list', !grid);
+  $('#list').toggleClass('selected', !grid);
+  $('#grid').toggleClass('selected', grid);
+  $.totalStorage('display', grid ? 'grid' : 'list');
 }

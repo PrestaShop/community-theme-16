@@ -214,3 +214,7 @@ ul.product_list.grid > li .product-container .functional-buttons .wishlist .popo
     }
   }
 }
+
+.wishlist > a.checked .icon:before {
+  content: '\f005';
+}

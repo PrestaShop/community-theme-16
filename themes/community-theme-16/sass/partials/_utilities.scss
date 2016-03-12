@@ -23,3 +23,41 @@
     z-index: 110;
   }
 }
+
+.no-gutter {
+  &.row {
+    margin-right: 0;
+    margin-left: 0;
+  }
+  > [class*="col-"] {
+    padding-right:0;
+    padding-left:0;
+  }
+}
+
+// Usage: <ul class="list-grid row">
+//          <li class="col-md-3">...</li>
+//
+// Important: To ensure this work correctly on mobile,
+// make sure there are no whitespaces between <li> tags:
+// </li><li>
+//
+ul.list-grid {
+  display: block;
+  list-style: none;
+  padding: 0;
+
+  // Remove whitespace between inline elements (out columns)
+  // May not work on mobile. Make sure there is no whitespace inside the templates
+  // between </li><li>
+  font-size: 0;
+
+  > li {
+    // Restore base font size
+    font-size: $font-size-base;
+
+    display: inline-block;
+    vertical-align: top;
+    float: none;
+  }
+}

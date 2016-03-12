@@ -83,10 +83,6 @@ a.fancybox-nav {
     .zoomPad {
       z-index : auto!important;
     }
-    .new-box,
-    .sale-box {
-      z-index: 5002
-    }
   }
 }
 
@@ -351,7 +347,6 @@ span.view_scroll_spacer {
   h1 {
     padding-bottom: 16px;
     font-size: 20px;
-    color: $product-name-color;
   }
   p {
     margin-bottom: 10px;
@@ -602,10 +597,6 @@ table.table-product-discounts{
     a{
       font-size: 15px;
       line-height: 18px;
-      color: $product-name-color;
-      &:hover{
-        color: $product-name-hover-color;
-      }
     }
   }
   div ul li {
@@ -692,14 +683,10 @@ table.table-product-discounts{
 .content_prices {
   padding: 13px 19px;
 }
-.discount {
-  display: none;
-}
 .our_price_display {
   font-weight: 600;
   font-size: 29px;
   line-height: 32px;
-  color: $product-price-color;
   @media (max-width: $screen-sm-max) { //max 991px
     font-size: 26px;
     line-height: 28px;
@@ -708,7 +695,6 @@ table.table-product-discounts{
     font-weight: 600;
     font-size: 29px;
     line-height: 32px;
-    color: $product-price-color;
     @media (max-width: $screen-sm-max) { //max 991px
       font-size: 26px;
       line-height: 28px;
@@ -740,13 +726,6 @@ table.table-product-discounts{
   }
 }
 
-/* online_only */
-.pb-center-column p.online_only {
-  font-weight: 700;
-  font-size: 13px;
-  color: #f13340;
-  text-align: left;
-}
 .buttons_bottom_block {
   clear: both;
   padding: 13px 19px 0;

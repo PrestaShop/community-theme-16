@@ -36,18 +36,21 @@
       <div class="pb-left-column col-xs-12 col-sm-4 col-md-5">
         <!-- product img-->
         <div id="image-block" class="clearfix">
-          {if $product->new}
-            <span class="new-box">
-              <span class="new-label">{l s='New'}</span>
-            </span>
-          {/if}
-          {if $product->on_sale}
-            <span class="sale-box no-print">
-              <span class="sale-label">{l s='Sale!'}</span>
-            </span>
-          {elseif $product->specificPrice && $product->specificPrice.reduction && $productPriceWithoutReduction > $productPrice}
-            <span class="discount">{l s='Reduced price!'}</span>
-          {/if}
+
+          <div class="product-label-container">
+            {if $product->online_only}
+              <span class="product-label product-label-online">{l s='Online only'}</span>
+            {/if}
+            {if $product->new}
+              <span class="product-label product-label-new">{l s='New'}</span>
+            {/if}
+            {if $product->on_sale}
+              <span class="product-label product-label-sale">{l s='Sale!'}</span>
+            {elseif $product->specificPrice && $product->specificPrice.reduction && $productPriceWithoutReduction > $productPrice}
+              <span class="product-label product-label-discount">{l s='Reduced price!'}</span>
+            {/if}
+          </div>
+
           {if $have_image}
             <span id="view_full_size">
               {if $jqZoomEnabled && $have_image && !$content_only}
@@ -125,9 +128,6 @@
       <!-- end left infos-->
       <!-- center infos -->
       <div class="pb-center-column col-xs-12 col-sm-4">
-        {if $product->online_only}
-          <p class="online_only">{l s='Online only'}</p>
-        {/if}
         <h1 itemprop="name">{$product->name|escape:'html':'UTF-8'}</h1>
         <p id="product_reference"{if empty($product->reference) || !$product->reference} style="display: none;"{/if}>
           <label>{l s='Reference:'} </label>
