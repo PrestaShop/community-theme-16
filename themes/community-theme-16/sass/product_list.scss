@@ -196,6 +196,12 @@ $product-grid-item-hover-bg: #f6f6f6;
   .product-actions-container {
     float: left;
     width: percentage(1 / 3);
+    @media  (max-width: $screen-xs-max) {
+      width: 100%;
+      .product-name {
+        margin-top: 10px;
+      }
+    }
   }
   .product-name {
     margin-top: 0;
