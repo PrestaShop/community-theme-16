@@ -36,25 +36,28 @@
 
     {if isset($subcategories)}
       {if (isset($display_subcategories) && $display_subcategories eq 1) || !isset($display_subcategories) }
-        <!-- Subcategories -->
         <div id="subcategories">
-          <p class="subcategory-heading">{l s='Subcategories'}</p>
-          <ul class="clearfix">
+          <h2 class="page-heading">{l s='Subcategories'}</h2>
+          <ul class="list-grid row">
             {foreach from=$subcategories item=subcategory}
-              <li>
-                <div class="subcategory-image">
-                  <a href="{$link->getCategoryLink($subcategory.id_category, $subcategory.link_rewrite)|escape:'html':'UTF-8'}" title="{$subcategory.name|escape:'html':'UTF-8'}" class="img">
+              <li class="col-xs-6 col-sm-4 col-md-3">
+                <div class="thumbnail">
+                  <a href="{$link->getCategoryLink($subcategory.id_category, $subcategory.link_rewrite)|escape:'html':'UTF-8'}" title="{$subcategory.name|escape:'html':'UTF-8'}">
                     {if $subcategory.id_image}
-                      <img class="replace-2x" src="{$link->getCatImageLink($subcategory.link_rewrite, $subcategory.id_image, 'medium_default')|escape:'html':'UTF-8'}" alt="{$subcategory.name|escape:'html':'UTF-8'}" width="{$mediumSize.width}" height="{$mediumSize.height}" />
+                      <img class="replace-2x img-responsive" src="{$link->getCatImageLink($subcategory.link_rewrite, $subcategory.id_image, 'medium_default')|escape:'html':'UTF-8'}" alt="{$subcategory.name|escape:'html':'UTF-8'}" width="{$mediumSize.width}" height="{$mediumSize.height}" />
                     {else}
-                      <img class="replace-2x" src="{$img_cat_dir}{$lang_iso}-default-medium_default.jpg" alt="{$subcategory.name|escape:'html':'UTF-8'}" width="{$mediumSize.width}" height="{$mediumSize.height}" />
+                      <img class="replace-2x img-responsive" src="{$img_cat_dir}{$lang_iso}-default-medium_default.jpg" alt="{$subcategory.name|escape:'html':'UTF-8'}" width="{$mediumSize.width}" height="{$mediumSize.height}" />
                     {/if}
                   </a>
+                  <div class="caption">
+                    <h3 class="text-center">
+                      <a href="{$link->getCategoryLink($subcategory.id_category, $subcategory.link_rewrite)|escape:'html':'UTF-8'}">{$subcategory.name|escape:'html':'UTF-8'}</a>
+                    </h3>
+                    {if $subcategory.description}
+                      <div>{$subcategory.description}</div>
+                    {/if}
+                  </div>
                 </div>
-                <h5><a class="subcategory-name" href="{$link->getCategoryLink($subcategory.id_category, $subcategory.link_rewrite)|escape:'html':'UTF-8'}">{$subcategory.name|truncate:25:'...'|escape:'html':'UTF-8'}</a></h5>
-                {if $subcategory.description}
-                  <div class="cat_desc">{$subcategory.description}</div>
-                {/if}
               </li>
             {/foreach}
           </ul>
