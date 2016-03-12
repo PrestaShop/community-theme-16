@@ -10,23 +10,10 @@
     {if !empty($scenes)}
       <div class="content_scene">
         {include file="$tpl_dir./scenes.tpl" scenes=$scenes}
-        {if !empty($category->description)}
-          <div class="rte">{$category->description}</div>
-        {/if}
       </div>
-    {elseif $category->description || $category->id_image}
-      <div class="content_scene_cat_bg"{if $category->id_image} style="background:url({$link->getCatImageLink($category->link_rewrite, $category->id_image, 'category_default')|escape:'html':'UTF-8'}) right center no-repeat; background-size:cover; min-height:{$categorySize.height}px;"{/if}>
-        {if !empty($category->description)}
-          <div class="cat_desc">
-            <span class="category-name">
-              {$category->name|escape:'html':'UTF-8'}
-              {if !empty($categoryNameComplement)}
-                {$categoryNameComplement|escape:'html':'UTF-8'}
-              {/if}
-            </span>
-            <div class="rte">{$category->description}</div>
-          </div>
-        {/if}
+    {elseif $category->id_image}
+      <div id="category-banner">
+        <img class="img-responsive" src="{$link->getCatImageLink($category->link_rewrite, $category->id_image, 'category_default')|escape:'html':'UTF-8'}" alt="{$category->name|escape:'html':'UTF-8'}">
       </div>
     {/if}
 
@@ -37,6 +24,10 @@
       </span>
       {include file="$tpl_dir./category-count.tpl"}
     </h1>
+
+    {if !empty($category->description)}
+      <div class="rte">{$category->description}</div>
+    {/if}
 
     {if !empty($subcategories) && $display_subcategories}
       <div id="subcategories">
