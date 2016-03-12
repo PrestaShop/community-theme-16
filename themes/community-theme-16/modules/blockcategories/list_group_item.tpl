@@ -1,5 +1,5 @@
 {if !empty($list_item.children)}
-  {$list_item_id = $list_item.link_rewrite|cat:'-'|cat:$list_item.id}
+  {$list_item_id = 'ct-'|cat:$list_item.id}
   <div class="list-group-item-wrapper{if (isset($currentCategoryId) && $list_item.id == $currentCategoryId) || (!empty($list_item.expanded) && $list_item.expanded)} active{/if}">
     <a href="{$list_item.link|escape:'html':'UTF-8'}" class="list-group-item ilvl-{$level|intval}{if isset($currentCategoryId) && $list_item.id == $currentCategoryId} current{/if}">
       <span>{$list_item.name|escape:'html':'UTF-8'}</span>
