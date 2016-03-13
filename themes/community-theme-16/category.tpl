@@ -25,7 +25,7 @@
     </h1>
 
     {if !empty($category->description)}
-      <div class="rte">{$category->description}</div>
+      <div id="category-description" class="rte">{$category->description}</div>
     {/if}
 
     {if !empty($subcategories) && $display_subcategories}
