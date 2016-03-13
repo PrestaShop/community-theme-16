@@ -459,7 +459,7 @@ function reloadContent(params_plus) {
       }
 
       $('#layered_block_left').replaceWith(utf8_decode(result.filtersBlock));
-      $('.category-product-count, .heading-counter').html(result.categoryCount);
+      $('.category-product-count, .heading-counter').replaceWith(result.categoryCount);
 
       if (result.nbRenderedProducts == result.nbAskedProducts) {
         $('.js-per-page').hide();

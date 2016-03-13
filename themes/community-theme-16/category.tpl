@@ -60,7 +60,9 @@
     {if !empty($products)}
       <h2 class="page-heading">
         {l s='Products'}
-        {include file="$tpl_dir./category-count.tpl"}
+        <div class="pull-right">
+          {include file="$tpl_dir./category-count.tpl"}
+        </div>
       </h2>
       <div class="content_sortPagiBar clearfix">
         <div class="sortPagiBar clearfix">
