@@ -2,9 +2,10 @@
 
 <h1 class="page-heading product-listing">
   {l s='Brands'}
-  {strip}
-    <span class="heading-counter">
-      {if $nbManufacturers == 0}{l s='There are no manufacturers.'}
+  <div class="pull-right">
+    <span class="heading-counter badge">
+      {if $nbManufacturers == 0}
+        {l s='There are no manufacturers.'}
       {else}
         {if $nbManufacturers == 1}
           {l s='There is 1 brand'}
@@ -13,7 +14,7 @@
         {/if}
       {/if}
     </span>
-  {/strip}
+  </div>
 </h1>
 {if isset($errors) AND $errors}
   {include file="$tpl_dir./errors.tpl"}

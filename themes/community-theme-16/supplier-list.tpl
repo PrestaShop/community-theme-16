@@ -1,8 +1,9 @@
 {capture name=path}{l s='Suppliers:'}{/capture}
 
-<h1 class="page-heading product-listing">{l s='Suppliers:'}
-  {strip}
-    <span class="heading-counter">
+<h1 class="page-heading product-listing">
+  {l s='Suppliers:'}
+  <div class="pull-right">
+    <span class="heading-counter badge">
       {if $nbSuppliers == 0}{l s='There are no suppliers.'}
       {else}
         {if $nbSuppliers == 1}
@@ -12,7 +13,7 @@
         {/if}
       {/if}
     </span>
-  {/strip}
+  </div>
 </h1>
 
 {if isset($errors) AND $errors}

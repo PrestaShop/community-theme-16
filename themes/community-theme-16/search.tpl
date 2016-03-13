@@ -14,9 +14,11 @@
       {l s='Return to the previous page'}
     </a>
   {else}
-    <span class="heading-counter">
-      {if $nbProducts == 1}{l s='%d result has been found.' sprintf=$nbProducts|intval}{else}{l s='%d results have been found.' sprintf=$nbProducts|intval}{/if}
-    </span>
+    <div class="pull-right">
+      <span class="heading-counter badge">
+        {if $nbProducts == 1}{l s='%d result has been found.' sprintf=$nbProducts|intval}{else}{l s='%d results have been found.' sprintf=$nbProducts|intval}{/if}
+      </span>
+    </div>
   {/if}
 </h1>
 
