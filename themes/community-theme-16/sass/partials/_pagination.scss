@@ -1,9 +1,6 @@
 .top-pagination-content,
 .bottom-pagination-content {
   text-align: center;
-  // div.pagination {}
-  // .showall {}
-  // ul.pagination {}
 }
 
 .content_sortPagiBar {
@@ -20,6 +17,13 @@
 }
 
 @media (min-width: $screen-sm-min) {
+  .top-pagination-content,
+  .bottom-pagination-content {
+    .form-group {
+      margin-bottom: 15px; // Makes .form-group collapse nicely if they don't fit in SM width
+    }
+  }
+
   .product-count {
     float: left;
   }
