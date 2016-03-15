@@ -1,40 +1,15 @@
+// .content_sortPagiBar = product list top/bottom form wrapper
 .content_sortPagiBar {
-  .sortPagiBar {
-    border-bottom: 1px solid $ps-border-color;
-    clear: both;
-    padding-bottom: 10px;
-    #productsSortForm {
-      display: inline-block;
-      float: left;
-      margin-right: 12px;
-      select {
-        max-width: 192px;
-        @media (max-width: $screen-sm-max) {
-          max-width: 160px;
-        }
-      }
-      .selector {
-        float: left;
-      }
-    }
-    .nbrItemPage {
-      float: left;
-      select {
-        max-width: 59px;
-      }
-      .form-inline > span {
-        padding: 0 0 0 6px;
-        display: inline-block;
-      }
-    }
-    label {
-      padding: 0 6px 0 0;
-    }
-    &.instant_search {
-      #productsSortForm {
-        display: none;
-      }
-    }
+
+}
+
+// .sortPagiBar = top-product-list-sort-form
+.sortPagiBar {
+}
+
+.instant_search {
+  #productsSortForm {
+    display: none;
   }
 }
 
