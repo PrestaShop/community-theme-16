@@ -74,7 +74,7 @@
       {include file="./product-list.tpl" products=$products}
 
       <div class="content_sortPagiBar">
-        <div class="bottom-pagination-content clearfix">
+        <div class="bottom-pagination-content form-inline clearfix">
           {include file="./product-compare.tpl" paginationId='bottom'}
           {include file="./pagination.tpl" paginationId='bottom'}
         </div>
