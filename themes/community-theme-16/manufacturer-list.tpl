@@ -22,23 +22,11 @@
   {if $nbManufacturers > 0}
     <div class="content_sortPagiBar">
       <div class="sortPagiBar clearfix">
+
         {if isset($manufacturer) && isset($manufacturer.nb_products) && $manufacturer.nb_products > 0}
-          <ul class="display hidden-xs">
-            <li class="display-title">
-              {l s='View:'}
-            </li>
-            <li id="grid">
-              <a rel="nofollow" href="#" title="{l s='Grid'}">
-                <i class="icon icon-th-large"></i> {l s='Grid'}
-              </a>
-            </li>
-            <li id="list">
-              <a rel="nofollow" href="#" title="{l s='List'}">
-                <i class="icon icon-th-list"></i> {l s='List'}
-              </a>
-            </li>
-          </ul>
+          {include file='./product-list-switcher.tpl'}
         {/if}
+
         {include file="./nbr-product-page.tpl"}
       </div>
       <div class="top-pagination-content clearfix bottom-line">
