@@ -7,11 +7,7 @@
     <div class="alert alert-warning">{l s='This category is currently unavailable.'}</div>
   {else}
 
-    {if !empty($scenes)}
-      <div class="content_scene">
-        {include file="$tpl_dir./scenes.tpl" scenes=$scenes}
-      </div>
-    {elseif $category->id_image}
+    {if $category->id_image}
       <div id="category-banner">
         <img class="img-responsive" src="{$link->getCatImageLink($category->link_rewrite, $category->id_image, 'category_default')|escape:'html':'UTF-8'}" alt="{$category->name|escape:'html':'UTF-8'}">
       </div>
