@@ -5,16 +5,10 @@
   border-bottom: 1px solid $ps-border-color;
 
   // &.product-listing {}
+  // .heading-counter {}
 
-  span.heading-counter {
-    font-size: $font-size-base;
-    line-height: ($font-size-h1 * $headings-line-height);
-    float: right;
-    @media (max-width: $screen-xs-max) {
-      float: none;
-      display: block;
-    }
-  }
+  @include clearfix(); // .heading-counter is using float-right;
+                       // This fixes element height when the is overflow
 
   span.lighter {
     color: $text-muted;
