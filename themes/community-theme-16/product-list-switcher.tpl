@@ -1,4 +1,4 @@
-<div id="product-list-switcher" class="form-group">
+<div id="product-list-switcher" class="form-group display">
   <label class="visible-xs">{l s='Display product list as:'}</label>
   <div class="btn-group" role="group" aria-label="{l s='Product list display type'}">
     <a id="grid" class="btn btn-default" rel="nofollow" href="#" title="{l s='Grid'}">
