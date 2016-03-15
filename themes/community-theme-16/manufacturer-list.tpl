@@ -20,19 +20,18 @@
   {include file="$tpl_dir./errors.tpl"}
 {else}
   {if $nbManufacturers > 0}
-    <div class="content_sortPagiBar">
-      <div class="sortPagiBar clearfix">
 
+    <div class="content_sortPagiBar">
+      <div class="form-inline sortPagiBar clearfix">
         {if isset($manufacturer) && isset($manufacturer.nb_products) && $manufacturer.nb_products > 0}
           {include file='./product-list-switcher.tpl'}
         {/if}
-
         {include file="./nbr-product-page.tpl"}
       </div>
       <div class="top-pagination-content clearfix bottom-line">
         {include file="$tpl_dir./pagination.tpl" no_follow=1}
       </div>
-    </div> <!-- .content_sortPagiBar -->
+    </div>
 
     <ul id="manufacturers_list" class="list row">
       {foreach from=$manufacturers item=manufacturer name=manufacturers}

@@ -22,7 +22,7 @@
 
   {if $nbSuppliers > 0}
     <div class="content_sortPagiBar">
-      <div class="sortPagiBar clearfix">
+      <div class="form-inline sortPagiBar clearfix">
 
         {if isset($supplier) && isset($supplier.nb_products) && $supplier.nb_products > 0}
           {include file='./product-list-switcher.tpl'}
@@ -33,7 +33,7 @@
       <div class="top-pagination-content clearfix bottom-line">
         {include file="$tpl_dir./pagination.tpl" no_follow=1}
       </div>
-    </div> <!-- .content_sortPagiBar -->
+    </div>
 
     <ul id="suppliers_list" class="list row">
       {foreach from=$suppliers_list item=supplier name=supplier}

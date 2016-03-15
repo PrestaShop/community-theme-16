@@ -40,7 +40,7 @@
     </div>
   {/if}
   <div class="content_sortPagiBar">
-    <div class="sortPagiBar clearfix {if isset($instant_search) && $instant_search} instant_search{/if}">
+    <div class="form-inline sortPagiBar clearfix{if isset($instant_search) && $instant_search} instant_search{/if}">
       {include file="$tpl_dir./product-sort.tpl"}
       {if !isset($instant_search) || (isset($instant_search) && !$instant_search)}
         {include file="./nbr-product-page.tpl"}

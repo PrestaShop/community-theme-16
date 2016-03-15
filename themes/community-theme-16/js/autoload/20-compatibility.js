@@ -7,6 +7,12 @@
  * theme compatibility issues with custom modules.
  */
 
+$(function() {
+  // We added .form-inline to .sortPagiBar in this theme, but some modules may be using these templates and not have the class
+  // This is cheaper than duplicate .form-inline styles to .sortPagiBar
+  $('.sortPagiBar').addClass('form-inline');
+});
+
 function bindUniform() {
   return true;
 }

@@ -28,7 +28,7 @@
 
   {if $products}
     <div class="content_sortPagiBar">
-      <div class="sortPagiBar clearfix">
+      <div class="form-inline sortPagiBar clearfix">
         {include file="./product-sort.tpl"}
         {include file="./nbr-product-page.tpl"}
       </div>
