@@ -4,7 +4,6 @@
 
   {* On 1.5 the var request is setted on the front controller. The next lines assure the retrocompatibility with some modules *}
   {if !isset($request)}
-    <!-- Sort products -->
     {if isset($smarty.get.id_category) && $smarty.get.id_category}
       {assign var='request' value=$link->getPaginationLink('category', $category, false, true)}
     {elseif isset($smarty.get.id_manufacturer) && $smarty.get.id_manufacturer}
@@ -15,7 +14,12 @@
       {assign var='request' value=$link->getPaginationLink(false, false, false, true)}
     {/if}
   {/if}
-  {if $page_name == 'best-sales' && (!isset($smarty.get.orderby) || empty($smarty.get.orderby))}{$orderby = ''}{$orderbydefault = ''}{/if}
+
+  {if $page_name == 'best-sales' && (!isset($smarty.get.orderby) || empty($smarty.get.orderby))}
+    {$orderby = ''}
+    {$orderbydefault = ''}
+  {/if}
+
   <form id="productsSortForm{if isset($paginationId)}_{$paginationId}{/if}" action="{$request|escape:'html':'UTF-8'}" class="productsSortForm">
     <div class="form-inline">
       <label for="selectProductSort{if isset($paginationId)}_{$paginationId}{/if}">{l s='Sort by'}</label>
@@ -35,8 +39,9 @@
       </select>
     </div>
   </form>
-  <!-- /Sort products -->
+
   {if !isset($paginationId) || $paginationId == ''}
     {addJsDef request=$request}
   {/if}
+
 {/if}

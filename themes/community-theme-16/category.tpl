@@ -60,6 +60,7 @@
           {include file="$tpl_dir./category-count.tpl"}
         </div>
       </h2>
+
       <div class="content_sortPagiBar clearfix">
         <div class="sortPagiBar clearfix">
           {include file="./product-sort.tpl"}
@@ -71,6 +72,7 @@
         </div>
       </div>
       {include file="./product-list.tpl" products=$products}
+
       <div class="content_sortPagiBar">
         <div class="bottom-pagination-content clearfix">
           {include file="./product-compare.tpl" paginationId='bottom'}
