@@ -8,9 +8,8 @@
  */
 
 $(function() {
-  // We added .form-inline to .sortPagiBar in this theme, but some modules may be using these templates and not have the class
-  // This is cheaper than duplicate .form-inline styles to .sortPagiBar
-  $('.sortPagiBar').addClass('form-inline');
+  // We added .form-inline in this theme, but some modules may be using these templates and not have this class applied
+  $('.sortPagiBar, .top-pagination-content, .bottom-pagination-content').addClass('form-inline');
 });
 
 function bindUniform() {
