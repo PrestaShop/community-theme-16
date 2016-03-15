@@ -1,10 +1,11 @@
-{if isset($no_follow) AND $no_follow}
+{if isset($no_follow) && $no_follow}
   {assign var='no_follow_text' value=' rel="nofollow"'}
 {else}
   {assign var='no_follow_text' value=''}
 {/if}
 
-{if isset($p) AND $p}
+{if !empty($p)}
+
   {if isset($smarty.get.id_category) && $smarty.get.id_category && isset($category)}
     {if !isset($current_url)}
       {assign var='requestPage' value=$link->getPaginationLink('category', $category, false, false, true, false)}
@@ -26,44 +27,21 @@
     {/if}
     {assign var='requestNb' value=$link->getPaginationLink(false, false, true, false, false, true)}
   {/if}
-  <!-- Pagination -->
-  <div id="pagination{if isset($paginationId)}_{$paginationId}{/if}" class="pagination clearfix">
-    {if $nb_products > $products_per_page && $start!=$stop}
-      <form class="showall" action="{if !is_array($requestNb)}{$requestNb}{else}{$requestNb.requestUrl}{/if}" method="get">
-        <div>
-          {if isset($search_query) AND $search_query}
-            <input type="hidden" name="search_query" value="{$search_query|escape:'html':'UTF-8'}" />
-          {/if}
-          {if isset($tag) AND $tag AND !is_array($tag)}
-            <input type="hidden" name="tag" value="{$tag|escape:'html':'UTF-8'}" />
-          {/if}
-          <button type="submit" class="btn btn-lg btn-default">
-            <span>{l s='Show all'}</span>
-          </button>
-          {if is_array($requestNb)}
-            {foreach from=$requestNb item=requestValue key=requestKey}
-              {if $requestKey != 'requestUrl' && $requestKey != 'p'}
-                <input type="hidden" name="{$requestKey|escape:'html':'UTF-8'}" value="{$requestValue|escape:'html':'UTF-8'}" />
-              {/if}
-            {/foreach}
-          {/if}
-          <input name="n" id="nb_item" class="hidden" value="{$nb_products}" />
-        </div>
-      </form>
-    {/if}
+
+  <div id="pagination{if isset($paginationId)}_{$paginationId}{/if}" class="form-group clearfix">
     {if $start!=$stop}
       <ul class="pagination">
         {if $p != 1}
           {assign var='p_previous' value=$p-1}
-          <li id="pagination_previous{if isset($paginationId)}_{$paginationId}{/if}" class="pagination_previous">
+          <li id="pagination_previous{if isset($paginationId)}_{$paginationId}{/if}" class="pagination_previous" title="{l s='Previous'}">
             <a{$no_follow_text} href="{$link->goPage($requestPage, $p_previous)}" rel="prev">
-              <i class="icon icon-chevron-left"></i> <b>{l s='Previous'}</b>
+              <span>&laquo;</span>
             </a>
           </li>
         {else}
-          <li id="pagination_previous{if isset($paginationId)}_{$paginationId}{/if}" class="disabled pagination_previous">
+          <li id="pagination_previous{if isset($paginationId)}_{$paginationId}{/if}" class="disabled pagination_previous" title="{l s='Previous'}">
             <span>
-              <i class="icon icon-chevron-left"></i> <b>{l s='Previous'}</b>
+              <span>&laquo;</span>
             </span>
           </li>
         {/if}
@@ -146,22 +124,48 @@
         {/if}
         {if $pages_nb > 1 AND $p != $pages_nb}
           {assign var='p_next' value=$p+1}
-          <li id="pagination_next{if isset($paginationId)}_{$paginationId}{/if}" class="pagination_next">
+          <li id="pagination_next{if isset($paginationId)}_{$paginationId}{/if}" class="pagination_next" title="{l s='Next'}">
             <a{$no_follow_text} href="{$link->goPage($requestPage, $p_next)}" rel="next">
-              <b>{l s='Next'}</b> <i class="icon icon-chevron-right"></i>
+              <span>&raquo;</span>
             </a>
           </li>
         {else}
-          <li id="pagination_next{if isset($paginationId)}_{$paginationId}{/if}" class="disabled pagination_next">
-            <span>
-              <b>{l s='Next'}</b> <i class="icon icon-chevron-right"></i>
-            </span>
+          <li id="pagination_next{if isset($paginationId)}_{$paginationId}{/if}" class="disabled pagination_next" title="{l s='Next'}">
+            <span>&raquo;</span>
           </li>
         {/if}
       </ul>
+
     {/if}
   </div>
-  <div class="product-count">
+
+  {if $nb_products > $products_per_page && $start!=$stop}
+    <div class="form-group showall">
+      <form action="{if !is_array($requestNb)}{$requestNb}{else}{$requestNb.requestUrl}{/if}" method="get">
+
+        {if !empty($search_query)}
+          <input type="hidden" name="search_query" value="{$search_query|escape:'html':'UTF-8'}" />
+        {/if}
+        {if !empty($tag) && !is_array($tag)}
+          <input type="hidden" name="tag" value="{$tag|escape:'html':'UTF-8'}" />
+        {/if}
+
+        {if is_array($requestNb)}
+          {foreach from=$requestNb item=requestValue key=requestKey}
+            {if $requestKey != 'requestUrl' && $requestKey != 'p'}
+              <input type="hidden" name="{$requestKey|escape:'html':'UTF-8'}" value="{$requestValue|escape:'html':'UTF-8'}" />
+            {/if}
+          {/foreach}
+        {/if}
+
+        <button type="submit" class="btn btn-default">{l s='Show all'}</button>
+        <input name="n" id="nb_item" class="hidden" value="{$nb_products}" />
+
+      </form>
+    </div>
+  {/if}
+
+  <div class="form-group product-count">
     {if ($n*$p) < $nb_products }
       {assign var='productShowing' value=$n*$p}
     {else}
@@ -172,11 +176,13 @@
     {else}
       {assign var='productShowingStart' value=$n*$p-$n+1}
     {/if}
-    {if $nb_products > 1}
-      {l s='Showing %1$d - %2$d of %3$d items' sprintf=[$productShowingStart, $productShowing, $nb_products]}
-    {else}
-      {l s='Showing %1$d - %2$d of 1 item' sprintf=[$productShowingStart, $productShowing]}
-    {/if}
+    <p class="form-control-static">
+      {if $nb_products > 1}
+        {l s='Showing %1$d - %2$d of %3$d items' sprintf=[$productShowingStart, $productShowing, $nb_products]}
+      {else}
+        {l s='Showing %1$d - %2$d of 1 item' sprintf=[$productShowingStart, $productShowing]}
+      {/if}
+    </p>
   </div>
-  <!-- /Pagination -->
+
 {/if}

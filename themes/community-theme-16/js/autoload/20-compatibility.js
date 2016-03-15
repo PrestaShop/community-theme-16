@@ -7,6 +7,11 @@
  * theme compatibility issues with custom modules.
  */
 
+$(function() {
+  // We added .form-inline in this theme, but some modules may be using these templates and not have this class applied
+  $('.sortPagiBar, .top-pagination-content, .bottom-pagination-content').addClass('form-inline');
+});
+
 function bindUniform() {
   return true;
 }

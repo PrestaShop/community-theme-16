@@ -1,80 +1,37 @@
 .top-pagination-content,
 .bottom-pagination-content {
-  padding: 12px 0;
-  position: relative;
-  div.pagination {
-    margin: 0;
-    float: right;
-    width: 530px;
-    text-align: center;
-    // min 992px max 1199px
-    @media (min-width: $screen-md) and (max-width: $screen-md-max) {
-      width: 380px;
-    }
-    // max 991px
-    @media (max-width: $screen-sm-max) {
-      float: left;
-      width: auto;
-    }
-    .showall {
-      float: right;
-      margin: 8px 53px 8px 14px;
-      // min 992px max 1199px
-      @media (min-width: $screen-md) and (max-width: $screen-md-max) {
-        margin-right: 11px;
-      }
-      // max 991px
-      @media (max-width: $screen-sm-max) {
-        margin-right: 0;
-      }
-      .btn {
-        padding: 3px 5px 4px 5px;
-        font-size: 13px;
-        line-height: normal;
-      }
-    }
-  }
-  ul.pagination {
-    margin: 8px 0;
-    // max 991px
-    @media (max-width: $screen-sm-max) {
-      float: left;
-    }
-    li {
-      float: left;
-      > a, span {
-        margin: 0 1px 0 0;
-        padding: 2px 4px;
-      }
-      &.pagination_previous {
-        margin-right: 10px;
-      }
-      &.pagination_next {
-        margin-left: 10px;
-      }
-    }
-  }
-  .compare-form {
-    float: right;
-    // max 479px
-    @media (max-width: $screen-xs - 1) {
-      float: left;
-      width: 100%;
-      text-align: left;
-      padding-bottom: 10px;
-      clear: both;
-    }
-  }
-  .product-count {
-    padding: 11px 0 0 0;
-    float: left;
-    // max 991px
-    @media (max-width: $screen-sm-max) {
-      clear: left;
-    }
+  text-align: center;
+}
+
+.content_sortPagiBar {
+  margin-bottom: 15px;
+  .pagination {
+    margin-top: 0;
+    margin-bottom: 0;
   }
 }
 
-.bottom-pagination-content {
-  border-top: 1px solid $ps-border-color;
+#pagination,
+#pagination_bottom {
+  line-height: 0;
+}
+
+@media (min-width: $screen-sm-min) {
+  .top-pagination-content,
+  .bottom-pagination-content {
+    .form-group {
+      margin-bottom: 15px; // Makes .form-group collapse nicely if they don't fit in SM width
+    }
+  }
+
+  .product-count {
+    float: left;
+  }
+  .showall {
+    float: right;
+  }
+  .compare-form {
+    float: right;
+    margin-left: 10px;
+  }
 }

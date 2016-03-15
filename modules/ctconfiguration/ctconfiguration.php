@@ -47,6 +47,9 @@ class CTConfiguration extends Module
             $this->registerHook($hookName);
         }
 
+        // Disable scenes in config for faster loading, scenes are removed in category template
+        Configuration::updateValue('PS_SCENE_FEATURE_ACTIVE', false);
+
         // Translatable configuration items
         foreach (Language::getLanguages(false) as $language) {
             $id_language = (int)$language['id_lang'];

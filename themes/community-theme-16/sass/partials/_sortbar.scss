@@ -1,71 +1,32 @@
+// .content_sortPagiBar = product list top/bottom form wrapper
 .content_sortPagiBar {
-  .sortPagiBar {
-    border-bottom: 1px solid $ps-border-color;
-    clear: both;
-    padding-bottom: 10px;
-    #productsSortForm {
-      display: inline-block;
-      float: left;
-      margin-right: 12px;
-      select {
-        max-width: 192px;
-        @media (max-width: $screen-sm-max) {
-          max-width: 160px;
-        }
-      }
-      .selector {
-        float: left;
-      }
-    }
-    .nbrItemPage {
-      float: left;
-      select {
-        max-width: 59px;
-      }
-      .form-inline > span {
-        padding: 0 0 0 6px;
-        display: inline-block;
-      }
-    }
-    label {
-      padding: 0 6px 0 0;
-    }
-    &.instant_search {
-      #productsSortForm {
-        display: none;
-      }
-    }
+
+}
+
+// .sortPagiBar = top-product-list-sort-form
+.sortPagiBar {
+}
+
+.instant_search {
+  .productsSortForm {
+    display: none;
   }
-  .display,
-  .display_m {
+}
+
+// #product-list-switcher {}
+
+@media (min-width: $screen-sm-min) {
+
+  .sortPagiBar .form-group {
+    margin-bottom: 15px; // Makes .form-group collapse nicely if they don't fit in SM width
+  }
+
+  .js-per-page {
     float: right;
-    margin-top: -4px;
-    li {
-      float: left;
-      padding-left: 12px;
-      text-align: center;
-      a {
-        color: #ccc;
-        font-size: 11px;
-        line-height: 14px;
-        cursor: pointer;
-        i {
-          display: block;
-          font-size: 24px;
-          height: 24px;
-          line-height: 24px;
-          margin-bottom: -3px;
-        }
-      }
-      &.selected {
-        a {
-          color: #333;
-        }
-      }
-      &.display-title {
-        font-weight: bold;
-        padding: 7px 6px 0 0;
-      }
-    }
+  }
+
+  .productsSortForm {
+    float: right;
+    margin-left: 10px;
   }
 }
