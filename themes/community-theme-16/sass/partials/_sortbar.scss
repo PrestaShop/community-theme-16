@@ -8,11 +8,25 @@
 }
 
 .instant_search {
-  #productsSortForm {
+  .productsSortForm {
     display: none;
   }
 }
 
-#product-list-switcher {
+// #product-list-switcher {}
 
+@media (min-width: $screen-sm-min) {
+
+  .sortPagiBar .form-group {
+    margin-bottom: 10px; // Makes .form-group collapse nicely if they don't fit in SM width
+  }
+
+  .js-per-page {
+    float: right;
+  }
+
+  .productsSortForm {
+    float: right;
+    margin-left: 10px;
+  }
 }

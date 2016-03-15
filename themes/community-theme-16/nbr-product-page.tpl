@@ -33,7 +33,7 @@
         {/foreach}
       {/if}
 
-      <label for="nb_item{if isset($paginationId)}_{$paginationId}{/if}">{l s='Number of items per page:'}</label>
+      <label for="nb_item{if isset($paginationId)}_{$paginationId}{/if}">{l s='Items per page:'}</label>
       <select name="n" id="nb_item{if isset($paginationId)}_{$paginationId}{/if}" class="form-control">
         {assign var="lastnValue" value="0"}
         {foreach from=$nArray item=nValue}
