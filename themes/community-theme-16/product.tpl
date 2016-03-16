@@ -361,10 +361,10 @@
         {/if}
       </div> <!-- end pb-right-column-->
     </div> <!-- end primary_block -->
+
     {if !$content_only}
       {if (isset($quantity_discounts) && count($quantity_discounts) > 0)}
-        <!-- quantity discount -->
-        <section class="page-product-box">
+        <section id="product-volume-discounts" class="page-product-box">
           <h3 class="page-product-heading">{l s='Volume discounts'}</h3>
           <div id="quantityDiscount">
             <table class="table-product-discounts">
@@ -427,9 +427,9 @@
           </div>
         </section>
       {/if}
-      {if isset($features) && $features}
-        <!-- Data sheet -->
-        <section class="page-product-box">
+
+      {if !empty($features)}
+        <section id="product-features" class="page-product-box">
           <h3 class="page-product-heading">{l s='Data sheet'}</h3>
           <div class="table-responsive">
             <table class="table table-bordered table-data-sheet">
@@ -444,32 +444,29 @@
             </table>
           </div>
         </section>
-        <!--end Data sheet -->
       {/if}
+
       {if isset($product) && $product->description}
-        <!-- More info -->
-        <section class="page-product-box">
+        <section id="product-description" class="page-product-box">
           <h3 class="page-product-heading">{l s='More info'}</h3>
-          <!-- full description -->
           <div  class="rte">{$product->description}</div>
         </section>
-        <!--end  More info -->
       {/if}
+
       {if isset($packItems) && $packItems|@count > 0}
         <section id="blockpack">
           <h3 class="page-product-heading">{l s='Pack content'}</h3>
           {include file="$tpl_dir./product-list.tpl" products=$packItems}
         </section>
       {/if}
-      <!--HOOK_PRODUCT_TAB -->
-      <section class="page-product-box">
+
+      <section id="product-hook-tab" class="page-product-box">
         {$HOOK_PRODUCT_TAB}
         {if isset($HOOK_PRODUCT_TAB_CONTENT) && $HOOK_PRODUCT_TAB_CONTENT}{$HOOK_PRODUCT_TAB_CONTENT}{/if}
       </section>
-      <!--end HOOK_PRODUCT_TAB -->
-      {if isset($accessories) && $accessories}
-        <!--Accessories -->
-        <section class="page-product-box">
+
+      {if !empty($accessories)}
+        <section id="product-accessories" class="page-product-box">
           <h3 class="page-product-heading">{l s='Accessories'}</h3>
           <div class="block products_block accessories-block clearfix">
             <div class="block_content">
@@ -522,14 +519,13 @@
             </div>
           </div>
         </section>
-        <!--end Accessories -->
       {/if}
+
       {if isset($HOOK_PRODUCT_FOOTER) && $HOOK_PRODUCT_FOOTER}{$HOOK_PRODUCT_FOOTER}{/if}
-      <!-- description & features -->
+
       {if (isset($product) && $product->description) || (isset($features) && $features) || (isset($accessories) && $accessories) || (isset($HOOK_PRODUCT_TAB) && $HOOK_PRODUCT_TAB) || (isset($attachments) && $attachments) || isset($product) && $product->customizable}
         {if isset($attachments) && $attachments}
-          <!--Download -->
-          <section class="page-product-box">
+          <section id="product-attachments" class="page-product-box">
             <h3 class="page-product-heading">{l s='Download'}</h3>
             {foreach from=$attachments item=attachment name=attachements}
               {if $smarty.foreach.attachements.iteration %3 == 1}<div class="row">{/if}
@@ -545,11 +541,10 @@
               {if $smarty.foreach.attachements.iteration %3 == 0 || $smarty.foreach.attachements.last}</div>{/if}
             {/foreach}
           </section>
-          <!--end Download -->
         {/if}
+
         {if isset($product) && $product->customizable}
-          <!--Customization -->
-          <section class="page-product-box">
+          <section id="product-customization" class="page-product-box">
             <h3 class="page-product-heading">{l s='Product customization'}</h3>
             <!-- Customizable products -->
             <form method="post" action="{$customizationFormTarget}" enctype="multipart/form-data" id="customizationForm" class="clearfix">
@@ -633,11 +628,12 @@
             </form>
             <p class="clear required"><sup>*</sup> {l s='required fields'}</p>
           </section>
-          <!--end Customization -->
         {/if}
+
       {/if}
     {/if}
   </div> <!-- itemscope product wrapper -->
+
   {strip}
     {if isset($smarty.get.ad) && $smarty.get.ad}
       {addJsDefL name=ad}{$base_dir|cat:$smarty.get.ad|escape:'html':'UTF-8'}{/addJsDefL}
