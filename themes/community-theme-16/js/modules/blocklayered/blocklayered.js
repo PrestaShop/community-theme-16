@@ -394,7 +394,7 @@ function reloadContent(params_plus) {
     if (params_plus) {
       data += '&n=' + $selectN.val();
     } else {
-      data += '&n=' + $('.showall').find('input[name=n]').val();
+      data += '&n=' + $('.showall').find('input[name="n"]').val();
     }
   }
 
@@ -480,15 +480,16 @@ function reloadContent(params_plus) {
       ajaxLoaderOn = 0;
 
       // On submitting nb items form, reload with the good nb of items
-      $('div.pagination form').on('submit', function(e) {
+      $('.showall form').on('submit', function(e) {
         e.preventDefault();
-        var val = $('div.pagination select[name=n]').val();
+        var num = $(this).find('input[name="n"]').val();
 
-        $('div.pagination select[name=n]').children().each(function(it, option) {
-          if (option.value == val) {
-            $(option).attr('selected', true);
+        $('.content_sortPagiBar select[name="n"] option').each(function() {
+          var $opt = $(this);
+          if ($opt.val() == num) {
+            $opt.attr('selected', true);
           } else {
-            $(option).removeAttr('selected');
+            $opt.removeAttr('selected');
           }
         });
 
