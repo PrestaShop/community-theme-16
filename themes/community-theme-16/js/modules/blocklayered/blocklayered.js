@@ -341,11 +341,12 @@ function stopAjaxQuery() {
 function reloadContent(params_plus) {
 
   var $form = $('#layered_form');
+  var $categoryProducts = $('#category-products');
 
   stopAjaxQuery();
 
   $form.addClass('loading-overlay');
-  $('.product_list, .content_sortPagiBar').css('opacity', '0.5');
+  $categoryProducts.addClass('loading-overlay');
 
   var data = $form.serialize();
   $('.layered_slider').each(function() {
@@ -449,12 +450,10 @@ function reloadContent(params_plus) {
       if (result.productList) {
         $('.product_list').replaceWith(utf8_decode(result.productList));
       } else {
-        $('.product_list').html('').css('opacity', '1');
-        $.browser.msie && $('.product_list').css('filter', '');
+        $('.product_list').html('');
       }
 
-      $('.content_sortPagiBar').css('opacity', '1').css('filter', '');
-
+      $categoryProducts.removeClass('loading-overlay');
       $form.removeClass('loading-overlay');
 
       if (result.pagination.search(/[^\s]/) >= 0) {
