@@ -50,8 +50,6 @@ E.g. `.product-list-item`.
 
 Here is what is currently planned for this theme:
 
-- Version 0.7.0
-  * Refactored product lists and category page
 - Version 0.8.0
   * Refactored product page and related styles
 - Version 0.9.0
