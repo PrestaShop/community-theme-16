@@ -18,15 +18,28 @@ taken from [1.6.1.x](https://github.com/PrestaShop/PrestaShop/tree/1.6.1.x/) bra
 The purpose of this theme is to provide a solid and flexible foundation for building new PrestaShop 1.6 themes.
 This theme is oriented more towards the developers, who can extend and adapt this theme to the shop's needs.
 
-The main features of this theme **will be** (currently in development):
+The main features of this theme:
 
 - Removed unnecessary styles, functions, elements
-- Updated libraries &#10004;
+- Updated libraries (Bootstrap, Font Awesome)
 - Wider usage [Bootstrap 3](http://getbootstrap.com/) styles, utilities and components
 - Reduced stylesheet size
 - Simplified HTML markup
 - Improved SEO markup and microdata
 - Easier custom theme development
+- `gulpfile.js` for building theme archive
+- Restructured `.scss` files for easier theme development
+- Removed `uniform.js`
+- Reindented and cleaned up template, JS and CSS files
+- Plain Bootstrap styles
+- All Bootstrap components are included
+- Refactored header and footer blocks, easily modifiable
+- New top menu modules
+- Refactored `blockcart`, left column block styles
+- Refactored product list template: JS code that compile product list HTML has been removed
+
+Features that will be implemented in the future (currently under development):
+
 
 Bug fixes in the [default-bootstrap](https://github.com/PrestaShop/PrestaShop/tree/1.6.1.x/themes/default-bootstrap)
 will be integrated to this theme regularly.
