@@ -437,7 +437,7 @@
         <section id="product-features" class="page-product-box">
           <h3 class="page-product-heading">{l s='Data sheet'}</h3>
           <div class="table-responsive">
-            <table class="table table-bordered table-data-sheet">
+            <table class="table table-bordered table-condensed table-hover table-data-sheet">
               {foreach from=$features item=feature}
                 <tr class="{cycle values="odd,even"}">
                   {if isset($feature.value)}
