@@ -165,8 +165,8 @@ theme folder and run `compass compile`.
 Gulp `build` command is composed of several specific tasks (sub-commands), which you can run individually:
 
 ``` bash
-gulp create-folders  // Creates empty theme folders like pdf/, pdf/lang/, which are not included repository
-                     // but should be in theme archive
+gulp create-folders  // Creates empty theme folders like pdf/, pdf/lang/, which are not included
+                     // repository, but should be in theme archive
 
 gulp compile-css     // Runs shell process 'compass compile'. Optional flag maybe passed: --force
 
@@ -174,7 +174,8 @@ gulp clean-up        // Removes files which we don't want to include in the arch
 
 gulp copy-index      // Copies index.php to all directories and subdirectories inside theme folder
 
-gulp format-js       // Formats .js files using JavaScript style rules defined in .jscsrc using JSCS tool
+gulp format-js       // Formats .js files using JavaScript style rules defined
+                     // in .jscsrc using JSCS tool
 
 gulp create-zip      // Adds Config.xml and theme folder to .zip archive and outputs
                      // the file in root directory
