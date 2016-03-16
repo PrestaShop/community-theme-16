@@ -431,16 +431,18 @@
         <!-- Data sheet -->
         <section class="page-product-box">
           <h3 class="page-product-heading">{l s='Data sheet'}</h3>
-          <table class="table-data-sheet">
-            {foreach from=$features item=feature}
-              <tr class="{cycle values="odd,even"}">
-                {if isset($feature.value)}
-                  <td>{$feature.name|escape:'html':'UTF-8'}</td>
-                  <td>{$feature.value|escape:'html':'UTF-8'}</td>
-                {/if}
-              </tr>
-            {/foreach}
-          </table>
+          <div class="table-responsive">
+            <table class="table table-bordered table-data-sheet">
+              {foreach from=$features item=feature}
+                <tr class="{cycle values="odd,even"}">
+                  {if isset($feature.value)}
+                    <td>{$feature.name|escape:'html':'UTF-8'}</td>
+                    <td>{$feature.value|escape:'html':'UTF-8'}</td>
+                  {/if}
+                </tr>
+              {/foreach}
+            </table>
+          </div>
         </section>
         <!--end Data sheet -->
       {/if}
