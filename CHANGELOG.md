@@ -1,3 +1,18 @@
+# v0.7.0 (2016-03-16)
+
+This release refactor products list template:
+- Remove layout toggling and compiling using JS (only list class is toggled now)
+- Uses flexible grid system that doesn't collapse and work with varied height columns
+- Uses CSS classes to switch product card layout (between grid and list)
+
+Other changes include refactored category page, refactored sort bar
+and refactored pagination. Scenes have been remove from category page.
+
+- Refactored product list template + CSS + JS code for it (#154)
+- Fixed submenu item IDs in `blockcategories` left menu (#155)
+- Refactored category page, removed scenes, read more toggle (#156)
+- Refactored sort bar and pagination bar in product lists (#157)
+
 # v0.6.0 (2016-03-07)
 
 This release contains a refactored `blockcategories` template

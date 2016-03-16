@@ -41,6 +41,9 @@ $(document).ready(function() {
     });
   }
 
+  // Make image responsive in rich description, prevent them from overflowing their container
+  $('.rte img').addClass('img-responsive');
+
   $(document).on('change', 'select[name="manufacturer_list"], select[name="supplier_list"]', function() {
     if (this.value != '')
       location.href = this.value;
