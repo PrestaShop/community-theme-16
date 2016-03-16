@@ -1,12 +1,9 @@
 {if isset($orderby) AND isset($orderway)}
-  <ul class="display hidden-xs">
-    <li class="display-title">{l s='View:'}</li>
-    <li id="grid"><a rel="nofollow" href="#" title="{l s='Grid'}"><i class="icon icon-th-large"></i> {l s='Grid'}</a></li>
-    <li id="list"><a rel="nofollow" href="#" title="{l s='List'}"><i class="icon icon-th-list"></i> {l s='List'}</a></li>
-  </ul>
+
+  {include file='./product-list-switcher.tpl'}
+
   {* On 1.5 the var request is setted on the front controller. The next lines assure the retrocompatibility with some modules *}
   {if !isset($request)}
-    <!-- Sort products -->
     {if isset($smarty.get.id_category) && $smarty.get.id_category}
       {assign var='request' value=$link->getPaginationLink('category', $category, false, true)}
     {elseif isset($smarty.get.id_manufacturer) && $smarty.get.id_manufacturer}
@@ -17,9 +14,14 @@
       {assign var='request' value=$link->getPaginationLink(false, false, false, true)}
     {/if}
   {/if}
-  {if $page_name == 'best-sales' && (!isset($smarty.get.orderby) || empty($smarty.get.orderby))}{$orderby = ''}{$orderbydefault = ''}{/if}
-  <form id="productsSortForm{if isset($paginationId)}_{$paginationId}{/if}" action="{$request|escape:'html':'UTF-8'}" class="productsSortForm">
-    <div class="form-inline">
+
+  {if $page_name == 'best-sales' && (!isset($smarty.get.orderby) || empty($smarty.get.orderby))}
+    {$orderby = ''}
+    {$orderbydefault = ''}
+  {/if}
+
+  <div id="productsSortForm{if isset($paginationId)}_{$paginationId}{/if}" class="form-group productsSortForm">
+    <form action="{$request|escape:'html':'UTF-8'}">
       <label for="selectProductSort{if isset($paginationId)}_{$paginationId}{/if}">{l s='Sort by'}</label>
       <select id="selectProductSort{if isset($paginationId)}_{$paginationId}{/if}" class="selectProductSort form-control">
         <option value="{if $page_name != 'best-sales'}{$orderbydefault|escape:'html':'UTF-8'}:{$orderwaydefault|escape:'html':'UTF-8'}{/if}"{if !in_array($orderby, array('price', 'name', 'quantity', 'reference')) && $orderby eq $orderbydefault} selected="selected"{/if}>--</option>
@@ -35,10 +37,11 @@
         <option value="reference:asc"{if $orderby eq 'reference' AND $orderway eq 'asc'} selected="selected"{/if}>{l s='Reference: Lowest first'}</option>
         <option value="reference:desc"{if $orderby eq 'reference' AND $orderway eq 'desc'} selected="selected"{/if}>{l s='Reference: Highest first'}</option>
       </select>
-    </div>
-  </form>
-  <!-- /Sort products -->
+    </form>
+  </div>
+
   {if !isset($paginationId) || $paginationId == ''}
     {addJsDef request=$request}
   {/if}
+
 {/if}

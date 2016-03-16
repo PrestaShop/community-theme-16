@@ -188,7 +188,7 @@ function bindGrid() {
 function display(layoutType) {
   var grid = layoutType == 'grid';
   $('.product_list').toggleClass('grid', grid).toggleClass('list', !grid);
-  $('#list').toggleClass('selected', !grid);
-  $('#grid').toggleClass('selected', grid);
+  $('#list').toggleClass('selected active', !grid);
+  $('#grid').toggleClass('selected active', grid);
   $.totalStorage('display', grid ? 'grid' : 'list');
 }

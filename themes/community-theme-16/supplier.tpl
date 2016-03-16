@@ -12,11 +12,11 @@
 
   {if $products}
     <div class="content_sortPagiBar">
-      <div class="sortPagiBar clearfix">
+      <div class="form-inline sortPagiBar clearfix">
         {include file="./product-sort.tpl"}
         {include file="./nbr-product-page.tpl"}
       </div>
-      <div class="top-pagination-content clearfix">
+      <div class="top-pagination-content form-inline clearfix">
         {include file="./product-compare.tpl"}
         {include file="$tpl_dir./pagination.tpl" no_follow=1}
       </div>
@@ -25,7 +25,7 @@
     {include file="./product-list.tpl" products=$products}
 
     <div class="content_sortPagiBar">
-      <div class="bottom-pagination-content clearfix">
+      <div class="bottom-pagination-content form-inline clearfix">
         {include file="./product-compare.tpl"}
         {include file="./pagination.tpl" paginationId='bottom' no_follow=1}
       </div>
