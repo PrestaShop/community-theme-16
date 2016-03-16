@@ -1,5 +1,7 @@
 {include file="$tpl_dir./errors.tpl"}
-{if $errors|@count == 0}
+
+{if empty($errors)}
+
   {if !isset($priceDisplayPrecision)}
     {assign var='priceDisplayPrecision' value=2}
   {/if}
@@ -10,30 +12,29 @@
     {assign var='productPrice' value=$product->getPrice(false, $smarty.const.NULL, 6)}
     {assign var='productPriceWithoutReduction' value=$product->getPriceWithoutReduct(true, $smarty.const.NULL)}
   {/if}
+
   <div itemscope itemtype="https://schema.org/Product">
     <meta itemprop="url" content="{$link->getProductLink($product)}">
     <div class="primary_block row">
+
       {if isset($adminActionDisplay) && $adminActionDisplay}
         <div id="admin-action" class="container">
           <div class="alert alert-info">{l s='This product is not visible to your customers.'}
             <input type="hidden" id="admin-action-product-id" value="{$product->id}" />
-            <a id="publish_button" class="btn btn-success" href="#">
-              <span>{l s='Publish'}</span>
-            </a>
-            <a id="lnk_view" class="btn btn-warning" href="#">
-              <span>{l s='Back'}</span>
-            </a>
+            <a id="publish_button" class="btn btn-success" href="#">{l s='Publish'}</a>
+            <a id="lnk_view" class="btn btn-warning" href="#">{l s='Back'}</a>
           </div>
           <p id="admin-action-result"></p>
         </div>
       {/if}
-      {if isset($confirmation) && $confirmation}
-        <div class="alert alert-warning">
-          {$confirmation}
-        </div>
+
+      {if !empty($confirmation)}
+        <div class="alert alert-warning">{$confirmation}</div>
       {/if}
+
       <!-- left infos-->
       <div class="pb-left-column col-xs-12 col-sm-4 col-md-5">
+
         <!-- product img-->
         <div id="image-block" class="clearfix">
 
@@ -76,8 +77,10 @@
               {/if}
             </span>
           {/if}
-        </div> <!-- end image-block -->
-        {if isset($images) && count($images) > 0}
+        </div>
+        <!-- end image-block -->
+
+        {if !empty($images)}
           <!-- thumbnails -->
           <div id="views_block" class="clearfix {if isset($images) && count($images) < 2}hidden{/if}">
             {if isset($images) && count($images) > 2}
@@ -114,6 +117,7 @@
           </div> <!-- end views-block -->
           <!-- end thumbnails -->
         {/if}
+
         {if isset($images) && count($images) > 1}
           <p class="resetimg clear no-print">
             <span id="wrapResetImages" style="display: none;">
@@ -124,8 +128,9 @@
             </span>
           </p>
         {/if}
-      </div> <!-- end pb-left-column -->
-      <!-- end left infos-->
+      </div>
+      <!-- end pb-left-column -->
+
       <!-- center infos -->
       <div class="pb-center-column col-xs-12 col-sm-4">
         <h1 itemprop="name">{$product->name|escape:'html':'UTF-8'}</h1>
@@ -232,15 +237,15 @@
                       {/strip}</p>
                     <p id="reduction_percent" {if $productPriceWithoutReduction <= 0 || !$product->specificPrice || $product->specificPrice.reduction_type != 'percentage'} style="display:none;"{/if}>{strip}
                         <span id="reduction_percent_display">
-                                        {if $product->specificPrice && $product->specificPrice.reduction_type == 'percentage'}-{$product->specificPrice.reduction*100}%{/if}
-                                    </span>
+                          {if $product->specificPrice && $product->specificPrice.reduction_type == 'percentage'}-{$product->specificPrice.reduction*100}%{/if}
+                        </span>
                       {/strip}</p>
                     <p id="reduction_amount" {if $productPriceWithoutReduction <= 0 || !$product->specificPrice || $product->specificPrice.reduction_type != 'amount' || $product->specificPrice.reduction|floatval ==0} style="display:none"{/if}>{strip}
                         <span id="reduction_amount_display">
-                                    {if $product->specificPrice && $product->specificPrice.reduction_type == 'amount' && $product->specificPrice.reduction|floatval !=0}
-                                      -{convertPrice price=$productPriceWithoutReduction|floatval-$productPrice|floatval}
-                                    {/if}
-                                    </span>
+                          {if $product->specificPrice && $product->specificPrice.reduction_type == 'amount' && $product->specificPrice.reduction|floatval !=0}
+                            -{convertPrice price=$productPriceWithoutReduction|floatval-$productPrice|floatval}
+                          {/if}
+                        </span>
                       {/strip}</p>
                     <p id="old_price"{if (!$product->specificPrice || !$product->specificPrice.reduction)} class="hidden"{/if}>{strip}
                         {if $priceDisplay >= 0 && $priceDisplay <= 2}
@@ -251,8 +256,8 @@
                     {if $priceDisplay == 2}
                       <br />
                       <span id="pretaxe_price">{strip}
-                                        <span id="pretaxe_price_display">{convertPrice price=$product->getPrice(false, $smarty.const.NULL)}</span> {l s='tax excl.'}
-                                    {/strip}</span>
+                        <span id="pretaxe_price_display">{convertPrice price=$product->getPrice(false, $smarty.const.NULL)}</span> {l s='tax excl.'}
+                      {/strip}</span>
                     {/if}
                   </div> <!-- end prices -->
                   {if $packItems|@count && $productPrice < $product->getNoPackPrice()}
@@ -552,7 +557,8 @@
                 {l s='After saving your customized product, remember to add it to your cart.'}
                 {if $product->uploadable_files}
                   <br />
-                  {l s='Allowed file formats are: GIF, JPG, PNG'}{/if}
+                  {l s='Allowed file formats are: GIF, JPG, PNG'}
+                {/if}
               </p>
               {if $product->uploadable_files|intval}
                 <div class="customizableProductsFile">
@@ -604,7 +610,7 @@
                             {if $field.required}<sup>*</sup>{/if}
                           </label>
                           <textarea name="textField{$field.id_customization_field}" class="form-control customization_block_input" id="textField{$customizationField}" rows="3" cols="20">{strip}
-                              {if isset($textFields.$key)}
+                            {if isset($textFields.$key)}
                               {$textFields.$key|stripslashes}
                             {/if}
                           {/strip}</textarea>
