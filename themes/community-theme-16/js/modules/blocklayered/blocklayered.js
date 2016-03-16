@@ -413,7 +413,7 @@ function reloadContent(params_plus) {
     if (params_plus) {
       data += '&n=' + $selectN.val();
     } else {
-      data += '&n=' + $('div.pagination form.showall').find('input[name=n]').val();
+      data += '&n=' + $('.showall').find('input[name=n]').val();
     }
   }
 
