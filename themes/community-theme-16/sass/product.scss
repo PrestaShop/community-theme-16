@@ -348,22 +348,7 @@ span.view_scroll_spacer {
   }
 }
 
-/* form */
-#buy_block {
-  margin-top: 10px;
-  label {
-    display: inline-block;
-    width: 125px;
-    font-weight: 700;
-    font-size: 12px;
-    text-align: right;
-  }
-  p{
-    &.price {
-      padding: 0;
-    }
-  }
-}
+// #buy_block {}
 
 #color_picker p {
   padding-bottom: 5px;
@@ -389,18 +374,7 @@ span.view_scroll_spacer {
 }
 
 #attributes{
-  fieldset {
-    padding-bottom: 3px;
-    label {
-      vertical-align: top;
-      display: block;
-    }
-  }
   .attribute_list {
-    width: 100%;
-    .form-control {
-      max-width: 230px;
-    }
     ul{
       clear: both;
       li{
@@ -418,11 +392,12 @@ span.view_scroll_spacer {
       float: none;
       display: inline-block;
     }
-
   }
 }
 
 #color_to_pick_list {
+  margin: 0;
+  padding: 0;
   list-style-type: none;
   li {
     float: left;
@@ -580,7 +555,6 @@ table.table-product-discounts{
   }
   label{
     display: block;
-    margin-bottom: 7px;
   }
 }
 
