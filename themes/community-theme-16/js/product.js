@@ -1,4 +1,14 @@
-//global variables
+/* global currencyRate, currencySign, currencyFormat, currencyBlank, contentOnly
+
+   allowBuyWhenOutOfStock, availableNowValue, availableLaterValue,
+   attribute_anchor_separator, attributesCombinations, combinations, combinationsFromController, displayDiscountPrice,
+   combinationImages, customizationFields, default_eco_tax, ecotaxTax_rate, jqZoomEnabled,
+   maxQuantityToAllowDisplayOfLastQuantityMessage, minimalQuantity, noTaxForThisProduct, customerGroupWithoutTax,
+   groupReduction, oosHookJsCodeFunctions, productHasAttributes, productPriceTaxExcluded, productPriceTaxIncluded,
+   productBasePriceTaxExcl, productReference, productAvailableForOrder, productPriceWithoutReduction,
+   productUnitPriceRatio, quantityAvailable, quantitiesDisplayAllowed, specific_currency, stock_management, taxRate,
+   doesntExist, doesntExistNoMore, doesntExistNoMoreBut, uploading_in_progress */
+
 var serialScrollNbImagesDisplayed;
 var selectedCombination = [];
 var globalQuantity = 0;
@@ -6,6 +16,7 @@ var colors = [];
 var original_url = window.location + '';
 var first_url_check = true;
 var firstTime = true;
+
 /* Retro compat from product.tpl */
 if (typeof customizationFields !== 'undefined' && customizationFields) {
   var customizationFieldsBk = customizationFields;
@@ -80,10 +91,13 @@ if (typeof combinations !== 'undefined' && combinations) {
   }
   combinations = combinationsJS;
 }
-/* */
-$(document).ready(function() {
+
+// DOM Ready
+$(function() {
+
   var url_found = checkUrl();
-  //init the price in relation of the selected attributes
+
+  // init the price in relation of the selected attributes
   if (!url_found) {
     if (typeof productHasAttributes !== 'undefined' && productHasAttributes)
       findCombination();
@@ -93,32 +107,34 @@ $(document).ready(function() {
 
   serialScrollSetNbImages();
 
-  //init the serialScroll for thumbs
-  if (!!$.prototype.serialScroll)
-    $('#thumbs_list').serialScroll({
-      items: 'li:visible',
-      prev: '#view_scroll_left',
-      next: '#view_scroll_right',
-      axis: 'x',
-      offset: 0,
-      start: 0,
-      stop: true,
-      onBefore: serialScrollFixLock,
-      duration: 700,
-      lazy: true,
-      lock: false,
-      force: false,
-      cycle: false
-    });
+  var $thumbList = $('#thumbs_list');
 
-  $('#thumbs_list').trigger('goto', 0);
+  //init the serialScroll for thumbs
+  !!$.prototype.serialScroll && $thumbList.serialScroll({
+    items: 'li:visible',
+    prev: '#view_scroll_left',
+    next: '#view_scroll_right',
+    axis: 'x',
+    offset: 0,
+    start: 0,
+    stop: true,
+    onBefore: serialScrollFixLock,
+    duration: 700,
+    lazy: true,
+    lock: false,
+    force: false,
+    cycle: false
+  });
+
+  $thumbList.trigger('goto', 0);
 
   //set jqZoom parameters if needed
   if (typeof(jqZoomEnabled) !== 'undefined' && jqZoomEnabled) {
-    if ($('#thumbs_list .shown img').length) {
-      var new_src = $('#thumbs_list .shown img').attr('src').replace('cart_', 'large_');
-      if ($('.jqzoom img').attr('src') != new_src)
+    if ($thumbList.find('.shown img').length) {
+      var new_src = $thumbList.find('.shown img').attr('src').replace('cart_', 'large_');
+      if ($('.jqzoom img').attr('src') != new_src) {
         $('.jqzoom img').attr('src', new_src).parent().attr('href', new_src);
+      }
     }
 
     $('.jqzoom').jqzoom({
@@ -143,7 +159,7 @@ $(document).ready(function() {
     }
   }
 
-  if ($('#bxslider li').length && !!$.prototype.bxSlider)
+  if ($('#bxslider li').length && !!$.prototype.bxSlider) {
     $('#bxslider').bxSlider({
       minSlides: 1,
       maxSlides: 6,
@@ -156,9 +172,11 @@ $(document).ready(function() {
       infiniteLoop: false,
       hideControlOnEnd: true
     });
+  }
 
-  if (!$('#bxslider li').length)
+  if (!$('#bxslider li').length) {
     $('.accessories-block').parent().remove();
+  }
 
   if ($('#customizationForm').length) {
     var url = window.location + '';
@@ -194,13 +212,13 @@ function findSpecificPrice() {
   return newPrice;
 }
 
-$(window).resize(function() {
+$(window).on('resize', function() {
   serialScrollSetNbImages();
   $('#thumbs_list').trigger('goto', 0);
   serialScrollFixLock('', '', '', '', 0);
 });
 
-$(window).bind('hashchange', function() {
+$(window).on('hashchange', function() {
   checkUrl();
   findCombination();
 });
@@ -209,15 +227,18 @@ $(window).bind('hashchange', function() {
 $(document).on('mouseover', '#views_block li a', function() {
   displayImage($(this));
 });
+
 //add a link on the span 'view full size' and on the big image
 $(document).on('click', '#view_full_size, #image-block', function(e) {
-  $('#views_block .shown').click();
+  $('#views_block .shown').trigger('click');
 });
+
 //catch the click on the "more infos" button at the top of the page
 $(document).on('click', '#short_description_block .button', function(e) {
-  $('#more_info_tab_more_info').click();
+  $('#more_info_tab_more_info').trigger('click');
   $.scrollTo('#more_info_tabs', 1200);
 });
+
 // Hide the customization submit button and display some message
 $(document).on('click', '#customizedDatas input', function(e) {
   $('#customizedDatas input').hide();
@@ -242,10 +263,10 @@ $(document).on('change', '#quantity_wanted', function(e) {
 
   if (false !== specificPrice) {
     $('#our_price_display').text(specificPrice);
-  }else {
+  } else {
     if (typeof productHasAttributes != 'undefined' && productHasAttributes) {
       updateDisplay();
-    }else {
+    } else {
       $('#our_price_display').text(formatCurrency(parseFloat($('#our_price_display').attr('content')), currencyFormat, currencySign, currencyBlank));
     }
   }
@@ -337,7 +358,7 @@ function arrayUnique(a) {
       p.push(c);
     return p;
   }, []);
-};
+}
 
 //check if a function exists
 function function_exists(function_name) {
@@ -591,7 +612,7 @@ function updatePrice() {
   priceWithGroupReductionWithoutTax = basePriceWithoutTax * (1 - groupReduction);
 
   // Apply combination price impact (only if there is no specific price)
-  // 0 by default, +x if price is inscreased, -x if price is decreased
+  // 0 by default, +x if price is increased, -x if price is decreased
   basePriceWithoutTax = basePriceWithoutTax + +combination.price;
   basePriceWithTax = basePriceWithTax + +combination.price * (taxRate / 100 + 1);
 
@@ -727,11 +748,13 @@ function updatePrice() {
     ecotax = default_eco_tax;
 
     // If the default product ecotax is overridden by the combination
-    if (combination.ecotax)
+    if (combination.ecotax) {
       ecotax = +combination.ecotax;
+    }
 
-    if (!noTaxForThisProduct)
+    if (!noTaxForThisProduct) {
       ecotax = ecotax * (1 + ecotaxTax_rate / 100);
+    }
 
     $('#ecotax_price_display').text(formatCurrency(ecotax * currencyRate, currencyFormat, currencySign, currencyBlank));
     $('.price-ecotax').show();
@@ -744,10 +767,11 @@ function updatePrice() {
     $('.unit-price').show();
   }
 
-  if (noTaxForThisProduct || customerGroupWithoutTax)
+  if (noTaxForThisProduct || customerGroupWithoutTax) {
     updateDiscountTable(priceWithDiscountsWithoutTax);
-  else
+  } else {
     updateDiscountTable(priceWithDiscountsWithTax);
+  }
 }
 
 //update display of the large image
@@ -802,13 +826,15 @@ function updateDiscountTable(newPrice) {
     var type = $(this).data('discount-type');
     var discount = $(this).data('discount');
     var quantity = $(this).data('discount-quantity');
+    var discountedPrice;
+    var discountUpTo;
 
     if (type == 'percentage') {
-      var discountedPrice = newPrice * (1 - discount / 100);
-      var discountUpTo = newPrice * (discount / 100) * quantity;
+      discountedPrice = newPrice * (1 - discount / 100);
+      discountUpTo = newPrice * (discount / 100) * quantity;
     } else if (type == 'amount') {
-      var discountedPrice = newPrice - discount;
-      var discountUpTo = discount * quantity;
+      discountedPrice = newPrice - discount;
+      discountUpTo = discount * quantity;
     }
 
     if (displayDiscountPrice != 0)
@@ -819,8 +845,8 @@ function updateDiscountTable(newPrice) {
 
 function serialScrollFixLock(event, targeted, scrolled, items, position) {
   var serialScrollNbImages = $('#thumbs_list li:visible').length;
-  var leftArrow = position == 0 ? true : false;
-  var rightArrow = position + serialScrollNbImagesDisplayed >= serialScrollNbImages ? true : false;
+  var leftArrow = position == 0;
+  var rightArrow = position + serialScrollNbImagesDisplayed >= serialScrollNbImages;
 
   $('#view_scroll_left').css('cursor', leftArrow ? 'default' : 'pointer').css('display', leftArrow ? 'none' : 'block').fadeTo(0, leftArrow ? 0 : 1);
   $('#view_scroll_right').css('cursor', rightArrow ? 'default' : 'pointer').fadeTo(0, rightArrow ? 0 : 1).css('display', rightArrow ? 'none' : 'block');
@@ -828,13 +854,15 @@ function serialScrollFixLock(event, targeted, scrolled, items, position) {
 }
 
 function serialScrollSetNbImages() {
+  var $thumbList = $('#thumbs_list');
   serialScrollNbImagesDisplayed = 4;
-  if ($('#thumbs_list').outerWidth(true) < 194)
+  if ($thumbList.outerWidth(true) < 194) {
     serialScrollNbImagesDisplayed = 1;
-  else if ($('#thumbs_list').outerWidth(true) < 294)
+  } else if ($thumbList.outerWidth(true) < 294) {
     serialScrollNbImagesDisplayed = 2;
-  else if ($('#thumbs_list').outerWidth(true) < 392)
+  } else if ($thumbList.outerWidth(true) < 392) {
     serialScrollNbImagesDisplayed = 3;
+  }
 }
 
 // Change the current product images regarding the combination selected
@@ -919,7 +947,7 @@ function checkMinimalQuantity(minimal_quantity) {
 }
 
 function colorPickerClick(elt) {
-  id_attribute = $(elt).attr('id').replace('color_', '');
+  var id_attribute = $(elt).attr('id').replace('color_', '');
   $(elt).parent().parent().children().removeClass('selected');
   $(elt).fadeTo('fast', 1, function() {
     $(this).fadeTo('fast', 0, function() {
@@ -937,20 +965,26 @@ function getProductAttribute() {
   //create a temporary 'tab_attributes' array containing the choices of the customer
   var tab_attributes = [];
   var radio_inputs = parseInt($('#attributes .checked > input[type=radio]').length);
-  if (radio_inputs)
+
+  if (radio_inputs) {
     radio_inputs = '#attributes .checked > input[type=radio]';
-  else
+  } else {
     radio_inputs = '#attributes input[type=radio]:checked';
+  }
 
   $('#attributes select, #attributes input[type=hidden], ' + radio_inputs).each(function() {
     tab_attributes.push($(this).val());
   });
 
   // build new request
-  for (var i in attributesCombinations)
-    for (var a in tab_attributes)
-      if (attributesCombinations[i]['id_attribute'] === tab_attributes[a])
+  for (var i in attributesCombinations) {
+    for (var a in tab_attributes) {
+      if (attributesCombinations[i]['id_attribute'] === tab_attributes[a]) {
         request += '/' + attributesCombinations[i]['id_attribute'] + '-' + attributesCombinations[i]['group'] + attribute_anchor_separator + attributesCombinations[i]['attribute'];
+      }
+    }
+  }
+
   request = request.replace(request.substring(0, 1), '#/');
   var url = window.location + '';
 
@@ -958,12 +992,15 @@ function getProductAttribute() {
   if (url.indexOf('#') != -1)
     url = url.substring(0, url.indexOf('#'));
 
-  if ($('#customizationForm').length) {
+  var $customizationForm = $('#customizationForm');
+  if ($customizationForm.length) {
     // set ipa to the customization form
-    customAction = $('#customizationForm').attr('action');
-    if (customAction.indexOf('#') != -1)
+    customAction = $customizationForm.attr('action');
+    if (customAction.indexOf('#') != -1) {
       customAction = customAction.substring(0, customAction.indexOf('#'));
-    $('#customizationForm').attr('action', customAction + request);
+    }
+
+    $customizationForm.attr('action', customAction + request);
   }
 
   window.location.replace(url + request);
@@ -992,18 +1029,23 @@ function checkUrl() {
       $('.color_pick').removeClass('selected').parent().parent().children().removeClass('selected');
 
       count = 0;
-      for (var z in tabValues)
-        for (var a in attributesCombinations)
-          if (attributesCombinations[a]['group'] === decodeURIComponent(tabValues[z][1]) &&
-            attributesCombinations[a]['id_attribute'] === decodeURIComponent(tabValues[z][0])) {
-            count++;
+      for (var z in tabValues) {
+        for (var a in attributesCombinations) {
+          if (attributesCombinations.hasOwnProperty(a)) {
+            if (attributesCombinations[a]['group'] === decodeURIComponent(tabValues[z][1]) &&
+              attributesCombinations[a]['id_attribute'] === decodeURIComponent(tabValues[z][0])) {
+              count++;
 
-            // add class 'selected' to the selected color
-            $('#color_' + attributesCombinations[a]['id_attribute']).addClass('selected').parent().addClass('selected');
-            $('input:radio[value=' + attributesCombinations[a]['id_attribute'] + ']').prop('checked', true);
-            $('input[type=hidden][name=group_' + attributesCombinations[a]['id_attribute_group'] + ']').val(attributesCombinations[a]['id_attribute']);
-            $('select[name=group_' + attributesCombinations[a]['id_attribute_group'] + ']').val(attributesCombinations[a]['id_attribute']);
+              // add class 'selected' to the selected color
+              $('#color_' + attributesCombinations[a]['id_attribute']).addClass('selected').parent().addClass('selected');
+              $('input:radio[value=' + attributesCombinations[a]['id_attribute'] + ']').prop('checked', true);
+              $('input[type=hidden][name=group_' + attributesCombinations[a]['id_attribute_group'] + ']').val(attributesCombinations[a]['id_attribute']);
+              $('select[name=group_' + attributesCombinations[a]['id_attribute_group'] + ']').val(attributesCombinations[a]['id_attribute']);
+            }
           }
+        }
+      }
+
       // find combination and select corresponding thumbs
       if (count) {
         if (firstTime) {
@@ -1012,10 +1054,10 @@ function checkUrl() {
         }
         original_url = url;
         return true;
-      }
-      // no combination found = removing attributes from url
-      else
+      } else {
+        // no combination found = removing attributes from url
         window.location.replace(url.substring(0, url.indexOf('#')));
+      }
     }
   }
   return false;
