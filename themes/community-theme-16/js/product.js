@@ -678,9 +678,8 @@ function updatePrice() {
   // Set product (not the combination) base price
   var basePriceWithoutTax = +productPriceTaxExcluded;
   var basePriceWithTax = +productPriceTaxIncluded;
-  var priceWithGroupReductionWithoutTax = 0;
 
-  priceWithGroupReductionWithoutTax = basePriceWithoutTax * (1 - groupReduction);
+  var priceWithGroupReductionWithoutTax = basePriceWithoutTax * (1 - groupReduction);
 
   // Apply combination price impact (only if there is no specific price)
   // 0 by default, +x if price is increased, -x if price is decreased
@@ -942,15 +941,18 @@ function serialScrollSetNbImages() {
 function refreshProductImages(id_product_attribute) {
   id_product_attribute = parseInt(id_product_attribute);
 
+  var $thumbList = $('#thumbs_list');
+  var $thumbListItems = $thumbList.find('li');
+
   if (id_product_attribute > 0 && typeof(combinationImages) != 'undefined' && typeof(combinationImages[id_product_attribute]) != 'undefined') {
-    $('#thumbs_list li').hide();
+    $thumbListItems.hide();
     for (var i = 0; i < combinationImages[id_product_attribute].length; i++)
       if (typeof(jqZoomEnabled) != 'undefined' && jqZoomEnabled)
         $('#thumbnail_' + parseInt(combinationImages[id_product_attribute][i])).show().children('a.shown').trigger('click');
     else
       $('#thumbnail_' + parseInt(combinationImages[id_product_attribute][i])).show();
   } else {
-    $('#thumbs_list li').show();
+    $thumbListItems.show();
 
     var choice = [];
     var $attributes = $('#attributes');
@@ -975,13 +977,17 @@ function refreshProductImages(id_product_attribute) {
     }
   }
 
-  if (parseInt($('#thumbs_list_frame >li:visible').length) != parseInt($('#thumbs_list_frame >li').length))
-    $('#wrapResetImages').stop(true, true).show();
-  else
-    $('#wrapResetImages').stop(true, true).hide();
+  var $thumbListFrame = $('#thumbs_list_frame');
+  var $thumbListFrameItems = $thumbListFrame.children('li');
 
-  $('#thumbs_list_frame').width(parseInt($('#thumbs_list_frame >li').outerWidth(true) * $('#thumbs_list_frame >li').length) + 'px');
-  $('#thumbs_list').trigger('goto', 0);
+  if (parseInt($thumbListFrame.children('li:visible').length) != parseInt($thumbListFrameItems.length)) {
+    $('#wrapResetImages').stop(true, true).show();
+  } else {
+    $('#wrapResetImages').stop(true, true).hide();
+  }
+
+  $thumbListFrame.width(parseInt($thumbListFrameItems.outerWidth(true) * $thumbListFrameItems.length) + 'px');
+  $thumbList.trigger('goto', 0);
   serialScrollFixLock('', '', '', '', 0);
 }
 
