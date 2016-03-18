@@ -779,37 +779,46 @@ function updatePrice() {
 
   /*  Update the page content, no price calculation happens after */
 
+  var $reductionPercent = $('#reduction_percent');
+  var $reductionAmount  = $('#reduction_amount');
+  var $unitPrice = $('.unit-price');
+  var $priceEcotax = $('.price-ecotax');
+
+  var $oldPriceElements = $('#old_price, #old_price_display, #old_price_display_taxes');
+  var $ourPriceDisplay = $('#our_price_display');
+
   // Hide everything then show what needs to be shown
-  $('#reduction_percent').hide();
-  $('#reduction_amount').hide();
-  $('#old_price, #old_price_display, #old_price_display_taxes').hide();
-  $('.price-ecotax').hide();
-  $('.unit-price').hide();
+  $reductionPercent.hide();
+  $reductionAmount.hide();
+  $oldPriceElements.hide();
+  $priceEcotax.hide();
+  $unitPrice.hide();
 
   if (priceWithDiscountsDisplay > 0) {
-    $('#our_price_display').text(formatCurrency(priceWithDiscountsDisplay, currencyFormat, currencySign, currencyBlank)).trigger('change');
+    $ourPriceDisplay.text(formatCurrency(priceWithDiscountsDisplay, currencyFormat, currencySign, currencyBlank)).trigger('change');
   } else {
-    $('#our_price_display').text(formatCurrency(0, currencyFormat, currencySign, currencyBlank)).trigger('change');
+    $ourPriceDisplay.text(formatCurrency(0, currencyFormat, currencySign, currencyBlank)).trigger('change');
   }
 
   // If the calculated price (after all discounts) is different than the base price
   // we show the old price striked through
 
   if (priceWithDiscountsDisplay.toFixed(2) != basePriceDisplay.toFixed(2)) {
-    $('#old_price_display span.price').text(formatCurrency(basePriceDisplay, currencyFormat, currencySign, currencyBlank));
-    $('#old_price, #old_price_display, #old_price_display_taxes').removeClass('hidden').show();
+    $ourPriceDisplay.find('span.price').text(formatCurrency(basePriceDisplay, currencyFormat, currencySign, currencyBlank));
+    $oldPriceElements.removeClass('hidden').show();
 
     // Then if it's not only a group reduction we display the discount in red box
     if (priceWithDiscountsWithoutTax != priceWithGroupReductionWithoutTax) {
       if (combination.specific_price.reduction_type == 'amount') {
         $('#reduction_amount_display').html('-' + formatCurrency(discountValue, currencyFormat, currencySign, currencyBlank));
-        $('#reduction_amount').show();
+        $reductionAmount.show();
       } else {
         var toFix = 2;
-        if ((parseFloat(discountPercentage).toFixed(2) - parseFloat(discountPercentage).toFixed(0)) == 0)
+        if ((parseFloat(discountPercentage).toFixed(2) - parseFloat(discountPercentage).toFixed(0)) == 0) {
           toFix = 0;
+        }
         $('#reduction_percent_display').html('-' + parseFloat(discountPercentage).toFixed(toFix) + '%');
-        $('#reduction_percent').show();
+        $reductionPercent.show();
       }
     }
   }
@@ -817,7 +826,7 @@ function updatePrice() {
   // Green Tax (Eco tax)
   // Update display of Green Tax
   if (default_eco_tax) {
-    ecotax = default_eco_tax;
+    var ecotax = default_eco_tax;
 
     // If the default product ecotax is overridden by the combination
     if (combination.ecotax) {
@@ -829,14 +838,14 @@ function updatePrice() {
     }
 
     $('#ecotax_price_display').text(formatCurrency(ecotax * currencyRate, currencyFormat, currencySign, currencyBlank));
-    $('.price-ecotax').show();
+    $priceEcotax.show();
   }
 
   // Unit price are the price per piece, per Kg, per m²
   // It doesn't modify the price, it's only for display
   if (productUnitPriceRatio > 0) {
     $('#unit_price_display').text(formatCurrency(unit_price * currencyRate, currencyFormat, currencySign, currencyBlank));
-    $('.unit-price').show();
+    $unitPrice.show();
   }
 
   if (noTaxForThisProduct || customerGroupWithoutTax) {
@@ -848,23 +857,24 @@ function updatePrice() {
 
 //update display of the large image
 function displayImage(domAAroundImgThumb, no_animation) {
-  if (typeof(no_animation) == 'undefined')
-    no_animation = false;
   if (domAAroundImgThumb.attr('href')) {
     var new_src = domAAroundImgThumb.attr('href').replace('thickbox', 'large');
     var new_title = domAAroundImgThumb.attr('title');
     var new_href = domAAroundImgThumb.attr('href');
-    if ($('#bigpic').attr('src') != new_src) {
-      $('#bigpic').attr({
+    var $img = $('#bigpic');
+
+    if ($img.attr('src') != new_src) {
+      $img.attr({
         'src': new_src,
         'alt': new_title,
         'title': new_title
       }).load(function() {
-        if (typeof(jqZoomEnabled) != 'undefined' && jqZoomEnabled)
+        if (typeof(jqZoomEnabled) != 'undefined' && jqZoomEnabled) {
           $(this).attr('rel', new_href);
+        }
       });
     }
-    $('#views_block li a').removeClass('shown');
+    $('#views_block').find('li a').removeClass('shown');
     $(domAAroundImgThumb).addClass('shown');
   }
 }
