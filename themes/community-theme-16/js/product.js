@@ -252,12 +252,6 @@ $(document).on('click', '#view_full_size, #image-block', function() {
   $('#views_block').find('.shown').trigger('click');
 });
 
-//catch the click on the "more infos" button at the top of the page
-$(document).on('click', '#short_description_block .button', function() {
-  $('#more_info_tab_more_info').trigger('click');
-  $.scrollTo('#more_info_tabs', 1200);
-});
-
 // Hide the customization submit button and display some message
 $(document).on('click', '#customizedDatas input', function() {
   var $customizedDatas = $('#customizedDatas');

@@ -153,20 +153,10 @@
             {/if}
           </p>
         {/if}
-        {if $product->description_short || $packItems|@count > 0}
+        {if $product->description_short}
           <div id="short_description_block">
-            {if $product->description_short}
-              <div id="short_description_content" class="rte align_justify" itemprop="description">{$product->description_short}</div>
-            {/if}
-
-            {if $product->description}
-              <p class="buttons_bottom_block">
-                <a href="javascript:{ldelim}{rdelim}" class="btn btn-xs btn-default">
-                  {l s='More details'}
-                </a>
-              </p>
-            {/if}
-          </div> <!-- end short_description_block -->
+            <div id="short_description_content" class="rte align_justify" itemprop="description">{$product->description_short}</div>
+          </div>
         {/if}
         {if ($display_qties == 1 && !$PS_CATALOG_MODE && $PS_STOCK_MANAGEMENT && $product->available_for_order)}
           <!-- number of item in stock -->
