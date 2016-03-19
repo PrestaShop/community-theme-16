@@ -31,19 +31,8 @@ a.fancybox-nav {
 
 #image-block {
   position: relative;
-  display: block;
   cursor: pointer;
-  padding: 5px;
-  border: 1px solid $product-image-border;
   background: #fff;
-  @media (max-width: $screen-xs-max) { //max 767px
-    width: 280px;
-    margin: 0 auto;
-  }
-  img {
-    background: #fbfbfb;
-    width: 100%;
-  }
   #view_full_size {
     .span_link {
       position: absolute;
@@ -71,168 +60,6 @@ a.fancybox-nav {
   }
   .zoomPad {
     z-index : auto!important;
-  }
-}
-
-// miniatures
-.pb-left-column #views_block {
-  margin-top: 10px;
-  @media (max-width: $screen-xs-max) { //max 767px
-    width: 280px;
-    margin: 10px auto 0 auto;
-  }
-}
-
-#thumbs_list {
-  overflow: hidden;
-  float: left;
-  width: 392px;
-  @media (min-width: $screen-md) and (max-width: $screen-md-max) { //min 992px max 1199px
-    width: 294px;
-  }
-  @media (min-width: $screen-sm) and (max-width: $screen-sm-max) { // min 768px max 991px
-    width: 164px;
-  }
-  @media (max-width: $screen-xs-max) { //max 767px
-    width: 196px;
-  }
-  ul#thumbs_list_frame {
-    list-style-type: none;
-    padding-left: 0;
-    overflow: hidden;
-    height: 90px;
-  }
-  li {
-    float: left;
-    height: 90px;
-    width: 90px;
-    cursor: pointer;
-    border: 1px solid $product-image-border;
-    margin-right: 8px;
-    line-height: 0;
-    @include box-sizing(border-box);
-    @media (min-width: $screen-sm) and (max-width: $screen-sm-max) { //min 768px max 991px
-      width: 76px;
-      height: 76px;
-      margin-right: 6px;
-    }
-    a{
-      display: block;
-      border: 3px solid #fff;
-      @include transition(all 0.3s ease);
-      @include box-sizing(border-box);
-      background: #fbfbfb;
-      &:hover, &.shown {
-        border-color: $product-image-border;
-      }
-    }
-    img {
-      border: 1px solid #fff;
-      width: 100%;
-      height: 100%;
-      @include box-sizing(border-box);
-      @media (min-width: $screen-sm) and (max-width: $screen-sm-max) { //min 768px max 991px
-        width: 68px;
-        height: 68px;
-      }
-    }
-  }
-}
-
-.show-right-column.hide-left-column, .hide-right-column.show-left-column
-{
-  #thumbs_list {
-    width: 294px;
-    @media (min-width: $screen-md) and (max-width: $screen-md-max) { //min 992px max 1199px
-      width: 194px;
-    }
-    @media (min-width: $screen-sm) and (max-width: $screen-sm-max) { // min 768px max 991px
-      width: 82px;
-    }
-    @media (max-width: $screen-xs-max) { //max 767px
-      width: 196px;
-    }
-  }
-}
-
-span.view_scroll_spacer {
-  float: left;
-  width: 39px;
-  padding-left: 12px;
-  @media (min-width: $screen-md) and (max-width: $screen-md-max) { //min 992px max 1199px
-    width: 45px;
-    padding-left: 18px;
-  }
-  @media (min-width: $screen-sm) and (max-width: $screen-sm-max) { // min 768px max 991px
-    width: 30px;
-    padding-left: 3px;
-  }
-  @media (max-width: $screen-xs-max) { //max 767px
-    width: 45px;
-    padding-left: 18px;
-  }
-}
-.show-right-column.hide-left-column, .hide-right-column.show-left-column
-{
-  span.view_scroll_spacer {
-    width: 27px;
-    padding-left: 2px;
-    @media (min-width: $screen-md) and (max-width: $screen-md-max) { //min 992px max 1199px
-      width: 44px;
-      padding-left: 16px;
-    }
-    @media (min-width: $screen-sm) and (max-width: $screen-sm-max) { // min 768px max 991px
-      width: 41px;
-      padding-left: 13px;
-    }
-    @media (max-width: $screen-xs-max) { //max 767px
-      width: 45px;
-      padding-left: 14px;
-    }
-  }
-}
-#view_scroll_left,
-#view_scroll_right {
-  margin-top: 38px;
-  height: 20px;
-  width: 20px;
-  line-height: 0;
-  font-size: 0;
-  overflow: hidden;
-  @media (min-width: $screen-sm) and (max-width: $screen-sm-max) { //min 768px max 991px
-    margin-top: 28px;
-  }
-  &:before{
-    padding-left: 2px;
-    color: $scroll-button-color;
-    font-family: $font-icon;
-    font-size: 20px;
-    line-height: 22px;
-  }
-}
-#view_scroll_right {
-  float: left;
-  &:before{
-    content: "\f138";
-  }
-}
-#view_scroll_left {
-  margin-top: 0;
-  &:before{
-    content: "\f137";
-    padding-right: 2px;
-  }
-}
-.resetimg {
-  padding: 10px 0 0;
-  #resetImages i{
-    margin-right: 6px;
-  }
-}
-.view_scroll_spacer {
-  margin-top: 38px;
-  @media (min-width: $screen-sm) and (max-width: $screen-sm-max) { //min 768px max 991px
-    margin-top: 28px;
   }
 }
 
@@ -334,20 +161,6 @@ span.view_scroll_spacer {
   }
 }
 
-#short_description_block {
-  .buttons_bottom_block {
-    display: none;
-  }
-}
-
-#short_description_content{
-  padding: 0 0 15px;
-  word-wrap: break-word;
-  p{
-    line-height: 18px;
-  }
-}
-
 // #buy_block {}
 
 #color_picker p {
@@ -430,16 +243,6 @@ span.view_scroll_spacer {
 }
 .box-cart-bottom{
   padding: 0;
-}
-#short_description_content,
-.page-product-box .rte {
-  a{
-    color: #333333;
-    text-decoration: underline;
-  }
-  a.btn{
-    text-decoration: none;
-  }
 }
 
 .btn-add-to-cart {
@@ -737,13 +540,6 @@ ul#text_fields {
             width: 100%;
             float: none;
           }
-          span.view_scroll_spacer{
-            width: 38px;
-            padding-left: 10px;
-          }
-          #thumbs_list {
-            width: 392px;
-          }
         }
         &.pb-center-column {
           padding: 20px 20px 60px 0;
@@ -841,22 +637,6 @@ ul#text_fields {
           &.pb-left-column {
             width: 100%;
             padding-right: 15px;
-            #image-block, #views_block {
-              max-width: 470px;
-              width: 100%;
-              margin-left: auto;
-              margin-right: auto;
-            }
-            #thumbs_list {
-              li {
-                width: 90px;
-                height: 90px;
-                img {
-                  width: 82px;
-                  height: 82px;
-                }
-              }
-            }
           }
           &.pb-center-column {
             width: 50%;
@@ -877,29 +657,8 @@ ul#text_fields {
   }
 }
 
-//temporary fix for quickview
-#product.content_only {
-  div.pb-left-column {
-    p.resetimg {
-      margin-bottom: 0;
-      padding-top: 0;
-    }
-    #thumbs_list_frame {
-      margin-bottom: 0;
-    }
-  }
-}
-
 .page-product-box {
   margin-bottom: 10px;
-}
-
-// Zoom (something to do with jquery zoom)
-// max 1199px
-@media (max-width: $screen-md-max) {
-  .zoomdiv {
-    display: none !important;
-  }
 }
 
 // Used in add to cart button
