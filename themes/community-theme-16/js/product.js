@@ -97,7 +97,7 @@ if (typeof combinations != 'undefined' && combinations) {
       combinationsJS[k]['id_product_attribute'] = (combinations[i]['specific_price'] && combinations[i]['specific_price']['id_product_attribute']) ? combinations[i]['specific_price']['id_product_attribute'] : 0;
 
       key = combinationsJS[k]['idsAttributes'].sort().join('-');
-      combinationsHashSet[key] = combinationsJS[k];
+      window.combinationsHashSet[key] = combinationsJS[k];
 
       k++;
     }
@@ -421,24 +421,11 @@ function findCombination() {
     $qtyWanted.val(1);
   }
 
-  //create a temporary 'choice' array containing the choices of the customer
-  var choice = [];
-  var $attributes = $('#attributes');
-
-  var radio_inputs = parseInt($attributes.find('.checked > input[type=radio]').length);
-  if (radio_inputs) {
-    radio_inputs = '.checked > input[type=radio]';
-  } else {
-    radio_inputs = 'input[type=radio]:checked';
-  }
-
-  $attributes.find('select, input[type=hidden], ' + radio_inputs).each(function() {
-    choice.push(parseInt($(this).val()));
-  });
+  var combinationHash = getCurrentCombinationHash();
 
   // Verify if this combination is the same that the user's choice
-  if (typeof combinationsHashSet != 'undefined') {
-    var combination = combinationsHashSet[choice.sort().join('-')];
+  if (typeof window.combinationsHashSet != 'undefined') {
+    var combination = window.combinationsHashSet[combinationHash];
 
     if (combination) {
       if (combination['minimal_quantity'] > 1) {
@@ -903,25 +890,15 @@ function refreshProductImages(id_product_attribute) {
     }
   } else {
 
-    var choice = [];
-    var $attributes = $('#attributes');
-    var radio_inputs = parseInt($attributes.find('.checked > input[type=radio]').length);
-    if (radio_inputs) {
-      radio_inputs = '.checked > input[type=radio]';
-    } else {
-      radio_inputs = 'input[type=radio]:checked';
-    }
+    var combinationHash = getCurrentCombinationHash();
 
-    $attributes.find('select, input[type=hidden], ' + radio_inputs).each(function() {
-      choice.push(parseInt($(this).val()));
-    });
-
-    if (typeof(combinationsHashSet) != 'undefined') {
-      var combination = combinationsHashSet[choice.sort().join('-')];
+    if (typeof(window.combinationsHashSet) != 'undefined') {
+      var combination = window.combinationsHashSet[combinationHash];
       if (combination) {
-        //show the large image in relation to the selected combination
-        if (combination['image'] && combination['image'] != -1)
+        // Show the large image in relation to the selected combination
+        if (combination['image'] && combination['image'] != -1) {
           displayImage($('#thumb_' + combination['image']).parent());
+        }
       }
     }
   }
@@ -980,23 +957,35 @@ function colorPickerClick(elt) {
   $(elt).parent().parent().parent().children('.color_pick_hidden').val(id_attribute);
 }
 
-function getProductAttribute() {
-  // get every attributes values
-  request = '';
-  //create a temporary 'tab_attributes' array containing the choices of the customer
-  var tab_attributes = [];
+function getCurrentCombinationAttributes() {
   var $attributes = $('#attributes');
-  var radio_inputs = parseInt($attributes.find('.checked > input[type=radio]').length);
 
+  var radio_inputs = parseInt($attributes.find('.checked > input[type=radio]').length);
   if (radio_inputs) {
     radio_inputs = '.checked > input[type=radio]';
   } else {
     radio_inputs = 'input[type=radio]:checked';
   }
 
+  var attributeIds = [];
+
   $attributes.find('select, input[type=hidden], ' + radio_inputs).each(function() {
-    tab_attributes.push($(this).val());
+    attributeIds.push(parseInt($(this).val()));
   });
+
+  return attributeIds;
+}
+
+function getCurrentCombinationHash() {
+  var attributeIds = getCurrentCombinationAttributes();
+  return attributeIds.sort().join('-');
+}
+
+function getProductAttribute() {
+  // get every attributes values
+  request = '';
+
+  var tab_attributes = getCurrentCombinationAttributes();
 
   // build new request
   for (var i in attributesCombinations) {
@@ -1017,8 +1006,9 @@ function getProductAttribute() {
   var url = window.location + '';
 
   // redirection
-  if (url.indexOf('#') != -1)
+  if (url.indexOf('#') != -1) {
     url = url.substring(0, url.indexOf('#'));
+  }
 
   var $customizationForm = $('#customizationForm');
   if ($customizationForm.length) {
