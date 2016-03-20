@@ -33,33 +33,32 @@ a.fancybox-nav {
   position: relative;
   cursor: pointer;
   background: #fff;
-  #view_full_size {
-    .span_link {
-      position: absolute;
-      bottom: 20px;
-      left: 50%;
-      margin-left: -68px;
+}
+
+#view_full_size {
+  .span_link {
+    position: absolute;
+    display: none;
+    top: 50%;
+    left: 50%;
+    width: 110px;
+    height: 110px;
+    margin-top: -65px;
+    margin-left: -65px;
+    line-height: 110px;
+    @include border-radius(55px);
+    font-size: 3em;
+    color: #fff;
+    text-align: center;
+    background: rgba(0,0,0,0.4);
+  }
+}
+
+#image-block {
+  &:hover {
+    #view_full_size .span_link {
       display: block;
-      padding: 10px 0;
-      text-align: center;
-      width: 136px;
-      background: rgba(255,255,255,0.5);
-      @include box-shadow(0 2px 8px rgba(0,0,0,0.16));
     }
-  }
-  a.jqzoom {
-    div div {
-      img {
-        width: auto;
-        max-width: 10000px;
-      }
-      .zoomWrapper {
-        border: none;
-      }
-    }
-  }
-  .zoomPad {
-    z-index : auto!important;
   }
 }
 
