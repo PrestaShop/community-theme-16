@@ -991,11 +991,9 @@ function getProductAttribute() {
   for (var i in attributesCombinations) {
     if (attributesCombinations.hasOwnProperty(i)) {
 
-      for (var a in tab_attributes) {
-        if (tab_attributes.hasOwnProperty(a)) {
-          if (attributesCombinations[i]['id_attribute'] === tab_attributes[a]) {
-            request += '/' + attributesCombinations[i]['id_attribute'] + '-' + attributesCombinations[i]['group'] + attribute_anchor_separator + attributesCombinations[i]['attribute'];
-          }
+      for (var j=0; j<tab_attributes.length; j++) {
+        if (attributesCombinations[i]['id_attribute'] == tab_attributes[j]) {
+          request += '/' + attributesCombinations[i]['id_attribute'] + '-' + attributesCombinations[i]['group'] + attribute_anchor_separator + attributesCombinations[i]['attribute'];
         }
       }
 
