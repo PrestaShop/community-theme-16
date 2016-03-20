@@ -16,7 +16,7 @@ var original_url = window.location + '';
 var first_url_check = true;
 var firstTime = true;
 
-// Use in the loops below
+// Used in the loops below
 var i, j, k, key;
 
 // Retro compatibility from product.tpl
@@ -119,44 +119,11 @@ $(function() {
     }
   }
 
-  var $thumbList = $('#thumbs_list');
-
-  //init the serialScroll for thumbs
-  !!$.prototype.serialScroll && $thumbList.serialScroll({
-    items: 'li:visible',
-    prev: '#view_scroll_left',
-    next: '#view_scroll_right',
-    axis: 'x',
-    offset: 0,
-    start: 0,
-    stop: true,
-    duration: 700,
-    lazy: true,
-    lock: false,
-    force: false,
-    cycle: false
-  });
-
   //set jqZoom parameters if needed
   if (typeof(jqZoomEnabled) != 'undefined' && jqZoomEnabled) {
-    if ($thumbList.find('.shown img').length) {
-      var new_src = $thumbList.find('.shown img').attr('src').replace('cart_', 'large_');
-      var $jqZoomImg = $('.jqzoom img');
-      if ($jqZoomImg.attr('src') != new_src) {
-        $jqZoomImg.attr('src', new_src).parent().attr('href', new_src);
-      }
-    }
-
-    $('.jqzoom').jqzoom({
-      zoomType: 'innerzoom', //innerzoom/standard/reverse/drag
-      zoomWidth: 458, //zooming div default width(default width value is 200)
-      zoomHeight: 458, //zooming div default width(default height value is 200)
-      xOffset: 21, //zooming div default offset(default offset value is 10)
-      yOffset: 0,
-      title: false
-    });
-
+    // @TODO Initialize zoom
   }
+
   if (typeof(contentOnly) != 'undefined') {
     if (!contentOnly && !!$.prototype.fancybox) {
       $('li:visible .fancybox, .fancybox.shown').fancybox({
@@ -304,6 +271,8 @@ if (typeof(contentOnly) != 'undefined' && contentOnly) {
     e.preventDefault();
     var productUrl = window.document.location.href + '';
     var data = productUrl.replace(/[\?|&]content_only=1/, '');
+
+    // @TODO Refactor
 
     if (window.parent.page_name == 'search') {
       data += ((data.indexOf('?') < 0) ? '?' : '&') + 'HTTP_REFERER=' + encodeURIComponent(window.parent.document.location.href);
@@ -640,8 +609,9 @@ function updateDisplay() {
   }
 
   // If we have combinations, update price section: amounts, currency, discount amounts,...
-  if (productHasAttributes)
+  if (productHasAttributes) {
     updatePrice();
+  }
 }
 
 function updatePrice() {
@@ -848,10 +818,6 @@ function displayImage($thumbAnchor) {
         'src': new_src,
         'alt': new_title,
         'title': new_title
-      }).on('load', function() {
-        if (typeof(jqZoomEnabled) != 'undefined' && jqZoomEnabled) {
-          $(this).attr('rel', new_href);
-        }
       });
     }
     $('#views_block').find('li a').removeClass('shown');
@@ -911,12 +877,9 @@ function refreshProductImages(id_product_attribute) {
   id_product_attribute = parseInt(id_product_attribute) || 0;
 
   if (id_product_attribute > 0 && typeof(combinationImages) != 'undefined' && typeof(combinationImages[id_product_attribute]) != 'undefined') {
-    for (var i = 0; i < combinationImages[id_product_attribute].length; i++)
-      if (typeof(jqZoomEnabled) != 'undefined' && jqZoomEnabled) {
-        $('#thumbnail_' + parseInt(combinationImages[id_product_attribute][i])).show().children('a.shown').trigger('click');
-      } else {
-        $('#thumbnail_' + parseInt(combinationImages[id_product_attribute][i])).show();
-      }
+    for (var i = 0; i < combinationImages[id_product_attribute].length; i++) {
+      $('#thumbnail_' + parseInt(combinationImages[id_product_attribute][i])).show();
+    }
   } else {
 
     var choice = [];
