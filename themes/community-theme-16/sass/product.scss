@@ -383,46 +383,30 @@ table.table-product-discounts{
 /* prices */
 .content_prices {
   padding: 13px 19px;
+  p {
+    margin: 0;
+  }
 }
+
 .our_price_display {
-  font-weight: 600;
-  font-size: 29px;
-  line-height: 32px;
-  @media (max-width: $screen-sm-max) { //max 991px
-    font-size: 26px;
-    line-height: 28px;
-  }
+  font-size: 2em;
   .price {
-    font-weight: 600;
-    font-size: 29px;
-    line-height: 32px;
-    @media (max-width: $screen-sm-max) { //max 991px
-      font-size: 26px;
-      line-height: 28px;
-    }
+    font-weight: bold;
   }
 }
+
 #old_price {
-  padding-bottom: 15px;
-  font-size: 13px;
   text-decoration: line-through;
   display: inline-block;
-  line-height: 23px;
 }
 
 #reduction_percent,
 #reduction_amount {
-  margin-right: 10px;
-  padding: 1px 2px;
-  font-weight: 600;
-  font-size: 21px;
-  line-height: 23px;
+  margin-right: 0.25em;
+  font-size: 1.5em;
   color: #fff;
   background: #f13340;
-  border: 1px solid #d02a2c;
-  span{
-    display:block;
-  }
+  padding: 0 0.25em;
   .hide-left-column.hide-right-column & {
     display: inline-block;
   }
