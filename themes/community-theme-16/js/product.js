@@ -159,8 +159,10 @@ function initThumbnails() {
       slideMargin: 0,
       minSlides: 2,
       maxSlides: 4,
+      speed: 200,
+      infiniteLoop: false,
       moveSlides: 1,
-      slideWidth: 121,
+      slideWidth: 122,
       pager: false
     });
   }
@@ -828,12 +830,6 @@ function displayImage($thumbAnchor) {
     }
     $('#views_block').find('li a').removeClass('shown');
     $thumbAnchor.addClass('shown');
-
-    if (thumbSlider !== false) {
-      var $thumbLi = $thumbAnchor.parent();
-      var slideNumber = parseInt($thumbLi.data('slide-num')) || 0;
-      thumbSlider.goToSlide(slideNumber);
-    }
   }
 }
 
@@ -895,7 +891,14 @@ function refreshProductImages(id_product_attribute) {
     if (combination) {
       // Show the large image in relation to the selected combination
       if (combination['image'] && combination['image'] != -1) {
-        displayImage($('#thumb_' + combination['image']).parent());
+        var $thumbAnchor = $('#thumb_' + combination['image']).parent();
+        displayImage($thumbAnchor);
+
+        if (thumbSlider !== false) {
+          var $thumbLi = $thumbAnchor.parent();
+          var slideNumber = parseInt($thumbLi.data('slide-num')) || 0;
+          thumbSlider.goToSlide(slideNumber);
+        }
       }
     }
   }
