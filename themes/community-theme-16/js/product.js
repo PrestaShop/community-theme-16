@@ -119,6 +119,8 @@ $(function() {
     }
   }
 
+  initThumbnails();
+
   //set jqZoom parameters if needed
   if (typeof(jqZoomEnabled) != 'undefined' && jqZoomEnabled) {
     // @TODO Initialize zoom
@@ -164,6 +166,21 @@ $(function() {
       getProductAttribute();
   }
 });
+
+function initThumbnails() {
+  var $thumbList = $('#thumbs_list_frame');
+
+  // Use slider when there are 8 or more slides
+  if ($thumbList.find('li').length > 8) {
+    $thumbList.bxSlider({
+      slideMargin: 0,
+      minSlides: 2,
+      maxSlides: 4,
+      slideWidth: 121,
+      pager: false
+    });
+  }
+}
 
 //find a specific price rule, based on pre calculated dom display array
 function findSpecificPrice() {
