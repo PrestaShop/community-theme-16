@@ -105,6 +105,8 @@ if (typeof combinations != 'undefined' && combinations) {
   window.combinations = combinationsJS;
 }
 
+var thumbSlider = false;
+
 // DOM Ready
 $(function() {
 
@@ -153,10 +155,11 @@ function initThumbnails() {
 
   // Use slider when there are 8 or more slides
   if ($thumbList.find('li').length > 8) {
-    $thumbList.bxSlider({
+    thumbSlider = $thumbList.bxSlider({
       slideMargin: 0,
       minSlides: 2,
       maxSlides: 4,
+      moveSlides: 1,
       slideWidth: 121,
       pager: false
     });
@@ -449,11 +452,6 @@ function findCombination() {
         selectedCombination['ecotax'] = combination['ecotax'];
       } else {
         selectedCombination['ecotax'] = default_eco_tax;
-      }
-
-      //show the large image in relation to the selected combination
-      if (combination['image'] && combination['image'] != -1) {
-        displayImage($('#thumb_' + combination['image']).parent());
       }
 
       //show discounts values according to the selected combination
@@ -830,6 +828,12 @@ function displayImage($thumbAnchor) {
     }
     $('#views_block').find('li a').removeClass('shown');
     $thumbAnchor.addClass('shown');
+
+    if (thumbSlider !== false) {
+      var $thumbLi = $thumbAnchor.parent();
+      var slideNumber = parseInt($thumbLi.data('slide-num')) || 0;
+      thumbSlider.goToSlide(slideNumber);
+    }
   }
 }
 
@@ -884,21 +888,14 @@ function updateDiscountTable(newPrice) {
 function refreshProductImages(id_product_attribute) {
   id_product_attribute = parseInt(id_product_attribute) || 0;
 
-  if (id_product_attribute > 0 && typeof(combinationImages) != 'undefined' && typeof(combinationImages[id_product_attribute]) != 'undefined') {
-    for (var i = 0; i < combinationImages[id_product_attribute].length; i++) {
-      $('#thumbnail_' + parseInt(combinationImages[id_product_attribute][i])).show();
-    }
-  } else {
+  var combinationHash = getCurrentCombinationHash();
 
-    var combinationHash = getCurrentCombinationHash();
-
-    if (typeof(window.combinationsHashSet) != 'undefined') {
-      var combination = window.combinationsHashSet[combinationHash];
-      if (combination) {
-        // Show the large image in relation to the selected combination
-        if (combination['image'] && combination['image'] != -1) {
-          displayImage($('#thumb_' + combination['image']).parent());
-        }
+  if (typeof(window.combinationsHashSet) != 'undefined') {
+    var combination = window.combinationsHashSet[combinationHash];
+    if (combination) {
+      // Show the large image in relation to the selected combination
+      if (combination['image'] && combination['image'] != -1) {
+        displayImage($('#thumb_' + combination['image']).parent());
       }
     }
   }

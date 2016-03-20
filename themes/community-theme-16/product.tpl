@@ -90,7 +90,7 @@
                       {assign var=imageTitle value=$product->name|escape:'html':'UTF-8'}
                     {/if}
 
-                    <li id="thumbnail_{$image.id_image}" class="col-xs-6 col-sm-4 col-md-3">
+                    <li data-slide-num="{$smarty.foreach.thumbnails.iteration|intval}" id="thumbnail_{$image.id_image}" class="col-xs-6 col-sm-4 col-md-3">
                       <a href="{$link->getImageLink($product->link_rewrite, $imageIds, 'thickbox_default')|escape:'html':'UTF-8'}" data-fancybox-group="other-views" class="thumbnail fancybox{if $image.id_image == $cover.id_image} shown{/if}" title="{$imageTitle}">
                         <img class="img-responsive" id="thumb_{$image.id_image}" src="{$link->getImageLink($product->link_rewrite, $imageIds, 'cart_default')|escape:'html':'UTF-8'}" alt="{$imageTitle}" title="{$imageTitle}"{if isset($cartSize)} height="{$cartSize.height}" width="{$cartSize.width}"{/if} itemprop="image" />
                       </a>
