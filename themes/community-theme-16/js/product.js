@@ -121,12 +121,7 @@ $(function() {
     }
   }
 
-  initThumbnails();
-
-  //set jqZoom parameters if needed
-  if (typeof(jqZoomEnabled) != 'undefined' && jqZoomEnabled) {
-    // @TODO Initialize zoom
-  }
+  initProductImages();
 
   if (typeof(contentOnly) != 'undefined') {
     if (!contentOnly && !!$.prototype.fancybox) {
@@ -150,7 +145,7 @@ $(function() {
   }
 });
 
-function initThumbnails() {
+function initProductImages() {
   var $thumbList = $('#thumbs_list_frame');
 
   // Use slider when there are 8 or more slides
@@ -166,7 +161,71 @@ function initThumbnails() {
       pager: false
     });
   }
+
+  if (typeof(jqZoomEnabled) != 'undefined' && jqZoomEnabled) {
+    $('#image-block').zoom({
+      on: 'mouseover' //@TODO click on mobile
+      // @see http://www.jacklmoore.com/zoom/
+    });
+  }
+
 }
+
+// Update display of the large image
+function displayImage($thumbAnchor) {
+  if ($thumbAnchor.attr('href')) {
+    var imgSrcThickBox = $thumbAnchor.attr('href');
+    var imgSrcLarge = imgSrcThickBox.replace('thickbox', 'large');
+    var new_title = $thumbAnchor.attr('title');
+    var $img = $('#bigpic');
+
+    if ($img.attr('src') != imgSrcLarge) {
+      $img.attr({
+        'src': imgSrcLarge,
+        'alt': new_title,
+        'title': new_title,
+        'data-src': imgSrcThickBox
+      });
+    }
+    $('#views_block').find('li a').removeClass('shown');
+    $thumbAnchor.addClass('shown');
+  }
+}
+
+// Change the current product images regarding the combination selected
+function refreshProductImages(id_product_attribute) {
+  id_product_attribute = parseInt(id_product_attribute) || 0;
+
+  var combinationHash = getCurrentCombinationHash();
+
+  if (typeof(window.combinationsHashSet) != 'undefined') {
+    var combination = window.combinationsHashSet[combinationHash];
+    if (combination) {
+      // Show the large image in relation to the selected combination
+      if (combination['image'] && combination['image'] != -1) {
+        var $thumbAnchor = $('#thumb_' + combination['image']).parent();
+        displayImage($thumbAnchor);
+
+        if (thumbSlider !== false) {
+          var $thumbLi = $thumbAnchor.parent();
+          var slideNumber = parseInt($thumbLi.data('slide-num')) || 0;
+          thumbSlider.goToSlide(slideNumber);
+        }
+      }
+    }
+  }
+}
+
+// On hovering thumbnails, display new main image
+$(document).on('mouseover', '#views_block li a', function() {
+  displayImage($(this));
+});
+
+// On clicking
+$(document).on('click', '#view_full_size, #image-block', function() {
+  $('#views_block').find('.shown').trigger('click');
+});
+
 
 function initAccessories() {
   var $accessoryList      = $('#bxslider');
@@ -222,16 +281,6 @@ function findSpecificPrice() {
 $(window).on('hashchange', function() {
   checkUrl();
   findCombination();
-});
-
-//hover 'other views' images management
-$(document).on('mouseover', '#views_block li a', function() {
-  displayImage($(this));
-});
-
-//add a link on the span 'view full size' and on the big image
-$(document).on('click', '#view_full_size, #image-block', function() {
-  $('#views_block').find('.shown').trigger('click');
 });
 
 // Hide the customization submit button and display some message
@@ -814,25 +863,6 @@ function updatePrice() {
   }
 }
 
-//update display of the large image
-function displayImage($thumbAnchor) {
-  if ($thumbAnchor.attr('href')) {
-    var new_src   = $thumbAnchor.attr('href').replace('thickbox', 'large');
-    var new_title = $thumbAnchor.attr('title');
-    var $img = $('#bigpic');
-
-    if ($img.attr('src') != new_src) {
-      $img.attr({
-        'src': new_src,
-        'alt': new_title,
-        'title': new_title
-      });
-    }
-    $('#views_block').find('li a').removeClass('shown');
-    $thumbAnchor.addClass('shown');
-  }
-}
-
 /**
  * Update display of the discounts table.
  * @param combination Combination ID.
@@ -878,30 +908,6 @@ function updateDiscountTable(newPrice) {
     }
     $(this).children('td').eq(2).text(upToTxt + ' ' + formatCurrency(discountUpTo * currencyRate, currencyFormat, currencySign, currencyBlank));
   });
-}
-
-// Change the current product images regarding the combination selected
-function refreshProductImages(id_product_attribute) {
-  id_product_attribute = parseInt(id_product_attribute) || 0;
-
-  var combinationHash = getCurrentCombinationHash();
-
-  if (typeof(window.combinationsHashSet) != 'undefined') {
-    var combination = window.combinationsHashSet[combinationHash];
-    if (combination) {
-      // Show the large image in relation to the selected combination
-      if (combination['image'] && combination['image'] != -1) {
-        var $thumbAnchor = $('#thumb_' + combination['image']).parent();
-        displayImage($thumbAnchor);
-
-        if (thumbSlider !== false) {
-          var $thumbLi = $thumbAnchor.parent();
-          var slideNumber = parseInt($thumbLi.data('slide-num')) || 0;
-          thumbSlider.goToSlide(slideNumber);
-        }
-      }
-    }
-  }
 }
 
 function saveCustomization() {

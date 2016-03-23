@@ -42,7 +42,7 @@ class CTConfiguration extends Module
             $this->unhookModule($unhook['module'], $unhook['hook']);
         }
 
-        $hooksToInstall = array('displayHeader');
+        $hooksToInstall = array('displayHeader', 'displayFooterProduct');
         foreach ($hooksToInstall as $hookName) {
             $this->registerHook($hookName);
         }
@@ -233,5 +233,21 @@ class CTConfiguration extends Module
                 ),
             ),
         ));
+    }
+
+    /**
+     * Adds JS files to product page
+     */
+    public function hookDisplayFooterProduct()
+    {
+        if (Configuration::get('PS_DISPLAY_JQZOOM') == 1) {
+            // Remove jQuery Zoom
+            $jqZoomPluginPath = Media::getJqueryPluginPath('jqzoom');
+            $this->context->controller->removeJS($jqZoomPluginPath['js']);
+            $this->context->controller->removeCSS($jqZoomPluginPath['css']);
+
+            // Add new version of jqZoom plugin
+            $this->context->controller->addJS($this->_path.'views/js/vendor/jquery.zoom.min.js');
+        }
     }
 }
