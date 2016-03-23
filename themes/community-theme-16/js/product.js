@@ -163,7 +163,9 @@ function initProductImages() {
   }
 
   // Init zoom on load
-  initZoom();
+  initZoom(
+    $('#bigpic').attr('src').replace('large', 'thickbox')
+  );
 }
 
 function initZoom(src) {
