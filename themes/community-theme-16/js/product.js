@@ -162,34 +162,45 @@ function initProductImages() {
     });
   }
 
+  // Init zoom on load
+  initZoom();
+}
+
+function initZoom(src) {
   if (typeof(jqZoomEnabled) != 'undefined' && jqZoomEnabled) {
     $('#image-block').zoom({
-      on: 'mouseover' //@TODO click on mobile
+      on: 'mouseover', //@TODO click on mobile
+      url: src
       // @see http://www.jacklmoore.com/zoom/
     });
   }
-
 }
 
 // Update display of the large image
 function displayImage($thumbAnchor) {
-  if ($thumbAnchor.attr('href')) {
-    var imgSrcThickBox = $thumbAnchor.attr('href');
-    var imgSrcLarge = imgSrcThickBox.replace('thickbox', 'large');
-    var new_title = $thumbAnchor.attr('title');
-    var $img = $('#bigpic');
 
-    if ($img.attr('src') != imgSrcLarge) {
-      $img.attr({
-        'src': imgSrcLarge,
-        'alt': new_title,
-        'title': new_title,
-        'data-src': imgSrcThickBox
-      });
-    }
-    $('#views_block').find('li a').removeClass('shown');
-    $thumbAnchor.addClass('shown');
+  var imgSrcThickBox = $thumbAnchor.attr('href');
+  var imgSrcLarge = imgSrcThickBox.replace('thickbox', 'large');
+  var imgTitle = $thumbAnchor.attr('title');
+  var $img = $('#bigpic');
+
+  if ($img.attr('src') == imgSrcLarge) {
+    return;
   }
+
+  // There is no API to change zoom src, need to reinit
+  $('#image-block').trigger('zoom.destroy');
+
+  $img.attr({
+    'src': imgSrcLarge,
+    'alt': imgTitle,
+    'title': imgTitle
+  });
+
+  initZoom(imgSrcThickBox);
+
+  $('#views_block').find('li a').removeClass('shown');
+  $thumbAnchor.addClass('shown');
 }
 
 // Change the current product images regarding the combination selected
