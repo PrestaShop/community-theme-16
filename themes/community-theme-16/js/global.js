@@ -195,3 +195,16 @@ function display(layoutType) {
   $('#grid').toggleClass('selected active', grid);
   $.totalStorage('display', grid ? 'grid' : 'list');
 }
+
+var touchDevice = null;
+function isTouchDevice() {
+  if (touchDevice === null) {
+    var agent = navigator.userAgent.toLowerCase();
+    touchDevice = 'ontouchstart' in window
+      || navigator.maxTouchPoints
+      || (/(android|iphone|ipad|iemobile|blackberry)/i).test(agent);
+  }
+
+  return touchDevice;
+}
+
