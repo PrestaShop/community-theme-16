@@ -170,8 +170,9 @@ function initProductImages() {
 
 function initZoom(src) {
   if (typeof(jqZoomEnabled) != 'undefined' && jqZoomEnabled) {
+    var touchDevice = isTouchDevice() || $(window).width() < 768;
     $('#image-block').zoom({
-      on: 'mouseover', //@TODO click on mobile
+      on: touchDevice ? 'click' : 'mouseover',
       url: src
       // @see http://www.jacklmoore.com/zoom/
     });
@@ -226,6 +227,13 @@ function refreshProductImages(id_product_attribute) {
       }
     }
   }
+}
+
+if (typeof(jqZoomEnabled) != 'undefined' && jqZoomEnabled) {
+  $(document).on('click', '#views_block li a', function(e) {
+    e.preventDefault();
+    displayImage($(this));
+  });
 }
 
 // On hovering thumbnails, display new main image
