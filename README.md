@@ -37,6 +37,7 @@ The main features of this theme:
 - New top menu modules
 - Refactored `blockcart`, left column block styles
 - Refactored product list template: JS code that compile product list HTML has been removed
+- Refactored `jQuery Zoom` option for product page
 
 Features that will be implemented in the future (currently under development):
 
