@@ -181,10 +181,10 @@
                 <label for="cb_{$product.id_order_detail|intval}">{$product.product_name|escape:'html':'UTF-8'}</label>
               </td>
               <td>
-                <input class="order_qte_input form-control"  name="order_qte_input[{$smarty.foreach.products.index}]" type="text" size="2" value="{$product.customizationQuantityTotal|intval}" />
+                <input class="order_qte_input form-control text-center"  name="order_qte_input[{$smarty.foreach.products.index}]" type="text" size="2" value="{$product.customizationQuantityTotal|intval}" />
                 <div class="clearfix return_quantity_buttons">
-                  <a href="#" class="return_quantity_down btn btn-default button-minus"><span><i class="icon icon-minus"></i></span></a>
-                  <a href="#" class="return_quantity_up btn btn-default button-plus"><span><i class="icon icon-plus"></i></span></a>
+                  <a href="#" class="return_quantity_down btn btn-default button-minus"><i class="icon icon-fw icon-minus"></i></a>
+                  <a href="#" class="return_quantity_up btn btn-default button-plus"><i class="icon icon-fw icon-plus"></i></a>
                 </div>
                 <label for="cb_{$product.id_order_detail|intval}"><span class="order_qte_span editable">{$product.customizationQuantityTotal|intval}</span></label></td>
               {if $order->hasProductReturned()}
@@ -242,10 +242,10 @@
                     {/foreach}
                   </td>
                   <td>
-                    <input class="order_qte_input form-control" name="customization_qty_input[{$customizationId|intval}]" type="text" size="2" value="{$customization.quantity|intval}" />
+                    <input class="order_qte_input form-control text-center" name="customization_qty_input[{$customizationId|intval}]" type="text" size="2" value="{$customization.quantity|intval}" />
                     <div class="clearfix return_quantity_buttons">
-                      <a href="#" class="return_quantity_down btn btn-default button-minus"><span><i class="icon icon-minus"></i></span></a>
-                      <a href="#" class="return_quantity_up btn btn-default button-plus"><span><i class="icon icon-plus"></i></span></a>
+                      <a href="#" class="return_quantity_down btn btn-default button-minus"><i class="icon icon-fw icon-minus"></i></a>
+                      <a href="#" class="return_quantity_up btn btn-default button-plus"><i class="icon icon-fw icon-plus"></i></a>
                     </div>
                     <label for="cb_{$product.id_order_detail|intval}"><span class="order_qte_span editable">{$customization.quantity|intval}</span></label>
                   </td>
@@ -280,10 +280,10 @@
                 </label>
               </td>
               <td class="return_quantity">
-                <input class="order_qte_input form-control" name="order_qte_input[{$product.id_order_detail|intval}]" type="text" size="2" value="{$productQuantity|intval}" />
+                <input class="order_qte_input form-control text-center" name="order_qte_input[{$product.id_order_detail|intval}]" type="text" size="2" value="{$productQuantity|intval}" />
                 <div class="clearfix return_quantity_buttons">
-                  <a href="#" class="return_quantity_down btn btn-default button-minus"><span><i class="icon icon-minus"></i></span></a>
-                  <a href="#" class="return_quantity_up btn btn-default button-plus"><span><i class="icon icon-plus"></i></span></a>
+                  <a href="#" class="return_quantity_down btn btn-default button-minus"><i class="icon icon-fw icon-minus"></i></a>
+                  <a href="#" class="return_quantity_up btn btn-default button-plus"><i class="icon icon-fw icon-plus"></i></a>
                 </div>
                 <label for="cb_{$product.id_order_detail|intval}"><span class="order_qte_span editable">{$productQuantity|intval}</span></label></td>
               {if $order->hasProductReturned()}

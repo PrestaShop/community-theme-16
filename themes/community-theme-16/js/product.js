@@ -962,10 +962,8 @@ function checkMinimalQuantity(minimal_quantity) {
   var $minQtyWantedP = $('#minimal_quantity_wanted_p');
 
   if ($qtyWanted.val() < minimal_quantity) {
-    $qtyWanted.css('border', '1px solid red');
     $minQtyWantedP.css('color', 'red');
   } else {
-    $qtyWanted.css('border', '1px solid #BDC2C9');
     $minQtyWantedP.css('color', '#374853');
   }
 }

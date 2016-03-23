@@ -338,24 +338,7 @@ table.table-product-discounts{
   }
 }
 
-/* quantity_wanted */
-#quantity_wanted_p{
-  input {
-    width: 78px;
-    height: 27px;
-    padding: 0 6px;
-    float: left;
-    border: 1px solid #d6d4d4;
-    line-height: 27px;
-  }
-  .btn{
-    float: left;
-    margin-left: 3px
-  }
-  label{
-    display: block;
-  }
-}
+// #quantity_wanted_p {}
 
 /* availability_statut */
 #availability_statut span#availability_label,

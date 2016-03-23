@@ -253,17 +253,22 @@
               <div class="product_attributes clearfix">
                 <!-- quantity wanted -->
                 {if !$PS_CATALOG_MODE}
-                  <p id="quantity_wanted_p"{if (!$allow_oosp && $product->quantity <= 0) || !$product->available_for_order || $PS_CATALOG_MODE} style="display: none;"{/if}>
+                  <div id="quantity_wanted_p"{if (!$allow_oosp && $product->quantity <= 0) || !$product->available_for_order || $PS_CATALOG_MODE} style="display: none;"{/if}>
                     <label for="quantity_wanted">{l s='Quantity'}</label>
-                    <input type="number" min="1" name="qty" id="quantity_wanted" class="text" value="{if isset($quantityBackup)}{$quantityBackup|intval}{else}{if $product->minimal_quantity > 1}{$product->minimal_quantity}{else}1{/if}{/if}" />
-                    <a href="#" data-field-qty="qty" class="btn btn-default button-minus product_quantity_down">
-                      <span><i class="icon icon-minus"></i></span>
-                    </a>
-                    <a href="#" data-field-qty="qty" class="btn btn-default button-plus product_quantity_up">
-                      <span><i class="icon icon-plus"></i></span>
-                    </a>
-                    <span class="clearfix"></span>
-                  </p>
+                    <div class="input-group">
+                      <div class="input-group-btn">
+                        <a href="#" data-field-qty="qty" class="btn btn-default button-minus product_quantity_down">
+                          <i class="icon icon-fw icon-minus"></i>
+                        </a>
+                      </div>
+                      <input type="number" min="1" name="qty" id="quantity_wanted" class="text text-center form-control" value="{if isset($quantityBackup)}{$quantityBackup|intval}{else}{if $product->minimal_quantity > 1}{$product->minimal_quantity}{else}1{/if}{/if}" />
+                      <div class="input-group-btn">
+                        <a href="#" data-field-qty="qty" class="btn btn-default button-plus product_quantity_up">
+                          <i class="icon icon-fw icon-plus"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
                 {/if}
                 <!-- minimal quantity wanted -->
                 <p id="minimal_quantity_wanted_p"{if $product->minimal_quantity <= 1 || !$product->available_for_order || $PS_CATALOG_MODE} style="display: none;"{/if}>
