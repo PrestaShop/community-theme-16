@@ -2,6 +2,10 @@
 var responsiveflag = false;
 
 $(document).ready(function() {
+
+  var touch = !!isTouchDevice();
+  $('body').toggleClass('touch', touch).toggleClass('no-touch', !touch);
+
   highdpiInit();
   responsiveResize();
   $(window).resize(responsiveResize);
