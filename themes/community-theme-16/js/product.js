@@ -190,15 +190,14 @@ function displayImage($thumbAnchor) {
     return;
   }
 
-  // There is no API to change zoom src, need to reinit
-  $('#image-block').trigger('zoom.destroy');
-
   $img.attr({
     'src': imgSrcLarge,
     'alt': imgTitle,
     'title': imgTitle
   });
 
+  // There is no API to change zoom src, need to reinit
+  $('#image-block').trigger('zoom.destroy');
   initZoom(imgSrcThickBox);
 
   $('#views_block').find('li a').removeClass('shown');
