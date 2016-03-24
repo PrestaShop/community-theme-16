@@ -188,6 +188,12 @@ $zoom-in-size: 110px;
   margin-bottom: 10px;
 }
 
+.accessories-block {
+  .product_list.grid .product-container {
+    margin-bottom: 50px; // Slider doesn't take 'tail' (.functional-buttons) into height calculations
+  }
+}
+
 //
 // Quick view styles
 //
