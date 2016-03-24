@@ -2,29 +2,6 @@
 @import "./../../theme_variables";
 @import "./../../vendor_variables";
 
-/* lnk on detail product page */
-#wishlist_button, #wishlist_button_nopop {
-  font-weight: 700;
-  @include border-radius(5px);
-  background-color: transparent;
-  border-color: transparent;
-  margin: auto;
-  outline: 0;
-  cursor: pointer;
-  &:before{
-    content: "\f08a";
-    font: 400 15px/31px $font-icon;
-    color: #fff;
-    background: #929292;
-    width: 30px;
-    text-align: center;
-    display: inline-block;
-    height: 30px;
-    margin: 0 6px 0 0;
-    @include border-radius(50px);
-  }
-}
-
 /* wishlist block */
 #wishlist_block {
   #wishlist_block_list {
