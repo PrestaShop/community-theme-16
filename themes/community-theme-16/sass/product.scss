@@ -188,40 +188,6 @@ $zoom-in-size: 110px;
   margin-bottom: 10px;
 }
 
-.accessories-block {
-  .block_description{
-    display: none;
-  }
-  .exclusive span{
-    font-size: 13px;
-    line-height: 18px;
-    padding: 2px 8px 3px;
-    text-decoration: none;
-    &:focus,
-    &:active{
-      text-decoration: none;
-    }
-  }
-  .product-name{
-    margin-bottom: 5px;
-    a{
-      font-size: 15px;
-      line-height: 18px;
-    }
-  }
-  div ul li {
-    a {
-      display: inline-block;
-    }
-    &.s_title_block{
-      a,
-      span{
-        font-weight:700;
-      }
-    }
-  }
-}
-
 // PERSONALISATION
 p.infoCustomizable {
   margin-bottom: 30px;

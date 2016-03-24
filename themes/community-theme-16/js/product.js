@@ -248,24 +248,20 @@ $(document).on('click', '#view_full_size, #image-block', function() {
 
 
 function initAccessories() {
-  var $accessoryList      = $('#bxslider');
+  var $accessoryList      = $('.accessories-block .product_list');
   var $accessoryListItems = $accessoryList.find('li');
 
-  if ($accessoryListItems.length && !!$.prototype.bxSlider) {
-    0 && $accessoryList.bxSlider({
+  if (!!$.prototype.bxSlider && $accessoryListItems.length > 4) {
+    $accessoryList.bxSlider({
       minSlides: 1,
       maxSlides: 6,
-      slideWidth: 178,
-      slideMargin: 20,
       pager: false,
-      nextText: '',
-      prevText: '',
       moveSlides: 1,
+      slideWidth: 260,
       infiniteLoop: false,
       hideControlOnEnd: true
     });
   }
-
 }
 
 //find a specific price rule, based on pre calculated dom display array
