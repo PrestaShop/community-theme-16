@@ -252,7 +252,7 @@ function initAccessories() {
   var $accessoryListItems = $accessoryList.find('li');
 
   if ($accessoryListItems.length && !!$.prototype.bxSlider) {
-    $accessoryList.bxSlider({
+    0 && $accessoryList.bxSlider({
       minSlides: 1,
       maxSlides: 6,
       slideWidth: 178,
@@ -266,9 +266,6 @@ function initAccessories() {
     });
   }
 
-  if (!$accessoryListItems.length) {
-    $('.accessories-block').parent().remove();
-  }
 }
 
 //find a specific price rule, based on pre calculated dom display array
