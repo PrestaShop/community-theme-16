@@ -33,21 +33,14 @@
   }
 }
 
-/* lnk fiche produit */
-#usefull_link_block {
-  li{
-    &#favoriteproducts_block_extra_add,
-    &#favoriteproducts_block_extra_remove,
-    &#favoriteproducts_block_extra_added,
-    &#favoriteproducts_block_extra_removed{
-      padding-left: 30px;
-      cursor: pointer;
-    }
-    &#favoriteproducts_block_extra_added {
-      display: none;
-    }
-    &#favoriteproducts_block_extra_removed {
-      display: none;
-    }
-  }
+#favoriteproducts_block_extra_add,
+#favoriteproducts_block_extra_remove,
+#favoriteproducts_block_extra_added,
+#favoriteproducts_block_extra_removed{
+  cursor: pointer;
+}
+
+#favoriteproducts_block_extra_added,
+#favoriteproducts_block_extra_removed {
+  display: none;
 }
