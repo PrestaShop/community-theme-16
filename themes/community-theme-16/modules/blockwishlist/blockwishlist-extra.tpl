@@ -6,7 +6,7 @@
   {else}
     {foreach name=wl from=$wishlists item=wishlist}
       {if $smarty.foreach.wl.first}
-        <a id="wishlist_button" tabindex="0" data-toggle="popover" data-trigger="focus" title="{l s='Wishlist' mod='blockwishlist'}" data-placement="bottom">
+        <a id="wishlist_button" tabindex="0" data-toggle="popover" data-trigger="focus" title="{l s='Wishlist' mod='blockwishlist'}" data-placement="top">
           <i class="icon icon-fw icon-star-o"></i> <b>{l s='Add to wishlist' mod='blockwishlist'}</b>
         </a>
 
