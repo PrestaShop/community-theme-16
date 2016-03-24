@@ -11,9 +11,6 @@ $tr-even-bg                : #fdfdfd;
   margin-bottom: 30px;
 }
 
-// .product-heading-h5 {}
-// .box-security .product-heading-h5 {}
-
 #product-description {
   margin-bottom: 30px;
 }
@@ -26,8 +23,6 @@ $tr-even-bg                : #fdfdfd;
 a.fancybox-nav {
   outline:0
 }
-
-// .pb-left-column {}
 
 #image-block {
   position: relative;
@@ -255,6 +250,12 @@ a.fancybox-nav {
       }
     }
   }
+}
+
+// Used in add to cart button
+@include keyframes(icon-spin) {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(359deg); }
 }
 
 .box-info-product {
@@ -493,10 +494,4 @@ ul#text_fields {
 
 .page-product-box {
   margin-bottom: 10px;
-}
-
-// Used in add to cart button
-@include keyframes(icon-spin) {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(359deg); }
 }
