@@ -2,7 +2,7 @@
   <div class="wishlist">
     {foreach name=wl from=$wishlists item=wishlist}
       {if $smarty.foreach.wl.first}
-        <a class="wishlist_button_list" tabindex="0" data-toggle="popover" data-trigger="focus" title="{l s='Wishlist' mod='blockwishlist'}" data-placement="bottom">{l s='Add to wishlist' mod='blockwishlist'}</a>
+        <a class="wishlist_button_list" tabindex="0" data-toggle="popover" data-trigger="focus" title="{l s='Wishlist' mod='blockwishlist'}" data-placement="top">{l s='Add to wishlist' mod='blockwishlist'}</a>
         <div hidden class="popover-content">
         <table class="table" border="1">
         <tbody>

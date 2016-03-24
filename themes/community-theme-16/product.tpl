@@ -1,5 +1,7 @@
 {include file="$tpl_dir./errors.tpl"}
-{if $errors|@count == 0}
+
+{if empty($errors)}
+
   {if !isset($priceDisplayPrecision)}
     {assign var='priceDisplayPrecision' value=2}
   {/if}
@@ -10,32 +12,29 @@
     {assign var='productPrice' value=$product->getPrice(false, $smarty.const.NULL, 6)}
     {assign var='productPriceWithoutReduction' value=$product->getPriceWithoutReduct(true, $smarty.const.NULL)}
   {/if}
+
   <div itemscope itemtype="https://schema.org/Product">
     <meta itemprop="url" content="{$link->getProductLink($product)}">
     <div class="primary_block row">
+
       {if isset($adminActionDisplay) && $adminActionDisplay}
         <div id="admin-action" class="container">
           <div class="alert alert-info">{l s='This product is not visible to your customers.'}
             <input type="hidden" id="admin-action-product-id" value="{$product->id}" />
-            <a id="publish_button" class="btn btn-success" href="#">
-              <span>{l s='Publish'}</span>
-            </a>
-            <a id="lnk_view" class="btn btn-warning" href="#">
-              <span>{l s='Back'}</span>
-            </a>
+            <a id="publish_button" class="btn btn-success" href="#">{l s='Publish'}</a>
+            <a id="lnk_view" class="btn btn-warning" href="#">{l s='Back'}</a>
           </div>
           <p id="admin-action-result"></p>
         </div>
       {/if}
-      {if isset($confirmation) && $confirmation}
-        <div class="alert alert-warning">
-          {$confirmation}
-        </div>
+
+      {if !empty($confirmation)}
+        <div class="alert alert-warning">{$confirmation}</div>
       {/if}
-      <!-- left infos-->
+
       <div class="pb-left-column col-xs-12 col-sm-4 col-md-5">
-        <!-- product img-->
-        <div id="image-block" class="clearfix">
+
+        <div id="image-block" class="thumbnail clearfix">
 
           <div class="product-label-container">
             {if $product->online_only}
@@ -53,89 +52,65 @@
 
           {if $have_image}
             <span id="view_full_size">
-              {if $jqZoomEnabled && $have_image && !$content_only}
-                <a class="jqzoom" title="{if !empty($cover.legend)}{$cover.legend|escape:'html':'UTF-8'}{else}{$product->name|escape:'html':'UTF-8'}{/if}" rel="gal1" href="{$link->getImageLink($product->link_rewrite, $cover.id_image, 'thickbox_default')|escape:'html':'UTF-8'}">
-                  <img itemprop="image" src="{$link->getImageLink($product->link_rewrite, $cover.id_image, 'large_default')|escape:'html':'UTF-8'}" title="{if !empty($cover.legend)}{$cover.legend|escape:'html':'UTF-8'}{else}{$product->name|escape:'html':'UTF-8'}{/if}" alt="{if !empty($cover.legend)}{$cover.legend|escape:'html':'UTF-8'}{else}{$product->name|escape:'html':'UTF-8'}{/if}"/>
-                </a>
-              {else}
-                <img id="bigpic" itemprop="image" src="{$link->getImageLink($product->link_rewrite, $cover.id_image, 'large_default')|escape:'html':'UTF-8'}" title="{if !empty($cover.legend)}{$cover.legend|escape:'html':'UTF-8'}{else}{$product->name|escape:'html':'UTF-8'}{/if}" alt="{if !empty($cover.legend)}{$cover.legend|escape:'html':'UTF-8'}{else}{$product->name|escape:'html':'UTF-8'}{/if}" width="{$largeSize.width}" height="{$largeSize.height}"/>
-                {if !$content_only}
-                  <span class="span_link no-print">
-                    {l s='View larger'} <i class="icon icon-search-plus"></i>
-                  </span>
-                {/if}
+              <img id="bigpic" class="img-responsive center-block" itemprop="image" src="{$link->getImageLink($product->link_rewrite, $cover.id_image, 'large_default')|escape:'html':'UTF-8'}" title="{if !empty($cover.legend)}{$cover.legend|escape:'html':'UTF-8'}{else}{$product->name|escape:'html':'UTF-8'}{/if}" alt="{if !empty($cover.legend)}{$cover.legend|escape:'html':'UTF-8'}{else}{$product->name|escape:'html':'UTF-8'}{/if}" width="{$largeSize.width}" height="{$largeSize.height}"/>
+              {if !$jqZoomEnabled && !$content_only}
+                <span class="span_link" title="{l s='Zoom in'}">
+                  <i class="icon icon-search-plus"></i>
+                </span>
               {/if}
             </span>
           {else}
             <span id="view_full_size">
-              <img itemprop="image" src="{$img_prod_dir}{$lang_iso}-default-large_default.jpg" id="bigpic" alt="" title="{$product->name|escape:'html':'UTF-8'}" width="{$largeSize.width}" height="{$largeSize.height}"/>
-              {if !$content_only}
-                <span class="span_link">
-                  {l s='View larger'} <i class="icon icon-search-plus"></i>
-                </span>
-              {/if}
+              <img id="bigpic" class="img-responsive center-block" itemprop="image" src="{$img_prod_dir}{$lang_iso}-default-large_default.jpg" title="{$product->name|escape:'html':'UTF-8'}" width="{$largeSize.width}" height="{$largeSize.height}"/>
             </span>
           {/if}
-        </div> <!-- end image-block -->
-        {if isset($images) && count($images) > 0}
-          <!-- thumbnails -->
+        </div>
+
+        {if !empty($images)}
           <div id="views_block" class="clearfix {if isset($images) && count($images) < 2}hidden{/if}">
-            {if isset($images) && count($images) > 2}
-              <span class="view_scroll_spacer">
-                <a id="view_scroll_left" class="" title="{l s='Other views'}" href="javascript:{ldelim}{rdelim}">
-                  {l s='Previous'}
-                </a>
-              </span>
-            {/if}
             <div id="thumbs_list">
-              <ul id="thumbs_list_frame">
+              <ul id="thumbs_list_frame" class="row">
                 {if isset($images)}
                   {foreach from=$images item=image name=thumbnails}
+
                     {assign var=imageIds value="`$product->id`-`$image.id_image`"}
                     {if !empty($image.legend)}
                       {assign var=imageTitle value=$image.legend|escape:'html':'UTF-8'}
                     {else}
                       {assign var=imageTitle value=$product->name|escape:'html':'UTF-8'}
                     {/if}
-                    <li id="thumbnail_{$image.id_image}"{if $smarty.foreach.thumbnails.last} class="last"{/if}>
-                      <a{if $jqZoomEnabled && $have_image && !$content_only} href="javascript:void(0);" rel="{literal}{{/literal}gallery: 'gal1', smallimage: '{$link->getImageLink($product->link_rewrite, $imageIds, 'large_default')|escape:'html':'UTF-8'}',largeimage: '{$link->getImageLink($product->link_rewrite, $imageIds, 'thickbox_default')|escape:'html':'UTF-8'}'{literal}}{/literal}"{else} href="{$link->getImageLink($product->link_rewrite, $imageIds, 'thickbox_default')|escape:'html':'UTF-8'}" data-fancybox-group="other-views" class="fancybox{if $image.id_image == $cover.id_image} shown{/if}"{/if} title="{$imageTitle}">
-                        <img class="img-responsive" id="thumb_{$image.id_image}" src="{$link->getImageLink($product->link_rewrite, $imageIds, 'cart_default')|escape:'html':'UTF-8'}" alt="{$imageTitle}" title="{$imageTitle}"{if isset($cartSize)} height="{$cartSize.height}" width="{$cartSize.width}"{/if} itemprop="image" />
-                      </a>
+
+                    <li data-slide-num="{$smarty.foreach.thumbnails.iteration|intval}" id="thumbnail_{$image.id_image}" class="col-xs-6 col-sm-4 col-md-3">
+                      {if $jqZoomEnabled && $have_image && !$content_only}
+                        <a href="{$link->getImageLink($product->link_rewrite, $imageIds, 'thickbox_default')|escape:'html':'UTF-8'}" class="thumbnail {if $image.id_image == $cover.id_image} shown{/if}" title="{$imageTitle}">
+                          <img class="img-responsive" id="thumb_{$image.id_image}" src="{$link->getImageLink($product->link_rewrite, $imageIds, 'cart_default')|escape:'html':'UTF-8'}" alt="{$imageTitle}" title="{$imageTitle}"{if isset($cartSize)} height="{$cartSize.height}" width="{$cartSize.width}"{/if} itemprop="image" />
+                        </a>
+                      {else}
+                        <a href="{$link->getImageLink($product->link_rewrite, $imageIds, 'thickbox_default')|escape:'html':'UTF-8'}" data-fancybox-group="other-views" class="thumbnail fancybox{if $image.id_image == $cover.id_image} shown{/if}" title="{$imageTitle}">
+                          <img class="img-responsive" id="thumb_{$image.id_image}" src="{$link->getImageLink($product->link_rewrite, $imageIds, 'cart_default')|escape:'html':'UTF-8'}" alt="{$imageTitle}" title="{$imageTitle}"{if isset($cartSize)} height="{$cartSize.height}" width="{$cartSize.width}"{/if} itemprop="image" />
+                        </a>
+                      {/if}
                     </li>
                   {/foreach}
                 {/if}
               </ul>
-            </div> <!-- end thumbs_list -->
-            {if isset($images) && count($images) > 2}
-              <a id="view_scroll_right" title="{l s='Other views'}" href="javascript:{ldelim}{rdelim}">
-                {l s='Next'}
-              </a>
-            {/if}
-          </div> <!-- end views-block -->
-          <!-- end thumbnails -->
+            </div>
+          </div>
         {/if}
-        {if isset($images) && count($images) > 1}
-          <p class="resetimg clear no-print">
-            <span id="wrapResetImages" style="display: none;">
-              <a href="{$link->getProductLink($product)|escape:'html':'UTF-8'}" data-id="resetImages">
-                <i class="icon icon-repeat"></i>
-                {l s='Display all pictures'}
-              </a>
-            </span>
-          </p>
-        {/if}
-      </div> <!-- end pb-left-column -->
-      <!-- end left infos-->
-      <!-- center infos -->
+
+      </div>
+
       <div class="pb-center-column col-xs-12 col-sm-4">
+
         <h1 itemprop="name">{$product->name|escape:'html':'UTF-8'}</h1>
         <p id="product_reference"{if empty($product->reference) || !$product->reference} style="display: none;"{/if}>
-          <label>{l s='Reference:'} </label>
+          <b>{l s='Reference:'}</b>
           <span class="editable" itemprop="sku"{if !empty($product->reference) && $product->reference} content="{$product->reference}"{/if}>{if !isset($groups)}{$product->reference|escape:'html':'UTF-8'}{/if}</span>
         </p>
+
         {if !$product->is_virtual && $product->condition}
           <p id="product_condition">
-            <label>{l s='Condition:'} </label>
+            <b>{l s='Condition:'}</b>
             {if $product->condition == 'new'}
               <link itemprop="itemCondition" href="https://schema.org/NewCondition"/>
               <span class="editable">{l s='New product'}</span>
@@ -148,76 +123,72 @@
             {/if}
           </p>
         {/if}
-        {if $product->description_short || $packItems|@count > 0}
-          <div id="short_description_block">
-            {if $product->description_short}
-              <div id="short_description_content" class="rte align_justify" itemprop="description">{$product->description_short}</div>
-            {/if}
 
-            {if $product->description}
-              <p class="buttons_bottom_block">
-                <a href="javascript:{ldelim}{rdelim}" class="btn btn-xs btn-default">
-                  {l s='More details'}
-                </a>
-              </p>
-            {/if}
-          </div> <!-- end short_description_block -->
+        {if $product->description_short}
+          <div id="short_description_block">
+            <div id="short_description_content" class="rte" itemprop="description">{$product->description_short}</div>
+          </div>
         {/if}
-        {if ($display_qties == 1 && !$PS_CATALOG_MODE && $PS_STOCK_MANAGEMENT && $product->available_for_order)}
-          <!-- number of item in stock -->
-          <p id="pQuantityAvailable"{if $product->quantity <= 0} style="display: none;"{/if}>
+
+        <p id="product-availability">
+          {if ($display_qties == 1 && !$PS_CATALOG_MODE && $PS_STOCK_MANAGEMENT && $product->available_for_order)}
+          <span id="pQuantityAvailable"{if $product->quantity <= 0} style="display: none;"{/if}>
             <span id="quantityAvailable">{$product->quantity|intval}</span>
             <span {if $product->quantity > 1} style="display: none;"{/if} id="quantityAvailableTxt">{l s='Item'}</span>
             <span {if $product->quantity == 1} style="display: none;"{/if} id="quantityAvailableTxtMultiple">{l s='Items'}</span>
-          </p>
-        {/if}
-        <!-- availability or doesntExist -->
-        <p id="availability_statut"{if !$PS_STOCK_MANAGEMENT || ($product->quantity <= 0 && !$product->available_later && $allow_oosp) || ($product->quantity > 0 && !$product->available_now) || !$product->available_for_order || $PS_CATALOG_MODE} style="display: none;"{/if}>
-          {*<span id="availability_label">{l s='Availability:'}</span>*}
-          <span id="availability_value" class="label{if $product->quantity <= 0 && !$allow_oosp} label-danger{elseif $product->quantity <= 0} label-warning{else} label-success{/if}">{if $product->quantity <= 0}{if $PS_STOCK_MANAGEMENT && $allow_oosp}{$product->available_later}{else}{l s='This product is no longer in stock'}{/if}{elseif $PS_STOCK_MANAGEMENT}{$product->available_now}{/if}</span>
+          </span>
+          {/if}
+
+          <span id="availability_statut"{if !$PS_STOCK_MANAGEMENT || ($product->quantity <= 0 && !$product->available_later && $allow_oosp) || ($product->quantity > 0 && !$product->available_now) || !$product->available_for_order || $PS_CATALOG_MODE} style="display: none;"{/if}>
+            {*<span id="availability_label"><b>{l s='Availability:'}<b></span>*}
+            <span id="availability_value" class="label{if $product->quantity <= 0 && !$allow_oosp} label-danger{elseif $product->quantity <= 0} label-warning{else} label-success{/if}">{if $product->quantity <= 0}{if $PS_STOCK_MANAGEMENT && $allow_oosp}{$product->available_later}{else}{l s='This product is no longer in stock'}{/if}{elseif $PS_STOCK_MANAGEMENT}{$product->available_now}{/if}</span>
+          </span>
+
+          {if $PS_STOCK_MANAGEMENT}
+            <span class="label label-warning" id="last_quantities"{if ($product->quantity > $last_qties || $product->quantity <= 0) || $allow_oosp || !$product->available_for_order || $PS_CATALOG_MODE} style="display: none"{/if} >{l s='Warning: Last items in stock!'}</span>
+          {/if}
         </p>
+
         {if $PS_STOCK_MANAGEMENT}
           {if !$product->is_virtual}{hook h="displayProductDeliveryTime" product=$product}{/if}
-          <p class="warning_inline" id="last_quantities"{if ($product->quantity > $last_qties || $product->quantity <= 0) || $allow_oosp || !$product->available_for_order || $PS_CATALOG_MODE} style="display: none"{/if} >{l s='Warning: Last items in stock!'}</p>
         {/if}
+
         <p id="availability_date"{if ($product->quantity > 0) || !$product->available_for_order || $PS_CATALOG_MODE || !isset($product->available_date) || $product->available_date < $smarty.now|date_format:'%Y-%m-%d'} style="display: none;"{/if}>
-          <span id="availability_date_label">{l s='Availability date:'}</span>
+          <span id="availability_date_label"><b>{l s='Availability date:'}</b></span>
           <span id="availability_date_value">{if Validate::isDate($product->available_date)}{dateFormat date=$product->available_date full=false}{/if}</span>
         </p>
-        <!-- Out of stock hook -->
+
         <div id="oosHook"{if $product->quantity > 0} style="display: none;"{/if}>
           {$HOOK_PRODUCT_OOS}
         </div>
+
         {if isset($HOOK_EXTRA_RIGHT) && $HOOK_EXTRA_RIGHT}{$HOOK_EXTRA_RIGHT}{/if}
+
         {if !$content_only}
-          <!-- usefull links-->
-          <ul id="usefull_link_block" class="clearfix no-print">
-            {if $HOOK_EXTRA_LEFT}{$HOOK_EXTRA_LEFT}{/if}
-            <li class="print">
-              <a href="javascript:print();">
-                {l s='Print'}
+          <ul id="usefull_link_block" class="list-unstyled hidden-print">
+            {if !empty($HOOK_EXTRA_LEFT)}{$HOOK_EXTRA_LEFT}{/if}
+            <li>
+              <a href="javascript:print();" title="{l s='Print this page'}">
+                <i class="icon icon-fw icon-print"></i> {l s='Print'}
               </a>
             </li>
           </ul>
         {/if}
       </div>
-      <!-- end center infos-->
-      <!-- pb-right-column-->
+
       <div class="pb-right-column col-xs-12 col-sm-4 col-md-3">
         {if ($product->show_price && !isset($restricted_country_mode)) || isset($groups) || $product->reference || (isset($HOOK_PRODUCT_ACTIONS) && $HOOK_PRODUCT_ACTIONS)}
-          <!-- add to cart form-->
+
           <form id="buy_block"{if $PS_CATALOG_MODE && !isset($groups) && $product->quantity > 0} class="hidden"{/if} action="{$link->getPageLink('cart')|escape:'html':'UTF-8'}" method="post">
-            <!-- hidden datas -->
-            <p class="hidden">
-              <input type="hidden" name="token" value="{$static_token}" />
-              <input type="hidden" name="id_product" value="{$product->id|intval}" id="product_page_product_id" />
-              <input type="hidden" name="add" value="1" />
-              <input type="hidden" name="id_product_attribute" id="idCombination" value="" />
-            </p>
+
+            <input type="hidden" name="token" value="{$static_token}" />
+            <input type="hidden" name="id_product" value="{$product->id|intval}" id="product_page_product_id" />
+            <input type="hidden" name="add" value="1" />
+            <input type="hidden" name="id_product_attribute" id="idCombination" value="" />
+
             <div class="box-info-product">
               <div class="content_prices clearfix">
                 {if $product->show_price && !isset($restricted_country_mode) && !$PS_CATALOG_MODE}
-                  <!-- prices -->
                   <div>
                     <p class="our_price_display" itemprop="offers" itemscope itemtype="https://schema.org/Offer">{strip}
                         {if $product->quantity > 0}<link itemprop="availability" href="https://schema.org/InStock"/>{/if}
@@ -232,15 +203,15 @@
                       {/strip}</p>
                     <p id="reduction_percent" {if $productPriceWithoutReduction <= 0 || !$product->specificPrice || $product->specificPrice.reduction_type != 'percentage'} style="display:none;"{/if}>{strip}
                         <span id="reduction_percent_display">
-                                        {if $product->specificPrice && $product->specificPrice.reduction_type == 'percentage'}-{$product->specificPrice.reduction*100}%{/if}
-                                    </span>
+                          {if $product->specificPrice && $product->specificPrice.reduction_type == 'percentage'}-{$product->specificPrice.reduction*100}%{/if}
+                        </span>
                       {/strip}</p>
                     <p id="reduction_amount" {if $productPriceWithoutReduction <= 0 || !$product->specificPrice || $product->specificPrice.reduction_type != 'amount' || $product->specificPrice.reduction|floatval ==0} style="display:none"{/if}>{strip}
                         <span id="reduction_amount_display">
-                                    {if $product->specificPrice && $product->specificPrice.reduction_type == 'amount' && $product->specificPrice.reduction|floatval !=0}
-                                      -{convertPrice price=$productPriceWithoutReduction|floatval-$productPrice|floatval}
-                                    {/if}
-                                    </span>
+                          {if $product->specificPrice && $product->specificPrice.reduction_type == 'amount' && $product->specificPrice.reduction|floatval !=0}
+                            -{convertPrice price=$productPriceWithoutReduction|floatval-$productPrice|floatval}
+                          {/if}
+                        </span>
                       {/strip}</p>
                     <p id="old_price"{if (!$product->specificPrice || !$product->specificPrice.reduction)} class="hidden"{/if}>{strip}
                         {if $priceDisplay >= 0 && $priceDisplay <= 2}
@@ -251,10 +222,10 @@
                     {if $priceDisplay == 2}
                       <br />
                       <span id="pretaxe_price">{strip}
-                                        <span id="pretaxe_price_display">{convertPrice price=$product->getPrice(false, $smarty.const.NULL)}</span> {l s='tax excl.'}
-                                    {/strip}</span>
+                        <span id="pretaxe_price_display">{convertPrice price=$product->getPrice(false, $smarty.const.NULL)}</span> {l s='tax excl.'}
+                      {/strip}</span>
                     {/if}
-                  </div> <!-- end prices -->
+                  </div>
                   {if $packItems|@count && $productPrice < $product->getNoPackPrice()}
                     <p class="pack_price">{l s='Instead of'} <span style="text-decoration: line-through;">{convertPrice price=$product->getNoPackPrice()}</span></p>
                   {/if}
@@ -273,34 +244,38 @@
                 {/if} {*close if for show price*}
                 {hook h="displayProductPriceBlock" product=$product type="weight" hook_origin='product_sheet'}
                 {hook h="displayProductPriceBlock" product=$product type="after_price"}
-                <div class="clear"></div>
-              </div> <!-- end content_prices -->
+              </div>
+
               <div class="product_attributes clearfix">
-                <!-- quantity wanted -->
+
                 {if !$PS_CATALOG_MODE}
-                  <p id="quantity_wanted_p"{if (!$allow_oosp && $product->quantity <= 0) || !$product->available_for_order || $PS_CATALOG_MODE} style="display: none;"{/if}>
+                  <div id="quantity_wanted_p"{if (!$allow_oosp && $product->quantity <= 0) || !$product->available_for_order || $PS_CATALOG_MODE} style="display: none;"{/if}>
                     <label for="quantity_wanted">{l s='Quantity'}</label>
-                    <input type="number" min="1" name="qty" id="quantity_wanted" class="text" value="{if isset($quantityBackup)}{$quantityBackup|intval}{else}{if $product->minimal_quantity > 1}{$product->minimal_quantity}{else}1{/if}{/if}" />
-                    <a href="#" data-field-qty="qty" class="btn btn-default button-minus product_quantity_down">
-                      <span><i class="icon icon-minus"></i></span>
-                    </a>
-                    <a href="#" data-field-qty="qty" class="btn btn-default button-plus product_quantity_up">
-                      <span><i class="icon icon-plus"></i></span>
-                    </a>
-                    <span class="clearfix"></span>
-                  </p>
+                    <div class="input-group">
+                      <div class="input-group-btn">
+                        <a href="#" data-field-qty="qty" class="btn btn-default button-minus product_quantity_down">
+                          <i class="icon icon-fw icon-minus"></i>
+                        </a>
+                      </div>
+                      <input type="number" min="1" name="qty" id="quantity_wanted" class="text text-center form-control" value="{if isset($quantityBackup)}{$quantityBackup|intval}{else}{if $product->minimal_quantity > 1}{$product->minimal_quantity}{else}1{/if}{/if}" />
+                      <div class="input-group-btn">
+                        <a href="#" data-field-qty="qty" class="btn btn-default button-plus product_quantity_up">
+                          <i class="icon icon-fw icon-plus"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
                 {/if}
-                <!-- minimal quantity wanted -->
+
                 <p id="minimal_quantity_wanted_p"{if $product->minimal_quantity <= 1 || !$product->available_for_order || $PS_CATALOG_MODE} style="display: none;"{/if}>
                   {l s='The minimum purchase order quantity for the product is'} <b id="minimal_quantity_label">{$product->minimal_quantity}</b>
                 </p>
+
                 {if isset($groups)}
-                  <!-- attributes -->
                   <div id="attributes">
-                    <div class="clearfix"></div>
                     {foreach from=$groups key=id_attribute_group item=group}
-                      {if $group.attributes|@count}
-                        <fieldset class="attribute_fieldset">
+                      {if !empty($group.attributes)}
+                        <fieldset class="attribute_fieldset form-group">
                           <label class="attribute_label" {if $group.group_type != 'color' && $group.group_type != 'radio'}for="group_{$id_attribute_group|intval}"{/if}>{$group.name|escape:'html':'UTF-8'}&nbsp;</label>
                           {assign var="groupName" value="group_$id_attribute_group"}
                           <div class="attribute_list">
@@ -311,7 +286,7 @@
                                 {/foreach}
                               </select>
                             {elseif ($group.group_type == 'color')}
-                              <ul id="color_to_pick_list" class="clearfix">
+                              <ul id="color_to_pick_list">
                                 {assign var="default_colorpicker" value=""}
                                 {foreach from=$group.attributes key=id_attribute item=group_attribute}
                                   {assign var='img_color_exists' value=file_exists($col_img_dir|cat:$id_attribute|cat:'.jpg')}
@@ -338,13 +313,14 @@
                                 {/foreach}
                               </ul>
                             {/if}
-                          </div> <!-- end attribute_list -->
+                          </div>
                         </fieldset>
                       {/if}
                     {/foreach}
-                  </div> <!-- end attributes -->
+                  </div>
                 {/if}
-              </div> <!-- end product_attributes -->
+              </div>
+
               <div class="box-cart-bottom">
                 <div{if (!$allow_oosp && $product->quantity <= 0) || !$product->available_for_order || (isset($restricted_country_mode) && $restricted_country_mode) || $PS_CATALOG_MODE} class="unvisible"{/if}>
                   <p id="add_to_cart" class="buttons_bottom_block no-print">
@@ -355,19 +331,20 @@
                   </p>
                 </div>
                 {if isset($HOOK_PRODUCT_ACTIONS) && $HOOK_PRODUCT_ACTIONS}{$HOOK_PRODUCT_ACTIONS}{/if}
-              </div> <!-- end box-cart-bottom -->
-            </div> <!-- end box-info-product -->
+              </div>
+
+            </div>
           </form>
         {/if}
-      </div> <!-- end pb-right-column-->
-    </div> <!-- end primary_block -->
+      </div>
+    </div>
+
     {if !$content_only}
-      {if (isset($quantity_discounts) && count($quantity_discounts) > 0)}
-        <!-- quantity discount -->
-        <section class="page-product-box">
+      {if !empty($quantity_discounts)}
+        <section id="product-volume-discounts" class="page-product-box">
           <h3 class="page-product-heading">{l s='Volume discounts'}</h3>
-          <div id="quantityDiscount">
-            <table class="table-product-discounts">
+          <div id="quantityDiscount" class="table-responsive">
+            <table class="table-product-discounts table table-condensed table-bordered table-hover">
               <thead>
               <tr>
                 <th>{l s='Quantity'}</th>
@@ -427,144 +404,104 @@
           </div>
         </section>
       {/if}
-      {if isset($features) && $features}
-        <!-- Data sheet -->
-        <section class="page-product-box">
+
+      {if !empty($features)}
+        <section id="product-features" class="page-product-box">
           <h3 class="page-product-heading">{l s='Data sheet'}</h3>
-          <table class="table-data-sheet">
-            {foreach from=$features item=feature}
-              <tr class="{cycle values="odd,even"}">
-                {if isset($feature.value)}
-                  <td>{$feature.name|escape:'html':'UTF-8'}</td>
-                  <td>{$feature.value|escape:'html':'UTF-8'}</td>
-                {/if}
-              </tr>
-            {/foreach}
-          </table>
+          <div class="table-responsive">
+            <table class="table table-bordered table-condensed table-hover table-data-sheet">
+              {foreach from=$features item=feature}
+                <tr class="{cycle values="odd,even"}">
+                  {if isset($feature.value)}
+                    <td>{$feature.name|escape:'html':'UTF-8'}</td>
+                    <td>{$feature.value|escape:'html':'UTF-8'}</td>
+                  {/if}
+                </tr>
+              {/foreach}
+            </table>
+          </div>
         </section>
-        <!--end Data sheet -->
       {/if}
+
       {if isset($product) && $product->description}
-        <!-- More info -->
-        <section class="page-product-box">
+        <section id="product-description" class="page-product-box">
           <h3 class="page-product-heading">{l s='More info'}</h3>
-          <!-- full description -->
           <div  class="rte">{$product->description}</div>
         </section>
-        <!--end  More info -->
       {/if}
+
       {if isset($packItems) && $packItems|@count > 0}
-        <section id="blockpack">
+        <section id="blockpack" class="page-product-box">
           <h3 class="page-product-heading">{l s='Pack content'}</h3>
           {include file="$tpl_dir./product-list.tpl" products=$packItems}
         </section>
       {/if}
-      <!--HOOK_PRODUCT_TAB -->
-      <section class="page-product-box">
-        {$HOOK_PRODUCT_TAB}
-        {if isset($HOOK_PRODUCT_TAB_CONTENT) && $HOOK_PRODUCT_TAB_CONTENT}{$HOOK_PRODUCT_TAB_CONTENT}{/if}
-      </section>
-      <!--end HOOK_PRODUCT_TAB -->
-      {if isset($accessories) && $accessories}
-        <!--Accessories -->
-        <section class="page-product-box">
+
+      {if !empty($HOOK_PRODUCT_TAB_CONTENT) || !empty({$HOOK_PRODUCT_TAB})}
+        <section id="product-hook-tab" class="page-product-box">
+          {if !empty($HOOK_PRODUCT_TAB)}{$HOOK_PRODUCT_TAB}{/if}
+          {if !empty($HOOK_PRODUCT_TAB_CONTENT)}{$HOOK_PRODUCT_TAB_CONTENT}{/if}
+        </section>
+      {/if}
+
+      {if !empty($accessories)}
+        <section id="product-accessories" class="page-product-box">
           <h3 class="page-product-heading">{l s='Accessories'}</h3>
-          <div class="block products_block accessories-block clearfix">
-            <div class="block_content">
-              <ul id="bxslider" class="bxslider clearfix">
-                {foreach from=$accessories item=accessory name=accessories_list}
-                  {if ($accessory.allow_oosp || $accessory.quantity_all_versions > 0 || $accessory.quantity > 0) && $accessory.available_for_order && !isset($restricted_country_mode)}
-                    {assign var='accessoryLink' value=$link->getProductLink($accessory.id_product, $accessory.link_rewrite, $accessory.category)}
-                    <li class="product-box ajax_block_product product_accessories_description">
-                      <div class="product_desc">
-                        <a href="{$accessoryLink|escape:'html':'UTF-8'}" title="{$accessory.legend|escape:'html':'UTF-8'}" class="product-image product_image">
-                          <img class="lazyOwl" src="{$link->getImageLink($accessory.link_rewrite, $accessory.id_image, 'home_default')|escape:'html':'UTF-8'}" alt="{$accessory.legend|escape:'html':'UTF-8'}" width="{$homeSize.width}" height="{$homeSize.height}"/>
-                        </a>
-                        <div class="block_description">
-                          <a href="{$accessoryLink|escape:'html':'UTF-8'}" title="{l s='More'}" class="product_description">
-                            {$accessory.description_short|strip_tags|truncate:25:'...'}
-                          </a>
-                        </div>
-                      </div>
-                      <div class="s_title_block">
-                        <h5 itemprop="name" class="product-name">
-                          <a href="{$accessoryLink|escape:'html':'UTF-8'}">
-                            {$accessory.name|truncate:20:'...':true|escape:'html':'UTF-8'}
-                          </a>
-                        </h5>
-                        {if $accessory.show_price && !isset($restricted_country_mode) && !$PS_CATALOG_MODE}
-                          <span class="price">
-                            {if $priceDisplay != 1}
-                              {displayWtPrice p=$accessory.price}
-                            {else}
-                              {displayWtPrice p=$accessory.price_tax_exc}
-                            {/if}
-                            {hook h="displayProductPriceBlock" product=$accessory type="price"}
-                          </span>
-                        {/if}
-                        {hook h="displayProductPriceBlock" product=$accessory type="after_price"}
-                      </div>
-                      <div class="clearfix" style="margin-top:5px">
-                        {if !$PS_CATALOG_MODE && ($accessory.allow_oosp || $accessory.quantity > 0) && isset($add_prod_display) && $add_prod_display == 1}
-                          <div class="no-print">
-                            <a class="button ajax_add_to_cart_button" href="{$link->getPageLink('cart', true, NULL, "qty=1&amp;id_product={$accessory.id_product|intval}&amp;token={$static_token}&amp;add")|escape:'html':'UTF-8'}" data-id-product="{$accessory.id_product|intval}" title="{l s='Add to cart'}">
-                              <span>{l s='Add to cart'}</span>
-                            </a>
-                          </div>
-                        {/if}
-                      </div>
-                    </li>
-                  {/if}
-                {/foreach}
-              </ul>
-            </div>
+          <div class="accessories-block">
+            {include file="$tpl_dir./product-list.tpl" products=$accessories}
           </div>
         </section>
-        <!--end Accessories -->
       {/if}
+
       {if isset($HOOK_PRODUCT_FOOTER) && $HOOK_PRODUCT_FOOTER}{$HOOK_PRODUCT_FOOTER}{/if}
-      <!-- description & features -->
+
       {if (isset($product) && $product->description) || (isset($features) && $features) || (isset($accessories) && $accessories) || (isset($HOOK_PRODUCT_TAB) && $HOOK_PRODUCT_TAB) || (isset($attachments) && $attachments) || isset($product) && $product->customizable}
         {if isset($attachments) && $attachments}
-          <!--Download -->
-          <section class="page-product-box">
+          <section id="product-attachments" class="page-product-box">
             <h3 class="page-product-heading">{l s='Download'}</h3>
-            {foreach from=$attachments item=attachment name=attachements}
-              {if $smarty.foreach.attachements.iteration %3 == 1}<div class="row">{/if}
-              <div class="col-lg-4">
-                <h4><a href="{$link->getPageLink('attachment', true, NULL, "id_attachment={$attachment.id_attachment}")|escape:'html':'UTF-8'}">{$attachment.name|escape:'html':'UTF-8'}</a></h4>
-                <p class="text-muted">{$attachment.description|escape:'html':'UTF-8'}</p>
-                <a class="btn btn-default btn-block" href="{$link->getPageLink('attachment', true, NULL, "id_attachment={$attachment.id_attachment}")|escape:'html':'UTF-8'}">
-                  <i class="icon icon-download"></i>
-                  {l s="Download"} ({Tools::formatBytes($attachment.file_size, 2)})
-                </a>
-                <hr />
+            <div class="row">
+            {foreach from=$attachments item=attachment}
+              <div class="col-xs-12 col-sm-4 col-lg-3">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <a href="{$link->getPageLink('attachment', true, NULL, "id_attachment={$attachment.id_attachment}")|escape:'html':'UTF-8'}">
+                      {$attachment.name|escape:'html':'UTF-8'}
+                    </a>
+                  </div>
+                  <div class="panel-body">
+                    {if !empty($attachment.description)}
+                      <p class="text-muted">{$attachment.description|escape:'html':'UTF-8'}</p>
+                    {/if}
+                    <a class="btn btn-default btn-block" href="{$link->getPageLink('attachment', true, NULL, "id_attachment={$attachment.id_attachment}")|escape:'html':'UTF-8'}">
+                      <i class="icon icon-download"></i> {l s="Download"} ({Tools::formatBytes($attachment.file_size, 2)})
+                    </a>
+                  </div>
+                </div>
               </div>
-              {if $smarty.foreach.attachements.iteration %3 == 0 || $smarty.foreach.attachements.last}</div>{/if}
             {/foreach}
+            </div>
           </section>
-          <!--end Download -->
         {/if}
+
         {if isset($product) && $product->customizable}
-          <!--Customization -->
-          <section class="page-product-box">
+          <section id="product-customization" class="page-product-box">
             <h3 class="page-product-heading">{l s='Product customization'}</h3>
-            <!-- Customizable products -->
             <form method="post" action="{$customizationFormTarget}" enctype="multipart/form-data" id="customizationForm" class="clearfix">
               <p class="infoCustomizable">
                 {l s='After saving your customized product, remember to add it to your cart.'}
                 {if $product->uploadable_files}
-                  <br />
-                  {l s='Allowed file formats are: GIF, JPG, PNG'}{/if}
+                  <br> {l s='Allowed file formats are: GIF, JPG, PNG'}
+                {/if}
               </p>
+
               {if $product->uploadable_files|intval}
                 <div class="customizableProductsFile">
-                  <h5 class="product-heading-h5">{l s='Pictures'}</h5>
-                  <ul id="uploadable_files" class="clearfix">
+                  <h3>{l s='Pictures'}</h3>
+                  <ul id="uploadable_files" class="list-unstyled clearfix">
                     {counter start=0 assign='customizationField'}
                     {foreach from=$customizationFields item='field' name='customizationFields'}
                       {if $field.type == 0}
-                        <li class="customizationUploadLine{if $field.required} required{/if}">{assign var='key' value='pictures_'|cat:$product->id|cat:'_'|cat:$field.id_customization_field}
+                        <li class="customizationUploadLine form-group{if $field.required} required{/if}">{assign var='key' value='pictures_'|cat:$product->id|cat:'_'|cat:$field.id_customization_field}
                           {if isset($pictures.$key)}
                             <div class="customizationUploadBrowse">
                               <img src="{$pic_dir}{$pictures.$key}_small" alt="" />
@@ -591,14 +528,15 @@
                   </ul>
                 </div>
               {/if}
+
               {if $product->text_fields|intval}
                 <div class="customizableProductsText">
-                  <h5 class="product-heading-h5">{l s='Text'}</h5>
-                  <ul id="text_fields">
+                  <h3>{l s='Text'}</h3>
+                  <ul id="text_fields" class="list-unstyled">
                     {counter start=0 assign='customizationField'}
                     {foreach from=$customizationFields item='field' name='customizationFields'}
                       {if $field.type == 1}
-                        <li class="customizationUploadLine{if $field.required} required{/if}">
+                        <li class="customizationUploadLine form-group{if $field.required} required{/if}">
                           <label for ="textField{$customizationField}">
                             {assign var='key' value='textFields_'|cat:$product->id|cat:'_'|cat:$field.id_customization_field}
                             {if !empty($field.name)}
@@ -607,7 +545,7 @@
                             {if $field.required}<sup>*</sup>{/if}
                           </label>
                           <textarea name="textField{$field.id_customization_field}" class="form-control customization_block_input" id="textField{$customizationField}" rows="3" cols="20">{strip}
-                              {if isset($textFields.$key)}
+                            {if isset($textFields.$key)}
                               {$textFields.$key|stripslashes}
                             {/if}
                           {/strip}</textarea>
@@ -618,24 +556,29 @@
                   </ul>
                 </div>
               {/if}
-              <p id="customizedDatas">
+              <div id="customizedDatas" class="form-group">
                 <input type="hidden" name="quantityBackup" id="quantityBackup" value="" />
                 <input type="hidden" name="submitCustomizedDatas" value="1" />
-                <button class="btn btn-success" name="saveCustomization">
+                <button class="btn btn-lg btn-success" name="saveCustomization">
                   <span>{l s='Save'}</span>
                 </button>
                 <span id="ajax-loader" class="unvisible">
                  <img src="{$img_ps_dir}loader.gif" alt="loader" />
                 </span>
-              </p>
+              </div>
             </form>
-            <p class="clear required"><sup>*</sup> {l s='required fields'}</p>
+            <div class="form-group">
+              <div class="help-block">
+                <sup>*</sup> {l s='required fields'}
+              </div>
+            </div>
           </section>
-          <!--end Customization -->
         {/if}
+
       {/if}
     {/if}
-  </div> <!-- itemscope product wrapper -->
+  </div>
+
   {strip}
     {if isset($smarty.get.ad) && $smarty.get.ad}
       {addJsDefL name=ad}{$base_dir|cat:$smarty.get.ad|escape:'html':'UTF-8'}{/addJsDefL}

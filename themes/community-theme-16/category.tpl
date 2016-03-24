@@ -41,7 +41,7 @@
                   {/if}
                 </a>
                 <div class="caption">
-                  <h3 class="text-center">
+                  <h3 class="subcategory-title text-center">
                     <a href="{$link->getCategoryLink($subcategory.id_category, $subcategory.link_rewrite)|escape:'html':'UTF-8'}">{$subcategory.name|escape:'html':'UTF-8'}</a>
                   </h3>
                   {* if $subcategory.description}

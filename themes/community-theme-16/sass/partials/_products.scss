@@ -16,8 +16,8 @@
 }
 
 .price-percent-reduction {
-  background: $product-price-reduction-color;
-  color: #fff;
+  background-color: $product-price-reduction-bg;
+  color: $product-price-reduction-color;;
   padding: 0 0.25em;
   display: inline-block;
   // &.small {}

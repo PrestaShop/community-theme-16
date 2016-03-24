@@ -326,7 +326,7 @@
                   <span>{if $quantityDisplayed == 0 AND isset($customizedDatas.$productId.$productAttributeId)}{$customizedDatas.$productId.$productAttributeId|@count}{else}{$product.cart_quantity-$quantityDisplayed}{/if}</span>
                 {else}
                   <input type="hidden" value="{$customization.quantity}" name="quantity_{$product.id_product}_{$product.id_product_attribute}_{$id_customization}_{$product.id_address_delivery|intval}_hidden"/>
-                  <input type="text" value="{$customization.quantity}" class="cart_quantity_input form-control" name="quantity_{$product.id_product}_{$product.id_product_attribute}_{$id_customization}_{$product.id_address_delivery|intval}"/>
+                  <input type="text" value="{$customization.quantity}" class="cart_quantity_input form-control text-center" name="quantity_{$product.id_product}_{$product.id_product_attribute}_{$id_customization}_{$product.id_address_delivery|intval}"/>
                   <div class="cart_quantity_button clearfix">
                     {if $product.minimal_quantity < ($customization.quantity -$quantityDisplayed) OR $product.minimal_quantity <= 1}
                       <a
@@ -335,7 +335,7 @@
                         href="{$link->getPageLink('cart', true, NULL, "add=1&amp;id_product={$product.id_product|intval}&amp;ipa={$product.id_product_attribute|intval}&amp;id_address_delivery={$product.id_address_delivery}&amp;id_customization={$id_customization}&amp;op=down&amp;token={$token_cart}")|escape:'html':'UTF-8'}"
                         rel="nofollow"
                         title="{l s='Subtract'}">
-                        <span><i class="icon icon-minus"></i></span>
+                        <i class="icon icon-fw icon-minus"></i>
                       </a>
                     {else}
                       <a
@@ -343,7 +343,7 @@
                         class="cart_quantity_down btn btn-default button-minus disabled"
                         href="#"
                         title="{l s='Subtract'}">
-                        <span><i class="icon icon-minus"></i></span>
+                        <i class="icon icon-fw icon-minus"></i>
                       </a>
                     {/if}
                     <a
@@ -352,7 +352,7 @@
                       href="{$link->getPageLink('cart', true, NULL, "add=1&amp;id_product={$product.id_product|intval}&amp;ipa={$product.id_product_attribute|intval}&amp;id_address_delivery={$product.id_address_delivery}&amp;id_customization={$id_customization}&amp;token={$token_cart}")|escape:'html':'UTF-8'}"
                       rel="nofollow"
                       title="{l s='Add'}">
-                      <span><i class="icon icon-plus"></i></span>
+                      <i class="icon icon-fw icon-plus"></i>
                     </a>
                   </div>
                 {/if}

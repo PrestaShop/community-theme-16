@@ -12,9 +12,7 @@ $(function() {
   $('.sortPagiBar, .top-pagination-content, .bottom-pagination-content').addClass('form-inline');
 });
 
-function bindUniform() {
-  return true;
-}
+function bindUniform() {}
 
 // Used by blocklanguages and blockcurrencies in the default template
 function dropDown() {}
@@ -27,3 +25,7 @@ function openBranch($, n) {}
 function closeBranch($, n) {}
 function toggleBranch($, n) {}
 function blockHover(s) {}
+
+var serialScrollNbImagesDisplayed;
+function serialScrollSetNbImages() {}
+function serialScrollFixLock() {}

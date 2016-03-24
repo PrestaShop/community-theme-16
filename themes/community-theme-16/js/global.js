@@ -2,6 +2,10 @@
 var responsiveflag = false;
 
 $(document).ready(function() {
+
+  var touch = !!isTouchDevice();
+  $('body').toggleClass('touch', touch).toggleClass('no-touch', !touch);
+
   highdpiInit();
   responsiveResize();
   $(window).resize(responsiveResize);
@@ -195,3 +199,16 @@ function display(layoutType) {
   $('#grid').toggleClass('selected active', grid);
   $.totalStorage('display', grid ? 'grid' : 'list');
 }
+
+var touchDevice = null;
+function isTouchDevice() {
+  if (touchDevice === null) {
+    var agent = navigator.userAgent.toLowerCase();
+    touchDevice = 'ontouchstart' in window
+      || navigator.maxTouchPoints
+      || (/(android|iphone|ipad|iemobile|blackberry)/i).test(agent);
+  }
+
+  return touchDevice;
+}
+
