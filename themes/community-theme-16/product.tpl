@@ -482,18 +482,18 @@
               <p class="infoCustomizable">
                 {l s='After saving your customized product, remember to add it to your cart.'}
                 {if $product->uploadable_files}
-                  <br />
-                  {l s='Allowed file formats are: GIF, JPG, PNG'}
+                  <br> {l s='Allowed file formats are: GIF, JPG, PNG'}
                 {/if}
               </p>
+
               {if $product->uploadable_files|intval}
                 <div class="customizableProductsFile">
-                  <h5 class="product-heading-h5">{l s='Pictures'}</h5>
-                  <ul id="uploadable_files" class="clearfix">
+                  <h3>{l s='Pictures'}</h3>
+                  <ul id="uploadable_files" class="list-unstyled clearfix">
                     {counter start=0 assign='customizationField'}
                     {foreach from=$customizationFields item='field' name='customizationFields'}
                       {if $field.type == 0}
-                        <li class="customizationUploadLine{if $field.required} required{/if}">{assign var='key' value='pictures_'|cat:$product->id|cat:'_'|cat:$field.id_customization_field}
+                        <li class="customizationUploadLine form-group{if $field.required} required{/if}">{assign var='key' value='pictures_'|cat:$product->id|cat:'_'|cat:$field.id_customization_field}
                           {if isset($pictures.$key)}
                             <div class="customizationUploadBrowse">
                               <img src="{$pic_dir}{$pictures.$key}_small" alt="" />
@@ -520,14 +520,15 @@
                   </ul>
                 </div>
               {/if}
+
               {if $product->text_fields|intval}
                 <div class="customizableProductsText">
-                  <h5 class="product-heading-h5">{l s='Text'}</h5>
-                  <ul id="text_fields">
+                  <h3>{l s='Text'}</h3>
+                  <ul id="text_fields" class="list-unstyled">
                     {counter start=0 assign='customizationField'}
                     {foreach from=$customizationFields item='field' name='customizationFields'}
                       {if $field.type == 1}
-                        <li class="customizationUploadLine{if $field.required} required{/if}">
+                        <li class="customizationUploadLine form-group{if $field.required} required{/if}">
                           <label for ="textField{$customizationField}">
                             {assign var='key' value='textFields_'|cat:$product->id|cat:'_'|cat:$field.id_customization_field}
                             {if !empty($field.name)}
@@ -547,18 +548,22 @@
                   </ul>
                 </div>
               {/if}
-              <p id="customizedDatas">
+              <div id="customizedDatas" class="form-group">
                 <input type="hidden" name="quantityBackup" id="quantityBackup" value="" />
                 <input type="hidden" name="submitCustomizedDatas" value="1" />
-                <button class="btn btn-success" name="saveCustomization">
+                <button class="btn btn-lg btn-success" name="saveCustomization">
                   <span>{l s='Save'}</span>
                 </button>
                 <span id="ajax-loader" class="unvisible">
                  <img src="{$img_ps_dir}loader.gif" alt="loader" />
                 </span>
-              </p>
+              </div>
             </form>
-            <p class="clear required"><sup>*</sup> {l s='required fields'}</p>
+            <div class="form-group">
+              <div class="help-block">
+                <sup>*</sup> {l s='required fields'}
+              </div>
+            </div>
           </section>
         {/if}
 

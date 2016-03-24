@@ -188,33 +188,3 @@ $zoom-in-size: 110px;
   margin-bottom: 10px;
 }
 
-// PERSONALISATION
-p.infoCustomizable {
-  margin-bottom: 30px;
-}
-
-ul#uploadable_files,
-ul#text_fields {
-  list-style-type: none;
-}
-.customizableProductsFile,
-.customizableProductsText {
-  margin-bottom: 20px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid $ps-border-color;
-}
-.customizationUploadLine {
-  margin-bottom: 15px;
-}
-.customizationUploadBrowse img + a {
-  position: relative;
-  top: -51px;
-}
-
-#customizedDatas {
-  float: right;
-}
-
-.addsharethisinner .stButton .stArrow {
-  display: none !important;
-}
