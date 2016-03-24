@@ -188,3 +188,15 @@ $zoom-in-size: 110px;
   margin-bottom: 10px;
 }
 
+//
+// Quick view styles
+//
+
+.content_only {
+  .primary_block {
+    margin: 0;
+  }
+  .pb-center-column h1 {
+    margin-top: $line-height-computed;
+  }
+}
