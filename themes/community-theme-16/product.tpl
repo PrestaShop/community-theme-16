@@ -459,19 +459,27 @@
         {if isset($attachments) && $attachments}
           <section id="product-attachments" class="page-product-box">
             <h3 class="page-product-heading">{l s='Download'}</h3>
-            {foreach from=$attachments item=attachment name=attachements}
-              {if $smarty.foreach.attachements.iteration %3 == 1}<div class="row">{/if}
-              <div class="col-lg-4">
-                <h4><a href="{$link->getPageLink('attachment', true, NULL, "id_attachment={$attachment.id_attachment}")|escape:'html':'UTF-8'}">{$attachment.name|escape:'html':'UTF-8'}</a></h4>
-                <p class="text-muted">{$attachment.description|escape:'html':'UTF-8'}</p>
-                <a class="btn btn-default btn-block" href="{$link->getPageLink('attachment', true, NULL, "id_attachment={$attachment.id_attachment}")|escape:'html':'UTF-8'}">
-                  <i class="icon icon-download"></i>
-                  {l s="Download"} ({Tools::formatBytes($attachment.file_size, 2)})
-                </a>
-                <hr />
+            <div class="row">
+            {foreach from=$attachments item=attachment}
+              <div class="col-xs-12 col-sm-4 col-lg-3">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <a href="{$link->getPageLink('attachment', true, NULL, "id_attachment={$attachment.id_attachment}")|escape:'html':'UTF-8'}">
+                      {$attachment.name|escape:'html':'UTF-8'}
+                    </a>
+                  </div>
+                  <div class="panel-body">
+                    {if !empty($attachment.description)}
+                      <p class="text-muted">{$attachment.description|escape:'html':'UTF-8'}</p>
+                    {/if}
+                    <a class="btn btn-default btn-block" href="{$link->getPageLink('attachment', true, NULL, "id_attachment={$attachment.id_attachment}")|escape:'html':'UTF-8'}">
+                      <i class="icon icon-download"></i> {l s="Download"} ({Tools::formatBytes($attachment.file_size, 2)})
+                    </a>
+                  </div>
+                </div>
               </div>
-              {if $smarty.foreach.attachements.iteration %3 == 0 || $smarty.foreach.attachements.last}</div>{/if}
             {/foreach}
+            </div>
           </section>
         {/if}
 
