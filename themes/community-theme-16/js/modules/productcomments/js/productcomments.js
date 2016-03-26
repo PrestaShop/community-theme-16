@@ -1,14 +1,15 @@
-$(document).ready(function() {
+$(function() {
   $('input.star').rating();
   $('.auto-submit-star').rating();
 
-  if (!!$.prototype.fancybox)
+  if (!!$.prototype.fancybox) {
     $('.open-comment-form').fancybox({
       'autoSize': false,
       'width': 600,
       'height': 'auto',
       'hideOnContentClick': false
     });
+  }
 
   $(document).on('click', '#id_new_comment_form .closefb', function(e) {
     e.preventDefault();
@@ -68,15 +69,13 @@ $(document).ready(function() {
   });
 
   $(document).on('click', '#submitNewMessage', function(e) {
-    // Kill default behaviour
     e.preventDefault();
 
     // Form element
-
-    url_options = '?';
-    if (!productcomments_url_rewrite)
-      url_options = '&';
-
+    var url_options = productcomments_url_rewrite ? '?' : '&';
+    var $error = $('#new_comment_form_error');
+    $error.hide();
+    
     $.ajax({
       url: productcomments_controller_url + url_options + 'action=add_comment&secure_key=' + secure_key + '&rand=' + new Date().getTime(),
       data: $('#id_new_comment_form').serialize(),
@@ -90,11 +89,11 @@ $(document).ready(function() {
           buttons[productcomment_ok] = 'productcommentRefreshPage';
           fancyChooseBox(moderation_active ? productcomment_added_moderation : productcomment_added, productcomment_title, buttons);
         } else {
-          $('#new_comment_form_error ul').html('');
+          $error.find('ul').html('');
           $.each(data.errors, function(index, value) {
-            $('#new_comment_form_error ul').append('<li>' + value + '</li>');
+            $error.find('ul').append('<li>' + value + '</li>');
           });
-          $('#new_comment_form_error').slideDown('slow');
+          $error.show();
         }
       }
     });
