@@ -3,7 +3,7 @@
 
     {foreach from=$comments item=comment}
       {if !empty($comment.content)}
-        <div class="comment row" itemprop="review" itemscope itemtype="https://schema.org/Review">
+        <div class="comment row no-gutter" itemprop="review" itemscope itemtype="https://schema.org/Review">
 
           <meta itemprop="datePublished" content="{$comment.date_add|escape:'html':'UTF-8'|substr:0:10}" />
           <meta itemprop="worstRating" content = "0" />

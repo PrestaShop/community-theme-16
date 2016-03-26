@@ -96,7 +96,11 @@ $product-comment-border: $ps-border-color;
 }
 
 @media (min-width: $screen-sm-min) {
-  .comment_details {
+  .comment_author {
+    text-align: center;
+  }
+  .comment .comment_details {
     border-left: 1px solid $product-comment-border;
+    padding-left: 15px;
   }
 }
