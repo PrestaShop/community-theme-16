@@ -44,8 +44,3 @@
 @import "partials/pages/manuf_suppliers";
 @import "partials/pages/password";
 @import "partials/pages/product_comparison";
-
-//CSS Modules
-//IMPORTANT - Internet Explorer can read 31 CSS files max. Some CSS have been put here and erased from their own module folder.
-
-@import "partials/modules/blockfacebook";
