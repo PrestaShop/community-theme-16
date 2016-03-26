@@ -1,6 +1,25 @@
+# v0.8.0 (2016-03-26)
+
+This release refactors product page:
+
+- Refactored product page templates, styles and JS (#162)
+  - Bootstrap tables are used for discounts, features
+  - Product tabs are now `<section>`
+  - `product.js` has been trimmed
+  - Updated jqZoom
+  - Refactored thumbnail carousel
+  - Accessories now use product list template. Slider still works.
+  - Refactored `sendtoafriend` form
+  - Refactored page styles, reduced `product.css` size
+- Trimmed `blockwislist` buttons and popovers (#163)
+- Refactored `productcomments`, removed popovers from comparison page (#164)
+- Refactored `socialsharing` buttons (product page, comparison page) (#165)
+- Removed unused module partial from global styles (#166)
+- Added manufacturer info row to product page (#167)
+
 # v0.7.0 (2016-03-16)
 
-This release refactor products list template:
+This release refactors products list template:
 - Remove layout toggling and compiling using JS (only list class is toggled now)
 - Uses flexible grid system that doesn't collapse and work with varied height columns
 - Uses CSS classes to switch product card layout (between grid and list)
