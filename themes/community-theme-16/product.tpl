@@ -69,7 +69,7 @@
         {if !empty($images)}
           <div id="views_block" class="clearfix {if isset($images) && count($images) < 2}hidden{/if}">
             <div id="thumbs_list">
-              <ul id="thumbs_list_frame" class="row">
+              <ul id="thumbs_list_frame" class="list-unstyled row">
                 {if isset($images)}
                   {foreach from=$images item=image name=thumbnails}
 
