@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(function() {
   $('input.star').rating();
   $('.auto-submit-star').rating();
   $('a.cluetip').cluetip({

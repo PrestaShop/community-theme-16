@@ -12,7 +12,7 @@
 
           <div class="comment_author col-sm-3 col-md-2">
             <div class="form-group">
-              <b>{l s='Grade' mod='productcomments'}</b>
+              <div><b>{l s='Grade' mod='productcomments'}</b></div>
               <div class="star_content clearfix"  itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
                 {section name="i" start=0 loop=5 step=1}
                   {if $comment.grade <= $smarty.section.i.index}
@@ -68,101 +68,88 @@
     {/foreach}
 
     {if (!$too_early && ($is_logged || $allow_guests))}
-      <p class="align_center">
+      <div class="form-group">
         <a id="new_comment_tab_btn" class="btn btn-primary open-comment-form" href="#new_comment_form">
-          <span>{l s='Write your review!' mod='productcomments'}</span>
+          {l s='Write your review!' mod='productcomments'}
         </a>
-      </p>
+      </div>
     {/if}
 
   {else}
     {if (!$too_early && ($is_logged || $allow_guests))}
-      <p class="align_center">
+      <div class="form-group">
         <a id="new_comment_tab_btn" class="btn btn-primary open-comment-form" href="#new_comment_form">
-          <span>{l s='Be the first to write your review!' mod='productcomments'}</span>
+          {l s='Be the first to write your review!' mod='productcomments'}
         </a>
-      </p>
+      </div>
     {else}
-      <p class="align_center">{l s='No customer reviews for the moment.' mod='productcomments'}</p>
+      <div class="form-group">{l s='No customer reviews for the moment.' mod='productcomments'}</div>
     {/if}
   {/if}
 </div>
 
-
-<!-- Fancybox -->
 <div style="display: none;">
   <div id="new_comment_form">
     <form id="id_new_comment_form" action="#">
-      <h2 class="page-subheading">
-        {l s='Write a review' mod='productcomments'}
-      </h2>
-      <div class="row">
-        {if isset($product) && $product}
-          <div class="product clearfix  col-xs-12 col-sm-6">
-            <img src="{$productcomment_cover_image}" height="{$mediumSize.height}" width="{$mediumSize.width}" alt="{$product->name|escape:'html':'UTF-8'}" />
-            <div class="product_desc">
-              <p class="product_name">
-                <strong>{$product->name}</strong>
-              </p>
-              {$product->description_short}
+      <h2 class="page-subheading">{l s='Write a review' mod='productcomments'}</h2>
+
+      <div id="new_comment_form_error" class="alert alert-danger" style="display: none;">
+        <ul></ul>
+      </div>
+
+      {if !empty($criterions)}
+        {foreach from=$criterions item='criterion'}
+          <div class="form-group clearfix">
+            <label>{$criterion.name|escape:'html':'UTF-8'}:</label>
+            <div class="form-control-static">
+              <div class="star_content">
+                <input class="star" type="radio" name="criterion[{$criterion.id_product_comment_criterion|round}]" value="1" />
+                <input class="star" type="radio" name="criterion[{$criterion.id_product_comment_criterion|round}]" value="2" />
+                <input class="star" type="radio" name="criterion[{$criterion.id_product_comment_criterion|round}]" value="3" />
+                <input class="star" type="radio" name="criterion[{$criterion.id_product_comment_criterion|round}]" value="4"/>
+                <input class="star" type="radio" name="criterion[{$criterion.id_product_comment_criterion|round}]" value="5" checked="checked"/>
+              </div>
             </div>
           </div>
-        {/if}
-        <div class="new_comment_form_content col-xs-12 col-sm-6">
-          <div id="new_comment_form_error" class="error" style="display: none; padding: 15px 25px">
-            <ul></ul>
-          </div>
-          {if $criterions|@count > 0}
-            <ul id="criterions_list">
-              {foreach from=$criterions item='criterion'}
-                <li>
-                  <label>{$criterion.name|escape:'html':'UTF-8'}:</label>
-                  <div class="star_content">
-                    <input class="star" type="radio" name="criterion[{$criterion.id_product_comment_criterion|round}]" value="1" />
-                    <input class="star" type="radio" name="criterion[{$criterion.id_product_comment_criterion|round}]" value="2" />
-                    <input class="star" type="radio" name="criterion[{$criterion.id_product_comment_criterion|round}]" value="3" />
-                    <input class="star" type="radio" name="criterion[{$criterion.id_product_comment_criterion|round}]" value="4" checked="checked" />
-                    <input class="star" type="radio" name="criterion[{$criterion.id_product_comment_criterion|round}]" value="5" />
-                  </div>
-                  <div class="clearfix"></div>
-                </li>
-              {/foreach}
-            </ul>
-          {/if}
-          <label for="comment_title">
-            {l s='Title:' mod='productcomments'} <sup class="required">*</sup>
-          </label>
-          <input id="comment_title" name="title" type="text" value=""/>
-          <label for="content">
-            {l s='Comment:' mod='productcomments'} <sup class="required">*</sup>
-          </label>
-          <textarea id="content" name="content"></textarea>
-          {if $allow_guests == true && !$is_logged}
-            <label>
-              {l s='Your name:' mod='productcomments'} <sup class="required">*</sup>
-            </label>
-            <input id="commentCustomerName" name="customer_name" type="text" value=""/>
-          {/if}
-          <div id="new_comment_form_footer">
-            <input id="id_product_comment_send" name="id_product" type="hidden" value='{$id_product_comment_form}' />
-            <p class="float-left required"><sup>*</sup> {l s='Required fields' mod='productcomments'}</p>
-            <p class="float-right">
-              <button id="submitNewMessage" name="submitMessage" type="submit" class="btn btn-xs btn-success">
-                <span>{l s='Submit' mod='productcomments'}</span>
-              </button>&nbsp;
-              {l s='or' mod='productcomments'}&nbsp;
-              <a class="closefb" href="#">
-                {l s='Cancel' mod='productcomments'}
-              </a>
-            </p>
-            <div class="clearfix"></div>
-          </div> <!-- #new_comment_form_footer -->
-        </div>
+        {/foreach}
+      {/if}
+
+      <div class="form-group">
+        <label for="comment_title">{l s='Title:' mod='productcomments'} <sup class="required">*</sup></label>
+        <input id="comment_title" class="form-control" name="title" type="text" value="" required/>
       </div>
-    </form><!-- /end new_comment_form_content -->
+
+      <div class="form-group">
+        <label for="content">{l s='Comment:' mod='productcomments'} <sup class="required">*</sup></label>
+        <textarea id="content" class="form-control" name="content" required></textarea>
+      </div>
+
+      {if $allow_guests == true && !$is_logged}
+        <div class="form-group">
+          <label for="commentCustomerName">
+            {l s='Your name:' mod='productcomments'} <sup class="required">*</sup>
+          </label>
+          <input id="commentCustomerName" class="form-control" name="customer_name" type="text" value="" required/>
+        </div>
+      {/if}
+
+      <div id="new_comment_form_footer" class="clearfix">
+        <input id="id_product_comment_send" name="id_product" type="hidden" value='{$id_product_comment_form}' />
+        <p class="help-block">
+          <sup>*</sup> {l s='Required fields' mod='productcomments'}
+        </p>
+        <button id="submitNewMessage" name="submitMessage" type="submit" class="btn btn-success">
+          {l s='Submit' mod='productcomments'}
+        </button>
+        <a class="closefb btn btn-link" href="#">
+          {l s='Cancel' mod='productcomments'}
+        </a>
+      </div>
+
+    </form>
   </div>
 </div>
-<!-- End fancybox -->
+
 {strip}
   {addJsDef productcomments_controller_url=$productcomments_controller_url|@addcslashes:'\''}
   {addJsDef moderation_active=$moderation_active|boolval}
