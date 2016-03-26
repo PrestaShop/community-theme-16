@@ -50,29 +50,3 @@
   {/foreach}
 </tr>
 
-<tr>
-  <td class="{$classname} comparison_infos feature-name">&nbsp;</td>
-  {foreach from=$list_ids_product item=id_product}
-    <td class="{$classname} comparison_infos product-{$id_product}" align="center" >
-      {if isset($product_comments[$id_product]) AND $product_comments[$id_product]}
-        <a class="btn btn-default" href="#" data-id-product-comment="{$id_product|intval}" rel="#comments_{$id_product|intval}">
-          <span>
-              {l s='View comments' mod='productcomments'} <i class="icon icon-chevron-right"></i>
-          </span>
-        </a>
-        <div style="display:none" id="comments_{$id_product}">
-          {foreach from=$product_comments[$id_product] item=comment}
-            <div class="well well-sm">
-              <strong>{$comment.customer_name|escape:'html':'UTF-8'} </strong>
-              <small class="date"> {dateFormat date=$comment.date_add|escape:'html':'UTF-8' full=0}</small>
-              <div class="comment_title">{$comment.title|escape:'html':'UTF-8'|nl2br}</div>
-              <div class="comment_content">{$comment.content|escape:'html':'UTF-8'|nl2br}</div>
-            </div>
-          {/foreach}
-        </div>
-      {else}
-        -
-      {/if}
-    </td>
-  {/foreach}
-</tr>
