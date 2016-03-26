@@ -12,7 +12,7 @@ $(function() {
   });
 
   var $alert = $('#send_friend_form_error');
-  
+
   $('#sendEmail').on('click', function() {
     var name = $('#friend_name').val();
     var email = $('#friend_email').val();
@@ -39,5 +39,5 @@ $(function() {
       $alert.show().text(stf_msg_required);
     }
   });
-  
+
 });

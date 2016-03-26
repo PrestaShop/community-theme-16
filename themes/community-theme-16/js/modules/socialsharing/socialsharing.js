@@ -3,7 +3,7 @@ $(function() {
   $('.socialsharing_product').find('.btn').on('click', function() {
     var type = $(this).attr('data-type');
     if (type.length) {
-      switch(type) {
+      switch (type) {
         case 'twitter':
           window.open('https://twitter.com/intent/tweet?text=' + sharing_name + ' ' + encodeURIComponent(sharing_url), 'sharertwt', 'toolbar=0,status=0,width=640,height=445');
           break;
@@ -15,7 +15,7 @@ $(function() {
           break;
         case 'pinterest':
           var img_url = sharing_img;
-          var $img = $("#bigpic");
+          var $img = $('#bigpic');
           var productPageImg = $img.attr('src');
           if (productPageImg) {
             img_url = $img.attr('src');

@@ -204,9 +204,9 @@ var touchDevice = null;
 function isTouchDevice() {
   if (touchDevice === null) {
     var agent = navigator.userAgent.toLowerCase();
-    touchDevice = 'ontouchstart' in window
-      || navigator.maxTouchPoints
-      || (/(android|iphone|ipad|iemobile|blackberry)/i).test(agent);
+    touchDevice = 'ontouchstart' in window ||
+      navigator.maxTouchPoints ||
+      (/(android|iphone|ipad|iemobile|blackberry)/i).test(agent);
   }
 
   return touchDevice;

@@ -246,7 +246,6 @@ $(document).on('click', '#view_full_size, #image-block', function() {
   $('#views_block').find('.shown').trigger('click');
 });
 
-
 function initAccessories() {
   var $accessoryList      = $('.accessories-block .product_list');
   var $accessoryListItems = $accessoryList.find('li');
@@ -1008,7 +1007,7 @@ function getProductAttribute() {
   for (var i in attributesCombinations) {
     if (attributesCombinations.hasOwnProperty(i)) {
 
-      for (var j=0; j<tab_attributes.length; j++) {
+      for (var j = 0; j < tab_attributes.length; j++) {
         if (attributesCombinations[i]['id_attribute'] == tab_attributes[j]) {
           request += '/' + attributesCombinations[i]['id_attribute'] + '-' + attributesCombinations[i]['group'] + attribute_anchor_separator + attributesCombinations[i]['attribute'];
         }
