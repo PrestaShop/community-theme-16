@@ -13,7 +13,7 @@
     {/if}
   {/if}
 </p>
-<br class="clear" />
+
 {addJsDef point_rate=$point_rate}
 {addJsDef point_value=$point_value}
 {addJsDef points_in_cart=$points_in_cart}
