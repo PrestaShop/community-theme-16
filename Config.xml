@@ -111,7 +111,7 @@
         <module action="disable" name="addshoppers"/>
         <hooks>
             <hook module="socialsharing" hook="displayHeader" position="1"/>
-            <hook module="socialsharing" hook="displayRightColumnProduct" position="1"/>
+            <hook module="socialsharing" hook="displayRightColumnProduct" position="2"/>
             <hook module="socialsharing" hook="actionObjectProductUpdateAfter" position="1"/>
             <hook module="socialsharing" hook="actionObjectProductDeleteAfter" position="1"/>
             <hook module="socialsharing" hook="displayCompareExtraInformation" position="1"/>
@@ -300,7 +300,7 @@
             <hook module="blockwishlist" hook="displayMyAccountBlock" position="1"/>
             <hook module="blockwishlist" hook="displayProductListFunctionalButtons" position="1"/>
             <hook module="productcomments" hook="displayHeader" position="32"/>
-            <hook module="productcomments" hook="displayRightColumnProduct" position="2"/>
+            <hook module="productcomments" hook="displayRightColumnProduct" position="1"/>
             <hook module="productcomments" hook="displayProductTab" position="1"/>
             <hook module="productcomments" hook="displayProductTabContent" position="1"/>
             <hook module="productcomments" hook="displayProductComparison" position="1"/>
