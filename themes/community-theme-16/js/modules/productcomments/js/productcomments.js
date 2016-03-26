@@ -16,14 +16,6 @@ $(function() {
     $.fancybox.close();
   });
 
-  $(document).on('click', 'a[href=#idTab5]', function(e) {
-    $('*[id^="idTab"]').addClass('block_hidden_only_for_screen');
-    $('div#idTab5').removeClass('block_hidden_only_for_screen');
-
-    $('ul#more_info_tabs a[href^="#idTab"]').removeClass('selected');
-    $('a[href="#idTab5"]').addClass('selected');
-  });
-
   $(document).on('click', 'button.usefulness_btn', function(e) {
     var id_product_comment = $(this).data('id-product-comment');
     var is_usefull = $(this).data('is-usefull');
@@ -46,7 +38,8 @@ $(function() {
     });
   });
 
-  $(document).on('click', 'span.report_btn', function(e) {
+  $(document).on('click', '.report_btn', function(e) {
+    e.preventDefault();
     if (confirm(confirm_report_message)) {
       var idProductComment = $(this).data('id-product-comment');
       var parent = $(this).parent();
