@@ -38,6 +38,7 @@ The main features of this theme:
 - Refactored `blockcart`, left column block styles
 - Refactored product list template: JS code that compile product list HTML has been removed
 - Refactored `jQuery Zoom` option for product page
+- Refactored product page, reworked images
 
 Features that will be implemented in the future (currently under development):
 
@@ -64,8 +65,6 @@ E.g. `.product-list-item`.
 
 Here is what is currently planned for this theme:
 
-- Version 0.8.0
-  * Refactored product page and related styles
 - Version 0.9.0
   * Refactoring of order and registration page
 - Version 0.10.0
@@ -73,7 +72,7 @@ Here is what is currently planned for this theme:
 - Version 0.11.0
   * Refactoring of CMS and CMS category pages
 - Version 0.12.0
-  * ??
+  * Comparison page, contact form, etc
 
 
 ## Libraries and dependencies
