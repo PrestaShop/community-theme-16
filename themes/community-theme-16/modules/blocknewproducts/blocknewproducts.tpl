@@ -5,7 +5,7 @@
   </h4>
   <div class="block_content products-block">
     {if $new_products !== false}
-      <ul class="products">
+      <ul>
         {foreach from=$new_products item=newproduct name=myLoop}
           <li class="clearfix">
             <a class="products-block-image" href="{$newproduct.link|escape:'html'}" title="{$newproduct.legend|escape:html:'UTF-8'}"><img class="replace-2x img-responsive" src="{$link->getImageLink($newproduct.link_rewrite, $newproduct.id_image, 'small_default')|escape:'html'}" alt="{$newproduct.name|escape:html:'UTF-8'}" /></a>

@@ -156,6 +156,11 @@ $product-grid-item-hover-bg: #f6f6f6;
     min-height: round(2*$padding-base-vertical + 2*1 + $font-size-base*$line-height-base);
     margin-bottom: 10px;
   }
+
+  .product-description-container,
+  .product-actions-container{
+    padding: 0 5px;
+  }
   .button-container {
     display: none;
     position: absolute;

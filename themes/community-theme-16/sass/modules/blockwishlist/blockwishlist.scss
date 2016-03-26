@@ -4,41 +4,7 @@
 
 /* wishlist block */
 #wishlist_block {
-  #wishlist_block_list {
-    margin: 0 0 20px 0;
-    dl {
-      font-weight: 400;
-      &.products.no-products {
-        font-weight: 700;
-        padding: 0 0 15px 0;
-        border-bottom: 1px solid $ps-border-color;
-        dt {
-          padding: 0;
-          border-top: none;
-        }
-        dd{
-          display: none;
-        }
-      }
-      &.products {
-        border-bottom: 1px solid $ps-border-color;
-        dt {
-          padding: 20px 0 0;
-          border-top: 1px solid $ps-border-color;
-        }
-        dd {
-          padding: 0 0 20px 0;
-        }
-      }
-      dt {
-        position: relative;
-        padding-right: 0;
-      }
-      dd {
-        margin: 0 0 0 24px;
-      }
-    }
-  }
+
   .lnk {
     .form-group {
       margin: 0 0 20px 0;
@@ -72,6 +38,43 @@
     width: 15px;
   }
 }
+
+#wishlist_block_list {
+  margin: 0 0 20px 0;
+  dl {
+    font-weight: 400;
+    &.products.no-products {
+      font-weight: 700;
+      padding: 0 0 15px 0;
+      border-bottom: 1px solid $ps-border-color;
+      dt {
+        padding: 0;
+        border-top: none;
+      }
+      dd{
+        display: none;
+      }
+    }
+    &.products {
+      border-bottom: 1px solid $ps-border-color;
+      dt {
+        padding: 20px 0 0;
+        border-top: 1px solid $ps-border-color;
+      }
+      dd {
+        padding: 0 0 20px 0;
+      }
+    }
+    dt {
+      position: relative;
+      padding-right: 0;
+    }
+    dd {
+      margin: 0 0 0 24px;
+    }
+  }
+}
+
 #wishlist_block_list .price {
   float: right;
 }
@@ -154,42 +157,6 @@ ul.wlp_bought_list li .lnkdel {
   right: 0;
   display: block;
   font-size: 14px;
-}
-
-#wishlist_button > .btn-group {
-  width: 80%;
-}
-
-ul.product_list.grid > li .product-container .functional-buttons .wishlist .popover {
-  padding: 0;
-  min-width: 160px;
-  .popover-content {
-    padding: 0;
-    min-width: 158px;
-  }
-  table {
-    margin-bottom: 2px;
-    td:hover {
-      background-color: rgb(204, 204, 204);
-      cursor: pointer;
-    }
-  }
-}
-
-[id=wishlist_button] + .popover,
-.wishlist_change_button + .popover {
-  padding: 0;
-  min-width: 150px;
-  .popover-content {
-    padding: 0;
-  }
-  table {
-    margin-bottom: 2px;
-    td:hover {
-      background-color: rgb(204, 204, 204);
-      cursor: pointer;
-    }
-  }
 }
 
 .wishlist > a.checked .icon:before {

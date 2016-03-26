@@ -1,27 +1,19 @@
 {if isset($wishlists) && count($wishlists) > 1}
   <div class="wishlist">
-    {foreach name=wl from=$wishlists item=wishlist}
-      {if $smarty.foreach.wl.first}
-        <a class="wishlist_button_list" tabindex="0" data-toggle="popover" data-trigger="focus" title="{l s='Wishlist' mod='blockwishlist'}" data-placement="top">{l s='Add to wishlist' mod='blockwishlist'}</a>
-        <div hidden class="popover-content">
-        <table class="table" border="1">
-        <tbody>
-      {/if}
-      <tr title="{$wishlist.name}" value="{$wishlist.id_wishlist}" onclick="WishlistCart('wishlist_block_list', 'add', '{$product.id_product|intval}', false, 1, '{$wishlist.id_wishlist}');">
-        <td>
-          {l s='Add to %s' sprintf=[$wishlist.name] mod='blockwishlist'}
-        </td>
-      </tr>
-      {if $smarty.foreach.wl.last}
-        </tbody>
-        </table>
-        </div>
-      {/if}
-      {foreachelse}
-      <a href="#" id="wishlist_button_nopop" onclick="WishlistCart('wishlist_block_list', 'add', '{$id_product|intval}', $('#idCombination').val(), document.getElementById('quantity_wanted').value); return false;" rel="nofollow"  title="{l s='Add to my wishlist' mod='blockwishlist'}">
-        <i class="icon icon-star-o"></i> {l s='Add to wishlist' mod='blockwishlist'}
-      </a>
-    {/foreach}
+    <a class="wishlist_button_list" tabindex="0" data-toggle="popover" data-trigger="focus" title="{l s='Wishlist' mod='blockwishlist'}" data-placement="top">
+      <i class="icon icon-star-o"></i> {l s='Add to wishlist' mod='blockwishlist'}
+    </a>
+    <div hidden class="popover-content">
+      <ul class="list-unstyled">
+        {foreach name=wl from=$wishlists item=wishlist}
+          <li>
+            <a title="{$wishlist.name}" value="{$wishlist.id_wishlist}" onclick="WishlistCart('wishlist_block_list', 'add', '{$product.id_product|intval}', false, 1, '{$wishlist.id_wishlist}');">
+              {l s='Add to %s' sprintf=[$wishlist.name] mod='blockwishlist'}
+            </a>
+          </li>
+        {/foreach}
+      </ul>
+    </div>
   </div>
 {else}
   <div class="wishlist">
