@@ -124,6 +124,15 @@
           </p>
         {/if}
 
+        {if $product->id_manufacturer > 0}
+          <p itemprop="brand" itemscope itemtype="https://schema.org/Brand">
+            <b>{l s='Manufacturer:'}</b>
+            <a itemprop="url" href="{$link->getManufacturerLink($product->id_manufacturer)}" title="{$product->manufacturer_name}">
+              <span itemprop="name">{$product->manufacturer_name}</span>
+            </a>
+          </p>
+        {/if}
+
         {if $product->description_short}
           <div id="short_description_block">
             <div id="short_description_content" class="rte" itemprop="description">{$product->description_short}</div>
