@@ -14,6 +14,10 @@
 // Step 1: Cart Summary
 //
 
+.cart_navigation {
+  margin-bottom: 20px;
+}
+
 .cart_quantity,
 .cart_gift_quantity {
   width: 91px;
@@ -137,9 +141,9 @@
 .delivery_option {
   table {
     background: #fff;
-  }
-  td {
-    vertical-align: middle;
+    > tbody > tr > td {
+      vertical-align: middle;
+    }
   }
 }
 
