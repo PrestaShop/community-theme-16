@@ -1,16 +1,18 @@
-//step 5 - paiement
-p.payment_module {
-  margin-bottom: 10px;
+//
+// Step 5: Payment
+//
+
+.payment_module {
   a {
     display: block;
     border: 1px solid $table-border-color;
-    @include border-radius(4px);
-    font-size: 17px;
-    line-height: 23px;
+    font-size: 1.25em;
     font-weight: bold;
     padding: 33px 40px 34px 99px;
-    letter-spacing: -1px;
     position: relative;
+    &:hover {
+      background-color: #f6f6f6;
+    }
     &.bankwire {
       background: url(../img/bankwire.png) 15px 12px no-repeat #fbfbfb;
     }
@@ -20,7 +22,9 @@ p.payment_module {
     &.cash {
       background: url(../img/cash.png) 15px 15px no-repeat #fbfbfb;
     }
-    &.cheque, &.bankwire, &.cash {
+    &.cheque,
+    &.bankwire,
+    &.cash {
       &:after {
         display: block;
         content: "\f054";
@@ -32,41 +36,8 @@ p.payment_module {
         font-size: 25px;
         height: 22px;
         width: 14px;
-        color: $link-color;
       }
     }
-    &:hover {
-      background-color: #f6f6f6;
-    }
-    span {
-      font-weight: bold;
-    }
   }
 }
 
-.payment_module.box {
-  margin-top: 20px;
-}
-
-p.cheque-indent {
-  margin-bottom: 9px;
-}
-
-.cheque-box {
-  .form-group {
-    margin-bottom: 0px;
-    .form-control {
-      width: 269px;
-    }
-  }
-}
-
-.order-confirmation.box {
-  line-height: 29px;
-  a {
-    text-decoration: underline;
-    &:hover {
-      text-decoration: none;
-    }
-  }
-}

@@ -1,85 +1,48 @@
 @import "compass";
 @import "theme_variables";
 @import "vendor_variables";
+@import "vendor_mixins";
 
-/********************************************************
-            One-Page Checkout Styles
-********************************************************/
+//
+// OPC Styles
+//
 
-#order-opc {
-  line-height: 20px;
-  .box {
-    padding-bottom: 20px;
+#order-opc #center_column {
+
+  .form-control {
+    max-width: 270px;
   }
-  .cart_navigation {
-    margin-bottom: 53px;
-  }
-  .page-heading.step-num {
-    position: relative;
-    padding-left: 45px;
-    overflow: visible;
-    span {
-      font-weight: bold;
-      font-size: 42px;
-      line-height: 51px;
-      font-style: italic;
-      position: absolute;
-      left: 10px;
-      top: -14px;
-    }
-  }
-  .form-group {
-    margin-bottom: 2px;
-    .form-control {
-      max-width: 271px;
-    }
-  }
+
   .lost_password {
-    display: inline-block;
-    text-decoration: underline;
-    margin: 5px 0 14px;
-    &:hover {
-      text-decoration: none;
-    }
-  }
-  .title_block {
-    font-weight: bold;
-    padding: 3px 0 6px;
-  }
-  .opc-button {
-    padding: 11px 0 0 0;
-  }
-  ul.bullet {
-    line-height: 22px;
-    margin-bottom: 5px;
-  }
-  .date-select {
-    padding-bottom: 10px;
-  }
-  .opc-add-save {
-    border-top: 1px solid $ps-border-color;
-    margin-top: 20px;
-    padding-top: 20px;
-  }
-  #message {
-    margin-bottom: 35px;
-  }
-  #opc_payment_methods {
-    margin-bottom: 30px;
-    p.warning{
-      color: #F13340;
-      font-weight: 700;
-    }
-  }
-  #opc_account {
-    margin-bottom: 30px;
-  }
-  .address_delivery.select {
+    display: block;
     margin-bottom: 15px;
   }
-  #address_invoice_form.form-group {
-    margin-bottom: 30px;
+
+  .title_block {
+    font-size: 1.15em;
   }
+
+  .bullet {
+    margin-bottom: 10px;
+  }
+}
+
+#opc_account_saved {
+  margin-top: 15px;
+  margin-bottom: 0;
+}
+
+p.warning{
+  padding: $alert-padding;
+  margin-bottom: $line-height-computed;
+  border: 1px solid transparent;
+  border-radius: $alert-border-radius;
+  @include alert-variant($alert-warning-bg, $alert-warning-border, $alert-warning-text);
+}
+
+#opc_account,
+#message {
+  margin-bottom: 15px;
 }
 
 #new_account_form .id_state,
