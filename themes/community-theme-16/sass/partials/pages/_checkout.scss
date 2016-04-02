@@ -148,18 +148,15 @@
 }
 
 .delivery_option_radio {
-  padding: 0;
-  text-align: center;
+  width: 20px;
 }
 
 .delivery_option_logo {
-  width: 100px;
+  width: 90px;
   text-align: center;
 }
 
-.delivery_option_price {
-  width: 160px;
-}
+//.delivery_option_price { width: 160px; }
 
 .carrier_title {
   font-weight: bold;
@@ -185,13 +182,13 @@
       background-color: #f6f6f6;
     }
     &.bankwire {
-      background: url(../img/bankwire.png) 15px 12px no-repeat #fbfbfb;
+      background: url('../img/bankwire.png') 15px 12px no-repeat #fbfbfb;
     }
     &.cheque {
-      background: url(../img/cheque.png) 15px 15px no-repeat #fbfbfb;
+      background: url('../img/cheque.png') 15px 15px no-repeat #fbfbfb;
     }
     &.cash {
-      background: url(../img/cash.png) 15px 15px no-repeat #fbfbfb;
+      background: url('../img/cash.png') 15px 15px no-repeat #fbfbfb;
     }
     &.cheque,
     &.bankwire,

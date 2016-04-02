@@ -7,7 +7,8 @@
 // OPC Styles
 //
 
-#order-opc #center_column {
+// #order-opc
+#center_column {
 
   .lost_password {
     display: block;
@@ -23,12 +24,18 @@
   }
 }
 
+#login_form_content {
+  .form-control {
+    max-width: 271px;
+  }
+}
+
 #opc_account_saved {
   margin-top: 15px;
   margin-bottom: 0;
 }
 
-p.warning{
+p.warning {
   padding: $alert-padding;
   margin-bottom: $line-height-computed;
   border: 1px solid transparent;
