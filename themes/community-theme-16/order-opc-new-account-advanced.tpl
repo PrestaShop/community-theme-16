@@ -33,7 +33,7 @@
           <div class="col-xs-12 col-md-6">
             <p class="title_block">{l s='Instant Checkout'}</p>
             <p class="opc-button">
-              <button type="submit" class="btn btn-lg btn-warning" id="opc_guestCheckout"><span>{l s='Guest checkout'}</span></button>
+              <button type="submit" class="btn btn-success" id="opc_guestCheckout"><span>{l s='Guest checkout'}</span></button>
             </p>
           </div>
           <div class="col-xs-12 col-md-6">
@@ -44,7 +44,7 @@
               <li>- {l s='Separate billing and shipping addresses'}</li>
             </ul>
             <p class="opc-button">
-              <button type="submit" class="btn btn-lg btn-warning" id="opc_createAccount"><span><i class="icon icon-user"></i> {l s='Create an account'}</span></button>
+              <button type="submit" class="btn btn-success" id="opc_createAccount"><span><i class="icon icon-user"></i> {l s='Create an account'}</span></button>
             </p>
           </div>
         </div>

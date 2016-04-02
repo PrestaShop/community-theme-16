@@ -8,47 +8,64 @@
 {/if}
 
 {if !$opc && ((!isset($back) || empty($back)) || (isset($back) && preg_match("/[&?]step=/", $back)))}
-  <!-- Steps -->
-  <ul class="step clearfix" id="order_step">
-    <li class="{if $current_step=='summary'}step_current {elseif $current_step=='login'}step_done_last step_done{else}{if $current_step=='payment' || $current_step=='shipping' || $current_step=='address' || $current_step=='login'}step_done{else}step_todo{/if}{/if} first">
+
+  {if $current_step=='summary'}
+    {$step_num = 1}
+  {elseif $current_step=='login'}
+    {$step_num = 2}
+  {elseif $current_step=='address'}
+    {$step_num = 3}
+  {elseif $current_step=='shipping'}
+    {$step_num = 4}
+  {elseif $current_step=='payment'}
+    {$step_num = 5}
+  {/if}
+
+  <ul id="order_step" class="nav nav-pills nav-justified">
+
+    <li class="{if $step_num > 1}completed{elseif $step_num == 1}active{/if}">
       {if $current_step=='payment' || $current_step=='shipping' || $current_step=='address' || $current_step=='login'}
         <a href="{$link->getPageLink('order', true)}">
-          <em>01.</em> {l s='Summary'}
+          01. {l s='Summary'}
         </a>
       {else}
-        <span><em>01.</em> {l s='Summary'}</span>
+        <a href="javascript:;">01. {l s='Summary'}</a>
       {/if}
     </li>
-    <li class="{if $current_step=='login'}step_current{elseif $current_step=='address'}step_done step_done_last{else}{if $current_step=='payment' || $current_step=='shipping' || $current_step=='address'}step_done{else}step_todo{/if}{/if} second">
+
+    <li class="{if $step_num > 2}completed{elseif $step_num == 2}active{else}not-completed{/if}">
       {if $current_step=='payment' || $current_step=='shipping' || $current_step=='address'}
         <a href="{$link->getPageLink('order', true, NULL, "{$smarty.capture.url_back}&step=1{if $multi_shipping}&multi-shipping={$multi_shipping}{/if}")|escape:'html':'UTF-8'}">
-          <em>02.</em> {l s='Sign in'}
+          02. {l s='Sign in'}
         </a>
       {else}
-        <span><em>02.</em> {l s='Sign in'}</span>
+        <a href="javascript:;">02. {l s='Sign in'}</a>
       {/if}
     </li>
-    <li class="{if $current_step=='address'}step_current{elseif $current_step=='shipping'}step_done step_done_last{else}{if $current_step=='payment' || $current_step=='shipping'}step_done{else}step_todo{/if}{/if} third">
+
+    <li class="{if $step_num > 3}completed{elseif $step_num == 3}active{else}not-completed{/if}">
       {if $current_step=='payment' || $current_step=='shipping'}
         <a href="{$link->getPageLink('order', true, NULL, "{$smarty.capture.url_back}&step=1{if $multi_shipping}&multi-shipping={$multi_shipping}{/if}")|escape:'html':'UTF-8'}">
-          <em>03.</em> {l s='Address'}
+          03. {l s='Address'}
         </a>
       {else}
-        <span><em>03.</em> {l s='Address'}</span>
+        <a href="javascript:;">03. {l s='Address'}</a>
       {/if}
     </li>
-    <li class="{if $current_step=='shipping'}step_current{else}{if $current_step=='payment'}step_done step_done_last{else}step_todo{/if}{/if} four">
+
+    <li class="{if $step_num > 4}completed{elseif $step_num == 4}active{else}not-completed{/if}">
       {if $current_step=='payment'}
         <a href="{$link->getPageLink('order', true, NULL, "{$smarty.capture.url_back}&step=2{if $multi_shipping}&multi-shipping={$multi_shipping}{/if}")|escape:'html':'UTF-8'}">
-          <em>04.</em> {l s='Shipping'}
+          04. {l s='Shipping'}
         </a>
       {else}
-        <span><em>04.</em> {l s='Shipping'}</span>
+        <a href="javascript:;">04. {l s='Shipping'}</a>
       {/if}
     </li>
-    <li id="step_end" class="{if $current_step=='payment'}step_current{else}step_todo{/if} last">
-      <span><em>05.</em> {l s='Payment'}</span>
+    <li class="{if $step_num == 5}active{else}not-completed{/if}">
+      <a href="javascript:;">05. {l s='Payment'}</a>
     </li>
+
   </ul>
-  <!-- /Steps -->
+
 {/if}

@@ -26,8 +26,8 @@
   <div class="alert alert-warning">{l s='This store has not accepted your new order.'}</div>
 {else}
   <div id="emptyCartWarning" class="alert alert-warning unvisible">{l s='Your shopping cart is empty.'}</div>
-  {if isset($lastProductAdded) AND $lastProductAdded}
-    <div class="cart_last_product">
+  {* if isset($lastProductAdded) AND $lastProductAdded}
+    <div class="cart_last_product" style="display: none;">
       <div class="cart_last_product_header">
         <div class="left">{l s='Last product added'}</div>
       </div>
@@ -49,7 +49,7 @@
         {/if}
       </div>
     </div>
-  {/if}
+  {/if *}
   {assign var='total_discounts_num' value="{if $total_discounts != 0}1{else}0{/if}"}
   {assign var='use_show_taxes' value="{if $use_taxes && $show_taxes}2{else}0{/if}"}
   {assign var='total_wrapping_taxes_num' value="{if $total_wrapping != 0}1{else}0{/if}"}
