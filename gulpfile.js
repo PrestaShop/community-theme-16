@@ -9,18 +9,20 @@ var zip         = require('gulp-zip');
 var runSequence = require('run-sequence');
 var jscs        = require('gulp-jscs');
 
+var themeName = 'community-theme-16';
+
 var createFolders = [
-    './themes/community-theme-16/cache/',
-    './themes/community-theme-16/pdf/',
-    './themes/community-theme-16/pdf/lang/'
+    './themes/' + themeName + '/cache/',
+    './themes/' + themeName + '/pdf/',
+    './themes/' + themeName + '/pdf/lang/'
 ];
 
 var copyIndexIgnore = [];
 
 var cleanUp = [
-    './themes/community-theme-16/.sass-cache/',
-    './themes/community-theme-16/cache/*',
-    './themes/community-theme-16/css/**/*.css.map'
+    './themes/' + themeName + '/.sass-cache/',
+    './themes/' + themeName + '/cache/*',
+    './themes/' + themeName + '/css/**/*.css.map'
 ];
 
 gulp.task('create-folders', function(callback){
@@ -52,7 +54,7 @@ gulp.task('compile-css', function(callback){
     if (argv.f || argv.force) {
         options += ' --force';
     }
-    var compassCompile = exec('compass compile ./themes/community-theme-16'+ options, function(err, out, code) {
+    var compassCompile = exec('compass compile ./themes/' + themeName + options, function(err, out, code) {
         if (err instanceof Error) {
             throw err;
         }
@@ -73,7 +75,7 @@ gulp.task('clean-up', function(){
 gulp.task('copy-index', function(callback){
     var total;
     var done  = 0;
-    glob(['themes/community-theme-16/**/', 'modules/*/**/'], { ignore : copyIndexIgnore }, function(err, folders) {
+    glob(['themes/' + themeName + '/**/', 'modules/*/**/'], { ignore : copyIndexIgnore }, function(err, folders) {
         total = folders.length;
         if (total < 1 && callback) {
             callback();
@@ -98,10 +100,10 @@ gulp.task('copy-index', function(callback){
 gulp.task('format-js', function () {
 
   return gulp.src([
-    './themes*/community-theme-16/js/**/*.js',
-    '!./themes*/community-theme-16/js/**/*.min.js',
-    '!./themes*/community-theme-16/js/autoload/**/*.js',
-    '!./themes*/community-theme-16/js/debug/**/*.js'
+    './themes*/' + themeName + '/js/**/*.js',
+    '!./themes*/' + themeName + '/js/**/*.min.js',
+    '!./themes*/' + themeName + '/js/autoload/**/*.js',
+    '!./themes*/' + themeName + '/js/debug/**/*.js'
   ])
     .pipe(jscs({ fix : true }))
     .pipe(gulp.dest('./'));
@@ -122,11 +124,11 @@ gulp.task('create-zip', function(){
         }
 
         return gulp.src([
-            './themes*/community-theme-16*/**',
+            './themes*/' + themeName + '*/**',
             './modules*/ct*/**',
             './Config.xml'
         ])
-            .pipe(zip('v' + themeVersion + '-community-theme-16.zip'))
+            .pipe(zip('v' + themeVersion + '-' + themeName + '.zip'))
             .pipe(gulp.dest('./'));
     });
 });
