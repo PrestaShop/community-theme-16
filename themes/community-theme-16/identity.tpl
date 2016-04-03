@@ -59,7 +59,7 @@
           </label>
           <input class="is_required validate form-control" data-validate="isEmail" type="email" name="email" id="email" value="{$smarty.post.email}" />
         </div>
-        <div class="form-group data-select">
+        <div class="form-group date-select">
           <label>{l s='Date of Birth'}</label>
           <div class="row">
             <div class="col-xs-4">
