@@ -14,7 +14,7 @@
       <fieldset>
         <div class="form-group">
           <label for="email">{l s='Email address'}</label>
-          <input class="form-control" type="email" id="email" name="email" value="{if isset($smarty.post.email)}{$smarty.post.email|escape:'html':'UTF-8'|stripslashes}{/if}" />
+          <input class="form-control" type="email" id="email" name="email" value="{if isset($smarty.post.email)}{$smarty.post.email|escape:'html':'UTF-8'|stripslashes}{/if}" required>
         </div>
         <div class="submit">
           <button type="submit" class="btn btn-lg btn-success"><span>{l s='Retrieve Password'} <i class="icon icon-chevron-right"></i></span></button>
