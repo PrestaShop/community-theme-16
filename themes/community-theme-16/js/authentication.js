@@ -48,7 +48,6 @@ function submitFunction() {
             if (typeof bindStateInputAndUpdate !== 'undefined') {
               bindStateInputAndUpdate();
             }
-            document.location = '#account-creation';
           });
         });
       }
