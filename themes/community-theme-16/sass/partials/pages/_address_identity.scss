@@ -4,51 +4,26 @@
 #new_account_form,
 #opc_account_form,
 #authentication {
-  .required {
-    color: #f13340;
-  }
   .form-control {
     max-width: 271px;
   }
 }
 
-#identity,
-#authentication,
-#order-opc {
-  #center_column {
-    form.std {
-      .row {
-        .col-xs-4 {
-          padding-left: 5px;
-          padding-right: 5px;
-          max-width: 94px;
-          .form-control {
-            max-width: 84px;
-          }
-        }
-      }
-    }
-    .footer_links {
-      border: none;
-      padding-top: 0;
-    }
+p.required {
+  color: #f13340;
+}
+
+// Birth date select boxes
+.date-select {
+  .row {
+    max-width: 271px + 10px;
+    margin: 0 -5px;
+  }
+  .col-xs-4 {
+    padding: 0 5px;
   }
 }
 
-#new_account_form .box {
-  .date-select {
-    padding-bottom: 10px;
-  }
-  .top-indent {
-    padding-top: 10px;
-  }
-  .customerprivacy {
-    padding-top: 15px;
-  }
-}
-
-#authentication {
-  fieldset.account_creation {
-    margin-bottom: 20px;
-  }
+.account_creation {
+  margin-bottom: 15px;
 }

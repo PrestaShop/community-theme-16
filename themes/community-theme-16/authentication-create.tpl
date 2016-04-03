@@ -31,7 +31,7 @@
       <input type="password" class="is_required validate form-control" data-validate="isPasswd" name="passwd" id="passwd" />
       <p class="help-block">{l s='(Five characters minimum)'}</p>
     </div>
-    <div class="form-group">
+    <div class="form-group date-select">
       <label>{l s='Date of Birth'}</label>
       <div class="row">
         <div class="col-xs-4">

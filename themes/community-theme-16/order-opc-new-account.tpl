@@ -152,7 +152,7 @@
               </label>
             </div>
           {/if}
-          <h3 class="page-subheading top-indent">{l s='Delivery address'}</h3>
+          <h3 class="page-subheading">{l s='Delivery address'}</h3>
           {$stateExist = false}
           {$postCodeExist = false}
           {$dniExist = false}
@@ -276,7 +276,7 @@
             {assign var=stateExist value=false}
             {assign var=postCodeExist value=false}
             {assign var='dniExist' value=false}
-            <h3 class="page-subheading top-indent">{l s='Invoice address'}</h3>
+            <h3 class="page-subheading">{l s='Invoice address'}</h3>
             {foreach from=$inv_all_fields item=field_name}
               {if $field_name eq "company"}
                 <div class="form-group">
