@@ -1,21 +1,14 @@
-//PAGES ADRESSES, IDENTITY
 #address,
 #identity,
 #account-creation_form,
 #new_account_form,
 #opc_account_form,
 #authentication {
-  p.required {
+  .required {
     color: #f13340;
-    margin: 9px 0 16px 0;
   }
-  p.inline-infos {
-    color: red;
-  }
-  .form-group {
-    .form-control {
-      max-width: 271px;
-    }
+  .form-control {
+    max-width: 271px;
   }
 }
 

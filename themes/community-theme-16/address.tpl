@@ -119,7 +119,7 @@
       {/if}
       {if ($field_name eq 'phone_mobile') || ($field_name eq 'phone_mobile') && !isset($atLeastOneExists) && isset($one_phone_at_least) && $one_phone_at_least}
         {assign var="atLeastOneExists" value=true}
-        <p class="inline-infos required">** {l s='You must register at least one phone number.'}</p>
+        <p class="help-block required">** {l s='You must register at least one phone number.'}</p>
       {/if}
     {/foreach}
     {if !$postCodeExist}
@@ -161,7 +161,7 @@
       </div>
     {/if}
     {if isset($one_phone_at_least) && $one_phone_at_least && !$atLeastOneExists}
-      <p class="inline-infos required">{l s='You must register at least one phone number.'}</p>
+      <p class="help-block required">{l s='You must register at least one phone number.'}</p>
     {/if}
     <div class="required form-group" id="adress_alias">
       <label for="alias">{l s='Please assign an address title for future reference.'} <sup>*</sup></label>

@@ -251,7 +251,7 @@
             <textarea class="form-control" name="other" id="other" cols="26" rows="7"></textarea>
           </div>
           {if isset($one_phone_at_least) && $one_phone_at_least}
-            <p class="inline-infos required is_customer_param">{l s='You must register at least one phone number.'}</p>
+            <p class="help-block required is_customer_param">{l s='You must register at least one phone number.'}</p>
           {/if}
           <div class="form-group is_customer_param">
             <label for="phone">{l s='Home phone'}</label>
@@ -372,7 +372,7 @@
               <textarea class="form-control" name="other_invoice" id="other_invoice" cols="26" rows="3"></textarea>
             </div>
             {if isset($one_phone_at_least) && $one_phone_at_least}
-              <p class="inline-infos required is_customer_param">{l s='You must register at least one phone number.'}</p>
+              <p class="help-block required is_customer_param">{l s='You must register at least one phone number.'}</p>
             {/if}
             <div class="form-group is_customer_param">
               <label for="phone_invoice">{l s='Home phone'}</label>

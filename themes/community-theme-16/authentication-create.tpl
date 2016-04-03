@@ -150,13 +150,13 @@
           <div class="required form-group">
             <label for="address1">{l s='Address'} <sup>*</sup></label>
             <input type="text" class="form-control" name="address1" id="address1" value="{if isset($smarty.post.address1)}{$smarty.post.address1}{/if}" />
-            <span class="inline-infos">{l s='Street address, P.O. Box, Company name, etc.'}</span>
+            <p class="help-block">{l s='Street address, P.O. Box, Company name, etc.'}</p>
           </div>
         {elseif $field_name eq "address2"}
           <div class="form-group is_customer_param">
             <label for="address2">{l s='Address (Line 2)'}{if in_array($field_name, $required_fields)} <sup>*</sup>{/if}</label>
             <input type="text" class="form-control" name="address2" id="address2" value="{if isset($smarty.post.address2)}{$smarty.post.address2}{/if}" />
-            <span class="inline-infos">{l s='Apartment, suite, unit, building, floor, etc...'}</span>
+            <p class="help-block">{l s='Apartment, suite, unit, building, floor, etc...'}</p>
           </div>
         {elseif $field_name eq "postcode"}
           {assign var='postCodeExist' value=true}
@@ -218,7 +218,7 @@
       </div>
       {if isset($one_phone_at_least) && $one_phone_at_least}
         {assign var="atLeastOneExists" value=true}
-        <p class="inline-infos required">** {l s='You must register at least one phone number.'}</p>
+        <p class="help-block required">** {l s='You must register at least one phone number.'}</p>
       {/if}
       <div class="required form-group" id="address_alias">
         <label for="alias">{l s='Assign an address alias for future reference.'} <sup>*</sup></label>
