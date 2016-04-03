@@ -38,7 +38,7 @@
           </div>
           <div class="col-xs-12 col-md-6">
             <p class="title_block">{l s='Create your account today and enjoy:'}</p>
-            <ul class="bullet">
+            <ul class="bullet list-unstyled">
               <li>- {l s='Personalized and secure access'}</li>
               <li>- {l s='A fast and easy check out process'}</li>
               <li>- {l s='Separate billing and shipping addresses'}</li>
