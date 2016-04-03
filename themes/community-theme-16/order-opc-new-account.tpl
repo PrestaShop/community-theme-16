@@ -4,7 +4,7 @@
   <form action="{$link->getPageLink('authentication', true, NULL, "back=order-opc")|escape:'html':'UTF-8'}" method="post" id="login_form" class="box">
     <fieldset>
       <h3 class="page-subheading">{l s='Already registered?'}</h3>
-      <p><a href="{$link->getPageLink('authentication', true)|escape:'html':'UTF-8'}" id="openLoginFormBlock">&raquo; {l s='Click here'}</a></p>
+      <a href="{$link->getPageLink('authentication', true)|escape:'html':'UTF-8'}" id="openLoginFormBlock">&raquo; {l s='Click here'}</a>
       <div id="login_form_content" style="display:none;">
         <!-- Error return block -->
         <div id="opc_login_errors" class="alert alert-danger" style="display:none;"></div>
