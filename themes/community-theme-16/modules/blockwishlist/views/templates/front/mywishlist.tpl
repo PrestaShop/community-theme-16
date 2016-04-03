@@ -26,11 +26,11 @@
           </label>
           <input type="text" id="name" name="name" class="inputTxt form-control" value="{if isset($smarty.post.name) and $errors|@count > 0}{$smarty.post.name|escape:'html':'UTF-8'}{/if}" />
         </div>
-        <p class="submit">
+        <div class="submit">
           <button id="submitWishlist" class="btn btn-lg btn-success" type="submit" name="submitWishlist">
             <span>{l s='Save' mod='blockwishlist'} <i class="icon icon-chevron-right"></i></span>
           </button>
-        </p>
+        </div>
       </fieldset>
     </form>
     {if $wishlists}

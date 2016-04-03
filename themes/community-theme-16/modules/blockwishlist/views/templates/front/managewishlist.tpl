@@ -28,13 +28,13 @@
         <label>{l s='Permalink' mod='blockwishlist'}:</label>
         <input type="text" class="form-control" value="{$link->getModuleLink('blockwishlist', 'view', ['token' => $token_wish])|escape:'html':'UTF-8'}" readonly="readonly"/>
       </div>
-      <p class="submit">
-      <div id="showSendWishlist">
-        <a class="btn btn-success" href="#" onclick="WishlistVisibility('wl_send', 'SendWishlist'); return false;" title="{l s='Send this wishlist' mod='blockwishlist'}">
-          <span>{l s='Send this wishlist' mod='blockwishlist'}</span>
-        </a>
+      <div class="submit">
+        <div id="showSendWishlist">
+          <a class="btn btn-success" href="#" onclick="WishlistVisibility('wl_send', 'SendWishlist'); return false;" title="{l s='Send this wishlist' mod='blockwishlist'}">
+            <span>{l s='Send this wishlist' mod='blockwishlist'}</span>
+          </a>
+        </div>
       </div>
-      </p>
     </div>
   {/if}
   <div class="wlp_bought">

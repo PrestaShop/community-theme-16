@@ -30,16 +30,16 @@
     </p>
     <form action="{$link->getPageLink('identity', true)|escape:'html':'UTF-8'}" method="post" class="std">
       <fieldset>
-        <div class="clearfix">
+        <div class="form-group">
           <label>{l s='Social title'}</label>
-          <br />
-          {foreach from=$genders key=k item=gender}
-            <div class="radio-inline">
-              <label for="id_gender{$gender->id}" class="top">
+          <div>
+            {foreach from=$genders key=k item=gender}
+              <label for="id_gender{$gender->id}" class="radio-inline">
                 <input type="radio" name="id_gender" id="id_gender{$gender->id}" value="{$gender->id|intval}" {if isset($smarty.post.id_gender) && $smarty.post.id_gender == $gender->id}checked="checked"{/if} />
-                {$gender->name}</label>
-            </div>
-          {/foreach}
+                {$gender->name}
+              </label>
+            {/foreach}
+          </div>
         </div>
         <div class="required form-group">
           <label for="firstname" class="required">
@@ -59,10 +59,8 @@
           </label>
           <input class="is_required validate form-control" data-validate="isEmail" type="email" name="email" id="email" value="{$smarty.post.email}" />
         </div>
-        <div class="form-group">
-          <label>
-            {l s='Date of Birth'}
-          </label>
+        <div class="form-group date-select">
+          <label>{l s='Date of Birth'}</label>
           <div class="row">
             <div class="col-xs-4">
               <select name="days" id="days" class="form-control">

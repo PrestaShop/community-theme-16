@@ -9,24 +9,15 @@
 
 // #order-opc
 #center_column {
-
   .lost_password {
     display: block;
     margin-bottom: 15px;
   }
-
   .title_block {
     font-size: 1.15em;
   }
-
   .bullet {
     margin-bottom: 10px;
-  }
-}
-
-#login_form_content {
-  .form-control {
-    max-width: 271px;
   }
 }
 
@@ -35,6 +26,7 @@
   margin-bottom: 0;
 }
 
+// Copy .alert.alert-warning style
 p.warning {
   padding: $alert-padding;
   margin-bottom: $line-height-computed;
@@ -48,8 +40,10 @@ p.warning {
   margin-bottom: 15px;
 }
 
-#new_account_form .id_state,
-#new_account_form .dni,
-#new_account_form .postcode {
-  display: none;
+#new_account_form {
+  .id_state,
+  .dni,
+  .postcode {
+    display: none;
+  }
 }

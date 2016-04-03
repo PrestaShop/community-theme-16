@@ -46,7 +46,7 @@
         <div class="required form-group dni">
           <label for="dni">{l s='Identification number'} <sup>*</sup></label>
           <input class="form-control" data-validate="{$address_validation.$field_name.validate}" type="text" name="dni" id="dni" value="{if isset($smarty.post.dni)}{$smarty.post.dni}{else}{if isset($address->dni)}{$address->dni|escape:'html':'UTF-8'}{/if}{/if}" />
-          <span class="form_info">{l s='DNI / NIF / NIE'}</span>
+          <p class="help-block">{l s='DNI / NIF / NIE'}</p>
         </div>
       {/if}
       {if $field_name eq 'firstname'}
@@ -119,7 +119,7 @@
       {/if}
       {if ($field_name eq 'phone_mobile') || ($field_name eq 'phone_mobile') && !isset($atLeastOneExists) && isset($one_phone_at_least) && $one_phone_at_least}
         {assign var="atLeastOneExists" value=true}
-        <p class="inline-infos required">** {l s='You must register at least one phone number.'}</p>
+        <p class="help-block required">** {l s='You must register at least one phone number.'}</p>
       {/if}
     {/foreach}
     {if !$postCodeExist}
@@ -140,7 +140,7 @@
       <div class="required dni form-group unvisible">
         <label for="dni">{l s='Identification number'} <sup>*</sup></label>
         <input class="is_required form-control" data-validate="{$address_validation.dni.validate}" type="text" name="dni" id="dni" value="{if isset($smarty.post.dni)}{$smarty.post.dni}{else}{if isset($address->dni)}{$address->dni|escape:'html':'UTF-8'}{/if}{/if}" />
-        <span class="form_info">{l s='DNI / NIF / NIE'}</span>
+        <p class="help-block">{l s='DNI / NIF / NIE'}</p>
       </div>
     {/if}
     <div class="form-group">
@@ -161,13 +161,13 @@
       </div>
     {/if}
     {if isset($one_phone_at_least) && $one_phone_at_least && !$atLeastOneExists}
-      <p class="inline-infos required">{l s='You must register at least one phone number.'}</p>
+      <p class="help-block required">{l s='You must register at least one phone number.'}</p>
     {/if}
     <div class="required form-group" id="adress_alias">
       <label for="alias">{l s='Please assign an address title for future reference.'} <sup>*</sup></label>
       <input type="text" id="alias" class="is_required validate form-control" data-validate="{$address_validation.alias.validate}" name="alias" value="{if isset($smarty.post.alias)}{$smarty.post.alias}{elseif isset($address->alias)}{$address->alias|escape:'html':'UTF-8'}{elseif !$select_address}{l s='My address'}{/if}" />
     </div>
-    <p class="submit2">
+    <div class="submit2">
       {if isset($id_address)}<input type="hidden" name="id_address" value="{$id_address|intval}" />{/if}
       {if isset($back)}<input type="hidden" name="back" value="{$back}" />{/if}
       {if isset($mod)}<input type="hidden" name="mod" value="{$mod}" />{/if}
@@ -179,7 +179,7 @@
           <i class="icon icon-chevron-right"></i>
         </span>
       </button>
-    </p>
+    </div>
   </form>
 </div>
 <ul class="footer_links clearfix">

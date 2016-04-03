@@ -4,7 +4,7 @@
   <form action="{$link->getPageLink('authentication', true, NULL, "back=order-opc")|escape:'html':'UTF-8'}" method="post" id="login_form" class="box">
     <fieldset>
       <h3 class="page-subheading">{l s='Already registered?'}</h3>
-      <p><a href="{$link->getPageLink('authentication', true)|escape:'html':'UTF-8'}" id="openLoginFormBlock">&raquo; {l s='Click here'}</a></p>
+      <a href="{$link->getPageLink('authentication', true)|escape:'html':'UTF-8'}" id="openLoginFormBlock">&raquo; {l s='Click here'}</a>
       <div id="login_form_content" style="display:none;">
         <!-- Error return block -->
         <div id="opc_login_errors" class="alert alert-danger" style="display:none;"></div>
@@ -18,10 +18,10 @@
           <input class="form-control validate" type="password" id="login_passwd" name="login_passwd" data-validate="isPasswd" />
         </div>
         <a href="{$link->getPageLink('password', true)|escape:'html':'UTF-8'}" class="lost_password">{l s='Forgot your password?'}</a>
-        <p class="submit">
+        <div class="submit">
           {if isset($back)}<input type="hidden" class="hidden" name="back" value="{$back|escape:'html':'UTF-8'}" />{/if}
           <button type="submit" id="SubmitLogin" name="SubmitLogin" data-adv-api="1" class="btn btn-lg btn-success"><span><i class="icon icon-lock"></i> {l s='Sign in'}</span></button>
-        </p>
+        </div>
       </div>
     </fieldset>
   </form>
@@ -38,7 +38,7 @@
           </div>
           <div class="col-xs-12 col-md-6">
             <p class="title_block">{l s='Create your account today and enjoy:'}</p>
-            <ul class="bullet">
+            <ul class="bullet list-unstyled">
               <li>- {l s='Personalized and secure access'}</li>
               <li>- {l s='A fast and easy check out process'}</li>
               <li>- {l s='Separate billing and shipping addresses'}</li>
@@ -65,16 +65,18 @@
           <div class="required password is_customer_param form-group">
             <label for="passwd">{l s='Password'} <sup>*</sup></label>
             <input type="password" class="text form-control validate" name="passwd" id="passwd" data-validate="isPasswd" />
-            <span class="form_info">{l s='(five characters min.)'}</span>
+            <p class="help-block">{l s='(five characters min.)'}</p>
           </div>
-          <div class="required clearfix gender-line">
+          <div class="required form-group gender-line">
             <label>{l s='Social title'}</label>
-            {foreach from=$genders key=k item=gender}
-              <div class="radio-inline">
-                <label for="id_gender{$gender->id_gender}" class="top">
+            <div>
+              {foreach from=$genders key=k item=gender}
+                <label for="id_gender{$gender->id_gender}" class="radio-inline">
                   <input type="radio" name="id_gender" id="id_gender{$gender->id_gender}" value="{$gender->id_gender}"{if isset($smarty.post.id_gender) && $smarty.post.id_gender == $gender->id_gender || (isset($guestInformations) && $guestInformations.id_gender == $gender->id_gender)} checked="checked"{/if} />
-                  {$gender->name}</label></div>
-            {/foreach}
+                  {$gender->name}
+                </label>
+              {/foreach}
+            </div>
           </div>
           <div class="required form-group">
             <label for="firstname">{l s='First name'} <sup>*</sup></label>
@@ -149,7 +151,7 @@
               </label>
             </div>
           {/if}
-          <h3 class="page-subheading top-indent">{l s='Delivery address'}</h3>
+          <h3 class="page-subheading">{l s='Delivery address'}</h3>
           {$stateExist = false}
           {$postCodeExist = false}
           {$dniExist = false}
@@ -171,7 +173,7 @@
               <div class="required dni form-group">
                 <label for="dni">{l s='Identification number'} <sup>*</sup></label>
                 <input type="text" class="text form-control validate" name="dni" id="dni" data-validate="isDniLite" value="{if isset($guestInformations) && isset($guestInformations.dni) && $guestInformations.dni}{$guestInformations.dni}{/if}" />
-                <span class="form_info">{l s='DNI / NIF / NIE'}</span>
+                <p class="help-block">{l s='DNI / NIF / NIE'}</p>
               </div>
             {elseif $field_name eq "firstname"}
               <div class="required text form-group">
@@ -241,7 +243,7 @@
             <div class="required dni form-group">
               <label for="dni">{l s='Identification number'} <sup>*</sup></label>
               <input type="text" class="text form-control validate" name="dni" id="dni" data-validate="isDniLite" value="{if isset($guestInformations) && isset($guestInformations.dni) && $guestInformations.dni}{$guestInformations.dni}{/if}" />
-              <span class="form_info">{l s='DNI / NIF / NIE'}</span>
+              <p class="help-block">{l s='DNI / NIF / NIE'}</p>
             </div>
           {/if}
           <div class="form-group is_customer_param">
@@ -249,7 +251,7 @@
             <textarea class="form-control" name="other" id="other" cols="26" rows="7"></textarea>
           </div>
           {if isset($one_phone_at_least) && $one_phone_at_least}
-            <p class="inline-infos required is_customer_param">{l s='You must register at least one phone number.'}</p>
+            <p class="help-block required is_customer_param">{l s='You must register at least one phone number.'}</p>
           {/if}
           <div class="form-group is_customer_param">
             <label for="phone">{l s='Home phone'}</label>
@@ -272,7 +274,7 @@
             {assign var=stateExist value=false}
             {assign var=postCodeExist value=false}
             {assign var='dniExist' value=false}
-            <h3 class="page-subheading top-indent">{l s='Invoice address'}</h3>
+            <h3 class="page-subheading">{l s='Invoice address'}</h3>
             {foreach from=$inv_all_fields item=field_name}
               {if $field_name eq "company"}
                 <div class="form-group">
@@ -291,7 +293,7 @@
                 <div class="required form-group dni_invoice">
                   <label for="dni_invoice">{l s='Identification number'} <sup>*</sup></label>
                   <input type="text" class="text form-control validate" name="dni_invoice" id="dni_invoice" data-validate="isDniLite" value="{if isset($guestInformations) && isset($guestInformations.dni_invoice) && $guestInformations.dni_invoice}{$guestInformations.dni_invoice}{/if}" />
-                  <span class="form_info">{l s='DNI / NIF / NIE'}</span>
+                  <p class="help-block">{l s='DNI / NIF / NIE'}</p>
                 </div>
               {elseif $field_name eq "firstname"}
                 <div class="required form-group">
@@ -362,7 +364,7 @@
               <div class="required form-group dni_invoice">
                 <label for="dni">{l s='Identification number'} <sup>*</sup></label>
                 <input type="text" class="text form-control validate" name="dni_invoice" id="dni_invoice" data-validate="isDniLite" value="{if isset($guestInformations) && isset($guestInformations.dni_invoice) && $guestInformations.dni_invoice}{$guestInformations.dni_invoice}{/if}" />
-                <span class="form_info">{l s='DNI / NIF / NIE'}</span>
+                <p class="help-block">{l s='DNI / NIF / NIE'}</p>
               </div>
             {/if}
             <div class="form-group is_customer_param">
@@ -370,7 +372,7 @@
               <textarea class="form-control" name="other_invoice" id="other_invoice" cols="26" rows="3"></textarea>
             </div>
             {if isset($one_phone_at_least) && $one_phone_at_least}
-              <p class="inline-infos required is_customer_param">{l s='You must register at least one phone number.'}</p>
+              <p class="help-block required is_customer_param">{l s='You must register at least one phone number.'}</p>
             {/if}
             <div class="form-group is_customer_param">
               <label for="phone_invoice">{l s='Home phone'}</label>
