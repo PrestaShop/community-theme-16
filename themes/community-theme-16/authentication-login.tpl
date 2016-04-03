@@ -12,10 +12,7 @@
         <div class="submit">
           {if isset($back)}<input type="hidden" class="hidden" name="back" value="{$back|escape:'html':'UTF-8'}" />{/if}
           <button class="btn btn-lg btn-success" type="submit" id="SubmitCreate" name="SubmitCreate">
-              <span>
-                <i class="icon icon-user"></i>
-                {l s='Create an account'}
-              </span>
+            <i class="icon icon-user"></i> {l s='Create an account'}
           </button>
           <input type="hidden" class="hidden" name="SubmitCreate" value="{l s='Create an account'}" />
         </div>
@@ -38,10 +35,7 @@
         <div class="submit">
           {if isset($back)}<input type="hidden" class="hidden" name="back" value="{$back|escape:'html':'UTF-8'}" />{/if}
           <button type="submit" id="SubmitLogin" name="SubmitLogin" class="btn btn-lg btn-success">
-              <span>
-                <i class="icon icon-lock"></i>
-                {l s='Sign in'}
-              </span>
+            <i class="icon icon-lock"></i> {l s='Sign in'}
           </button>
         </div>
       </div>
