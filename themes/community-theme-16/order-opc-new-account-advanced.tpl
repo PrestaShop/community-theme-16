@@ -67,14 +67,16 @@
             <input type="password" class="text form-control validate" name="passwd" id="passwd" data-validate="isPasswd" />
             <span class="form_info">{l s='(five characters min.)'}</span>
           </div>
-          <div class="required clearfix gender-line">
+          <div class="required form-group gender-line">
             <label>{l s='Social title'}</label>
-            {foreach from=$genders key=k item=gender}
-              <div class="radio-inline">
-                <label for="id_gender{$gender->id_gender}" class="top">
+            <div>
+              {foreach from=$genders key=k item=gender}
+                <label for="id_gender{$gender->id_gender}" class="radio-inline">
                   <input type="radio" name="id_gender" id="id_gender{$gender->id_gender}" value="{$gender->id_gender}"{if isset($smarty.post.id_gender) && $smarty.post.id_gender == $gender->id_gender || (isset($guestInformations) && $guestInformations.id_gender == $gender->id_gender)} checked="checked"{/if} />
-                  {$gender->name}</label></div>
-            {/foreach}
+                  {$gender->name}
+                </label>
+              {/foreach}
+            </div>
           </div>
           <div class="required form-group">
             <label for="firstname">{l s='First name'} <sup>*</sup></label>

@@ -3,17 +3,16 @@
   <div class="account_creation">
     <h3 class="page-subheading">{l s='Your personal information'}</h3>
     <p class="required"><sup>*</sup>{l s='Required field'}</p>
-    <div class="clearfix">
+    <div class="form-group">
       <label>{l s='Title'}</label>
-      <br />
-      {foreach from=$genders key=k item=gender}
-        <div class="radio-inline">
-          <label for="id_gender{$gender->id}" class="top">
+      <div>
+        {foreach from=$genders key=k item=gender}
+          <label for="id_gender{$gender->id}" class="radio-inline">
             <input type="radio" name="id_gender" id="id_gender{$gender->id}" value="{$gender->id}" {if isset($smarty.post.id_gender) && $smarty.post.id_gender == $gender->id}checked="checked"{/if} />
             {$gender->name}
           </label>
-        </div>
-      {/foreach}
+        {/foreach}
+      </div>
     </div>
     <div class="required form-group">
       <label for="customer_firstname">{l s='First name'} <sup>*</sup></label>

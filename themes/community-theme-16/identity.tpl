@@ -30,16 +30,16 @@
     </p>
     <form action="{$link->getPageLink('identity', true)|escape:'html':'UTF-8'}" method="post" class="std">
       <fieldset>
-        <div class="clearfix">
+        <div class="form-group">
           <label>{l s='Social title'}</label>
-          <br />
-          {foreach from=$genders key=k item=gender}
-            <div class="radio-inline">
-              <label for="id_gender{$gender->id}" class="top">
+          <div>
+            {foreach from=$genders key=k item=gender}
+              <label for="id_gender{$gender->id}" class="radio-inline">
                 <input type="radio" name="id_gender" id="id_gender{$gender->id}" value="{$gender->id|intval}" {if isset($smarty.post.id_gender) && $smarty.post.id_gender == $gender->id}checked="checked"{/if} />
-                {$gender->name}</label>
-            </div>
-          {/foreach}
+                {$gender->name}
+              </label>
+            {/foreach}
+          </div>
         </div>
         <div class="required form-group">
           <label for="firstname" class="required">
