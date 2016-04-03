@@ -5,10 +5,6 @@
 #new_account_form,
 #opc_account_form,
 #authentication {
-  .box {
-    padding-bottom: 20px;
-    line-height: 20px;
-  }
   p.required {
     color: #f13340;
     margin: 9px 0 16px 0;
@@ -19,36 +15,6 @@
   .form-group {
     .form-control {
       max-width: 271px;
-      &#adress_alias {
-        margin-bottom: 20px;
-      }
-    }
-    &.phone-number {
-      // min 1200px
-      @media (min-width: $screen-lg) {
-        float: left;
-        width: 270px;
-        margin-right: 13px;
-      }
-      + p {
-        @media (min-width: $screen-lg) {
-          padding: 23px 0 0 0px;
-          margin-bottom: 0;
-        }
-      }
-    }
-  }
-  .gender-line {
-    padding-top: 4px;
-    > label {
-      margin-right: 10px;
-      margin-bottom: 0;
-    }
-    .radio-inline {
-      label {
-        font-weight: normal;
-        color: #777777;
-      }
     }
   }
 }
@@ -77,7 +43,6 @@
 }
 
 #new_account_form .box {
-  line-height: 20px;
   .date-select {
     padding-bottom: 10px;
   }
