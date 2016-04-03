@@ -18,10 +18,10 @@
           <input class="form-control validate" type="password" id="login_passwd" name="login_passwd" data-validate="isPasswd" />
         </div>
         <a href="{$link->getPageLink('password', true)|escape:'html':'UTF-8'}" class="lost_password">{l s='Forgot your password?'}</a>
-        <p class="submit">
+        <div class="submit">
           {if isset($back)}<input type="hidden" class="hidden" name="back" value="{$back|escape:'html':'UTF-8'}" />{/if}
           <button type="submit" id="SubmitLogin" name="SubmitLogin" class="btn btn-lg btn-success"><span><i class="icon icon-lock"></i> {l s='Sign in'}</span></button>
-        </p>
+        </div>
       </div>
     </fieldset>
   </form>

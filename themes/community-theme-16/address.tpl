@@ -167,7 +167,7 @@
       <label for="alias">{l s='Please assign an address title for future reference.'} <sup>*</sup></label>
       <input type="text" id="alias" class="is_required validate form-control" data-validate="{$address_validation.alias.validate}" name="alias" value="{if isset($smarty.post.alias)}{$smarty.post.alias}{elseif isset($address->alias)}{$address->alias|escape:'html':'UTF-8'}{elseif !$select_address}{l s='My address'}{/if}" />
     </div>
-    <p class="submit2">
+    <div class="submit2">
       {if isset($id_address)}<input type="hidden" name="id_address" value="{$id_address|intval}" />{/if}
       {if isset($back)}<input type="hidden" name="back" value="{$back}" />{/if}
       {if isset($mod)}<input type="hidden" name="mod" value="{$mod}" />{/if}
@@ -179,7 +179,7 @@
           <i class="icon icon-chevron-right"></i>
         </span>
       </button>
-    </p>
+    </div>
   </form>
 </div>
 <ul class="footer_links clearfix">
