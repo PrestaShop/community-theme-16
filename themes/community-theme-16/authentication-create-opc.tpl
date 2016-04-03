@@ -105,7 +105,7 @@
           <div class="required dni form-group">
             <label for="dni">{l s='Identification number'} <sup>*</sup></label>
             <input type="text" name="dni" id="dni" value="{if isset($smarty.post.dni)}{$smarty.post.dni}{/if}" />
-            <span class="form_info">{l s='DNI / NIF / NIE'}</span>
+            <p class="help-block">{l s='DNI / NIF / NIE'}</p>
           </div>
         {elseif $field_name eq "address1"}
           <div class="required form-group">
@@ -166,7 +166,7 @@
         <div class="required form-group dni">
           <label for="dni">{l s='Identification number'} <sup>*</sup></label>
           <input type="text" class="text form-control" name="dni" id="dni" value="{if isset($smarty.post.dni) && $smarty.post.dni}{$smarty.post.dni}{/if}" />
-          <span class="form_info">{l s='DNI / NIF / NIE'}</span>
+          <p class="help-block">{l s='DNI / NIF / NIE'}</p>
         </div>
       {/if}
       <div class="{if isset($one_phone_at_least) && $one_phone_at_least}required {/if}form-group">
@@ -204,7 +204,7 @@
             <div class="required form-group dni_invoice">
               <label for="dni_invoice">{l s='Identification number'} <sup>*</sup></label>
               <input type="text" class="text form-control" name="dni_invoice" id="dni_invoice" value="{if isset($smarty.post.dni_invoice) && $smarty.post.dni_invoice}{$smarty.post.dni_invoice}{/if}" />
-              <span class="form_info">{l s='DNI / NIF / NIE'}</span>
+              <p class="help-block">{l s='DNI / NIF / NIE'}</p>
             </div>
           {elseif $field_name eq "firstname"}
             <div class="required form-group">
@@ -275,7 +275,7 @@
           <div class="required form-group dni_invoice">
             <label for="dni">{l s='Identification number'} <sup>*</sup></label>
             <input type="text" class="text form-control" name="dni_invoice" id="dni_invoice" value="{if isset($smarty.post.dni_invoice) && $smarty.post.dni_invoice}{$smarty.post.dni_invoice}{/if}" />
-            <span class="form_info">{l s='DNI / NIF / NIE'}</span>
+            <p class="help-block">{l s='DNI / NIF / NIE'}</p>
           </div>
         {/if}
         <div class="form-group is_customer_param">

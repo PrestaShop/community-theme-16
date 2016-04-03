@@ -29,7 +29,7 @@
     <div class="required password form-group">
       <label for="passwd">{l s='Password'} <sup>*</sup></label>
       <input type="password" class="is_required validate form-control" data-validate="isPasswd" name="passwd" id="passwd" />
-      <span class="form_info">{l s='(Five characters minimum)'}</span>
+      <p class="help-block">{l s='(Five characters minimum)'}</p>
     </div>
     <div class="form-group">
       <label>{l s='Date of Birth'}</label>
@@ -230,7 +230,7 @@
       <div class="required form-group">
         <label for="dni">{l s='Identification number'} <sup>*</sup></label>
         <input type="text" class="form-control" name="dni" id="dni" value="{if isset($smarty.post.dni)}{$smarty.post.dni}{/if}" />
-        <span class="form_info">{l s='DNI / NIF / NIE'}</span>
+        <p class="help-block">{l s='DNI / NIF / NIE'}</p>
       </div>
     </div>
   {/if}

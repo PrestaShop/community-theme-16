@@ -46,7 +46,7 @@
         <div class="required form-group dni">
           <label for="dni">{l s='Identification number'} <sup>*</sup></label>
           <input class="form-control" data-validate="{$address_validation.$field_name.validate}" type="text" name="dni" id="dni" value="{if isset($smarty.post.dni)}{$smarty.post.dni}{else}{if isset($address->dni)}{$address->dni|escape:'html':'UTF-8'}{/if}{/if}" />
-          <span class="form_info">{l s='DNI / NIF / NIE'}</span>
+          <p class="help-block">{l s='DNI / NIF / NIE'}</p>
         </div>
       {/if}
       {if $field_name eq 'firstname'}
@@ -140,7 +140,7 @@
       <div class="required dni form-group unvisible">
         <label for="dni">{l s='Identification number'} <sup>*</sup></label>
         <input class="is_required form-control" data-validate="{$address_validation.dni.validate}" type="text" name="dni" id="dni" value="{if isset($smarty.post.dni)}{$smarty.post.dni}{else}{if isset($address->dni)}{$address->dni|escape:'html':'UTF-8'}{/if}{/if}" />
-        <span class="form_info">{l s='DNI / NIF / NIE'}</span>
+        <p class="help-block">{l s='DNI / NIF / NIE'}</p>
       </div>
     {/if}
     <div class="form-group">
