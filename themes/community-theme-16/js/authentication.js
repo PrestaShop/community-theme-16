@@ -1,8 +1,14 @@
-$(document).ready(function() {
+$(function() {
   $(document).on('submit', '#create-account_form', function(e) {
     e.preventDefault();
+    $(this).addClass('loading-overlay');
     submitFunction();
   });
+
+  $('#login_form').on('submit', function () {
+    $(this).addClass('loading-overlay');
+  });
+  
   $('.is_customer_param').hide();
 });
 
@@ -32,34 +38,35 @@ function submitFunction() {
           if (error != 'indexOf')
             errors += '<li>' + jsonData.errors[error] + '</li>';
         $('#create_account_error').html('<ol>' + errors + '</ol>').show();
+        $('#create-account_form').removeClass('loading-overlay');
       } else {
         // adding a div to display a transition
         $('#center_column').html('<div id="noSlide">' + $('#center_column').html() + '</div>');
         $('#noSlide').fadeOut('slow', function() {
           $('#noSlide').html(jsonData.page);
           $(this).fadeIn('slow', function() {
-            if (typeof bindStateInputAndUpdate !== 'undefined')
+            if (typeof bindStateInputAndUpdate !== 'undefined') {
               bindStateInputAndUpdate();
+            }
             document.location = '#account-creation';
           });
         });
       }
     },
     error: function(XMLHttpRequest, textStatus, errorThrown) {
-      error = 'TECHNICAL ERROR: unable to load form.\n\nDetails:\nError thrown: ' + XMLHttpRequest + '\n' + 'Text status: ' + textStatus;
+      var error = 'TECHNICAL ERROR: unable to load form.\n\nDetails:\nError thrown: ' + XMLHttpRequest + '\n' + 'Text status: ' + textStatus;
       if (!!$.prototype.fancybox) {
-        $.fancybox.open([
-            {
-              type: 'inline',
-              autoScale: true,
-              minHeight: 30,
-              content: '<p class=\'fancybox-error\'>' + error + '</p>'
-            }],
-          {
-            padding: 0
-          });
-      } else
+        $.fancybox.open([{
+          type: 'inline',
+          autoScale: true,
+          minHeight: 30,
+          content: '<p class=\'fancybox-error\'>' + error + '</p>'
+        }], {
+          padding: 0
+        });
+      } else {
         alert(error);
+      }
     }
   });
 }
