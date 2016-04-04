@@ -39,6 +39,7 @@ The main features of this theme:
 - Refactored product list template: JS code that compile product list HTML has been removed
 - Refactored `jQuery Zoom` option for product page
 - Refactored product page, reworked images
+- Trimmed order, registration and login form styles
 
 Features that will be implemented in the future (currently under development):
 
@@ -65,8 +66,6 @@ E.g. `.product-list-item`.
 
 Here is what is currently planned for this theme:
 
-- Version 0.9.0
-  * Refactoring of order and registration page
 - Version 0.10.0
   * Refactoring of account pages
 - Version 0.11.0
