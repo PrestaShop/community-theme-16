@@ -5,10 +5,10 @@ $(function() {
     submitFunction();
   });
 
-  $('#login_form').on('submit', function () {
+  $('#login_form').on('submit', function() {
     $(this).addClass('loading-overlay');
   });
-  
+
   $('.is_customer_param').hide();
 });
 
