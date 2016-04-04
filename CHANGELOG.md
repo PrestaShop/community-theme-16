@@ -1,3 +1,20 @@
+# v0.9.0 (2016-04-04)
+
+This release cleans up order, registration and login pages.
+CSS size has been greatly reduced. Login forms show loading overlay
+once submitted. Registration form now has HTML5 required attributes.
+
+- Refactored and trimmed order page styles (#170)
+  - Replaced cart steps nav with Bootstrap nav pills
+  - Trimmed cart summary table CSS
+  - Removed unused template code (last added product)
+  - Refactored and cleaned up checkout SCSS styles
+- Refactored and trimmed registration and login forms (#172)
+  - `authentication.tpl` has been split to 3 sub templates
+  - Added loading overlays to login forms
+  - Added required HTML5 attribute to registration forms
+  - Trimmed, organized SCSS styles
+
 # v0.8.0 (2016-03-26)
 
 This release refactors product page:
