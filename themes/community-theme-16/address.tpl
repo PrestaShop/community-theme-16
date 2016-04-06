@@ -34,7 +34,7 @@
       {if $field_name eq 'company'}
         <div class="form-group">
           <label for="company">{l s='Company'}{if isset($required_fields) && in_array($field_name, $required_fields)} <sup>*</sup>{/if}</label>
-          <input class="form-control validate" data-validate="{$address_validation.$field_name.validate}" type="text" id="company" name="company" value="{if isset($smarty.post.company)}{$smarty.post.company}{else}{if isset($address->company)}{$address->company|escape:'html':'UTF-8'}{/if}{/if}" />
+          <input class="form-control validate" data-validate="{$address_validation.$field_name.validate}" type="text" id="company" name="company" value="{if isset($smarty.post.company)}{$smarty.post.company}{else}{if isset($address->company)}{$address->company|escape:'html':'UTF-8'}{/if}{/if}" {if isset($required_fields) && in_array($field_name, $required_fields)}required{/if}/>
         </div>
       {/if}
       {if $field_name eq 'vat_number'}
@@ -42,7 +42,7 @@
           <div id="vat_number">
             <div class="form-group">
               <label for="vat-number">{l s='VAT number'}{if isset($required_fields) && in_array($field_name, $required_fields)} <sup>*</sup>{/if}</label>
-              <input type="text" class="form-control validate" data-validate="{$address_validation.$field_name.validate}" id="vat-number" name="vat_number" value="{if isset($smarty.post.vat_number)}{$smarty.post.vat_number}{else}{if isset($address->vat_number)}{$address->vat_number|escape:'html':'UTF-8'}{/if}{/if}" />
+              <input type="text" class="form-control validate" data-validate="{$address_validation.$field_name.validate}" id="vat-number" name="vat_number" value="{if isset($smarty.post.vat_number)}{$smarty.post.vat_number}{else}{if isset($address->vat_number)}{$address->vat_number|escape:'html':'UTF-8'}{/if}{/if}" {if isset($required_fields) && in_array($field_name, $required_fields)}required{/if}/>
             </div>
           </div>
         </div>
@@ -58,25 +58,25 @@
       {if $field_name eq 'firstname'}
         <div class="required form-group">
           <label for="firstname">{l s='First name'} <sup>*</sup></label>
-          <input class="is_required validate form-control" data-validate="{$address_validation.$field_name.validate}" type="text" name="firstname" id="firstname" value="{if isset($smarty.post.firstname)}{$smarty.post.firstname}{else}{if isset($address->firstname)}{$address->firstname|escape:'html':'UTF-8'}{/if}{/if}" />
+          <input class="is_required validate form-control" data-validate="{$address_validation.$field_name.validate}" type="text" name="firstname" id="firstname" value="{if isset($smarty.post.firstname)}{$smarty.post.firstname}{else}{if isset($address->firstname)}{$address->firstname|escape:'html':'UTF-8'}{/if}{/if}" required/>
         </div>
       {/if}
       {if $field_name eq 'lastname'}
         <div class="required form-group">
           <label for="lastname">{l s='Last name'} <sup>*</sup></label>
-          <input class="is_required validate form-control" data-validate="{$address_validation.$field_name.validate}" type="text" id="lastname" name="lastname" value="{if isset($smarty.post.lastname)}{$smarty.post.lastname}{else}{if isset($address->lastname)}{$address->lastname|escape:'html':'UTF-8'}{/if}{/if}" />
+          <input class="is_required validate form-control" data-validate="{$address_validation.$field_name.validate}" type="text" id="lastname" name="lastname" value="{if isset($smarty.post.lastname)}{$smarty.post.lastname}{else}{if isset($address->lastname)}{$address->lastname|escape:'html':'UTF-8'}{/if}{/if}" required/>
         </div>
       {/if}
       {if $field_name eq 'address1'}
         <div class="required form-group">
           <label for="address1">{l s='Address'} <sup>*</sup></label>
-          <input class="is_required validate form-control" data-validate="{$address_validation.$field_name.validate}" type="text" id="address1" name="address1" value="{if isset($smarty.post.address1)}{$smarty.post.address1}{else}{if isset($address->address1)}{$address->address1|escape:'html':'UTF-8'}{/if}{/if}" />
+          <input class="is_required validate form-control" data-validate="{$address_validation.$field_name.validate}" type="text" id="address1" name="address1" value="{if isset($smarty.post.address1)}{$smarty.post.address1}{else}{if isset($address->address1)}{$address->address1|escape:'html':'UTF-8'}{/if}{/if}" required/>
         </div>
       {/if}
       {if $field_name eq 'address2'}
         <div class="required form-group">
           <label for="address2">{l s='Address (Line 2)'}{if isset($required_fields) && in_array($field_name, $required_fields)} <sup>*</sup>{/if}</label>
-          <input class="validate form-control" data-validate="{$address_validation.$field_name.validate}" type="text" id="address2" name="address2" value="{if isset($smarty.post.address2)}{$smarty.post.address2}{else}{if isset($address->address2)}{$address->address2|escape:'html':'UTF-8'}{/if}{/if}" />
+          <input class="validate form-control" data-validate="{$address_validation.$field_name.validate}" type="text" id="address2" name="address2" value="{if isset($smarty.post.address2)}{$smarty.post.address2}{else}{if isset($address->address2)}{$address->address2|escape:'html':'UTF-8'}{/if}{/if}" {if isset($required_fields) && in_array($field_name, $required_fields)}required{/if}/>
         </div>
       {/if}
       {if $field_name eq 'postcode'}
@@ -89,14 +89,14 @@
       {if $field_name eq 'city'}
         <div class="required form-group">
           <label for="city">{l s='City'} <sup>*</sup></label>
-          <input class="is_required validate form-control" data-validate="{$address_validation.$field_name.validate}" type="text" name="city" id="city" value="{if isset($smarty.post.city)}{$smarty.post.city}{else}{if isset($address->city)}{$address->city|escape:'html':'UTF-8'}{/if}{/if}" maxlength="64" />
+          <input class="is_required validate form-control" data-validate="{$address_validation.$field_name.validate}" type="text" name="city" id="city" value="{if isset($smarty.post.city)}{$smarty.post.city}{else}{if isset($address->city)}{$address->city|escape:'html':'UTF-8'}{/if}{/if}" maxlength="64" required/>
         </div>
         {* if customer hasn't update his layout address, country has to be verified but it's deprecated *}
       {/if}
       {if $field_name eq 'Country:name' || $field_name eq 'country' || $field_name eq 'Country:iso_code'}
         <div class="required form-group">
           <label for="id_country">{l s='Country'} <sup>*</sup></label>
-          <select id="id_country" class="form-control" name="id_country">{$countries_list}</select>
+          <select id="id_country" class="form-control" name="id_country" required>{$countries_list}</select>
         </div>
       {/if}
       {if $field_name eq 'State:name'}
@@ -171,7 +171,7 @@
     {/if}
     <div class="required form-group" id="adress_alias">
       <label for="alias">{l s='Please assign an address title for future reference.'} <sup>*</sup></label>
-      <input type="text" id="alias" class="is_required validate form-control" data-validate="{$address_validation.alias.validate}" name="alias" value="{if isset($smarty.post.alias)}{$smarty.post.alias}{elseif isset($address->alias)}{$address->alias|escape:'html':'UTF-8'}{elseif !$select_address}{l s='My address'}{/if}" />
+      <input type="text" id="alias" class="is_required validate form-control" data-validate="{$address_validation.alias.validate}" name="alias" value="{if isset($smarty.post.alias)}{$smarty.post.alias}{elseif isset($address->alias)}{$address->alias|escape:'html':'UTF-8'}{elseif !$select_address}{l s='My address'}{/if}" required/>
     </div>
     <div class="submit2">
       {if isset($id_address)}<input type="hidden" name="id_address" value="{$id_address|intval}" />{/if}
@@ -188,6 +188,7 @@
     </div>
   </form>
 </div>
+
 <ul class="footer_links clearfix">
   <li>
     <a class="btn btn-default" href="{$link->getPageLink('addresses', true)|escape:'html':'UTF-8'}">
@@ -195,6 +196,7 @@
     </a>
   </li>
 </ul>
+
 {strip}
   {if isset($smarty.post.id_state) && $smarty.post.id_state}
     {addJsDef idSelectedState=$smarty.post.id_state|intval}
