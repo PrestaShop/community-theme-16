@@ -1,7 +1,10 @@
 {capture name=path}<a href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}">{l s='My account'}</a><span class="navigation-pipe">{$navigationPipe}</span><span class="navigation_page">{l s='My addresses'}</span>{/capture}
+
 <h1 class="page-heading">{l s='My addresses'}</h1>
+
 <p>{l s='Please configure your default billing and delivery addresses when placing an order. You may also add additional addresses, which can be useful for sending gifts or receiving an order at your office.'}</p>
-{if isset($multipleAddresses) && $multipleAddresses}
+
+{if !empty($multipleAddresses)}
   <div class="addresses">
     <p><strong>{l s='Your addresses are listed below.'}</strong></p>
     <p class="p-indent">{l s='Be sure to update your personal information if it has changed.'}</p>
@@ -41,13 +44,16 @@
 {else}
   <div class="alert alert-warning">{l s='No addresses are available.'}&nbsp;<a href="{$link->getPageLink('address', true)|escape:'html':'UTF-8'}">{l s='Add a new address'}</a></div>
 {/if}
+
 <div class="clearfix form-group">
   <a href="{$link->getPageLink('address', true)|escape:'html':'UTF-8'}" title="{l s='Add an address'}" class="btn btn-lg btn-success">
     <span>{l s='Add a new address'} <i class="icon icon-chevron-right"></i></span>
   </a>
 </div>
+
 <ul class="footer_links clearfix">
   <li><a class="btn btn-default" href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}"><span><i class="icon icon-chevron-left"></i> {l s='Back to your account'}</span></a></li>
   <li><a class="btn btn-default" href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}"><span><i class="icon icon-chevron-left"></i> {l s='Home'}</span></a></li>
 </ul>
+
 {addJsDefL name=addressesConfirm}{l s='Are you sure?' js=1}{/addJsDefL}
