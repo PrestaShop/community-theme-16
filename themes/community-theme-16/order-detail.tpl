@@ -22,17 +22,17 @@
       </p>
     {/if}
     {if $order->recyclable}
-      <p><i class="icon icon-repeat"></i> {l s='You have given permission to receive your order in recycled packaging.'}</p>
+      <p><i class="icon icon-2x text-success icon-repeat"></i> {l s='You have given permission to receive your order in recycled packaging.'}</p>
     {/if}
     {if $order->gift}
-      <p><i class="icon icon-gift"></i> {l s='You have requested gift wrapping for this order.'}</p>
+      <p><i class="icon icon-2x text-success icon-gift"></i> {l s='You have requested gift wrapping for this order.'}</p>
       <p><strong>{l s='Message'}</strong> {$order->gift_message|nl2br}</p>
     {/if}
   </div>
 
   {if count($order_history)}
     <h1 class="page-heading">{l s='Follow your order\'s status step-by-step'}</h1>
-    <div class="table_block">
+    <div class="table_block table-responsive">
       <table class="detail_step_by_step table table-bordered">
         <thead>
         <tr>
@@ -344,35 +344,37 @@
   {if !$is_guest}</form>{/if}
   {assign var='carriers' value=$order->getShipping()}
   {if $carriers|count > 0 && isset($carriers[0].carrier_name) && $carriers[0].carrier_name}
-    <table class="table table-bordered footab">
-      <thead>
-      <tr>
-        <th>{l s='Date'}</th>
-        <th data-sort-ignore="true">{l s='Carrier'}</th>
-        <th data-hide="phone">{l s='Weight'}</th>
-        <th data-hide="phone">{l s='Shipping cost'}</th>
-        <th data-hide="phone" data-sort-ignore="true">{l s='Tracking number'}</th>
-      </tr>
-      </thead>
-      <tbody>
-      {foreach from=$carriers item=line}
+    <div class="table-responsive">
+      <table class="table table-bordered footab">
+        <thead>
         <tr>
-          <td data-value="{$line.date_add|regex_replace:"/[\-\:\ ]/":""}">{dateFormat date=$line.date_add full=0}</td>
-          <td>{$line.carrier_name}</td>
-          <td data-value="{if $line.weight > 0}{$line.weight|string_format:"%.3f"}{else}0{/if}">{if $line.weight > 0}{$line.weight|string_format:"%.3f"} {Configuration::get('PS_WEIGHT_UNIT')}{else}-{/if}</td>
-          <td data-value="{if $order->getTaxCalculationMethod() == $smarty.const.PS_TAX_INC}{$line.shipping_cost_tax_incl}{else}{$line.shipping_cost_tax_excl}{/if}">{if $order->getTaxCalculationMethod() == $smarty.const.PS_TAX_INC}{displayPrice price=$line.shipping_cost_tax_incl currency=$currency->id}{else}{displayPrice price=$line.shipping_cost_tax_excl currency=$currency->id}{/if}</td>
-          <td>
-            <span class="shipping_number_show">{if $line.tracking_number}{if $line.url && $line.tracking_number}<a href="{$line.url|replace:'@':$line.tracking_number}">{$line.tracking_number}</a>{else}{$line.tracking_number}{/if}{else}-{/if}</span>
-          </td>
+          <th>{l s='Date'}</th>
+          <th data-sort-ignore="true">{l s='Carrier'}</th>
+          <th data-hide="phone">{l s='Weight'}</th>
+          <th data-hide="phone">{l s='Shipping cost'}</th>
+          <th data-hide="phone" data-sort-ignore="true">{l s='Tracking number'}</th>
         </tr>
-      {/foreach}
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+        {foreach from=$carriers item=line}
+          <tr>
+            <td data-value="{$line.date_add|regex_replace:"/[\-\:\ ]/":""}">{dateFormat date=$line.date_add full=0}</td>
+            <td>{$line.carrier_name}</td>
+            <td data-value="{if $line.weight > 0}{$line.weight|string_format:"%.3f"}{else}0{/if}">{if $line.weight > 0}{$line.weight|string_format:"%.3f"} {Configuration::get('PS_WEIGHT_UNIT')}{else}-{/if}</td>
+            <td data-value="{if $order->getTaxCalculationMethod() == $smarty.const.PS_TAX_INC}{$line.shipping_cost_tax_incl}{else}{$line.shipping_cost_tax_excl}{/if}">{if $order->getTaxCalculationMethod() == $smarty.const.PS_TAX_INC}{displayPrice price=$line.shipping_cost_tax_incl currency=$currency->id}{else}{displayPrice price=$line.shipping_cost_tax_excl currency=$currency->id}{/if}</td>
+            <td>
+              <span class="shipping_number_show">{if $line.tracking_number}{if $line.url && $line.tracking_number}<a href="{$line.url|replace:'@':$line.tracking_number}">{$line.tracking_number}</a>{else}{$line.tracking_number}{/if}{else}-{/if}</span>
+            </td>
+          </tr>
+        {/foreach}
+        </tbody>
+      </table>
+    </div>
   {/if}
   {if !$is_guest}
     {if count($messages)}
       <h3 class="page-heading">{l s='Messages'}</h3>
-      <div class="table_block">
+      <div class="table_block table-responsive">
         <table class="detail_step_by_step table table-bordered">
           <thead>
           <tr>

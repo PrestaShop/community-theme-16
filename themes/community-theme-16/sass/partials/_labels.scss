@@ -4,7 +4,5 @@
   padding: 6px 10px;
 }
 
-// When label has a bright background, the text needs to be dark to contrast
-.label.dark {
-  color: #333;
-}
+// Some labels will have .dark class when their background is a dark color (changed by PrestaShop, order statuses)
+// .label.dark {}

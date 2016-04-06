@@ -2,9 +2,6 @@
 @import "theme_variables";
 @import "vendor_variables";
 
-/************************************************************
-                History Page Styles
-************************************************************/
 #order-detail-content table {
   .return_quantity_buttons {
     margin-top: 3px;
@@ -18,33 +15,10 @@
   }
   .order_qte_input {
     display: none;
-    width: 57px;
+    width: 91px;
   }
   label {
     font-weight: 400;
-  }
-}
-
-.table {
-  td.history_detail {
-    a + a {
-      margin-left: 14px;
-    }
-  }
-  td.step-by-step-date {
-    width: 105px;
-  }
-}
-
-.info-order {
-  i {
-    font-size: 20px;
-    &.icon-gift {
-      color: #f13340;
-    }
-    &.icon-repeat {
-      color: #55c65e;
-    }
   }
 }
 
