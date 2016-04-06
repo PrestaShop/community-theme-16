@@ -126,7 +126,7 @@
         {if $b2b_enable}
           <h1 class="page-subheading">{l s='Your company information'}</h1>
           <div class="form-group">
-            <label for="">{l s='Company'}</label>
+            <label for="company">{l s='Company'}</label>
             <input type="text" class="form-control" id="company" name="company" value="{if isset($smarty.post.company)}{$smarty.post.company}{/if}" />
           </div>
           <div class="form-group">
