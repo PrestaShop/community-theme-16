@@ -1,18 +1,11 @@
 {capture name=path}
-  <a href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}">
-    {l s='My account'}
-  </a>
-  <span class="navigation-pipe">
-     {$navigationPipe}
-  </span>
-  <span class="navigation_page">
-     {l s='Your personal information'}
-  </span>
+  <a href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}">{l s='My account'}</a>
+  <span class="navigation-pipe">{$navigationPipe}</span>
+  <span class="navigation_page">{l s='Your personal information'}</span>
 {/capture}
+
 <div class="box">
-  <h1 class="page-subheading">
-    {l s='Your personal information'}
-  </h1>
+  <h1 class="page-subheading">{l s='Your personal information'}</h1>
 
   {include file="$tpl_dir./errors.tpl"}
 
@@ -42,22 +35,16 @@
           </div>
         </div>
         <div class="required form-group">
-          <label for="firstname" class="required">
-            {l s='First name'}
-          </label>
-          <input class="is_required validate form-control" data-validate="isName" type="text" id="firstname" name="firstname" value="{$smarty.post.firstname}" />
+          <label for="firstname" class="required">{l s='First name'}</label>
+          <input class="is_required validate form-control" data-validate="isName" type="text" id="firstname" name="firstname" value="{$smarty.post.firstname}" required/>
         </div>
         <div class="required form-group">
-          <label for="lastname" class="required">
-            {l s='Last name'}
-          </label>
-          <input class="is_required validate form-control" data-validate="isName" type="text" name="lastname" id="lastname" value="{$smarty.post.lastname}" />
+          <label for="lastname" class="required">{l s='Last name'}</label>
+          <input class="is_required validate form-control" data-validate="isName" type="text" name="lastname" id="lastname" value="{$smarty.post.lastname}" required/>
         </div>
         <div class="required form-group">
-          <label for="email" class="required">
-            {l s='E-mail address'}
-          </label>
-          <input class="is_required validate form-control" data-validate="isEmail" type="email" name="email" id="email" value="{$smarty.post.email}" />
+          <label for="email" class="required">{l s='E-mail address'}</label>
+          <input class="is_required validate form-control" data-validate="isEmail" type="email" name="email" id="email" value="{$smarty.post.email}" required/>
         </div>
         <div class="form-group date-select">
           <label>{l s='Date of Birth'}</label>
@@ -103,21 +90,15 @@
           </div>
         </div>
         <div class="required form-group">
-          <label for="old_passwd" class="required">
-            {l s='Current Password'}
-          </label>
-          <input class="is_required validate form-control" type="password" data-validate="isPasswd" name="old_passwd" id="old_passwd" />
+          <label for="old_passwd" class="required">{l s='Current Password'}</label>
+          <input class="is_required validate form-control" type="password" data-validate="isPasswd" name="old_passwd" id="old_passwd" required/>
         </div>
         <div class="password form-group">
-          <label for="passwd">
-            {l s='New Password'}
-          </label>
+          <label for="passwd">{l s='New Password'}</label>
           <input class="is_required validate form-control" type="password" data-validate="isPasswd" name="passwd" id="passwd" />
         </div>
         <div class="password form-group">
-          <label for="confirmation">
-            {l s='Confirmation'}
-          </label>
+          <label for="confirmation">{l s='Confirmation'}</label>
           <input class="is_required validate form-control" type="password" data-validate="isPasswd" name="confirmation" id="confirmation" />
         </div>
         {if isset($newsletter) && $newsletter}
@@ -143,11 +124,9 @@
           </div>
         {/if}
         {if $b2b_enable}
-          <h1 class="page-subheading">
-            {l s='Your company information'}
-          </h1>
+          <h1 class="page-subheading">{l s='Your company information'}</h1>
           <div class="form-group">
-            <label for="">{l s='Company'}</label>
+            <label for="company">{l s='Company'}</label>
             <input type="text" class="form-control" id="company" name="company" value="{if isset($smarty.post.company)}{$smarty.post.company}{/if}" />
           </div>
           <div class="form-group">
@@ -172,22 +151,19 @@
           </button>
         </div>
       </fieldset>
-    </form> <!-- .std -->
+    </form>
   {/if}
 </div>
+
 <ul class="footer_links clearfix">
   <li>
     <a class="btn btn-default" href="{$link->getPageLink('my-account', true)}">
-      <span>
-        <i class="icon icon-chevron-left"></i> {l s='Back to your account'}
-      </span>
+      <i class="icon icon-chevron-left"></i> {l s='Back to your account'}
     </a>
   </li>
   <li>
     <a class="btn btn-default" href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}">
-      <span>
-        <i class="icon icon-chevron-left"></i> {l s='Home'}
-      </span>
+      <i class="icon icon-chevron-left"></i> {l s='Home'}
     </a>
   </li>
 </ul>
