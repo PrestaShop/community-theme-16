@@ -36,15 +36,15 @@
         </div>
         <div class="required form-group">
           <label for="firstname" class="required">{l s='First name'}</label>
-          <input class="is_required validate form-control" data-validate="isName" type="text" id="firstname" name="firstname" value="{$smarty.post.firstname}" />
+          <input class="is_required validate form-control" data-validate="isName" type="text" id="firstname" name="firstname" value="{$smarty.post.firstname}" required/>
         </div>
         <div class="required form-group">
           <label for="lastname" class="required">{l s='Last name'}</label>
-          <input class="is_required validate form-control" data-validate="isName" type="text" name="lastname" id="lastname" value="{$smarty.post.lastname}" />
+          <input class="is_required validate form-control" data-validate="isName" type="text" name="lastname" id="lastname" value="{$smarty.post.lastname}" required/>
         </div>
         <div class="required form-group">
           <label for="email" class="required">{l s='E-mail address'}</label>
-          <input class="is_required validate form-control" data-validate="isEmail" type="email" name="email" id="email" value="{$smarty.post.email}" />
+          <input class="is_required validate form-control" data-validate="isEmail" type="email" name="email" id="email" value="{$smarty.post.email}" required/>
         </div>
         <div class="form-group date-select">
           <label>{l s='Date of Birth'}</label>
@@ -91,7 +91,7 @@
         </div>
         <div class="required form-group">
           <label for="old_passwd" class="required">{l s='Current Password'}</label>
-          <input class="is_required validate form-control" type="password" data-validate="isPasswd" name="old_passwd" id="old_passwd" />
+          <input class="is_required validate form-control" type="password" data-validate="isPasswd" name="old_passwd" id="old_passwd" required/>
         </div>
         <div class="password form-group">
           <label for="passwd">{l s='New Password'}</label>
