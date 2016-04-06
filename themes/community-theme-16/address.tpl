@@ -1,6 +1,12 @@
-{capture name=path}{l s='Your addresses'}{/capture}
+{capture name=path}
+  <a href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}">{l s='My account'}</a>
+  <span class="navigation-pipe">{$navigationPipe}</span>
+  <a href="{$link->getPageLink('addresses', true)|escape:'html':'UTF-8'}">{l s='My addresses'}</a>
+  {if !empty($id_address)}{l s='Edit address'}{else}{l s='Add a new address'}{/if}
+{/capture}
+
 <div class="box">
-  <h1 class="page-subheading">{l s='Your addresses'}</h1>
+  <h1 class="page-subheading">{l s='Your address'}</h1>
   <p>
     <b>
       {if isset($id_address) && (isset($smarty.post.alias) || isset($address->alias))}
