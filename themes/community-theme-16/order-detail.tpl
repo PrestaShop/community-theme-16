@@ -22,10 +22,10 @@
       </p>
     {/if}
     {if $order->recyclable}
-      <p><i class="icon icon-repeat"></i> {l s='You have given permission to receive your order in recycled packaging.'}</p>
+      <p><i class="icon icon-2x text-success icon-repeat"></i> {l s='You have given permission to receive your order in recycled packaging.'}</p>
     {/if}
     {if $order->gift}
-      <p><i class="icon icon-gift"></i> {l s='You have requested gift wrapping for this order.'}</p>
+      <p><i class="icon icon-2x text-success icon-gift"></i> {l s='You have requested gift wrapping for this order.'}</p>
       <p><strong>{l s='Message'}</strong> {$order->gift_message|nl2br}</p>
     {/if}
   </div>
