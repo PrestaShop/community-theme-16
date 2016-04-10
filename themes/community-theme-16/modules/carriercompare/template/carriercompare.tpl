@@ -1,7 +1,7 @@
 {if !$opc}
   <form class="box" id="compare_shipping_form" method="post" action="#" >
     <fieldset id="compare_shipping">
-      <h1 class="page-heading bottom-indent">{l s='Estimate the cost of shipping & taxes.' mod='carriercompare'}</h1>
+      <h1 class="page-heading">{l s='Estimate the cost of shipping & taxes.' mod='carriercompare'}</h1>
       <div class="form-group">
         <label for="id_country">{l s='Country' mod='carriercompare'}</label>
         <select name="id_country" id="id_country" class="form-control">

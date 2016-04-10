@@ -1,7 +1,7 @@
 <form action="{$link->getPageLink('authentication', true, NULL, "back=$back")|escape:'html':'UTF-8'}" method="post" id="new_account_form" class="std clearfix">
   <div class="box">
     <div id="opc_account_form" style="display: block; ">
-      <h3 class="page-heading bottom-indent">{l s='Instant checkout'}</h3>
+      <h3 class="page-heading">{l s='Instant checkout'}</h3>
       <p class="required"><sup>*</sup>{l s='Required field'}</p>
       <!-- Account -->
       <div class="required form-group">
@@ -86,7 +86,7 @@
           </label>
         </div>
       {/if}
-      <h3 class="page-heading bottom-indent">{l s='Delivery address'}</h3>
+      <h3 class="page-heading">{l s='Delivery address'}</h3>
       {foreach from=$dlv_all_fields item=field_name}
         {if $field_name eq "company"}
           <div class="form-group">

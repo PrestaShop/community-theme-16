@@ -7,7 +7,7 @@
     {$current_wishlist.name}
   {/capture}
 
-  <h1 class="page-heading bottom-indent">
+  <h1 class="page-heading">
     {l s='Wishlist' mod='blockwishlist'}
   </h1>
   {if $wishlists}

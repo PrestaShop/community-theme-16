@@ -1,6 +1,6 @@
 {capture name=path}<a href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}">{l s='My account'}</a><span class="navigation-pipe">{$navigationPipe}</span><span class="navigation_page">{l s='Credit slips'}</span>{/capture}
 
-<h1 class="page-heading bottom-indent">
+<h1 class="page-heading">
   {l s='Credit slips'}
 </h1>
 <p>

@@ -10,7 +10,7 @@
     </span>
 {/capture}
 
-<h1 class="page-heading bottom-indent">
+<h1 class="page-heading">
   {l s='Return Merchandise Authorization (RMA)'}
 </h1>
 {if isset($errorQuantity) && $errorQuantity}
