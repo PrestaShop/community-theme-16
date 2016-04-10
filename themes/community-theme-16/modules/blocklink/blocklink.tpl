@@ -1,4 +1,3 @@
-<!-- Block links module -->
 <div id="links_block_left" class="block">
   <p class="title_block">
     {if $url}
@@ -17,4 +16,3 @@
     </ul>
   </div>
 </div>
-<!-- /Block links module -->

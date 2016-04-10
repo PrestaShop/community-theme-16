@@ -55,7 +55,7 @@
         <br />
         - {l s='Please confirm your order by clicking "I confirm my order".' mod='bankwire'}
       </p>
-    </div><!-- .cheque-box -->
+    </div>
     <p class="cart_navigation clearfix" id="cart_navigation">
       <a class="btn btn-lg btn-default" href="{$link->getPageLink('order', true, NULL, "step=3")|escape:'html':'UTF-8'}">
         <i class="icon icon-chevron-left"></i> {l s='Other payment methods' mod='bankwire'}

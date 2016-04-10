@@ -1,4 +1,3 @@
-<!-- Block RSS module-->
 <div id="rss_block_left" class="block">
   <p class="title_block">{$title}</p>
   <div class="block_content">
@@ -13,4 +12,3 @@
     {/if}
   </div>
 </div>
-<!-- /Block RSS module-->

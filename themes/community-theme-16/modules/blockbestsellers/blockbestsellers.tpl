@@ -1,4 +1,3 @@
-<!-- MODULE Block best sellers -->
 <div id="best-sellers_block_right" class="block products_block">
   <h4 class="title_block">
     <a href="{$link->getPageLink('best-sales')|escape:'html'}" title="{l s='View a top sellers products' mod='blockbestsellers'}">{l s='Top sellers' mod='blockbestsellers'}</a>
@@ -36,4 +35,3 @@
     {/if}
   </div>
 </div>
-<!-- /MODULE Block best sellers -->

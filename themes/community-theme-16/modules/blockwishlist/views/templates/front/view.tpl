@@ -111,15 +111,12 @@
                       <span>{l s='View' mod='blockwishlist'}</span>
                     </a>
                   </div>
-                  <!-- .btn_action -->
                 </div>
-                <!-- .wishlist_product_detail -->
               </div>
-              <!-- .product_infos -->
             </div>
           </div>
         </li>
       {/foreach}
     </ul>
   </div>
-</div> <!-- #view_wishlist -->
+</div>

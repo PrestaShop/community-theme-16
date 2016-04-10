@@ -1,5 +1,4 @@
 {if $block == 1}
-  <!-- Block CMS module -->
   {foreach from=$cms_titles key=cms_key item=cms_title}
     <section id="informations_block_left_{$cms_key}" class="block informations_block_left">
       <p class="title_block">
@@ -38,7 +37,6 @@
       </div>
     </section>
   {/foreach}
-  <!-- /Block CMS module -->
 {else}
   <section id="blockcms-footer" class="blockcms col-xs-12 col-sm-3">
     <h4>{l s='Information' mod='blockcms'}</h4>

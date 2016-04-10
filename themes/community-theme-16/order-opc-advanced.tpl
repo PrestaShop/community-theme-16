@@ -10,9 +10,7 @@
   <div class="alert alert-warning">{l s='Your new order was not accepted.'}</div>
 {else}
   {if $productNumber}
-    <!-- Payment -->
     {include file="$tpl_dir./order-payment-advanced.tpl"}
-    <!-- END Payment -->
   {else}
     {capture name=path}{l s='Your shopping cart'}{/capture}
     <h2 class="page-heading">{l s='Your shopping cart'}</h2>

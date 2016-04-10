@@ -35,7 +35,7 @@
           <dd></dd>
         </dl>
       {/if}
-    </div> <!-- #wishlist_block_list -->
+    </div>
 
     <div class="lnk">
       {if $wishlists}
@@ -54,6 +54,6 @@
           {l s='My wishlists' mod='blockwishlist'} <i class="icon icon-chevron-right"></i>
         </span>
       </a>
-    </div> <!-- .lnk -->
-  </div> <!-- .block_content -->
-</div> <!-- #wishlist_block -->
+    </div>
+  </div>
+</div>

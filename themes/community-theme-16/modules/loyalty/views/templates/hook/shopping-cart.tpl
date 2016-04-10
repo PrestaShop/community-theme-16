@@ -1,4 +1,3 @@
-<!-- MODULE Loyalty -->
 <p id="loyalty">
   <i class="icon icon-flag"></i>
   {if $points > 0}
@@ -10,4 +9,3 @@
     {l s='Add some products to your shopping cart to collect some loyalty points.' mod='loyalty'}
   {/if}
 </p>
-<!-- END : MODULE Loyalty -->

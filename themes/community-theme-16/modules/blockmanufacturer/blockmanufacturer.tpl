@@ -1,4 +1,3 @@
-<!-- Block manufacturers module -->
 <div id="manufacturers_block_left" class="block blockmanufacturer">
   <p class="title_block">
     {if $display_link_manufacturer}
@@ -42,4 +41,3 @@
     {/if}
   </div>
 </div>
-<!-- /Block manufacturers module -->

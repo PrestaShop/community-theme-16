@@ -230,9 +230,9 @@
                       </table>
                     {/if}
                   </div>
-                </div> <!-- end delivery_option -->
+                </div>
               {/foreach}
-            </div> <!-- end delivery_options -->
+            </div>
             <div class="hook_extracarrier" id="HOOK_EXTRACARRIER_{$id_address}">
               {if isset($HOOK_EXTRACARRIER_ADDR) &&  isset($HOOK_EXTRACARRIER_ADDR.$id_address)}{$HOOK_EXTRACARRIER_ADDR.$id_address}{/if}
             </div>
@@ -269,7 +269,7 @@
             </div>
           {/foreach}
         {/if}
-      </div> <!-- end delivery_options_address -->
+      </div>
       <div id="extra_carrier" style="display: none;"></div>
       {if $opc}
         <p class="carrier_title">{l s='Leave a message'}</p>
@@ -343,7 +343,7 @@
       </div>
     {/if}
   {/if}
-</div> <!-- end delivery_options_address -->
+</div>
 {if !$opc}
     <p class="cart_navigation clearfix">
       <input type="hidden" name="step" value="3" />
@@ -379,7 +379,7 @@
 {else}
   </div>
 {/if}
-</div> <!-- end carrier_area -->
+</div> {* end carrier_area *}
 {strip}
   {if !$opc}
     {addJsDef orderProcess='order'}

@@ -1,4 +1,3 @@
-<!-- Block search module -->
 <div id="search_block_left" class="block">
   <p class="title_block">{l s='Search' mod='blocksearch'}</p>
   <form method="get" action="{$link->getPageLink('search', true, null, null, false, null, true)|escape:'html':'UTF-8'}" id="searchbox">
@@ -12,4 +11,3 @@
     </p>
   </form>
 </div>
-<!-- /Block search module -->

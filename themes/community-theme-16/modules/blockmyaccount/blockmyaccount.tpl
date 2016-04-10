@@ -1,4 +1,3 @@
-<!-- Block myaccount module -->
 <div class="block myaccount-column">
   <p class="title_block">
     <a href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}" title="{l s='My account' mod='blockmyaccount'}">
@@ -53,4 +52,3 @@
     </div>
   </div>
 </div>
-<!-- /Block myaccount module -->

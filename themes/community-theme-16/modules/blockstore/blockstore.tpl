@@ -1,4 +1,3 @@
-<!-- Block stores module -->
 <div id="stores_block_left" class="block">
   <p class="title_block">
     <a href="{$link->getPageLink('stores')|escape:'html':'UTF-8'}" title="{l s='Our stores' mod='blockstore'}">
@@ -26,4 +25,3 @@
     </div>
   </div>
 </div>
-<!-- /Block stores module -->

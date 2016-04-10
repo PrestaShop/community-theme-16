@@ -6,9 +6,9 @@
       <h3 class="page-subheading">{l s='Already registered?'}</h3>
       <a href="{$link->getPageLink('authentication', true)|escape:'html':'UTF-8'}" id="openLoginFormBlock">&raquo; {l s='Click here'}</a>
       <div id="login_form_content" style="display:none;">
-        <!-- Error return block -->
+
         <div id="opc_login_errors" class="alert alert-danger" style="display:none;"></div>
-        <!-- END Error return block -->
+
         <div class="form-group">
           <label for="login_email">{l s='Email address'}</label>
           <input type="email" class="form-control validate" id="login_email" name="email" data-validate="isEmail" />
@@ -50,10 +50,9 @@
         </div>
         <div id="opc_account_form" class="unvisible">
           {$HOOK_CREATE_ACCOUNT_TOP}
-          <!-- Error return block -->
+
           <div id="opc_account_errors" class="alert alert-danger" style="display:none;"></div>
-          <!-- END Error return block -->
-          <!-- Account -->
+
           <input type="hidden" id="is_new_customer" name="is_new_customer" value="0" />
           <input type="hidden" id="opc_id_customer" name="opc_id_customer" value="{if isset($guestInformations) && isset($guestInformations.id_customer) && $guestInformations.id_customer}{$guestInformations.id_customer}{else}0{/if}" />
           <input type="hidden" id="opc_id_address_delivery" name="opc_id_address_delivery" value="{if isset($guestInformations) && isset($guestInformations.id_address_delivery) && $guestInformations.id_address_delivery}{$guestInformations.id_address_delivery}{else}0{/if}" />
@@ -397,7 +396,7 @@
           <div style="display: none;" id="opc_account_saved" class="alert alert-success">
             {l s='Account information saved successfully'}
           </div>
-          <!-- END Account -->
+
         </div>
       </div>
     </fieldset>

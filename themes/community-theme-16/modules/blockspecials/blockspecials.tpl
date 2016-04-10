@@ -1,4 +1,3 @@
-<!-- MODULE Block specials -->
 <div id="special_block_right" class="block">
   <p class="title_block">
     <a href="{$link->getPageLink('prices-drop')|escape:'html':'UTF-8'}" title="{l s='Specials' mod='blockspecials'}">
@@ -64,4 +63,3 @@
     {/if}
   </div>
 </div>
-<!-- /MODULE Block specials -->

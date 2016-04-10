@@ -41,7 +41,6 @@
           <div class="mansup-container">
             <div class="row">
               <div class="left-side col-xs-12 col-sm-3">
-                <!-- logo -->
                 <div class="logo">
                   {if isset($supplier.nb_products) && $supplier.nb_products > 0}
                   <a href="{$link->getsupplierLink($supplier.id_supplier, $supplier.link_rewrite)|escape:'html':'UTF-8'}" title="{$supplier.name|escape:'html':'UTF-8'}">
@@ -50,8 +49,8 @@
                     {if isset($supplier.nb_products) && $supplier.nb_products > 0}
                   </a>
                   {/if}
-                </div> <!-- .logo -->
-              </div> <!-- .left-side -->
+                </div>
+              </div>
 
               <div class="middle-side col-xs-12 col-sm-5">
                 <h3>
@@ -66,7 +65,7 @@
                 <div class="description">
                   {$supplier.description|truncate:180:'...'}
                 </div>
-              </div><!-- .middle-side -->
+              </div>
 
               <div class="right-side col-xs-12 col-sm-4">
                 <div class="right-side-content">
@@ -83,7 +82,7 @@
                     <a class="btn btn-lg btn-default" href="{$link->getsupplierLink($supplier.id_supplier, $supplier.link_rewrite)|escape:'html':'UTF-8'}"><span>{l s='View products'} <i class="icon icon-chevron-right"></i></span></a>
                   {/if}
                 </div>
-              </div><!-- .right-side -->
+              </div>
             </div>
           </div>
         </li>

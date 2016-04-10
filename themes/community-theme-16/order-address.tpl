@@ -54,7 +54,7 @@
         {/if}
       </div>
     </div>
-  </div> <!-- end row -->
+  </div>
   <div class="row">
     <div class="col-xs-12 col-sm-6"{if $cart->isVirtualCart()} style="display:none;"{/if}>
       <ul class="address box" id="address_delivery">
@@ -64,7 +64,7 @@
       <ul class="address {if $cart->isVirtualCart()} full_width{/if} box" id="address_invoice">
       </ul>
     </div>
-  </div> <!-- end row -->
+  </div>
   <p class="address_add submit">
     <a href="{$link->getPageLink('address', true, NULL, "back={$back_order_page}?step=1{if $back}&mod={$back}{/if}")|escape:'html':'UTF-8'}" title="{l s='Add'}" class="btn btn-success">
       <span>{l s='Add a new address'} <i class="icon icon-chevron-right"></i></span>
@@ -76,7 +76,7 @@
        <textarea class="form-control" cols="60" rows="6" name="message">{if isset($oldMessage)}{$oldMessage}{/if}</textarea>
     </div>
   {/if}
-</div> <!-- end addresses -->
+</div>
 {if !$opc}
     <p class="cart_navigation clearfix">
       <input type="hidden" class="hidden" name="step" value="2" />
@@ -91,7 +91,7 @@
     </p>
   </form>
 {else}
-  </div> <!--  end opc_account -->
+  </div> {*  end opc_account *}
 {/if}
 {strip}
   {if !$opc}

@@ -1,4 +1,3 @@
-<!-- Block suppliers module -->
 <div id="suppliers_block_left" class="block blocksupplier">
   <p class="title_block">
     {if $display_link_supplier}
@@ -47,4 +46,3 @@
     {/if}
   </div>
 </div>
-<!-- /Block suppliers module -->
