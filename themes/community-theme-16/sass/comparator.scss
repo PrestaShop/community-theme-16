@@ -10,4 +10,13 @@
   .availability_label {
     display: none;
   }
+  .td-product-description {
+    @media (max-width: $screen-xs-max) {
+      white-space: normal;
+    }
+  }
+  @media (min-width: $screen-sm-min) {
+    table-layout: fixed;
+  }
 }
+

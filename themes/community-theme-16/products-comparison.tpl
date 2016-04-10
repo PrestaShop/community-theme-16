@@ -12,7 +12,7 @@
     <table id="product_comparison" class="table table-hover table-bordered text-center">
 
       <tr>
-        <td>{$HOOK_COMPARE_EXTRA_INFORMATION}</td>
+        <td >{$HOOK_COMPARE_EXTRA_INFORMATION}</td>
         {foreach from=$products item=product}
           <td>
             <div class="clearfix">
@@ -95,7 +95,7 @@
       <tr>
         <td></td>
         {foreach from=$products item=product}
-          <td>
+          <td class="td-product-description">
             {if !empty($product->description_short)}
               <div class="rte">{$product->description_short}</div>
             {/if}
