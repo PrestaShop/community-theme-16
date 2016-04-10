@@ -68,11 +68,17 @@ Here is what is currently planned for this theme:
 
 - Version 0.10.0
   * Refactoring of account pages
-- Version 0.11.0
   * Refactoring of CMS and CMS category pages
-- Version 0.12.0
-  * Comparison page, contact form, etc
-
+  * Comparison page, contact form
+  * 404 page
+- Version 0.?
+  * Maintenance
+  * Guest Tracking
+  * Manufacturers, Suppliers
+  * Print
+  * Stores
+  * Index
+  * Restricted Country
 
 ## Libraries and dependencies
 
