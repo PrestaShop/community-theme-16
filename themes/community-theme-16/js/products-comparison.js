@@ -55,7 +55,7 @@ function addToCompare(productId) {
 }
 
 function reloadProductComparison() {
-  $(document).on('click', 'a.cmp_remove', function(e) {
+  $(document).on('click', '#product_comparison .close', function(e) {
     e.preventDefault();
     var idProduct = parseInt($(this).data('id-product'));
     $.ajax({
