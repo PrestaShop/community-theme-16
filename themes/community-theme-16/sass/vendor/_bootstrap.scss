@@ -10,7 +10,7 @@
 
 // Reset and dependencies
 @import "bootstrap/bootstrap/normalize";
-//@import "bootstrap/bootstrap/print";
+@import "bootstrap/bootstrap/print";
 //@import "bootstrap/bootstrap/glyphicons";
 
 // Core CSS
@@ -34,7 +34,7 @@
 @import "bootstrap/bootstrap/pager";
 @import "bootstrap/bootstrap/labels";
 @import "bootstrap/bootstrap/badges";
-//@import "bootstrap/bootstrap/jumbotron";
+@import "bootstrap/bootstrap/jumbotron";
 @import "bootstrap/bootstrap/thumbnails";
 @import "bootstrap/bootstrap/alerts";
 @import "bootstrap/bootstrap/progress-bars";
@@ -46,10 +46,10 @@
 @import "bootstrap/bootstrap/close";
 
 // Components w/ JavaScript
-//@import "bootstrap/bootstrap/modals";
-//@import "bootstrap/bootstrap/tooltip";
+@import "bootstrap/bootstrap/modals";
+@import "bootstrap/bootstrap/tooltip";
 @import "bootstrap/bootstrap/popovers";
-//@import "bootstrap/bootstrap/carousel";
+// @import "bootstrap/bootstrap/carousel";
 
 // Utility classes
 @import "bootstrap/bootstrap/utilities";
