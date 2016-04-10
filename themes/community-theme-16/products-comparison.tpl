@@ -14,7 +14,7 @@
       <tr>
         <td>{$HOOK_COMPARE_EXTRA_INFORMATION}</td>
         {foreach from=$products item=product}
-          <td class="product-{$product->id}">
+          <td>
             <div class="clearfix">
               <button class="close" href="{$link->getPageLink('products-comparison', true)|escape:'html':'UTF-8'}" title="{l s='Remove'}" data-id-product="{$product->id}">&times;</button>
             </div>
@@ -45,7 +45,7 @@
       <tr>
         <td></td>
         {foreach from=$products item=product}
-          <td class="product-{$product->id}">
+          <td>
             <h4>
               <a href="{$product->getLink()|escape:'html':'UTF-8'}" title="{$product->name|escape:'html':'UTF-8'}">
                 {$product->name|escape:'html':'UTF-8'}
@@ -58,7 +58,7 @@
       <tr>
         <td></td>
         {foreach from=$products item=product}
-          <td class="product-{$product->id}">
+          <td>
             {if isset($product->show_price) && $product->show_price && !isset($restricted_country_mode) && !$PS_CATALOG_MODE}
               <span class="price product-price">{convertPrice price=$product->getPrice($taxes_behavior)}</span>
               {hook h="displayProductPriceBlock" id_product=$product->id type="price"}
@@ -95,7 +95,7 @@
       <tr>
         <td></td>
         {foreach from=$products item=product}
-          <td class="product-{$product->id}">
+          <td>
             {if !empty($product->description_short)}
               <div class="rte">{$product->description_short}</div>
             {/if}
@@ -107,7 +107,7 @@
         <td></td>
 
         {foreach from=$products item=product}
-          <td class="product-{$product->id}">
+          <td>
             <div class="comparison_product_infos">
               <p class="comparison_availability_statut">
                 {if !(($product->quantity <= 0 && !$product->available_later) OR ($product->quantity != 0 && !$product->available_now) OR !$product->available_for_order OR $PS_CATALOG_MODE)}
@@ -150,9 +150,7 @@
 
         <tr class="text-center active">
           <td class="td_empty">{l s='Features:'}</td>
-          {foreach from=$products item=product}
-            <td class="product-{$product->id}"></td>
-          {/foreach}
+          <td colspan="{$products|count}"></td>
         </tr>
 
         {foreach from=$ordered_features item=feature}
@@ -161,7 +159,7 @@
             {foreach from=$products item=product}
               {assign var='product_id' value=$product->id}
               {assign var='feature_id' value=$feature.id_feature}
-              <td class="comparison_infos product-{$product->id}">
+              <td class="comparison_infos">
                 {if isset($product_features[$product_id]) && isset($product_features[$product_id][$feature_id])}
                   {$product_features[$product_id][$feature_id]|escape:'html':'UTF-8'}
                 {/if}
