@@ -1,21 +1,18 @@
-<div class="pagenotfound">
-  <h1>{l s='This page is not available'}</h1>
-
-  <p>
-    {l s='We\'re sorry, but the Web address you\'ve entered is no longer available.'}
-  </p>
-
-  <h3>{l s='To find a product, please type its name in the field below.'}</h3>
-  <form action="{$link->getPageLink('search')|escape:'html':'UTF-8'}" method="post" class="std">
-    <fieldset>
-      <div>
-        <label for="search_query">{l s='Search our product catalog:'}</label>
+<div class="pagenotfound jumbotron text-center">
+  <h2>{l s='This page is not available'}</h2>
+  <p>{l s='We\'re sorry, but the Web address you\'ve entered is no longer available.'}</p>
+  <p>{l s='To find a product, please type its name in the field below.'}</p>
+  <form action="{$link->getPageLink('search')|escape:'html':'UTF-8'}" method="post">
+    <div>
+      <label for="search_query">{l s='Search our product catalog:'}</label>
+      <div class="input-group">
         <input id="search_query" name="search_query" type="text" class="form-control" />
-        <button type="submit" name="Submit" value="OK" class="btn btn-primary"><span>{l s='Ok'}</span></button>
+        <span class="input-group-btn">
+          <button type="submit" name="Submit" value="OK" class="btn btn-primary"><i class="icon icon-search"></i></button>
+        </span>
       </div>
-    </fieldset>
+    </div>
   </form>
-
 </div>
 
 <nav>

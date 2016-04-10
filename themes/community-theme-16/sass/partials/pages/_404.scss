@@ -1,41 +1,6 @@
-//PAGE 404
-#pagenotfound {
-  .pagenotfound {
-    margin: 0 auto;
-    text-align: center;
-    .img-404 {
-      padding: 8px 0 27px 0;
-      img {
-        max-width: 100%;
-      }
-    }
-    h1 {
-      font-weight: 600;
-      font-size: 28px;
-      line-height: 34px;
-      text-transform: uppercase;
-      margin-bottom: 7px;
-    }
-    p {
-      font-weight: 600;
-      font-size: 16px;
-      line-height: 20px;
-      color: #555454;
-      text-transform: uppercase;
-      border-bottom: 1px solid $ps-border-color;
-      padding-bottom: 19px;
-      margin-bottom: 20px;
-    }
-    h3 {
-      font-weight: bold;
-      font-size: 13px;
-      line-height: normal;
-      margin-bottom: 18px;
-    }
-    .form-control {
-      max-width: 293px;
-      display: inline-block;
-      margin-right: 5px;
-    }
+.pagenotfound {
+  h2 {
+    font-size: 3.5em;
+    margin: 0 0 1em;
   }
 }
