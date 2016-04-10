@@ -32,7 +32,7 @@
     {if !empty($sub_category)}
       <section>
         <h2 class="page-heading">{l s='List of sub categories in %s:' sprintf=$cms_category->name}</h2>
-        <ul style="margin-bottom: 10px;">
+        <ul class="cms-category-list">
           {foreach from=$sub_category item=subcategory}
             <li>
               <a href="{$link->getCMSCategoryLink($subcategory.id_cms_category, $subcategory.link_rewrite)|escape:'html':'UTF-8'}">
@@ -47,7 +47,7 @@
     {if !empty($cms_pages)}
       <section>
         <h2 class="page-heading">{l s='List of pages in %s:' sprintf=$cms_category->name}</h2>
-        <ul>
+        <ul class="cms-page-list">
           {foreach from=$cms_pages item=cmspages}
             <li>
               <a href="{$link->getCMSLink($cmspages.id_cms, $cmspages.link_rewrite)|escape:'html':'UTF-8'}">
