@@ -1,5 +1,5 @@
-//global variables
-$(document).ready(function() {
+$(function() {
+
   $(document).on('change', 'select[name=id_contact]', function() {
     $('.desc_contact').hide();
     $('#desc_contact' + parseInt($(this).val())).show();

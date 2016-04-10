@@ -1,7 +1,9 @@
 {capture name=path}{l s='Contact'}{/capture}
+
 <h1 class="page-heading">
   {l s='Customer service'} - {if isset($customerThread) && $customerThread}{l s='Your reply'}{else}{l s='Contact us'}{/if}
 </h1>
+
 {if isset($confirmation)}
   <div class="alert alert-success">{l s='Your message has been successfully sent to our team.'}</div>
   <nav>
@@ -25,7 +27,7 @@
   <form action="{$request_uri}" method="post" class="contact-form-box" enctype="multipart/form-data">
     <fieldset>
       <h3 class="page-subheading">{l s='send a message'}</h3>
-      <div class="clearfix">
+      <div class="row">
         <div class="col-xs-12 col-md-3">
           <div class="form-group selector1">
             <label for="id_contact">{l s='Subject Heading'}</label>
