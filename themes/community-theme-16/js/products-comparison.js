@@ -1,8 +1,9 @@
-$(document).ready(function() {
+$(function() {
   $(document).on('click', '.add_to_compare', function(e) {
     e.preventDefault();
-    if (typeof addToCompare != 'undefined')
+    if (typeof addToCompare != 'undefined') {
       addToCompare(parseInt($(this).data('id-product')));
+    }
   });
 
   reloadProductComparison();
@@ -13,10 +14,11 @@ $(document).ready(function() {
 function addToCompare(productId) {
   var totalValueNow = parseInt($('.bt_compare').next('.compare_product_count').val());
   var action, totalVal;
-  if ($.inArray(parseInt(productId),comparedProductsIds) === -1)
+  if ($.inArray(parseInt(productId),comparedProductsIds) === -1) {
     action = 'add';
-  else
+  } else {
     action = 'remove';
+  }
 
   $.ajax({
     url: baseUri + '?controller=products-comparison&ajax=1&action=' + action + '&id_product=' + productId,
@@ -24,19 +26,19 @@ function addToCompare(productId) {
     cache: false,
     success: function(data) {
       if (action === 'add' && comparedProductsIds.length < comparator_max_item) {
-        comparedProductsIds.push(parseInt(productId)),
-          compareButtonsStatusRefresh(),
-          totalVal = totalValueNow + 1,
-          $('.bt_compare').next('.compare_product_count').val(totalVal),
-          totalValue(totalVal);
+        comparedProductsIds.push(parseInt(productId));
+        compareButtonsStatusRefresh();
+        totalVal = totalValueNow + 1;
+        $('.bt_compare').next('.compare_product_count').val(totalVal);
+        totalValue(totalVal);
       } else if (action === 'remove') {
-        comparedProductsIds.splice($.inArray(parseInt(productId), comparedProductsIds), 1),
-          compareButtonsStatusRefresh(),
-          totalVal = totalValueNow - 1,
-          $('.bt_compare').next('.compare_product_count').val(totalVal),
-          totalValue(totalVal);
+        comparedProductsIds.splice($.inArray(parseInt(productId), comparedProductsIds), 1);
+        compareButtonsStatusRefresh();
+        totalVal = totalValueNow - 1;
+        $('.bt_compare').next('.compare_product_count').val(totalVal);
+        totalValue(totalVal);
       } else {
-        if (!!$.prototype.fancybox)
+        if (!!$.prototype.fancybox) {
           $.fancybox.open([{
             type: 'inline',
             autoScale: true,
@@ -45,8 +47,9 @@ function addToCompare(productId) {
           }], {
             padding: 0
           });
-        else
+        } else {
           alert(max_item);
+        }
       }
       totalCompareButtons();
     },
@@ -75,23 +78,25 @@ function reloadProductComparison() {
     if (new_compare_product_list.length)
       window.location.search = window.location.search.replace(bak, new_compare_product_list.join(encodeURIComponent('|')));
   });
-};
+}
 
 function compareButtonsStatusRefresh() {
   $('.add_to_compare').each(function() {
-    if ($.inArray(parseInt($(this).data('id-product')), comparedProductsIds) !== -1)
+    if ($.inArray(parseInt($(this).data('id-product')), comparedProductsIds) !== -1) {
       $(this).addClass('checked');
-    else
+    } else {
       $(this).removeClass('checked');
+    }
   });
 }
 
 function totalCompareButtons() {
   var totalProductsToCompare = parseInt($('.bt_compare .total-compare-val').html());
-  if (typeof totalProductsToCompare !== 'number' || totalProductsToCompare === 0)
-    $('.bt_compare').attr('disabled',true);
-  else
-    $('.bt_compare').attr('disabled',false);
+  if (typeof totalProductsToCompare !== 'number' || totalProductsToCompare === 0) {
+    $('.bt_compare').attr('disabled', true);
+  } else {
+    $('.bt_compare').attr('disabled', false);
+  }
 }
 
 function totalValue(value) {
