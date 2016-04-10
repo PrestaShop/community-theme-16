@@ -34,6 +34,10 @@
   {/if}
 </div>
 
-<ul class="footer_links clearfix">
-  <li><a class="btn btn-default" href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}" title="{l s='Home'}"><span><i class="icon icon-chevron-left"></i> {l s='Home'}</span></a></li>
-</ul>
+<nav>
+  <ul class="pager">
+    <li class="previous">
+      <a href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}">&larr; {l s='Home'}</a>
+    </li>
+  </ul>
+</nav>

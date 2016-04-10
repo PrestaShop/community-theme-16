@@ -39,15 +39,15 @@
     <div class="alert alert-warning">{l s='No favorite products have been determined just yet. ' mod='favoriteproducts'}</div>
   {/if}
 
-  <ul class="footer_links clearfix">
-    <li>
-      <a
-        class="btn btn-default"
-        href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}">
-        <span>
-          <i class="icon icon-chevron-left"></i> {l s='Back to your account' mod='favoriteproducts'}
-        </span>
-      </a>
+</div>
+
+<nav>
+  <ul class="pager">
+    <li class="previous">
+      <a href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}">&larr; {l s='Back to your account'}</a>
+    </li>
+    <li class="previous">
+      <a href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}">&larr; {l s='Home'}</a>
     </li>
   </ul>
-</div>
+</nav>

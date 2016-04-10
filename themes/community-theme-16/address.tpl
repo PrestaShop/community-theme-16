@@ -189,13 +189,13 @@
   </form>
 </div>
 
-<ul class="footer_links clearfix">
-  <li>
-    <a class="btn btn-default" href="{$link->getPageLink('addresses', true)|escape:'html':'UTF-8'}">
-      <span><i class="icon icon-chevron-left"></i> {l s='Back to your addresses'}</span>
-    </a>
-  </li>
-</ul>
+<nav>
+  <ul class="pager">
+    <li class="previous">
+      <a href="{$link->getPageLink('addresses', true)|escape:'html':'UTF-8'}">&larr; {l s='Back to your addresses'}</a>
+    </li>
+  </ul>
+</nav>
 
 {strip}
   {if isset($smarty.post.id_state) && $smarty.post.id_state}
