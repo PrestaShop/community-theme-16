@@ -105,43 +105,42 @@
 
       <tr>
         <td></td>
-
         {foreach from=$products item=product}
           <td>
-            <div class="comparison_product_infos">
-              <p class="comparison_availability_statut">
-                {if !(($product->quantity <= 0 && !$product->available_later) OR ($product->quantity != 0 && !$product->available_now) OR !$product->available_for_order OR $PS_CATALOG_MODE)}
-                  <span class="availability_label">{l s='Availability:'}</span>
-                  <span class="availability_value"{if $product->quantity <= 0} class="warning-inline"{/if}>
-                   {if $product->quantity <= 0}
-                     {if $product->allow_oosp}
-                       {$product->available_later|escape:'html':'UTF-8'}
-                     {else}
-                       {l s='This product is no longer in stock.'}
-                     {/if}
-                   {else}
-                     {$product->available_now|escape:'html':'UTF-8'}
-                   {/if}
-                  </span>
-                {/if}
-              </p>
-              {if !$product->is_virtual}{hook h="displayProductDeliveryTime" product=$product}{/if}
-              {hook h="displayProductPriceBlock" product=$product type="weight"}
-              <div class="clearfix">
-                <div class="button-container">
-                  {if (!$product->hasAttributes() OR (isset($add_prod_display) AND ($add_prod_display == 1))) AND $product->minimal_quantity == 1 AND $product->customizable != 2 AND !$PS_CATALOG_MODE}
-                    {if ($product->quantity > 0 OR $product->allow_oosp)}
-                      <a class="ajax_add_to_cart_button btn btn-primary" data-id-product="{$product->id}" href="{$link->getPageLink('cart', true, NULL, "qty=1&amp;id_product={$product->id}&amp;token={$static_token}&amp;add")|escape:'html':'UTF-8'}" title="{l s='Add to cart'}">
-                        {l s='Add to cart'}
-                      </a>
-                    {else}
-                      <span class="ajax_add_to_cart_button btn btn-primary disabled">{l s='Add to cart'}</span>
-                    {/if}
+            {if !(($product->quantity <= 0 && !$product->available_later) OR ($product->quantity != 0 && !$product->available_now) OR !$product->available_for_order OR $PS_CATALOG_MODE)}
+              <span class="availability_label">{l s='Availability:'}</span>
+              <span class="availability_value label {if $product->quantity <= 0}label-warning{else}label-success{/if}">
+                {if $product->quantity <= 0}
+                  {if $product->allow_oosp}
+                    {$product->available_later|escape:'html':'UTF-8'}
+                  {else}
+                    {l s='This product is no longer in stock.'}
                   {/if}
-                  <a class="btn btn-default" href="{$product->getLink()|escape:'html':'UTF-8'}" title="{l s='View'}">{l s='View'}</a>
-                </div>
-              </div>
-            </div>
+                {else}
+                  {$product->available_now|escape:'html':'UTF-8'}
+                {/if}
+              </span>
+            {/if}
+            {if !$product->is_virtual}{hook h="displayProductDeliveryTime" product=$product}{/if}
+            {hook h="displayProductPriceBlock" product=$product type="weight"}
+          </td>
+        {/foreach}
+      </tr>
+
+      <tr>
+        <td></td>
+        {foreach from=$products item=product}
+          <td>
+            {if (!$product->hasAttributes() OR (isset($add_prod_display) AND ($add_prod_display == 1))) AND $product->minimal_quantity == 1 AND $product->customizable != 2 AND !$PS_CATALOG_MODE}
+              {if ($product->quantity > 0 OR $product->allow_oosp)}
+                <a class="ajax_add_to_cart_button btn btn-primary" data-id-product="{$product->id}" href="{$link->getPageLink('cart', true, NULL, "qty=1&amp;id_product={$product->id}&amp;token={$static_token}&amp;add")|escape:'html':'UTF-8'}" title="{l s='Add to cart'}">
+                  {l s='Add to cart'}
+                </a>
+              {else}
+                <span class="ajax_add_to_cart_button btn btn-primary disabled">{l s='Add to cart'}</span>
+              {/if}
+            {/if}
+            <a class="btn btn-default" href="{$product->getLink()|escape:'html':'UTF-8'}" title="{l s='View'}">{l s='View'}</a>
           </td>
         {/foreach}
       </tr>

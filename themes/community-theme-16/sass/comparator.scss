@@ -2,13 +2,12 @@
 @import "theme_variables";
 @import "vendor_variables";
 
+
 #product_comparison {
   .td_empty {
     font-weight: bold;
   }
-  .comparison_availability_statut {
+  .availability_label {
     display: none;
-    font-weight: 700;
-    color: #060;
   }
 }
