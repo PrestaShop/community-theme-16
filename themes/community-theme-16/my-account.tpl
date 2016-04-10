@@ -7,7 +7,7 @@
 
 <p>{l s='Welcome to your account. Here you can manage all of your personal information and orders.'}</p>
 
-<div class="row">
+<div id="my-account-menu" class="row">
   <div class="col-sm-6">
     <ul class="nav nav-pills nav-stacked stacked-menu">
       {if $has_customer_an_address}
