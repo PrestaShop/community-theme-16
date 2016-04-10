@@ -22,41 +22,43 @@
 
 {elseif isset($cms_category)}
 
-  <h1 class="page-heading">{$cms_category->name|escape:'html':'UTF-8'}</h1>
+  <article>
+    <h1 class="page-heading">{$cms_category->name|escape:'html':'UTF-8'}</h1>
 
-  {if !empty($cms_category->description)}
-    <div class="cms-category-content rte">{$cms_category->description|escape:'html':'UTF-8'}</div>
-  {/if}
+    {if !empty($cms_category->description)}
+      <div class="cms-category-content rte">{$cms_category->description|escape:'html':'UTF-8'}</div>
+    {/if}
 
-  {if !empty($sub_category)}
-    <section>
-      <h2 class="page-heading">{l s='List of sub categories in %s:' sprintf=$cms_category->name}</h2>
-      <ul style="margin-bottom: 10px;">
-        {foreach from=$sub_category item=subcategory}
-          <li>
-            <a href="{$link->getCMSCategoryLink($subcategory.id_cms_category, $subcategory.link_rewrite)|escape:'html':'UTF-8'}">
-              {$subcategory.name|escape:'html':'UTF-8'}
-            </a>
-          </li>
-        {/foreach}
-      </ul>
-    </section>
-  {/if}
+    {if !empty($sub_category)}
+      <section>
+        <h2 class="page-heading">{l s='List of sub categories in %s:' sprintf=$cms_category->name}</h2>
+        <ul style="margin-bottom: 10px;">
+          {foreach from=$sub_category item=subcategory}
+            <li>
+              <a href="{$link->getCMSCategoryLink($subcategory.id_cms_category, $subcategory.link_rewrite)|escape:'html':'UTF-8'}">
+                {$subcategory.name|escape:'html':'UTF-8'}
+              </a>
+            </li>
+          {/foreach}
+        </ul>
+      </section>
+    {/if}
 
-  {if !empty($cms_pages)}
-    <section>
-      <h2 class="page-heading">{l s='List of pages in %s:' sprintf=$cms_category->name}</h2>
-      <ul>
-        {foreach from=$cms_pages item=cmspages}
-          <li>
-            <a href="{$link->getCMSLink($cmspages.id_cms, $cmspages.link_rewrite)|escape:'html':'UTF-8'}">
-              {$cmspages.meta_title|escape:'html':'UTF-8'}
-            </a>
-          </li>
-        {/foreach}
-      </ul>
-    </section>
-  {/if}
+    {if !empty($cms_pages)}
+      <section>
+        <h2 class="page-heading">{l s='List of pages in %s:' sprintf=$cms_category->name}</h2>
+        <ul>
+          {foreach from=$cms_pages item=cmspages}
+            <li>
+              <a href="{$link->getCMSLink($cmspages.id_cms, $cmspages.link_rewrite)|escape:'html':'UTF-8'}">
+                {$cmspages.meta_title|escape:'html':'UTF-8'}
+              </a>
+            </li>
+          {/foreach}
+        </ul>
+      </section>
+    {/if}
+  </article>
 
 {else}
   <div class="alert alert-danger">{l s='This page does not exist.'}</div>
