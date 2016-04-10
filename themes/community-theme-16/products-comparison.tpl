@@ -76,7 +76,7 @@
               {if $product->on_sale}
               {elseif $product->specificPrice AND $product->specificPrice.reduction}
                 <div class="product_discount">
-                  <span class="reduced-price">{l s='Reduced price!'}</span>
+                  <span class="special-price">{l s='Reduced price!'}</span>
                 </div>
               {/if}
               {if !empty($product->unity) && $product->unit_price_ratio > 0.000000}
