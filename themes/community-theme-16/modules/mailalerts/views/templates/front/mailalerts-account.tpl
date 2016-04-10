@@ -1,4 +1,9 @@
-{capture name=path}<a href="{$link->getPageLink('my-account', true)|escape:'html'}" title="{l s='Manage my account' mod='mailalerts'}" rel="nofollow">{l s='My account' mod='mailalerts'}</a><span class="navigation-pipe">{$navigationPipe}</span><span class="navigation_page">{l s='My alerts' mod='mailalerts'}</span>{/capture}
+{capture name=path}
+  <a href="{$link->getPageLink('my-account', true)|escape:'html'}" title="{l s='Manage my account' mod='mailalerts'}" rel="nofollow">{l s='My account' mod='mailalerts'}</a>
+  <span class="navigation-pipe">{$navigationPipe}</span>
+  <span class="navigation_page">{l s='My alerts' mod='mailalerts'}</span>
+{/capture}
+
 <div id="mailalerts_block_account" class="block">
   <h1 class="page-heading">{l s='My alerts' mod='mailalerts'}</h1>
   {if $mailAlerts}
@@ -20,8 +25,14 @@
     </div>
   {/if}
   <div id="mailalerts_block_account_warning" class="{if $mailAlerts}hidden{/if} alert alert-warning">{l s='No mail alerts yet.' mod='mailalerts'}</div>
-  <ul class="footer_links clearfix">
-    <li><a class="btn btn-default" href="{$link->getPageLink('my-account', true)|escape:'html'}" title="{l s='Back to Your Account' mod='mailalerts'}"><span><i class="icon icon-chevron-left"></i> {l s='Back to Your Account' mod='mailalerts'}</span></a></li>
-  </ul>
 </div>
+
+<nav>
+  <ul class="pager">
+    <li class="previous">
+      <a href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}">&larr; {l s='Back to your account'}</a>
+    </li>
+  </ul>
+</nav>
+
 {addJsDef mailalerts_url_remove=$link->getModuleLink('mailalerts', 'actions', ['process' => 'remove'])|escape:'quotes':'UTF-8'}

@@ -1,15 +1,16 @@
-<div id="mywishlist">
-  {capture name=path}
-    <a href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}">
-      {l s='My account' mod='blockwishlist'}
-    </a>
-    <span class="navigation-pipe">
+{capture name=path}
+  <a href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}">
+    {l s='My account' mod='blockwishlist'}
+  </a>
+  <span class="navigation-pipe">
       {$navigationPipe}
     </span>
-    <span class="navigation_page">
+  <span class="navigation_page">
       {l s='My wishlists' mod='blockwishlist'}
     </span>
-  {/capture}
+{/capture}
+
+<div id="mywishlist">
 
   <h1 class="page-heading">{l s='My wishlists' mod='blockwishlist'}</h1>
 
@@ -96,23 +97,16 @@
           </tbody>
         </table>
       </div>
-      <div id="block-order-detail">&nbsp;</div>
+      <div id="block-order-detail"></div>
     {/if}
   {/if}
-  <ul class="footer_links clearfix">
-    <li>
-      <a class="btn btn-default" href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}">
-        <span>
-          <i class="icon icon-chevron-left"></i> {l s='Back to Your Account' mod='blockwishlist'}
-        </span>
-      </a>
-    </li>
-    <li>
-      <a class="btn btn-default" href="{$base_dir|escape:'html':'UTF-8'}">
-        <span>
-          <i class="icon icon-chevron-left"></i> {l s='Home' mod='blockwishlist'}
-        </span>
-      </a>
+
+</div>
+
+<nav>
+  <ul class="pager">
+    <li class="previous">
+      <a href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}">&larr; {l s='Back to your account'}</a>
     </li>
   </ul>
-</div>
+</nav>

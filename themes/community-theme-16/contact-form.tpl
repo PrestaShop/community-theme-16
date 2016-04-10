@@ -4,26 +4,22 @@
 </h1>
 {if isset($confirmation)}
   <div class="alert alert-success">{l s='Your message has been successfully sent to our team.'}</div>
-  <ul class="footer_links clearfix">
-    <li>
-      <a class="btn btn-default" href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}">
-        <span>
-          <i class="icon icon-chevron-left"></i> {l s='Home'}
-        </span>
-      </a>
-    </li>
-  </ul>
+  <nav>
+    <ul class="pager">
+      <li class="previous">
+        <a href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}">&larr; {l s='Home'}</a>
+      </li>
+    </ul>
+  </nav>
 {elseif isset($alreadySent)}
   <div class="alert alert-warning">{l s='Your message has already been sent.'}</div>
-  <ul class="footer_links clearfix">
-    <li>
-      <a class="btn btn-default" href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}">
-        <span>
-          <i class="icon icon-chevron-left"></i> {l s='Home'}
-        </span>
-      </a>
-    </li>
-  </ul>
+  <nav>
+    <ul class="pager">
+      <li class="previous">
+        <a href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}">&larr; {l s='Home'}</a>
+      </li>
+    </ul>
+  </nav>
 {else}
   {include file="$tpl_dir./errors.tpl"}
   <form action="{$request_uri}" method="post" class="contact-form-box" enctype="multipart/form-data">

@@ -23,6 +23,11 @@
     </form>
   {/if}
 </div>
-<ul class="clearfix footer_links">
-  <li><a class="btn btn-default" href="{$link->getPageLink('authentication')|escape:'html':'UTF-8'}" title="{l s='Back to Login'}" rel="nofollow"><span><i class="icon icon-chevron-left"></i> {l s='Back to Login'}</span></a></li>
-</ul>
+
+<nav>
+  <ul class="pager">
+    <li class="previous">
+      <a href="{$link->getPageLink('authentication')|escape:'html':'UTF-8'}" title="{l s='Back to Login'}">&larr; {l s='Back to Login'}</a>
+    </li>
+  </ul>
+</nav>

@@ -167,10 +167,11 @@
 {else}
   <div class="alert alert-warning">{l s='There are no products selected for comparison.'}</div>
 {/if}
-<ul class="footer_link">
-  <li>
-    <a class="button lnk_view btn btn-default" href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}">
-      <span><i class="icon icon-chevron-left"></i> {l s='Continue Shopping'}</span>
-    </a>
-  </li>
-</ul>
+
+<nav>
+  <ul class="pager">
+    <li class="previous">
+      <a href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}">&larr; {l s='Continue Shopping'}</a>
+    </li>
+  </ul>
+</nav>

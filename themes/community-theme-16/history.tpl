@@ -88,17 +88,12 @@
     <div class="alert alert-warning">{l s='You have not placed any orders.'}</div>
   {/if}
 </div>
-<ul class="footer_links clearfix">
-  <li>
-    <a class="btn btn-default" href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}">
-      <span>
-        <i class="icon icon-chevron-left"></i> {l s='Back to Your Account'}
-      </span>
-    </a>
-  </li>
-  <li>
-    <a class="btn btn-default" href="{$base_dir}">
-      <span><i class="icon icon-chevron-left"></i> {l s='Home'}</span>
-    </a>
-  </li>
-</ul>
+
+<nav>
+  <ul class="pager">
+    <li class="previous">
+      <a href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}">&larr; {l s='Back to your account'}</a>
+    </li>
+  </ul>
+</nav>
+

@@ -2,6 +2,10 @@
 @import "theme_variables";
 @import "vendor_variables";
 
+#my-account-menu {
+  margin-bottom: 15px;
+}
+
 .nav-pills.stacked-menu > li {
   margin-bottom: 5px;
   + li {

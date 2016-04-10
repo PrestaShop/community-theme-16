@@ -189,13 +189,14 @@
   </div>
 </div>
 
-<ul class="footer_links clearfix">
-  <li>
-    <a class="btn btn-default" href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}" title="{l s='Back to Your Account' mod='referralprogram'}" rel="nofollow">
-      <span><i class="icon icon-chevron-left"></i> {l s='Back to Your Account' mod='referralprogram'}</span></a>
-  </li>
-  <li><a class="btn btn-default" href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}" title="{l s='Home' mod='referralprogram'}"><span><i class="icon icon-chevron-left"></i> {l s='Home' mod='referralprogram'}</span></a></li>
-</ul>
+<nav>
+  <ul class="pager">
+    <li class="previous">
+      <a href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}">&larr; {l s='Back to your account'}</a>
+    </li>
+  </ul>
+</nav>
+
 {addJsDefL name=ThickboxI18nClose}{l s='Close' mod='referralprogram' js=1}{/addJsDefL}
 {addJsDefL name=ThickboxI18nOrEscKey}{l s='or Esc key' mod='referralprogram' js=1}{/addJsDefL}
 {addJsDef tb_pathToImage=$img_ps_dir|cat:'loadingAnimation.gif'}
