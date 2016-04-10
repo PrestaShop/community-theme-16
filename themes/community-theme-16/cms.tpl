@@ -13,7 +13,12 @@
     </div>
   {/if}
 
-  <div class="cms-content rte">{$cms->content}</div>
+  <article>
+    {if !empty($cms->meta_title)}
+      <h1 class="page-heading">{$cms->meta_title}</h1>
+    {/if}
+    <div class="cms-content rte">{$cms->content}</div>
+  </article>
 
 {elseif isset($cms_category)}
 
