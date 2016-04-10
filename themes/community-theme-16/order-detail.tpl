@@ -330,7 +330,7 @@
   </div>
   {if $return_allowed}
     <div id="returnOrderMessage">
-      <h3 class="page-heading bottom-indent">{l s='Merchandise return'}</h3>
+      <h3 class="page-heading">{l s='Merchandise return'}</h3>
       <p>{l s='If you wish to return one or more products, please mark the corresponding boxes and provide an explanation for the return. When complete, click the button below.'}</p>
       <div class="form-group">
         <textarea class="form-control" cols="67" rows="3" name="returnText"></textarea>
@@ -421,7 +421,7 @@
       </div>
     {/if}
     <form action="{$link->getPageLink('order-detail', true)|escape:'html':'UTF-8'}" method="post" class="std" id="sendOrderMessage">
-      <h3 class="page-heading bottom-indent">{l s='Add a message'}</h3>
+      <h3 class="page-heading">{l s='Add a message'}</h3>
       <p>{l s='If you would like to add a comment about your order, please write it in the field below.'}</p>
       <div class="form-group">
         <label for="id_product">{l s='Product'}</label>

@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(function() {
   if (typeof ad !== 'undefined' && ad && typeof adtoken !== 'undefined' && adtoken) {
     $(document).on('click', 'input[name=publish_button]', function(e) {
       e.preventDefault();
@@ -14,8 +14,10 @@ $(document).ready(function() {
 function submitPublishCMS(url, redirect, token) {
   var id_cms = $('#admin-action-cms-id').val();
 
-  $.ajaxSetup({async: false});
-  $.post(url + '/index.php', {
+  $.ajax({
+    url: url + '/index.php',
+    type: 'POST',
+    data: {
       action: 'PublishCMS',
       id_cms: id_cms,
       status: 1,
@@ -24,10 +26,12 @@ function submitPublishCMS(url, redirect, token) {
       tab: 'AdminCmsContent',
       token: token
     },
-    function(data) {
-      if (data.indexOf('error') === -1)
+    success: function(response) {
+      if (response.indexOf('error') === -1) {
         document.location.href = data;
+      }
     }
-  );
+  });
+
   return true;
 }

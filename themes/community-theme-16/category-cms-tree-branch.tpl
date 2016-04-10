@@ -6,11 +6,13 @@
   {if !empty($node.children) || !empty($node.cms)}
     <ul>
 
-      {foreach from=$node.children item=child}
-        {if !empty($child.children) || !empty($child.cms)}
-          {include file="$tpl_dir./category-cms-tree-branch.tpl" node=$child}
-        {/if}
-      {/foreach}
+      {if !empty($node.children)}
+        {foreach from=$node.children item=child}
+          {if !empty($child.children) || !empty($child.cms)}
+            {include file="$tpl_dir./category-cms-tree-branch.tpl" node=$child}
+          {/if}
+        {/foreach}
+      {/if}
 
       {if !empty($node.cms)}
         {foreach from=$node.cms item=cms }
