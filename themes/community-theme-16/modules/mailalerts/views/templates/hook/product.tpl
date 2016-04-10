@@ -1,4 +1,3 @@
-<!-- MODULE MailAlerts -->
 {if isset($email) AND $email}
   <div class="form-group">
     <input type="text" id="oos_customer_email" name="customer_email" size="20" value="{l s='your@email.com' mod='mailalerts'}" class="mailalerts_oos_email form-control" />
@@ -16,4 +15,3 @@
   {addJsDefL name='mailalerts_already'}{l s='You already have an alert for this product' mod='mailalerts' js=1}{/addJsDefL}
   {addJsDefL name='mailalerts_invalid'}{l s='Your e-mail address is invalid' mod='mailalerts' js=1}{/addJsDefL}
 {/strip}
-<!-- END : MODULE MailAlerts -->

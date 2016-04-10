@@ -30,10 +30,10 @@
 {else}
   <div id="emptyCartWarning" class="alert alert-warning unvisible">{l s='Your shopping cart is empty.'}</div>
   <h2>{l s='Payment Options'}</h2>
-  <!-- HOOK_ADVANCED_PAYMENT -->
+
   <div id="HOOK_ADVANCED_PAYMENT">
     <div class="row">
-      <!-- Should get a collection of "PaymentOption" object -->
+      {* Should get a collection of "PaymentOption" object *}
       {assign var='adv_payment_empty' value=true}
       {foreach from=$HOOK_ADVANCED_PAYMENT item=pay_option key=key}
         {if $pay_option}
@@ -79,23 +79,17 @@
     </div>
     {/if}
   </div>
-  <!-- end HOOK_ADVANCED_PAYMENT -->
 
   {if $opc}
-    <!-- Carrier -->
     {include file="$tpl_dir./order-carrier-advanced.tpl"}
-    <!-- END Carrier -->
   {/if}
 
   {if $is_logged AND !$is_guest}
     {include file="$tpl_dir./order-address-advanced.tpl"}
   {elseif $opc}
-    <!-- Create account / Guest account / Login block -->
     {include file="$tpl_dir./order-opc-new-account-advanced.tpl"}
-    <!-- END Create account / Guest account / Login block -->
   {/if}
 
-  <!-- TNC -->
   {if $conditions AND $cms_id}
     {if $override_tos_display }
       {$override_tos_display}
@@ -116,7 +110,6 @@
       </div>
     {/if}
   {/if}
-  <!-- end TNC -->
 
   {include file="$tpl_dir./shopping-cart-advanced.tpl"}
 {/if}

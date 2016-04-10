@@ -330,7 +330,7 @@
       </tbody>
     {/if}
   </table>
-</div> <!-- end order-detail-content -->
+</div>
 
 
 

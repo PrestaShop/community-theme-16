@@ -170,7 +170,7 @@
             <label for="city">{l s='City'} <sup>*</sup></label>
             <input type="text" class="form-control" name="city" id="city" value="{if isset($smarty.post.city)}{$smarty.post.city}{/if}" required/>
           </div>
-          <!-- if customer hasn't update his layout address, country has to be verified but it's deprecated -->
+          {* if customer hasn't update his layout address, country has to be verified but it's deprecated *}
         {elseif $field_name eq "Country:name" || $field_name eq "country"}
           <div class="required select form-group">
             <label for="id_country">{l s='Country'} <sup>*</sup></label>

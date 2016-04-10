@@ -1,4 +1,3 @@
-<!-- MODULE Block new products -->
 <div id="new-products_block_right" class="block products_block">
   <h4 class="title_block">
     <a href="{$link->getPageLink('new-products')|escape:'html'}" title="{l s='New products' mod='blocknewproducts'}">{l s='New products' mod='blocknewproducts'}</a>
@@ -36,4 +35,3 @@
     {/if}
   </div>
 </div>
-<!-- /MODULE Block new products -->

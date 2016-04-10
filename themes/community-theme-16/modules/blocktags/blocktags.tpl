@@ -1,4 +1,3 @@
-<!-- Block tags module -->
 <div id="tags_block_left" class="block tags_block">
   <p class="title_block">
     {l s='Tags' mod='blocktags'}
@@ -19,4 +18,3 @@
     {/if}
   </div>
 </div>
-<!-- /Block tags module -->

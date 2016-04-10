@@ -425,7 +425,7 @@
         </tbody>
       {/if}
     </table>
-  </div> <!-- end order-detail-content -->
+  </div>
 
   {if $show_option_allow_separate_package}
     <div class="checkbox">

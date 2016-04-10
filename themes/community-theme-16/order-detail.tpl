@@ -172,7 +172,7 @@
           {else}
             {assign var='productQuantity' value=$product.product_quantity}
           {/if}
-          <!-- Customized products -->
+
           {if isset($product.customizedDatas)}
             <tr>
               {if $return_allowed}<td class="order_cb"></td>{/if}
@@ -254,7 +254,7 @@
               {/foreach}
             {/foreach}
           {/if}
-          <!-- Classic products -->
+
           {if $product.product_quantity > $product.customizationQuantityTotal}
             <tr>
               {if $return_allowed}<td class="order_cb"><input type="checkbox" id="cb_{$product.id_order_detail|intval}" name="ids_order_detail[{$product.id_order_detail|intval}]" value="{$product.id_order_detail|intval}" /></td>{/if}

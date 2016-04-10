@@ -50,8 +50,8 @@
                     {if isset($manufacturer.nb_products) && $manufacturer.nb_products > 0}
                   </a>
                   {/if}
-                </div> <!-- .logo -->
-              </div> <!-- .left-side -->
+                </div>
+              </div>
 
               <div class="middle-side col-xs-12 col-sm-5">
                 <h3>
@@ -68,7 +68,7 @@
                 <div class="description rte">
                   {$manufacturer.short_description}
                 </div>
-              </div> <!-- .middle-side -->
+              </div>
 
               <div class="right-side col-xs-12 col-sm-4">
                 <div class="right-side-content">
@@ -97,7 +97,7 @@
                     </a>
                   {/if}
                 </div>
-              </div> <!-- .right-side -->
+              </div>
             </div>
           </div>
         </li>

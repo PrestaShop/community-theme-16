@@ -1,4 +1,3 @@
-<!-- MODULE ReferralProgram -->
 <p id="referralprogram">
   <i class="icon icon-flag"></i>
   {l s='You have earned a voucher worth %s thanks to your sponsor!' sprintf=$discount_display mod='referralprogram'}
@@ -6,4 +5,3 @@
   <a href="{$link->getModuleLink('referralprogram', 'program', [], true)|escape:'html':'UTF-8'}" title="{l s='Referral program' mod='referralprogram'}" rel="nofollow">{l s='View your referral program.' mod='referralprogram'}</a>
 </p>
 <br />
-<!-- END : MODULE ReferralProgram -->

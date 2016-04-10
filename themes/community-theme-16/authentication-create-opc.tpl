@@ -3,7 +3,6 @@
     <div id="opc_account_form" style="display: block; ">
       <h3 class="page-heading">{l s='Instant checkout'}</h3>
       <p class="required"><sup>*</sup>{l s='Required field'}</p>
-      <!-- Account -->
       <div class="required form-group">
         <label for="guest_email">{l s='Email address'} <sup>*</sup></label>
         <input type="text" class="is_required validate form-control" data-validate="isEmail" id="guest_email" name="guest_email" value="{if isset($smarty.post.guest_email)}{$smarty.post.guest_email}{/if}" />
@@ -128,7 +127,7 @@
             <label for="city">{l s='City'} <sup>*</sup></label>
             <input type="text" class="form-control" name="city" id="city" value="{if isset($smarty.post.city)}{$smarty.post.city}{/if}" />
           </div>
-          <!-- if customer hasn't update his layout address, country has to be verified but it's deprecated -->
+          {* if customer hasn't update his layout address, country has to be verified but it's deprecated *}
         {elseif $field_name eq "Country:name" || $field_name eq "country"}
           <div class="required select form-group">
             <label for="id_country">{l s='Country'} <sup>*</sup></label>
@@ -295,7 +294,6 @@
         </div>
         <input type="hidden" name="alias_invoice" id="alias_invoice" value="{l s='My Invoice address'}" />
       </div>
-      <!-- END Account -->
     </div>
     {$HOOK_CREATE_ACCOUNT_FORM}
   </div>

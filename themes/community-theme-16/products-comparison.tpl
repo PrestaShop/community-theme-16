@@ -47,7 +47,7 @@
                 {/if}
               </div>
 
-            </div> <!-- end product-image-block -->
+            </div>
             <h5>
               <a class="product-name" href="{$product->getLink()|escape:'html':'UTF-8'}" title="{$product->name|truncate:32:'...'|escape:'html':'UTF-8'}">
                 {$product->name|truncate:45:'...'|escape:'html':'UTF-8'}
@@ -91,7 +91,7 @@
                 {else}
                 {/if}
               {/if}
-            </div> <!-- end prices-container -->
+            </div>
             <div class="product_desc">
               {$product->description_short|strip_tags|truncate:60:'...'}
             </div>
@@ -132,7 +132,7 @@
                   </a>
                 </div>
               </div>
-            </div> <!-- end comparison_product_infos -->
+            </div>
           </td>
         {/foreach}
       </tr>
@@ -163,7 +163,7 @@
       {/if}
       {$HOOK_EXTRA_PRODUCT_COMPARISON}
     </table>
-  </div> <!-- end products_block -->
+  </div>
 {else}
   <div class="alert alert-warning">{l s='There are no products selected for comparison.'}</div>
 {/if}

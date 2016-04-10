@@ -1,5 +1,4 @@
 {if $page_name =='index'}
-  <!-- Module HomeSlider -->
   {if isset($homeslider_slides)}
     <div id="homepage-slider">
       {if isset($homeslider_slides[0]) && isset($homeslider_slides[0].sizes.1)}{capture name='height'}{$homeslider_slides[0].sizes.1}{/capture}{/if}
@@ -19,5 +18,4 @@
       </ul>
     </div>
   {/if}
-  <!-- /Module HomeSlider -->
 {/if}
