@@ -60,23 +60,24 @@ function addToCompare(productId) {
 function reloadProductComparison() {
   $(document).on('click', '#product_comparison .close', function(e) {
     e.preventDefault();
-    var idProduct = parseInt($(this).data('id-product'));
-    $.ajax({
-      url: baseUri + '?controller=products-comparison&ajax=1&action=remove&id_product=' + idProduct,
-      async: false,
-      cache: false
-    });
-    $('td.product-' + idProduct).fadeOut(600);
+    $('#product_comparison').addClass('loading-overlay');
 
-    var compare_product_list = get('compare_product_list');
-    var bak = compare_product_list;
-    var new_compare_product_list = [];
-    compare_product_list = decodeURIComponent(compare_product_list).split('|');
-    for (var i in compare_product_list)
-      if (parseInt(compare_product_list[i]) != idProduct)
-        new_compare_product_list.push(compare_product_list[i]);
-    if (new_compare_product_list.length)
-      window.location.search = window.location.search.replace(bak, new_compare_product_list.join(encodeURIComponent('|')));
+    var id_product = '' + parseInt($(this).data('id-product'));
+    var params     = url('?');
+    var ids        = params['compare_product_list'].split('|');
+    var index      = ids.indexOf(id_product);
+
+    if (index > -1) {
+      ids.splice(index, 1);
+      params['compare_product_list'] = ids.join('|');
+    }
+
+    $.ajax({
+      url: baseUri + '?controller=products-comparison&ajax=1&action=remove&id_product=' + id_product,
+      cache: false,
+    });
+
+    window.location.search = '?' + $.param(params);
   });
 }
 
@@ -101,15 +102,4 @@ function totalCompareButtons() {
 
 function totalValue(value) {
   $('.bt_compare').find('.total-compare-val').html(value);
-}
-
-function get(name) {
-  var regexS = '[\\?&]' + name + '=([^&#]*)';
-  var regex = new RegExp(regexS);
-  var results = regex.exec(window.location.search);
-
-  if (results == null)
-    return '';
-  else
-    return results[1];
 }
