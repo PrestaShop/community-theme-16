@@ -121,8 +121,5 @@
     <li class="previous">
       <a href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}">&larr; {l s='Back to your account'}</a>
     </li>
-    <li class="previous">
-      <a href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}">&larr; {l s='Home'}</a>
-    </li>
   </ul>
 </nav>
