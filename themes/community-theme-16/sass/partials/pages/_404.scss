@@ -1,8 +1,7 @@
 //PAGE 404
 #pagenotfound {
   .pagenotfound {
-    max-width: 824px;
-    margin: 100px auto 100px auto;
+    margin: 0 auto;
     text-align: center;
     .img-404 {
       padding: 8px 0 27px 0;
@@ -33,24 +32,10 @@
       line-height: normal;
       margin-bottom: 18px;
     }
-    label {
-      font-weight: normal;
-      @media (max-width: $screen-xs-max) {
-        display: block;
-      }
-    }
     .form-control {
       max-width: 293px;
       display: inline-block;
       margin-right: 5px;
-      // max 767px
-      @media (max-width: $screen-xs-max) {
-        margin: 0 auto 15px auto;
-        display: block;
-      }
-    }
-    .buttons {
-      padding: 48px 0 20px 0;
     }
   }
 }
