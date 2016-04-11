@@ -11,20 +11,21 @@
   {/if}
   <meta name="robots" content="{if isset($nobots)}no{/if}index,follow">
   <link rel="shortcut icon" href="{$favicon_url}">
+  <link href="{$css_dir}global.css" rel="stylesheet">
   <link href="{$css_dir}maintenance.css" rel="stylesheet">
 </head>
 <body>
-<div class="container">
-  <div id="maintenance">
-    <div class="logo"><img src="{$logo_url}" {if $logo_image_width}width="{$logo_image_width}"{/if} {if $logo_image_height}height="{$logo_image_height}"{/if} alt="logo" /></div>
-    {$HOOK_MAINTENANCE}
-    <div id="message">
-      <h1 class="maintenance-heading">{l s='We\'ll be back soon.'}</h1>
-      {l s='We are currently updating our shop and will be back really soon.'}
-      <br />
-      {l s='Thanks for your patience.'}
-    </div>
-  </div>
+
+<div id="maintenance" class="text-center">
+  <img class="center-block img-responsive" src="{$logo_url}" {if $logo_image_width}width="{$logo_image_width}"{/if} {if $logo_image_height}height="{$logo_image_height}"{/if}>
+  <h1>{l s='We\'ll be back soon.'}</h1>
+  {$HOOK_MAINTENANCE}
+  <p>
+    {l s='We are currently updating our shop and will be back really soon.'}
+    <br>
+    {l s='Thanks for your patience.'}
+  </p>
 </div>
+
 </body>
 </html>
