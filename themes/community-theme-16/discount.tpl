@@ -46,9 +46,9 @@
           </td>
           <td class="discount_cumulative">
             {if $discountDetail.cumulable == 1}
-              <i class="icon icon-ok"></i> {l s='Yes'}
+              {l s='Yes'}
             {else}
-              <i class="icon icon-remove"></i> {l s='No'}
+              {l s='No'}
             {/if}
           </td>
           <td class="discount_expiration_date">

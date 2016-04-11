@@ -74,12 +74,11 @@ Here is what is currently planned for this theme:
   * Maintenance
   * Guest Tracking
   * Manufacturers, Suppliers
+  * Restricted Country
 - Version 0.?
-
   * Print
   * Stores
   * Index
-  * Restricted Country
 
 ## Libraries and dependencies
 

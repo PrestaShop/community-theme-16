@@ -1,11 +1,9 @@
 {capture name=path}{l s='Our stores'}{/capture}
 
-<h1 class="page-heading">
-  {l s='Our stores'}
-</h1>
+<h1 class="page-heading">{l s='Our stores'}</h1>
 
 {if $simplifiedStoresDiplay}
-  {if $stores|@count}
+  {if !empty($stores)}
     <p class="store-title">
       <strong>
         {l s='Here you can find our store locations. Please feel free to contact us:'}
@@ -56,18 +54,21 @@
     </table>
   {/if}
 {else}
+
   <div id="map"></div>
-  <p class="store-title">
-    <strong>
-      {l s='Enter a location (e.g. zip/postal code, address, city or country) in order to find the nearest stores.'}
-    </strong>
+
+  <p>
+    <b>{l s='Enter a location (e.g. zip/postal code, address, city or country) in order to find the nearest stores.'}</b>
   </p>
-  <div class="store-content">
-    <div class="address-input">
+
+  <div class="store-content form-inline">
+
+    <div class="form-group">
       <label for="addressInput">{l s='Your location:'}</label>
       <input class="form-control" type="text" name="location" id="addressInput" value="{l s='Address, zip / postal code, city, state or country'}" />
     </div>
-    <div class="radius-input">
+
+    <div class="form-group">
       <label for="radiusSelect">{l s='Radius:'}</label>
       <select name="radius" id="radiusSelect" class="form-control">
         <option value="15">15</option>
@@ -75,34 +76,45 @@
         <option value="50">50</option>
         <option value="100">100</option>
       </select>
-      <img src="{$img_ps_dir}loader.gif" class="middle" alt="" id="stores_loader" />
+
     </div>
-    <div>
+
+    <div class="form-group">
       <button name="search_locations" class="btn btn-primary">
-        <span>
-          {l s='Search'} <i class="icon icon-chevron-right"></i>
-        </span>
+        {l s='Search'} <i class="icon icon-search"></i>
       </button>
     </div>
-  </div>
-  <div class="store-content-select selector3">
-    <select id="locationSelect" class="form-control">
-      <option>-</option>
-    </select>
+
+    <div class="form-group">
+      <div class="form-control-static">
+        <img src="{$img_ps_dir}loader.gif" id="stores_loader">
+      </div>
+    </div>
+
   </div>
 
-  <table id="stores-table" class="table table-bordered">
-    <thead>
-    <tr>
-      <th class="num">#</th>
-      <th>{l s='Store'}</th>
-      <th>{l s='Address'}</th>
-      <th>{l s='Distance'}</th>
-    </tr>
-    </thead>
-    <tbody>
-    </tbody>
-  </table>
+  <div class="store-content-select form-inline">
+    <div class="form-group">
+      <select id="locationSelect" class="form-control">
+        <option>-</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="table-responsive">
+    <table id="stores-table" class="table table-bordered">
+      <thead>
+      <tr>
+        <th class="num">#</th>
+        <th>{l s='Store'}</th>
+        <th>{l s='Address'}</th>
+        <th>{l s='Distance'}</th>
+      </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
   {strip}
     {addJsDef map=''}
     {addJsDef markers=array()}
