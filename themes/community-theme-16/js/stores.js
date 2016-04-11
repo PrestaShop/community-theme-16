@@ -1,4 +1,5 @@
-$(document).ready(function() {
+$(function() {
+
   map = new google.maps.Map(document.getElementById('map'), {
     center: new google.maps.LatLng(defaultLat, defaultLong),
     zoom: 10,
@@ -106,7 +107,7 @@ function clearLocations(n) {
   }
   locationSelect.appendChild(option);
 
-  $('#stores-table tr.node').remove();
+  $('#stores-table').find('tr.node').remove();
 }
 
 function searchLocationsNear(center) {
@@ -118,7 +119,8 @@ function searchLocationsNear(center) {
     var bounds = new google.maps.LatLngBounds();
 
     clearLocations(markerNodes.length);
-    $('table#stores-table').find('tbody tr').remove();
+    var $storesTable = $('#stores-table');
+    $storesTable.find('tbody tr').remove();
     for (var i = 0; i < markerNodes.length; i++) {
       var name = markerNodes[i].getAttribute('name');
       var address = markerNodes[i].getAttribute('address');
@@ -137,8 +139,8 @@ function searchLocationsNear(center) {
       bounds.extend(latlng);
       address = address.replace(phone, '');
 
-      $('table#stores-table').find('tbody').append('<tr ><td class="num">' + parseInt(i + 1) + '</td><td class="name">' + (has_store_picture == 1 ? '<img src="' + img_store_dir + parseInt(id_store) + '.jpg" alt="" />' : '') + '<span>' + name + '</span></td><td class="address">' + address + (phone !== '' ? '' + translation_4 + ' ' + phone : '') + '</td><td class="distance">' + distance + ' ' + distance_unit + '</td></tr>');
-      $('#stores-table').show();
+      $storesTable.find('tbody').append('<tr ><td class="num">' + parseInt(i + 1) + '</td><td class="name">' + (has_store_picture == 1 ? '<img src="' + img_store_dir + parseInt(id_store) + '.jpg" alt="" />' : '') + '<span>' + name + '</span></td><td class="address">' + address + (phone !== '' ? '' + translation_4 + ' ' + phone : '') + '</td><td class="distance">' + distance + ' ' + distance_unit + '</td></tr>');
+      $storesTable.show();
     }
 
     if (markerNodes.length) {
