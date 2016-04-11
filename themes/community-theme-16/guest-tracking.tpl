@@ -82,12 +82,12 @@
       <h2 class="page-subheading">{l s='To track your order, please enter the following information:'}</h2>
       <div class="text form-group">
         <label for="guest-order-reference">{l s='Order Reference:'} </label>
-        <input id="guest-order-reference" class="form-control" type="text" name="order_reference" value="{if isset($smarty.get.id_order)}{$smarty.get.id_order|escape:'html':'UTF-8'}{else}{if isset($smarty.post.id_order)}{$smarty.post.id_order|escape:'html':'UTF-8'}{/if}{/if}" size="8" />
-        <i>{l s='For example: QIIXJXNUI or QIIXJXNUI#1'}</i>
+        <input id="guest-order-reference" class="form-control" type="text" name="order_reference" value="{if isset($smarty.get.id_order)}{$smarty.get.id_order|escape:'html':'UTF-8'}{else}{if isset($smarty.post.id_order)}{$smarty.post.id_order|escape:'html':'UTF-8'}{/if}{/if}" size="8" required/>
+        <p class="help-block">{l s='For example: QIIXJXNUI or QIIXJXNUI#1'}</p>
       </div>
       <div class="text form-group">
         <label for="guest-order-email">{l s='Email:'}</label>
-        <input id="guest-order-email" class="form-control" type="email" name="email" value="{if isset($smarty.get.email)}{$smarty.get.email|escape:'html':'UTF-8'}{else}{if isset($smarty.post.email)}{$smarty.post.email|escape:'html':'UTF-8'}{/if}{/if}" />
+        <input id="guest-order-email" class="form-control" type="email" name="email" value="{if isset($smarty.get.email)}{$smarty.get.email|escape:'html':'UTF-8'}{else}{if isset($smarty.post.email)}{$smarty.post.email|escape:'html':'UTF-8'}{/if}{/if}" required/>
       </div>
       <p>
         <button type="submit" name="submitGuestTracking" class="btn btn-lg btn-success">
