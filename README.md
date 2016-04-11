@@ -71,10 +71,11 @@ Here is what is currently planned for this theme:
   * Refactoring of CMS and CMS category pages
   * Comparison page, contact form
   * 404 page
-- Version 0.?
   * Maintenance
   * Guest Tracking
   * Manufacturers, Suppliers
+- Version 0.?
+
   * Print
   * Stores
   * Index

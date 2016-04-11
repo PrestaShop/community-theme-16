@@ -16,12 +16,13 @@
     </span>
   </div>
 </h1>
+
 {if isset($errors) AND $errors}
   {include file="$tpl_dir./errors.tpl"}
 {else}
   {if $nbManufacturers > 0}
 
-    <div class="content_sortPagiBar">
+    <div class="content_sortPagiBar clearfix">
       <div class="form-inline sortPagiBar clearfix">
         {if isset($manufacturer) && isset($manufacturer.nb_products) && $manufacturer.nb_products > 0}
           {include file='./product-list-switcher.tpl'}
@@ -33,76 +34,37 @@
       </div>
     </div>
 
-    <ul id="manufacturers_list" class="list row">
-      {foreach from=$manufacturers item=manufacturer name=manufacturers}
-        <li class="col-xs-12">
-          <div class="mansup-container">
-            <div class="row">
-              <div class="left-side col-xs-12 col-sm-3">
-                <div class="logo">
-                  {if isset($manufacturer.nb_products) && $manufacturer.nb_products > 0}
-                  <a
-                    class="lnk_img"
-                    href="{$link->getmanufacturerLink($manufacturer.id_manufacturer, $manufacturer.link_rewrite)|escape:'html':'UTF-8'}"
-                    title="{$manufacturer.name|escape:'html':'UTF-8'}" >
-                    {/if}
-                    <img src="{$img_manu_dir}{$manufacturer.image|escape:'html':'UTF-8'}-medium_default.jpg" alt="" />
-                    {if isset($manufacturer.nb_products) && $manufacturer.nb_products > 0}
-                  </a>
+    <ul id="manufacturers_list" class="list-grid row">
+      {foreach from=$manufacturers item=manufacturer}
+        <li class="col-xs-6 col-sm-4 col-md-3">
+          <div class="thumbnail">
+            <a href="{$link->getmanufacturerLink($manufacturer.id_manufacturer, $manufacturer.link_rewrite)|escape:'html':'UTF-8'}" title="{$manufacturer.name|escape:'html':'UTF-8'}">
+              <img class="img-responsive" src="{$img_manu_dir}{$manufacturer.image|escape:'html':'UTF-8'}-medium_default.jpg">
+            </a>
+            <div class="caption">
+              <h3 class="text-center">
+                <a href="{$link->getmanufacturerLink($manufacturer.id_manufacturer, $manufacturer.link_rewrite)|escape:'html':'UTF-8'}">
+                  {$manufacturer.name|escape:'html':'UTF-8'}
+                </a>
+              </h3>
+              {if isset($manufacturer.nb_products)}
+                <p class="text-center">
+                  {if  $manufacturer.nb_products == 1}
+                    {l s='%d product' sprintf=$manufacturer.nb_products|intval}
+                  {else}
+                    {l s='%d products' sprintf=$manufacturer.nb_products|intval}
                   {/if}
-                </div>
-              </div>
-
-              <div class="middle-side col-xs-12 col-sm-5">
-                <h3>
-                  {if isset($manufacturer.nb_products) && $manufacturer.nb_products > 0}
-                  <a
-                    class="product-name"
-                    href="{$link->getmanufacturerLink($manufacturer.id_manufacturer, $manufacturer.link_rewrite)|escape:'html':'UTF-8'}">
-                    {/if}
-                    {$manufacturer.name|truncate:60:'...'|escape:'html':'UTF-8'}
-                    {if isset($manufacturer.nb_products) && $manufacturer.nb_products > 0}
-                  </a>
-                  {/if}
-                </h3>
-                <div class="description rte">
-                  {$manufacturer.short_description}
-                </div>
-              </div>
-
-              <div class="right-side col-xs-12 col-sm-4">
-                <div class="right-side-content">
-                  <p class="product-counter">
-                    {if isset($manufacturer.nb_products) && $manufacturer.nb_products > 0}
-                    <a href="{$link->getmanufacturerLink($manufacturer.id_manufacturer, $manufacturer.link_rewrite)|escape:'html':'UTF-8'}">
-                      {/if}
-                      {if isset($manufacturer.nb_products) && $manufacturer.nb_products == 1}
-                        {l s='%d product' sprintf=$manufacturer.nb_products|intval}
-                      {else}
-                        {if isset($manufacturer.nb_products) && $manufacturer.nb_products > 0}
-                          {l s='%d products' sprintf=$manufacturer.nb_products|intval}
-                        {/if}
-                      {/if}
-                      {if isset($manufacturer.nb_products) && $manufacturer.nb_products > 0}
-                    </a>
-                    {/if}
-                  </p>
-                  {if isset($manufacturer.nb_products) && $manufacturer.nb_products > 0}
-                    <a
-                      class="btn btn-lg btn-default"
-                      href="{$link->getmanufacturerLink($manufacturer.id_manufacturer, $manufacturer.link_rewrite)|escape:'html':'UTF-8'}">
-                      <span>
-                        {l s='view products'} <i class="icon icon-chevron-right"></i>
-                      </span>
-                    </a>
-                  {/if}
-                </div>
-              </div>
+                </p>
+              {/if}
+              {if !empty($manufacturer.short_description)}
+                <div class="rte">{$manufacturer.short_description}</div>
+              {/if}
             </div>
           </div>
         </li>
       {/foreach}
     </ul>
+
     <div class="content_sortPagiBar">
       <div class="bottom-pagination-content form-inline clearfix">
         {include file="$tpl_dir./pagination.tpl" no_follow=1 paginationId='bottom'}
