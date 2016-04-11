@@ -58,7 +58,6 @@
       color: #bbb;
     }
     h2 {
-      color: #D35780;
       margin: 0 10px;
       font-size: 40px;
       text-align: center;
