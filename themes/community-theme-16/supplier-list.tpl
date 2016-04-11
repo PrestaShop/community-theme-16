@@ -16,7 +16,7 @@
   </div>
 </h1>
 
-{if isset($errors) AND $errors}
+{if !empty($errors)}
   {include file="$tpl_dir./errors.tpl"}
 {else}
 
@@ -35,63 +35,42 @@
       </div>
     </div>
 
-    <ul id="suppliers_list" class="list row">
-      {foreach from=$suppliers_list item=supplier name=supplier}
-        <li class="col-xs-12">
-          <div class="mansup-container">
-            <div class="row">
-              <div class="left-side col-xs-12 col-sm-3">
-                <div class="logo">
-                  {if isset($supplier.nb_products) && $supplier.nb_products > 0}
-                  <a href="{$link->getsupplierLink($supplier.id_supplier, $supplier.link_rewrite)|escape:'html':'UTF-8'}" title="{$supplier.name|escape:'html':'UTF-8'}">
-                    {/if}
-                    <img src="{$img_sup_dir}{$supplier.image|escape:'html':'UTF-8'}-medium_default.jpg" alt="" width="{$mediumSize.width}" height="{$mediumSize.height}" />
-                    {if isset($supplier.nb_products) && $supplier.nb_products > 0}
-                  </a>
+    <ul id="suppliers_list" class="list-grid row">
+      {foreach from=$suppliers_list item=supplier}
+        <li class="col-xs-6 col-sm-4 col-md-3">
+          <div class="thumbnail">
+            <a href="{$link->getsupplierLink($supplier.id_supplier, $supplier.link_rewrite)|escape:'html':'UTF-8'}" title="{$supplier.name|escape:'html':'UTF-8'}">
+              <img class="img-responsive" src="{$img_sup_dir}{$supplier.image|escape:'html':'UTF-8'}-medium_default.jpg" width="{$mediumSize.width}" height="{$mediumSize.height}" />
+            </a>
+            <div class="caption">
+              <h3 class="text-center">
+                <a class="product-name" href="{$link->getsupplierLink($supplier.id_supplier, $supplier.link_rewrite)|escape:'html':'UTF-8'}">
+                  {$supplier.name|escape:'html':'UTF-8'}
+                </a>
+              </h3>
+              {if isset($supplier.nb_products)}
+                <p class="text-center">
+                  {if $supplier.nb_products == 1}
+                    {l s='%d product' sprintf=$supplier.nb_products|intval}
+                  {else}
+                    {l s='%d products' sprintf=$supplier.nb_products|intval}
                   {/if}
-                </div>
-              </div>
-
-              <div class="middle-side col-xs-12 col-sm-5">
-                <h3>
-                  {if isset($supplier.nb_products) && $supplier.nb_products > 0}
-                  <a class="product-name" href="{$link->getsupplierLink($supplier.id_supplier, $supplier.link_rewrite)|escape:'html':'UTF-8'}">
-                    {/if}
-                    {$supplier.name|truncate:60:'...'|escape:'html':'UTF-8'}
-                    {if isset($supplier.nb_products) && $supplier.nb_products > 0}
-                  </a>
-                  {/if}
-                </h3>
-                <div class="description">
-                  {$supplier.description|truncate:180:'...'}
-                </div>
-              </div>
-
-              <div class="right-side col-xs-12 col-sm-4">
-                <div class="right-side-content">
-                  <p class="product-counter">
-                    {if isset($supplier.nb_products) && $supplier.nb_products > 0}
-                    <a href="{$link->getsupplierLink($supplier.id_supplier, $supplier.link_rewrite)|escape:'html':'UTF-8'}">
-                      {/if}
-                      {if isset($supplier.nb_products) && $supplier.nb_products == 1}{l s='%d product' sprintf=$supplier.nb_products|intval}{else}{l s='%d products' sprintf=$supplier.nb_products|intval}{/if}
-                      {if isset($supplier.nb_products) && $supplier.nb_products > 0}
-                    </a>
-                    {/if}
-                  </p>
-                  {if isset($supplier.nb_products) && $supplier.nb_products > 0}
-                    <a class="btn btn-lg btn-default" href="{$link->getsupplierLink($supplier.id_supplier, $supplier.link_rewrite)|escape:'html':'UTF-8'}"><span>{l s='View products'} <i class="icon icon-chevron-right"></i></span></a>
-                  {/if}
-                </div>
-              </div>
+                </p>
+              {/if}
+              {if !empty($supplier.description)}
+                <div class="rte">{$supplier.description}</div>
+              {/if}
             </div>
           </div>
         </li>
       {/foreach}
     </ul>
+
     <div class="content_sortPagiBar">
       <div class="bottom-pagination-content form-inline clearfix">
         {include file="$tpl_dir./pagination.tpl" no_follow=1 paginationId='bottom'}
       </div>
     </div>
+
   {/if}
 {/if}
