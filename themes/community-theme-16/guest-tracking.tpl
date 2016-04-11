@@ -54,8 +54,8 @@
         <div class="row">
           <div class="col-xs-12 col-sm-5 col-md-4 col-lg-3">
             <div class="text form-group">
-              <label><strong>{l s='Set your password:'}</strong></label>
-              <input type="password" name="password" class="form-control" />
+              <label for="guest-order-password"><strong>{l s='Set your password:'}</strong></label>
+              <input id="guest-order-password" type="password" name="password" class="form-control" />
             </div>
           </div>
         </div>
@@ -81,13 +81,13 @@
     <fieldset class="description_box box">
       <h2 class="page-subheading">{l s='To track your order, please enter the following information:'}</h2>
       <div class="text form-group">
-        <label>{l s='Order Reference:'} </label>
-        <input class="form-control" type="text" name="order_reference" value="{if isset($smarty.get.id_order)}{$smarty.get.id_order|escape:'html':'UTF-8'}{else}{if isset($smarty.post.id_order)}{$smarty.post.id_order|escape:'html':'UTF-8'}{/if}{/if}" size="8" />
+        <label for="guest-order-reference">{l s='Order Reference:'} </label>
+        <input id="guest-order-reference" class="form-control" type="text" name="order_reference" value="{if isset($smarty.get.id_order)}{$smarty.get.id_order|escape:'html':'UTF-8'}{else}{if isset($smarty.post.id_order)}{$smarty.post.id_order|escape:'html':'UTF-8'}{/if}{/if}" size="8" />
         <i>{l s='For example: QIIXJXNUI or QIIXJXNUI#1'}</i>
       </div>
       <div class="text form-group">
-        <label>{l s='Email:'}</label>
-        <input class="form-control" type="email" name="email" value="{if isset($smarty.get.email)}{$smarty.get.email|escape:'html':'UTF-8'}{else}{if isset($smarty.post.email)}{$smarty.post.email|escape:'html':'UTF-8'}{/if}{/if}" />
+        <label for="guest-order-email">{l s='Email:'}</label>
+        <input id="guest-order-email" class="form-control" type="email" name="email" value="{if isset($smarty.get.email)}{$smarty.get.email|escape:'html':'UTF-8'}{else}{if isset($smarty.post.email)}{$smarty.post.email|escape:'html':'UTF-8'}{/if}{/if}" />
       </div>
       <p>
         <button type="submit" name="submitGuestTracking" class="btn btn-lg btn-success">
