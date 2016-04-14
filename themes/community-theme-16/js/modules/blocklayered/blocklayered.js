@@ -399,7 +399,7 @@ function reloadContent(params_plus) {
   }
 
   var slideUp = true;
-  if (typeof params_plus === undefined || !(typeof params_plus === 'string')) {
+  if (typeof params_plus === 'undefined' || !(typeof params_plus === 'string')) {
     params_plus = '';
     slideUp = false;
   }
