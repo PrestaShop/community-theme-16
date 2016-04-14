@@ -17,7 +17,7 @@ $(function() {
 
   $('#addressInput').keypress(function(e) {
     code = e.keyCode ? e.keyCode : e.which;
-    if (code.toString() === 13)
+    if (code.toString() == 13)
       searchLocations();
   });
 

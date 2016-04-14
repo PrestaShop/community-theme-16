@@ -816,6 +816,11 @@ function updatePrice() {
 
   if (priceWithDiscountsDisplay > 0) {
     $ourPriceDisplay.text(formatCurrency(priceWithDiscountsDisplay, currencyFormat, currencySign, currencyBlank)).trigger('change');
+    if (findSpecificPrice()) {
+      $('#our_price_display').text(findSpecificPrice()).trigger('change');
+    } else {
+      $('#our_price_display').text(formatCurrency(priceWithDiscountsDisplay, currencyFormat, currencySign, currencyBlank)).trigger('change');
+    }
   } else {
     $ourPriceDisplay.text(formatCurrency(0, currencyFormat, currencySign, currencyBlank)).trigger('change');
   }
@@ -888,6 +893,7 @@ function displayDiscounts(combination) {
   // If there is some combinations specific quantity discount, show them, else, if there are some
   // products quantity discount: show them. In case of result, show the category.
   if (combinationsSpecificQuantityDiscount.length != 0) {
+    quantityDiscountTable.find('tbody tr').hide();
     combinationsSpecificQuantityDiscount.show();
     quantityDiscountTable.show();
   } else if (allQuantityDiscount.length != 0) {

@@ -1,5 +1,5 @@
 {if $status == 'ok'}
-  <div class="alert alert-success">{l s='Your order on %s is complete.' sprintf=$shop_name mod='cheque'}</div>
+  <div class="alert alert-success">{l s='Your order on %s is complete.' sprintf=$shop_name mod='bankwire'}</div>
   <div class="box">
     {l s='Please send us a bank wire with' mod='bankwire'}
     <br />- {l s='Amount' mod='bankwire'} <span class="price"><strong>{$total_to_pay}</strong></span>
