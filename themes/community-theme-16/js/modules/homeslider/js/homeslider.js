@@ -4,10 +4,8 @@ $(function() {
     return;
   }
 
-  if ($('#htmlcontent_top').length > 0) {
-    $('#homepage-slider').addClass('col-xs-8');
-  } else {
-    $('#homepage-slider').addClass('col-xs-12');
+  if ($('#themeconfigurator-top').length > 0) {
+    $('#homepage-slider').addClass('col-sm-8');
   }
 
   $('#homeslider').bxSlider({
