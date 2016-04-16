@@ -9,7 +9,7 @@ javascripts_dir = "js"
 fonts_dir = "fonts"
 
 output_style = :expanded
-environment = :development
+# environment = :production
 
 # To enable relative paths to assets via compass helper functions. Uncomment:
 # relative_assets = true
@@ -18,7 +18,7 @@ environment = :development
 line_comments = false
 color_output = false
 
-sourcemap = true
+sourcemap = (environment == :development) ? true : false;
 
 # If you prefer the indented syntax, you might want to regenerate this
 # project again passing --syntax sass, or you can uncomment this:
