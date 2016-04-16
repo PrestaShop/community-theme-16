@@ -1,12 +1,17 @@
-{if isset($HOOK_HOME_TAB_CONTENT) && $HOOK_HOME_TAB_CONTENT|trim}
-  {if isset($HOOK_HOME_TAB) && $HOOK_HOME_TAB|trim}
-    <ul id="home-page-tabs" class="nav nav-tabs clearfix">
-      {$HOOK_HOME_TAB}
-    </ul>
-  {/if}
-  <div class="tab-content">{$HOOK_HOME_TAB_CONTENT}</div>
+{if !empty($HOOK_HOME_TAB)}
+  <ul id="home-page-tabs" class="nav nav-tabs">
+    {$HOOK_HOME_TAB}
+  </ul>
 {/if}
 
-{if isset($HOOK_HOME) && $HOOK_HOME|trim}
-  <div class="row">{$HOOK_HOME}</div>
+{if !empty($HOOK_HOME_TAB_CONTENT)}
+  <div class="tab-content">
+    {$HOOK_HOME_TAB_CONTENT}
+  </div>
+{/if}
+
+{if !empty($HOOK_HOME)}
+  <div class="row">
+    {$HOOK_HOME}
+  </div>
 {/if}
