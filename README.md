@@ -75,9 +75,9 @@ Here is what is currently planned for this theme:
   * Guest Tracking
   * Manufacturers, Suppliers
   * Restricted Country
+  * Stores
 - Version 0.?
   * Print
-  * Stores
   * Index
 
 ## Libraries and dependencies

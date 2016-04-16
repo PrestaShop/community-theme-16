@@ -105,16 +105,14 @@
   {if $page_name !='index' && $page_name !='pagenotfound'}
     {include file="$tpl_dir./breadcrumb.tpl"}
   {/if}
-  <div id="slider_row">
-    {capture name='displayTopColumn'}{hook h='displayTopColumn'}{/capture}
-    {if $smarty.capture.displayTopColumn}
-      <div id="top_column">{$smarty.capture.displayTopColumn}</div>
-    {/if}
-  </div>
+  {capture name='displayTopColumn'}{hook h='displayTopColumn'}{/capture}
+  {if !empty($smarty.capture.displayTopColumn)}
+    <div id="top_column" class="row">{$smarty.capture.displayTopColumn}</div>
+  {/if}
   <div class="row">
     {if isset($left_column_size) && !empty($left_column_size)}
-      <aside id="left_column" class="column col-xs-12 col-sm-{$left_column_size|intval}">{$HOOK_LEFT_COLUMN}</aside>
+      <aside id="left_column" class="col-xs-12 col-sm-{$left_column_size|intval}">{$HOOK_LEFT_COLUMN}</aside>
     {/if}
     {if isset($left_column_size) && isset($right_column_size)}{assign var='cols' value=(12 - $left_column_size - $right_column_size)}{else}{assign var='cols' value=12}{/if}
-    <main id="center_column" class="center_column col-xs-12 col-sm-{$cols|intval}" role="main">
+    <main id="center_column" class="col-xs-12 col-sm-{$cols|intval}" role="main">
 {/if}
