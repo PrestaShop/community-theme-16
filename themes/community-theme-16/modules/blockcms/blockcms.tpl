@@ -1,16 +1,16 @@
 {if $block == 1}
-  {foreach from=$cms_titles key=cms_key item=cms_title}
-    <section id="informations_block_left_{$cms_key}" class="block informations_block_left">
-      <p class="title_block">
+  {foreach from=$cms_titles item=cms_title}
+    <section class="blockcms-block blockcms-block-col block">
+      <h4 class="title_block">
         <a href="{$cms_title.category_link|escape:'html':'UTF-8'}">
           {if !empty($cms_title.name)}{$cms_title.name}{else}{$cms_title.category_name}{/if}
         </a>
-      </p>
+      </h4>
       <div class="block_content list-block">
         <ul>
           {foreach from=$cms_title.categories item=cms_page}
             {if isset($cms_page.link)}
-              <li class="bullet">
+              <li>
                 <a href="{$cms_page.link|escape:'html':'UTF-8'}" title="{$cms_page.name|escape:'html':'UTF-8'}">
                   {$cms_page.name|escape:'html':'UTF-8'}
                 </a>
@@ -38,7 +38,7 @@
     </section>
   {/foreach}
 {else}
-  <section id="blockcms-footer" class="blockcms col-xs-12 col-sm-3">
+  <section id="blockcms-footer" class="blockcms-block col-xs-12 col-sm-3">
     <h4>{l s='Information' mod='blockcms'}</h4>
     <ul class="list-unstyled">
       {if isset($show_price_drop) && $show_price_drop && !$PS_CATALOG_MODE}
