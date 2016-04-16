@@ -6,6 +6,7 @@
   {/if}
   <div class="tab-content">{$HOOK_HOME_TAB_CONTENT}</div>
 {/if}
+
 {if isset($HOOK_HOME) && $HOOK_HOME|trim}
-  <div class="clearfix">{$HOOK_HOME}</div>
+  <div class="row">{$HOOK_HOME}</div>
 {/if}
