@@ -40,9 +40,11 @@ The main features of this theme:
 - Refactored `jQuery Zoom` option for product page
 - Refactored product page, reworked images
 - Trimmed order, registration and login form styles
-
-Features that will be implemented in the future (currently under development):
-
+- Cleaned up `my-account`, `404`, `cms`, `cms category`, `comparison` pages
+- Cleaned up `contact-form`, `maintenance`, `manufacturer`, `supplier` pages
+- Cleaned up `guest-tracking`, `stores`, `index` pages
+- Cleaned up `homeslider`, `themeconfigurator`, `blockfacebook`, `blockcms`, `blockcmsinfo` pages
+- JS function for detecting mobile and touch device
 
 Bug fixes in the [default-bootstrap](https://github.com/PrestaShop/PrestaShop/tree/1.6.1.x/themes/default-bootstrap)
 will be integrated to this theme regularly.
@@ -61,24 +63,6 @@ E.g. `.product-list-item`.
 - Overrides may be used or included to provide better support and development
 - Changes may affect third party module template styles, but be easily fixable
 - General compatibility should not be totally broken
-
-## Roadmap
-
-Here is what is currently planned for this theme:
-
-- Version 0.10.0
-  * Refactoring of account pages
-  * Refactoring of CMS and CMS category pages
-  * Comparison page, contact form
-  * 404 page
-  * Maintenance
-  * Guest Tracking
-  * Manufacturers, Suppliers
-  * Restricted Country
-  * Stores
-- Version 0.?
-  * Print
-  * Index
 
 ## Libraries and dependencies
 
