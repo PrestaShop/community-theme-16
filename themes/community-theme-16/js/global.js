@@ -1,7 +1,7 @@
 //global variables
 var responsiveflag = false;
 
-$(document).ready(function() {
+$(function() {
 
   var touch = !!isTouchDevice();
   $('body').toggleClass('touch', touch).toggleClass('no-touch', !touch);
@@ -9,13 +9,16 @@ $(document).ready(function() {
   highdpiInit();
   responsiveResize();
   $(window).resize(responsiveResize);
+  
   if (navigator.userAgent.match(/Android/i)) {
     var viewport = document.querySelector('meta[name="viewport"]');
     viewport.setAttribute('content', 'initial-scale=1.0,maximum-scale=1.0,user-scalable=0,width=device-width,height=device-height');
     window.scrollTo(0, 1);
   }
-  if (typeof quickView !== 'undefined' && quickView)
+  
+  if (typeof quickView !== 'undefined' && quickView) {
     quick_view();
+  }
 
   if (typeof page_name != 'undefined' && !in_array(page_name, ['index', 'product'])) {
     bindGrid();
@@ -49,8 +52,9 @@ $(document).ready(function() {
   $('.rte img').addClass('img-responsive');
 
   $(document).on('change', 'select[name="manufacturer_list"], select[name="supplier_list"]', function() {
-    if (this.value != '')
+    if (this.value != '') {
       location.href = this.value;
+    }
   });
 
   $(document).on('click', '.back', function(e) {
@@ -59,7 +63,7 @@ $(document).ready(function() {
   });
 
   jQuery.curCSS = jQuery.css;
-  if (!!$.prototype.cluetip)
+  if (!!$.prototype.cluetip) {
     $('a.cluetip').cluetip({
       local: true,
       cursor: 'pointer',
@@ -74,24 +78,29 @@ $(document).ready(function() {
         openSpeed:  'fast'
       }
     }).css('opacity', 0.8);
+  }
 
-  if (typeof(FancyboxI18nClose) !== 'undefined' && typeof(FancyboxI18nNext) !== 'undefined' && typeof(FancyboxI18nPrev) !== 'undefined' && !!$.prototype.fancybox)
+  if (typeof(FancyboxI18nClose) !== 'undefined' && typeof(FancyboxI18nNext) !== 'undefined' && typeof(FancyboxI18nPrev) !== 'undefined' && !!$.prototype.fancybox) {
     $.extend($.fancybox.defaults.tpl, {
       closeBtn: '<a title="' + FancyboxI18nClose + '" class="fancybox-item fancybox-close" href="javascript:;"></a>',
       next: '<a title="' + FancyboxI18nNext + '" class="fancybox-nav fancybox-next" href="javascript:;"><span></span></a>',
       prev: '<a title="' + FancyboxI18nPrev + '" class="fancybox-nav fancybox-prev" href="javascript:;"><span></span></a>'
     });
+  }
 
   // Close Alert messages
   $('.alert.alert-danger').on('click', this, function(e) {
-    if (e.offsetX >= 16 && e.offsetX <= 39 && e.offsetY >= 16 && e.offsetY <= 34)
+    if (e.offsetX >= 16 && e.offsetX <= 39 && e.offsetY >= 16 && e.offsetY <= 34) {
       $(this).fadeOut();
+    }
   });
 });
 
 function highdpiInit() {
-  if (typeof highDPI === 'undefined')
+  if (typeof highDPI === 'undefined') {
     return;
+  }
+
   if (highDPI && $('.replace-2x').css('font-size') == '1px') {
     var els = $('img.replace-2x').get();
     for (var i = 0; i < els.length; i++) {
@@ -153,10 +162,7 @@ function quick_view() {
       url = url.substring(0, url.indexOf('#'));
     }
 
-    if (url.indexOf('?') != -1)
-      url += '&';
-    else
-      url += '?';
+    url += (url.indexOf('?') != -1) ? '&' : '?';
 
     if (!!$.prototype.fancybox)
       $.fancybox({
@@ -206,7 +212,6 @@ function isTouchDevice() {
     var userAgent = navigator.userAgent || navigator.vendor || window.opera;
     touchDevice = browserHasTouchEvents() && isMobileBrowser(userAgent);
   }
-
   return touchDevice;
 }
 
