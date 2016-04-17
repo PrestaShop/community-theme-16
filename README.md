@@ -10,6 +10,8 @@
 
 THIS THEME IS MAINTAINED BY THE PRESTASHOP COMMUNITY, NOT BY PRESTASHOP SA.
 
+[![](http://i.imgur.com/IQNNHhL.jpg)](http://i.imgur.com/E2mZLto.jpg) [![](http://i.imgur.com/MhH4U7v.jpg)](http://i.imgur.com/a3MT2Yn.jpg) [![](http://i.imgur.com/FJbLf0Q.jpg)](http://i.imgur.com/MliKmar.jpg)
+
 ## About
 
 **Community theme** is a fork of the default PrestaShop 1.6 theme
