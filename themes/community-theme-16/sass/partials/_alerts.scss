@@ -9,23 +9,24 @@
       font-weight: normal;
     }
   }
-  &.alert-success {
-    &:before {
-      font-family: $font-icon;
-      content: "\f058";
-      font-size: 20px;
-      vertical-align: -2px;
-      padding-right: 7px;
-    }
+  &.alert-success:before {
+    font-family: $font-icon;
+    margin-right: 0.5em;
+    content: "\f058"; // fa-check-circle
   }
-  &.alert-danger {
-    &:before {
-      font-family: $font-icon;
-      content: "\f057";
-      font-size: 20px;
-      vertical-align: -2px;
-      padding-right: 7px;
-      float: left;
-    }
+  &.alert-danger:before {
+    font-family: $font-icon;
+    margin-right: 0.5em;
+    content: "\f057"; // fa-times-circle
+  }
+  &.alert-warning:before {
+    font-family: $font-icon;
+    margin-right: 0.5em;
+    content: "\f06a"; // fa-exclamation-circle
+  }
+  &.alert-info:before {
+    font-family: $font-icon;
+    margin-right: 0.5em;
+    content: "\f05a"; // fa-info-circle
   }
 }
