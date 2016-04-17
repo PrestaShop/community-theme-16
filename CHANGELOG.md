@@ -4,18 +4,24 @@ This release aims to clean up the remaining PrestaShop pages.
 Theme can now be considered mostly cleaned up.
 
 - Cleaned up the following pages and their styles:
-
-  `my-account, history, address, addresses, identity, guest-tracking, 404,
-   comparison, contact-form, maintenance, manufacturer, manufacturer-list,
-   supplier, supplier-list, stores, index`
-
-- Account pages now use `.pager` element
+  - my-account, address, addresses, identity, history, discount (#179, #180)
+  - 404 (#182)
+  - cms, cms category (#183)
+  - comparison (#184)
+  - contact-form (#185)
+  - maintenance (#186)
+  - manufacturer, manufacturer-list, supplier, supplier-list, guest-tracking (#187)
+  - stores (#188)
+  - index (#193)
+- Account pages now use `.pager` element (#181)
 - Following module block have been cleaned up:
-
-  `homeslider, themeconfigurator, blockfacebook, blockcms, blockcmsinfo`
-
-- Integrated bugfixes and patches from `1.6.1.x` upstream theme
-- Improved mobile browser and touch detect JS function
+  - homeslider (#190)
+  - themeconfigurator (#190)
+  - blockfacebook (#191)
+  - blockcms (#192)
+  - blockcmsinfo (#192)
+- Integrated bugfixes and patches from `1.6.1.x` upstream theme (#189, #196)
+- Improved mobile browser and touch detect JS function (#194)
 - A lot of the CSS files are now empty, less file are included in the header
 
 # v0.9.0 (2016-04-04)
