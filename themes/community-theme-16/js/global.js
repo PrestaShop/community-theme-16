@@ -1,4 +1,4 @@
-/* global quickView, page_name, FancyboxI18nClose, FancyboxI18nNext, FancyboxI18nPrev */
+/* global quickView, page_name, FancyboxI18nClose, FancyboxI18nNext, FancyboxI18nPrev, highDPI */
 $(function() {
 
   var touch = !!isTouchDevice();
@@ -104,7 +104,7 @@ function highdpiInit() {
 
       var img = new Image();
       img.src = src;
-      img.height != 0 ? els[i].src = src : els[i].src = els[i].src;
+      els[i].src = img.height != 0 ? src : els[i].src;
     }
   }
 }
