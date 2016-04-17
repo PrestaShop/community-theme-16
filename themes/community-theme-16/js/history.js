@@ -1,4 +1,4 @@
-$(function () {
+$(function() {
   $('#block-history').find('.footab').footable();
 });
 
