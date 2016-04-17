@@ -1,10 +1,11 @@
+/* global quickView, page_name, FancyboxI18nClose, FancyboxI18nNext, FancyboxI18nPrev */
 $(function() {
 
   var touch = !!isTouchDevice();
   $('body').toggleClass('touch', touch).toggleClass('no-touch', !touch);
 
   highdpiInit();
-  
+
   if (typeof quickView !== 'undefined' && quickView) {
     quick_view();
   }
@@ -12,14 +13,14 @@ $(function() {
   if (typeof page_name != 'undefined' && !in_array(page_name, ['index', 'product'])) {
     bindGrid();
 
-    $(document).on('change', '.selectProductSort', function(e) {
-      
+    $(document).on('change', '.selectProductSort', function() {
+
       if (typeof request != 'undefined' && request) {
         var requestSortProducts = request;
       }
       var splitData = $(this).val().split(':');
       var url = '';
-      
+
       if (typeof requestSortProducts != 'undefined' && requestSortProducts) {
         url += requestSortProducts ;
         if (typeof splitData[0] !== 'undefined' && splitData[0]) {
