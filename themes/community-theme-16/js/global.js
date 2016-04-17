@@ -1,20 +1,9 @@
-//global variables
-var responsiveflag = false;
-
 $(function() {
 
   var touch = !!isTouchDevice();
   $('body').toggleClass('touch', touch).toggleClass('no-touch', !touch);
 
   highdpiInit();
-  responsiveResize();
-  $(window).resize(responsiveResize);
-  
-  if (navigator.userAgent.match(/Android/i)) {
-    var viewport = document.querySelector('meta[name="viewport"]');
-    viewport.setAttribute('content', 'initial-scale=1.0,maximum-scale=1.0,user-scalable=0,width=device-width,height=device-height');
-    window.scrollTo(0, 1);
-  }
   
   if (typeof quickView !== 'undefined' && quickView) {
     quick_view();
@@ -116,42 +105,6 @@ function highdpiInit() {
       img.src = src;
       img.height != 0 ? els[i].src = src : els[i].src = els[i].src;
     }
-  }
-}
-
-// Used to compensante Chrome/Safari bug (they don't care about scroll bar for width)
-function scrollCompensate() {
-  var inner = document.createElement('p');
-  inner.style.width = '100%';
-  inner.style.height = '200px';
-
-  var outer = document.createElement('div');
-  outer.style.position = 'absolute';
-  outer.style.top = '0px';
-  outer.style.left = '0px';
-  outer.style.visibility = 'hidden';
-  outer.style.width = '200px';
-  outer.style.height = '150px';
-  outer.style.overflow = 'hidden';
-  outer.appendChild(inner);
-
-  document.body.appendChild(outer);
-  var w1 = inner.offsetWidth;
-  outer.style.overflow = 'scroll';
-  var w2 = inner.offsetWidth;
-  if (w1 == w2) w2 = outer.clientWidth;
-
-  document.body.removeChild(outer);
-
-  return (w1 - w2);
-}
-
-function responsiveResize() {
-  compensante = scrollCompensate();
-  if (($(window).width() + scrollCompensate()) <= 767 && responsiveflag == false) {
-    responsiveflag = true;
-  } else if (($(window).width() + scrollCompensate()) >= 768) {
-    responsiveflag = false;
   }
 }
 
