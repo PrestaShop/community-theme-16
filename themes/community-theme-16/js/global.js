@@ -1,4 +1,4 @@
-/* global quickView, page_name, FancyboxI18nClose, FancyboxI18nNext, FancyboxI18nPrev, highDPI */
+/* global quickView, page_name, FancyboxI18nClose, FancyboxI18nNext, FancyboxI18nPrev, highDPI, request, url */
 $(function() {
 
   var touch = !!isTouchDevice();
@@ -14,23 +14,11 @@ $(function() {
     bindGrid();
 
     $(document).on('change', '.selectProductSort', function() {
-
-      if (typeof request != 'undefined' && request) {
-        var requestSortProducts = request;
-      }
-      var splitData = $(this).val().split(':');
-      var url = '';
-
-      if (typeof requestSortProducts != 'undefined' && requestSortProducts) {
-        url += requestSortProducts ;
-        if (typeof splitData[0] !== 'undefined' && splitData[0]) {
-          url += (requestSortProducts.indexOf('?') < 0 ? '?' : '&') + 'orderby=' + splitData[0] + (splitData[1] ? '&orderway=' + splitData[1] : '');
-          if (typeof splitData[1] !== 'undefined' && splitData[1]) {
-            url += '&orderway=' + splitData[1];
-          }
-        }
-        document.location.href = url;
-      }
+      var order = $(this).val().split(':');
+      var params = url('?') || {};
+      params.orderby = '' + order[0];
+      params.orderway = '' + order[1];
+      window.location.search = $.param(params);
     });
 
     $(document).on('change', 'select[name="n"]', function() {
