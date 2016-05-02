@@ -1,5 +1,9 @@
 $(function() {
 
+  $('#blocknewsletter').find('form').on('submit', function () {
+    $(this).addClass('loading-overlay');
+  });
+
   $('#newsletter-input').on({
     focus: function() {
       if ($(this).val() == placeholder_blocknewsletter || $(this).val() == msg_newsl) {
