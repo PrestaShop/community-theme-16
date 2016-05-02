@@ -28,9 +28,9 @@
               <span class="price">
                 {if !isset($product.is_gift) || !$product.is_gift}
                   {if $priceDisplay == $smarty.const.PS_TAX_EXC}{displayWtPrice p="`$product.total`"}{else}{displayWtPrice p="`$product.total_wt`"}{/if}
-                  <div class="hookDisplayProductPriceBlock-price">
+                  <span class="hookDisplayProductPriceBlock-price">
                     {hook h="displayProductPriceBlock" product=$product type="price" from="blockcart"}
-                  </div>
+                  </span>
                 {else}
                   {l s='Free!' mod='blockcart'}
                 {/if}
