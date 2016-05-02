@@ -201,8 +201,7 @@ var ajaxCart = {
 
     if (addedFromProductPage && !checkCustomizations()) {
       if (contentOnly) {
-        var productUrl = window.document.location.href + '';
-        window.parent.document.location.href = productUrl.replace('content_only=1', '');
+        window.parent.location.href = window.location.href.replace('content_only=1', '');
         return;
       }
       if (!!$.prototype.fancybox)

@@ -28,7 +28,7 @@ function submitPublishCMS(url, redirect, token) {
     },
     success: function(response) {
       if (response.indexOf('error') === -1) {
-        document.location.href = data;
+        window.location.href = data;
       }
     }
   });

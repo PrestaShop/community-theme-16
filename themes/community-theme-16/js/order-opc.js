@@ -540,10 +540,11 @@ function confirmFreeOrder() {
       $('#confirmOrder').prop('disabled', false);
       var array_split = html.split(':');
       if (array_split[0] == 'freeorder') {
-        if (isGuest)
-          document.location.href = guestTrackingUrl + '?id_order=' + encodeURIComponent(array_split[1]) + '&email=' + encodeURIComponent(array_split[2]);
-        else
-          document.location.href = historyUrl;
+        if (isGuest) {
+          window.location.href = guestTrackingUrl + '?id_order=' + encodeURIComponent(array_split[1]) + '&email=' + encodeURIComponent(array_split[2]);
+        } else {
+          window.location.href = historyUrl;
+        }
       }
     },
     error: function(XMLHttpRequest, textStatus, errorThrown) {
@@ -687,8 +688,9 @@ function updateNewAccountToAddressBlock(is_adv_api) {
         alert(errors);
       } else {
         isLogged = 1;
-        if (json.no_address == 1)
-          document.location.href = addressUrl;
+        if (json.no_address == 1) {
+          window.location.href = addressUrl;
+        }
 
         $('#opc_new_account').fadeOut('fast', function() {
           if (typeof json.formatedAddressFieldsValuesList !== 'undefined' && json.formatedAddressFieldsValuesList)
