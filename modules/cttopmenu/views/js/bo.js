@@ -1,5 +1,6 @@
 $(function() {
 
+  /** @var {{ icon_list_filepath, class_list_filepath, menu_item_types }} module */
   var module = window.cttopmenu;
 
   var $form            = $('#ct_top_menu_item_form');
@@ -22,19 +23,38 @@ $(function() {
 
   }).trigger('change');
 
+  // Autocomplete for icons
   var iconSuggestEngine = new Bloodhound({
     datumTokenizer: Bloodhound.tokenizers.whitespace,
     queryTokenizer: Bloodhound.tokenizers.whitespace,
     prefetch: module.icon_list_filepath
   });
 
+  // Autocomplete for theme helper classes
+  var classSuggestEngine = new Bloodhound({
+    datumTokenizer: Bloodhound.tokenizers.whitespace,
+    queryTokenizer: Bloodhound.tokenizers.whitespace,
+    prefetch: module.class_list_filepath
+  });
+
   $form.find('input[name="icon"]').typeahead({
     highlight: true,
-    //hint: false,
+    // hint: false,
     minLength: 1
   }, {
     name : 'icon',
     source: iconSuggestEngine,
+    async: true,
+    limit: 10
+  });
+
+  $form.find('input[name="class"]').typeahead({
+    highlight: true,
+    // hint: false,
+    minLength: 1
+  }, {
+    name : 'class',
+    source: classSuggestEngine,
     async: true,
     limit: 10
   });
