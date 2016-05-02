@@ -1,37 +1,41 @@
 /* global quickView, page_name, FancyboxI18nClose, FancyboxI18nNext, FancyboxI18nPrev, highDPI, request, url */
 
-var PrestaShop = {
-  showError : function (msg, title) {
-    // @TODO msg array
-    if (!!$.prototype.fancybox) {
-      $.fancybox.open([{
-        type: 'inline',
-        autoScale: true,
-        minHeight: 30,
-        content: '<p class="fancybox-error">' + msg + '</p>'
-      }], {
-        padding: 0
-      });
-    } else {
-      alert(msg);
+var PrestaShop = (function() {
+
+  return {
+    showError : function (msg, title) {
+      // @TODO msg array
+      if (!!$.prototype.fancybox) {
+        $.fancybox.open([{
+          type: 'inline',
+          autoScale: true,
+          minHeight: 30,
+          content: '<p class="fancybox-error">' + msg + '</p>'
+        }], {
+          padding: 0
+        });
+      } else {
+        alert(msg);
+      }
+    },
+    showSuccess : function (msg, title) {
+      // @TODO msg array
+      if (!!$.prototype.fancybox) {
+        $.fancybox.open([{
+          type: 'inline',
+          autoScale: true,
+          minHeight: 30,
+          content: '<p class="fancybox-error">' + msg + '</p>'
+        }], {
+          padding: 0
+        });
+      } else {
+        alert(msg);
+      }
     }
-  },
-  showSuccess : function (msg, title) {
-    // @TODO msg array
-    if (!!$.prototype.fancybox) {
-      $.fancybox.open([{
-        type: 'inline',
-        autoScale: true,
-        minHeight: 30,
-        content: '<p class="fancybox-error">' + msg + '</p>'
-      }], {
-        padding: 0
-      });
-    } else {
-      alert(msg);
-    }
-  }
-};
+  };
+
+})();
 
 $(function() {
 
