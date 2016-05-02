@@ -412,9 +412,9 @@ class AdminCTTopMenuItemController extends ModuleAdminController
             $iconListFilePath = _THEME_DIR_.'modules/'.$this->module->name.'/views/json/icons.json';
         }
 
-        $classListFilePath = _MODULE_DIR_.$this->module->name.'/views/json/classes2.json';
-        if (file_exists(_PS_THEME_DIR_.'modules/'.$this->module->name.'/views/json/classes2.json')) {
-            $classListFilePath = _THEME_DIR_.'modules/'.$this->module->name.'/views/json/classes2.json';
+        $classListFilePath = _MODULE_DIR_.$this->module->name.'/views/json/classes.json';
+        if (file_exists(_PS_THEME_DIR_.'modules/'.$this->module->name.'/views/json/classes.json')) {
+            $classListFilePath = _THEME_DIR_.'modules/'.$this->module->name.'/views/json/classes.json';
         }
 
         Media::addJsDef(array(
