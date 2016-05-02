@@ -2,35 +2,40 @@
 
 var PrestaShop = (function() {
 
+  function showWindowAlert(msg, title) {
+    var content = title ? title + "\n\n" : '';
+    content +=  $.isArray(msg) ? msg.join("\n") : msg;
+    alert(content);
+  }
+
+  function showFancyboxAlert(msg, title, wrapperClass) {
+    if ($.isArray(msg)) {
+      msg = '<ul><li>' + msg.join('</li><li>') + '</li><ul>';
+    }
+    $.fancybox.open([{
+      type: 'inline',
+      autoScale: true,
+      minHeight: 30,
+      content: '<div class="fancybox-error' + (wrapperClass ? ' ' + wrapperClass : '') + '">'
+                + (title ? '<p><b>' + title + '</b></p>' : '') + msg + '</div>'
+    }], {
+      padding: 0
+    });
+  }
+
   return {
     showError : function (msg, title) {
-      // @TODO msg array
       if (!!$.prototype.fancybox) {
-        $.fancybox.open([{
-          type: 'inline',
-          autoScale: true,
-          minHeight: 30,
-          content: '<p class="fancybox-error">' + msg + '</p>'
-        }], {
-          padding: 0
-        });
+        showFancyboxAlert(msg, title);
       } else {
-        alert(msg);
+        showWindowAlert(msg, title);
       }
     },
     showSuccess : function (msg, title) {
-      // @TODO msg array
       if (!!$.prototype.fancybox) {
-        $.fancybox.open([{
-          type: 'inline',
-          autoScale: true,
-          minHeight: 30,
-          content: '<p class="fancybox-error">' + msg + '</p>'
-        }], {
-          padding: 0
-        });
+        showFancyboxAlert(msg, title, 'fancybox-success');
       } else {
-        alert(msg);
+        showWindowAlert(msg, title);
       }
     }
   };
