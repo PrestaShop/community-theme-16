@@ -63,9 +63,9 @@
           <div class="form-group">
             <label for="email">{l s='Email address'}</label>
             {if isset($customerThread.email)}
-              <input class="form-control" type="text" id="email" name="from" value="{$customerThread.email|escape:'html':'UTF-8'}" readonly="readonly" />
+              <input class="form-control" type="email" id="email" name="from" value="{$customerThread.email|escape:'html':'UTF-8'}" readonly="readonly" />
             {else}
-              <input class="form-control validate" type="text" id="email" name="from" data-validate="isEmail" value="{$email|escape:'html':'UTF-8'}" required/>
+              <input class="form-control validate" type="email" id="email" name="from" data-validate="isEmail" value="{$email|escape:'html':'UTF-8'}" required/>
             {/if}
           </div>
           {if !$PS_CATALOG_MODE}
