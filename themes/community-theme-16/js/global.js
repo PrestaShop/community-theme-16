@@ -2,6 +2,22 @@
 
 var PrestaShop = {
   showError : function (msg, title) {
+    // @TODO msg array
+    if (!!$.prototype.fancybox) {
+      $.fancybox.open([{
+        type: 'inline',
+        autoScale: true,
+        minHeight: 30,
+        content: '<p class="fancybox-error">' + msg + '</p>'
+      }], {
+        padding: 0
+      });
+    } else {
+      alert(msg);
+    }
+  },
+  showSuccess : function (msg, title) {
+    // @TODO msg array
     if (!!$.prototype.fancybox) {
       $.fancybox.open([{
         type: 'inline',

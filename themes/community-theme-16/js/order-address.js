@@ -90,24 +90,7 @@ function updateAddresses() {
       },
       success: function(jsonData) {
         if (jsonData.hasError) {
-          var errors = '';
-          for (var error in jsonData.errors)
-            //IE6 bug fix
-            if (error !== 'indexOf')
-              errors += $('<div />').html(jsonData.errors[error]).text() + '\n';
-          if (!!$.prototype.fancybox)
-            $.fancybox.open([
-              {
-                type: 'inline',
-                autoScale: true,
-                minHeight: 30,
-                content: '<p class="fancybox-error">' + errors + '</p>'
-              }
-            ], {
-              padding: 0
-            });
-          else
-            alert(errors);
+          PrestaShop.showError(jsonData.errors);
         }
         $('.addresses .waitimage').hide();
         $('[name="processAddress"]').prop('disabled', '');
@@ -116,20 +99,10 @@ function updateAddresses() {
         $('.addresses .waitimage').hide();
         $('[name="processAddress"]').prop('disabled', '');
         if (textStatus !== 'abort') {
-          error = 'TECHNICAL ERROR: unable to save adresses \n\nDetails:\nError thrown: ' + XMLHttpRequest + '\n' + 'Text status: ' + textStatus;
-          if (!!$.prototype.fancybox)
-            $.fancybox.open([
-              {
-                type: 'inline',
-                autoScale: true,
-                minHeight: 30,
-                content: '<p class="fancybox-error">' + error + '</p>'
-              }
-            ], {
-              padding: 0
-            });
-          else
-            alert(error);
+          PrestaShop.showError(
+            'TECHNICAL ERROR: unable to save adresses \n\nDetails:\nError thrown: '
+            + XMLHttpRequest + '\n' + 'Text status: ' + textStatus
+          );
         }
       }
     });

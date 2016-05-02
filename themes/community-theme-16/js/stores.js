@@ -69,19 +69,11 @@ function searchLocations() {
     if (status === google.maps.GeocoderStatus.OK)
       searchLocationsNear(results[0].geometry.location);
     else {
-      if (!!$.prototype.fancybox && isCleanHtml(address))
-        $.fancybox.open([
-          {
-            type: 'inline',
-            autoScale: true,
-            minHeight: 30,
-            content: '<p class="fancybox-error">' + address + ' ' + translation_6 + '</p>'
-          }
-        ], {
-          padding: 0
-        });
-      else
+      if (isCleanHtml(address)) {
+        PrestaShop.showError(address + ' ' + translation_6);
+      } else {
         alert(address + ' ' + translation_6);
+      }
     }
     $('#stores_loader').hide();
   });

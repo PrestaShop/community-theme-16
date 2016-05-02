@@ -27,20 +27,9 @@ $(document).ready(function() {
 
 function acceptCGV() {
   if (typeof msg_order_carrier != 'undefined' && $('#cgv').length && !$('input#cgv:checked').length) {
-    if (!!$.prototype.fancybox)
-      $.fancybox.open([
-          {
-            type: 'inline',
-            autoScale: true,
-            minHeight: 30,
-            content: '<p class="fancybox-error">' + msg_order_carrier + '</p>'
-          }],
-        {
-          padding: 0
-        });
-    else
-      alert(msg_order_carrier);
-  } else
-    return true;
-  return false;
+    PrestaShop.showError(msg_order_carrier);
+    return false;
+  }
+
+  return true;
 }

@@ -38,18 +38,7 @@ function addToCompare(productId) {
         $('.bt_compare').next('.compare_product_count').val(totalVal);
         totalValue(totalVal);
       } else {
-        if (!!$.prototype.fancybox) {
-          $.fancybox.open([{
-            type: 'inline',
-            autoScale: true,
-            minHeight: 30,
-            content: '<p class="fancybox-error">' + max_item + '</p>'
-          }], {
-            padding: 0
-          });
-        } else {
-          alert(max_item);
-        }
+        PrestaShop.showError(max_item);
       }
       totalCompareButtons();
     },
