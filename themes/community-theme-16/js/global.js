@@ -1,4 +1,22 @@
 /* global quickView, page_name, FancyboxI18nClose, FancyboxI18nNext, FancyboxI18nPrev, highDPI, request, url */
+
+var PrestaShop = {
+  showError : function (msg, title) {
+    if (!!$.prototype.fancybox) {
+      $.fancybox.open([{
+        type: 'inline',
+        autoScale: true,
+        minHeight: 30,
+        content: '<p class="fancybox-error">' + msg + '</p>'
+      }], {
+        padding: 0
+      });
+    } else {
+      alert(msg);
+    }
+  }
+};
+
 $(function() {
 
   var touch = !!isTouchDevice();
