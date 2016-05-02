@@ -71,8 +71,9 @@ $(document).ready(function() {
             alert(errors);
           $('input[name=quantity_' + id + ']').val($('input[name=quantity_' + id + '_hidden]').val());
         } else {
-          if (jsonData.refresh)
-            window.location.href = window.location.href;
+          if (jsonData.refresh) {
+            window.location.reload();
+          }
           updateCartSummary(jsonData.summary);
           if (window.ajaxCart != undefined)
             ajaxCart.updateCart(jsonData);
@@ -405,13 +406,13 @@ function deleteProductFromSummary(id) {
           alert(errors);
       } else {
         if (jsonData.refresh) {
-          location.reload();
+          window.location.reload();
           return;
         }
         if (parseInt(jsonData.summary.products.length) == 0) {
-          if (typeof(orderProcess) == 'undefined' || orderProcess !== 'order-opc')
-            document.location.href = document.location.href; // redirection
-          else {
+          if (typeof(orderProcess) == 'undefined' || orderProcess !== 'order-opc') {
+            window.location.reload();
+          } else {
             $('#center_column').children().each(function() {
               if ($(this).attr('id') !== 'emptyCartWarning' && $(this).attr('class') !== 'breadcrumb' && $(this).attr('id') !== 'cart_title') {
                 $(this).fadeOut('slow', function() {
@@ -568,8 +569,9 @@ function upQuantity(id, qty) {
           alert(errors);
         $('input[name=quantity_' + id + ']').val($('input[name=quantity_' + id + '_hidden]').val());
       } else {
-        if (jsonData.refresh)
-          window.location.href = window.location.href;
+        if (jsonData.refresh) {
+          window.location.reload();
+        }
         updateCartSummary(jsonData.summary);
         if (window.ajaxCart != undefined)
           ajaxCart.updateCart(jsonData);
@@ -671,8 +673,9 @@ function downQuantity(id, qty) {
             alert(errors);
           $('input[name=quantity_' + id + ']').val($('input[name=quantity_' + id + '_hidden]').val());
         } else {
-          if (jsonData.refresh)
-            window.location.href = window.location.href;
+          if (jsonData.refresh) {
+            window.location.reload();
+          }
           updateCartSummary(jsonData.summary);
 
           if (window.ajaxCart !== undefined)
@@ -801,7 +804,7 @@ function updateCartSummary(json) {
     $('.cart_total_voucher').remove();
   } else {
     if ($('.cart_discount').length == 0) {
-      location.reload();
+      window.location.reload();
       return;
     }
 

@@ -321,7 +321,7 @@ function updateAddressSelection(is_adv_api) {
           alert(errors);
       } else {
         if (jsonData.refresh) {
-          location.reload();
+          window.location.reload();
           return;
         }
         // Update all product keys with the new address id

@@ -71,7 +71,7 @@ $(function() {
       if (typeof(updateAddressSelection) != 'undefined') {
         updateAddressSelection();
       } else {
-        location.reload();
+        window.location.reload();
       }
     }
   });
