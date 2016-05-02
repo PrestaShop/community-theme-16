@@ -407,9 +407,14 @@ class AdminCTTopMenuItemController extends ModuleAdminController
         $this->addJS($this->module->getLocalPath().'views/js/vendor/typeahead.bundle.min.js');
         $this->addJS($this->module->getLocalPath().'views/js/bo.js');
 
+        $iconListFilePath = _MODULE_DIR_.$this->module->name.'/data/icons.json';
+        if (file_exists(_PS_THEME_DIR_.'modules/'.$this->module->name.'/data/icons.json')) {
+            $iconListFilePath = _THEME_DIR_.'modules/'.$this->module->name.'/data/icons.json';
+        }
+
         Media::addJsDef(array(
             'cttopmenu' => array(
-                'icon_list_filepath' => _MODULE_DIR_.$this->module->name.'/data/icons.json',
+                'icon_list_filepath' => $iconListFilePath,
                 'menu_item_types' => $this->menuItemTypes,
             ),
         ));
