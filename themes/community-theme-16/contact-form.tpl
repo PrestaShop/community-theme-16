@@ -65,7 +65,7 @@
             {if isset($customerThread.email)}
               <input class="form-control" type="text" id="email" name="from" value="{$customerThread.email|escape:'html':'UTF-8'}" readonly="readonly" />
             {else}
-              <input class="form-control validate" type="text" id="email" name="from" data-validate="isEmail" value="{$email|escape:'html':'UTF-8'}" />
+              <input class="form-control validate" type="text" id="email" name="from" data-validate="isEmail" value="{$email|escape:'html':'UTF-8'}" required/>
             {/if}
           </div>
           {if !$PS_CATALOG_MODE}
@@ -116,7 +116,7 @@
         <div class="col-xs-12 col-md-9">
           <div class="form-group">
             <label for="message">{l s='Message'}</label>
-            <textarea class="form-control" id="message" name="message">{if isset($message)}{$message|escape:'html':'UTF-8'|stripslashes}{/if}</textarea>
+            <textarea class="form-control" id="message" name="message" required>{if isset($message)}{$message|escape:'html':'UTF-8'|stripslashes}{/if}</textarea>
           </div>
         </div>
       </div>
