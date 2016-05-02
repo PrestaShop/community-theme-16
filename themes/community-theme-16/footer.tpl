@@ -6,7 +6,7 @@
     </div>{* .row *}
   </div>{* #columns*}
 
-  <footer id="footer" role="navigation">
+  <footer id="footer">
 
     {if isset($HOOK_FOOTER)}
       <div class="container">

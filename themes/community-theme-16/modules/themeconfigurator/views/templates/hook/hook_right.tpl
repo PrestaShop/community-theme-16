@@ -8,7 +8,7 @@
           {/if}
 
           {if $item.image}
-            <img class="item-img center-block img-responsive" src="{$link->getMediaLink("`$module_dir`img/`$item.image`")}" title="{$item.title|escape:'html':'UTF-8'}" alt="{$item.title|escape:'html':'UTF-8'}"{if $item.image_w} width="{$item.image_w|intval}{/if}"{if $item.image_h} height="{$item.image_h|intval}{/if}"/>
+            <img class="item-img center-block img-responsive" src="{$link->getMediaLink("`$module_dir`img/`$item.image`")}" title="{$item.title|escape:'html':'UTF-8'}" alt="{$item.title|escape:'html':'UTF-8'}"{if $item.image_w} width="{$item.image_w|intval}"{/if}{if $item.image_h} height="{$item.image_h|intval}"{/if}/>
           {/if}
 
           {if $item.title && $item.title_use == 1}
