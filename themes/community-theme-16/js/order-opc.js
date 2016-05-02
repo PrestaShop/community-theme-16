@@ -420,8 +420,12 @@ function updateCarrierSelectionAndGift() {
       }
     },
     error: function(XMLHttpRequest, textStatus, errorThrown) {
-      if (textStatus !== 'abort')
-        alert('TECHNICAL ERROR: unable to save carrier \n\nDetails:\nError thrown: ' + XMLHttpRequest + '\n' + 'Text status: ' + textStatus);
+      if (textStatus !== 'abort') {
+        PrestaShop.showError(
+          'TECHNICAL ERROR: unable to save carrier \n\nDetails:\nError thrown: '
+          + XMLHttpRequest + '\n' + 'Text status: ' + textStatus
+        );
+      }
       $('#opc_delivery_methods-overlay, #opc_payment_methods-overlay').fadeOut('slow');
     }
   });
@@ -566,12 +570,7 @@ function updateNewAccountToAddressBlock(is_adv_api) {
     (is_adv_api ? '&isAdvApi=1' : '') ,
     success: function(json) {
       if (json.hasError) {
-        var errors = '';
-        for (var error in json.errors)
-          //IE6 bug fix
-          if (error !== 'indexOf')
-            errors += $('<div />').html(json.errors[error]).text() + '\n';
-        alert(errors);
+        PrestaShop.showError(json.errors);
       } else {
         isLogged = 1;
         if (json.no_address == 1) {
@@ -620,8 +619,12 @@ function updateNewAccountToAddressBlock(is_adv_api) {
       }
     },
     error: function(XMLHttpRequest, textStatus, errorThrown) {
-      if (textStatus !== 'abort')
-        alert('TECHNICAL ERROR: unable to send login informations \n\nDetails:\nError thrown: ' + XMLHttpRequest + '\n' + 'Text status: ' + textStatus);
+      if (textStatus !== 'abort') {
+        PrestaShop.showError(
+          'TECHNICAL ERROR: unable to send login informations \n\nDetails:\nError thrown: '
+          + XMLHttpRequest + '\n' + 'Text status: ' + textStatus
+        );
+      }
       $('#opc_delivery_methods-overlay, #opc_payment_methods-overlay').fadeOut('slow');
     }
   });
@@ -641,18 +644,17 @@ function bindInputs() {
       data: 'ajax=true&method=updateMessage&message=' + encodeURIComponent($('#message').val()) + '&token=' + static_token ,
       success: function(jsonData) {
         if (jsonData.hasError) {
-          var errors = '';
-          for (var error in jsonData.errors)
-            //IE6 bug fix
-            if (error !== 'indexOf')
-              errors += $('<div />').html(jsonData.errors[error]).text() + '\n';
-          alert(errors);
+          PrestaShop.showError(jsonData.errors);
         } else
           $('#opc_delivery_methods-overlay').fadeOut('slow');
       },
       error: function(XMLHttpRequest, textStatus, errorThrown) {
-        if (textStatus !== 'abort')
-          alert('TECHNICAL ERROR: unable to save message \n\nDetails:\nError thrown: ' + XMLHttpRequest + '\n' + 'Text status: ' + textStatus);
+        if (textStatus !== 'abort') {
+          PrestaShop.showError(
+            'TECHNICAL ERROR: unable to save message \n\nDetails:\nError thrown: '
+            + XMLHttpRequest + '\n' + 'Text status: ' + textStatus
+          );
+        }
         $('#opc_delivery_methods-overlay').fadeOut('slow');
       }
     });

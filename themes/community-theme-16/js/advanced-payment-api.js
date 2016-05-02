@@ -19,23 +19,19 @@ $(document).ready(function() {
     event.stopPropagation();
 
     if (handler.checkTOS() === false) {
-      var to_display = $('<div/>').html(aeuc_tos_err_str).text();
-      alert(to_display);
+      PrestaShop.showError(aeuc_tos_err_str);
       return;
     }
     if (aeuc_has_virtual_products === true && handler.checkVirtualProductRevocation() === false) {
-      var to_display = $('<div/>').html(aeuc_virt_prod_err_str).text();
-      alert(to_display);
+      PrestaShop.showError(aeuc_virt_prod_err_str);
       return;
     }
     if (handler.selected_option === null) {
-      var to_display = $('<div/>').html(aeuc_no_pay_err_str).text();
-      alert(to_display);
+      PrestaShop.showError(aeuc_no_pay_err_str);
       return;
     }
     if (handler.submitForm() === false) {
-      var to_display = $('<div/>').html(aeuc_submit_err_str).text();
-      alert(to_display);
+      PrestaShop.showError(aeuc_submit_err_str);
       return;
     }
     return;
