@@ -51,24 +51,7 @@ $(document).ready(function() {
       '&allow_refresh=1',
       success: function(jsonData) {
         if (jsonData.hasError) {
-          var errors = '';
-          for (var error in jsonData.errors)
-            //IE6 bug fix
-            if (error !== 'indexOf')
-              errors += $('<div />').html(jsonData.errors[error]).text() + '\n';
-          if (!!$.prototype.fancybox)
-            $.fancybox.open([
-                {
-                  type: 'inline',
-                  autoScale: true,
-                  minHeight: 30,
-                  content: '<p class="fancybox-error">' + errors + '</p>'
-                }],
-              {
-                padding: 0
-              });
-          else
-            alert(errors);
+          PrestaShop.showError(jsonData.errors);
           $('input[name=quantity_' + id + ']').val($('input[name=quantity_' + id + '_hidden]').val());
         } else {
           if (jsonData.refresh) {
@@ -163,20 +146,7 @@ function changeAddressDelivery(obj) {
       '&allow_refresh=1',
       success: function(jsonData) {
         if (typeof(jsonData.hasErrors) != 'undefined' && jsonData.hasErrors) {
-          if (!!$.prototype.fancybox)
-            $.fancybox.open([
-                {
-                  type: 'inline',
-                  autoScale: true,
-                  minHeight: 30,
-                  content: '<p class="fancybox-error">' + jsonData.error + '</p>'
-                }],
-              {
-                padding: 0
-              });
-          else
-            alert(jsonData.error);
-
+          PrestaShop.showError(jsonData.error);
           // Reset the old address
           $('#select_address_delivery_' + id_product + '_' + id_product_attribute + '_' + old_id_address_delivery).val(old_id_address_delivery);
         } else {
@@ -211,19 +181,7 @@ function changeAddressDelivery(obj) {
   {
     // This test is will not usefull in the future
     if (old_id_address_delivery == 0) {
-      if (!!$.prototype.fancybox)
-        $.fancybox.open([
-            {
-              type: 'inline',
-              autoScale: true,
-              minHeight: 30,
-              content: '<p class="fancybox-error">' + txtSelectAnAddressFirst + '</p>'
-            }],
-          {
-            padding: 0
-          });
-      else
-        alert(txtSelectAnAddressFirst);
+      PrestaShop.showError(txtSelectAnAddressFirst);
       return false;
     }
 
@@ -255,20 +213,9 @@ function changeAddressDelivery(obj) {
       '&token=' + static_token +
       '&allow_refresh=1',
       success: function(jsonData) {
-        if (jsonData.error && !!$.prototype.fancybox)
-          $.fancybox.open([
-              {
-                type: 'inline',
-                autoScale: true,
-                minHeight: 30,
-                content: '<p class="fancybox-error">' + jsonData.error + '</p>'
-              }],
-            {
-              padding: 0
-            });
-        else
-          alert(jsonData.error);
-
+        if (jsonData.error) {
+          PrestaShop.showError(jsonData.error);
+        }
         var line = $('#product_' + id_product + '_' + id_product_attribute + '_0_' + old_id_address_delivery);
         var new_line = line.clone();
         updateAddressId(id_product, id_product_attribute, old_id_address_delivery, id_address_delivery, new_line);
@@ -386,24 +333,7 @@ function deleteProductFromSummary(id) {
     '&allow_refresh=1',
     success: function(jsonData) {
       if (jsonData.hasError) {
-        var errors = '';
-        for (var error in jsonData.errors)
-          //IE6 bug fix
-          if (error !== 'indexOf')
-            errors += $('<div />').html(jsonData.errors[error]).text() + '\n';
-        if (!!$.prototype.fancybox)
-          $.fancybox.open([
-              {
-                type: 'inline',
-                autoScale: true,
-                minHeight: 30,
-                content: '<p class="fancybox-error">' + errors + '</p>'
-              }],
-            {
-              padding: 0
-            });
-        else
-          alert(errors);
+        PrestaShop.showError(jsonData.errors);
       } else {
         if (jsonData.refresh) {
           window.location.reload();
@@ -472,20 +402,10 @@ function deleteProductFromSummary(id) {
     },
     error: function(XMLHttpRequest, textStatus, errorThrown) {
       if (textStatus !== 'abort') {
-        var error = 'TECHNICAL ERROR: unable to save update quantity \n\nDetails:\nError thrown: ' + XMLHttpRequest + '\n' + 'Text status: ' + textStatus;
-        if (!!$.prototype.fancybox)
-          $.fancybox.open([
-              {
-                type: 'inline',
-                autoScale: true,
-                minHeight: 30,
-                content: '<p class="fancybox-error">' + error + '</p>'
-              }],
-            {
-              padding: 0
-            });
-        else
-          alert(error);
+        PrestaShop.showError(
+          'TECHNICAL ERROR: unable to save update quantity \n\nDetails:\nError thrown: '
+          + XMLHttpRequest + '\n' + 'Text status: ' + textStatus
+        );
       }
     }
   });
@@ -549,24 +469,7 @@ function upQuantity(id, qty) {
     '&allow_refresh=1',
     success: function(jsonData) {
       if (jsonData.hasError) {
-        var errors = '';
-        for (var error in jsonData.errors)
-          //IE6 bug fix
-          if (error !== 'indexOf')
-            errors += $('<div />').html(jsonData.errors[error]).text() + '\n';
-        if (!!$.prototype.fancybox)
-          $.fancybox.open([
-              {
-                type: 'inline',
-                autoScale: true,
-                minHeight: 30,
-                content: '<p class="fancybox-error">' + errors + '</p>'
-              }],
-            {
-              padding: 0
-            });
-        else
-          alert(errors);
+        PrestaShop.showError(jsonData.errors);
         $('input[name=quantity_' + id + ']').val($('input[name=quantity_' + id + '_hidden]').val());
       } else {
         if (jsonData.refresh) {
@@ -587,20 +490,10 @@ function upQuantity(id, qty) {
     },
     error: function(XMLHttpRequest, textStatus, errorThrown) {
       if (textStatus !== 'abort') {
-        error = 'TECHNICAL ERROR: unable to save update quantity \n\nDetails:\nError thrown: ' + XMLHttpRequest + '\n' + 'Text status: ' + textStatus;
-        if (!!$.prototype.fancybox)
-          $.fancybox.open([
-              {
-                type: 'inline',
-                autoScale: true,
-                minHeight: 30,
-                content: '<p class="fancybox-error">' + error + '</p>'
-              }],
-            {
-              padding: 0
-            });
-        else
-          alert(error);
+        PrestaShop.showError(
+          'TECHNICAL ERROR: unable to save update quantity \n\nDetails:\nError thrown: '
+          + XMLHttpRequest + '\n' + 'Text status: ' + textStatus
+        );
       }
     }
   });
@@ -653,24 +546,7 @@ function downQuantity(id, qty) {
       '&allow_refresh=1',
       success: function(jsonData) {
         if (jsonData.hasError) {
-          var errors = '';
-          for (var error in jsonData.errors)
-            //IE6 bug fix
-            if (error !== 'indexOf')
-              errors += $('<div />').html(jsonData.errors[error]).text() + '\n';
-          if (!!$.prototype.fancybox)
-            $.fancybox.open([
-                {
-                  type: 'inline',
-                  autoScale: true,
-                  minHeight: 30,
-                  content: '<p class="fancybox-error">' + errors + '</p>'
-                }],
-              {
-                padding: 0
-              });
-          else
-            alert(errors);
+          PrestaShop.showError(jsonData.errors);
           $('input[name=quantity_' + id + ']').val($('input[name=quantity_' + id + '_hidden]').val());
         } else {
           if (jsonData.refresh) {

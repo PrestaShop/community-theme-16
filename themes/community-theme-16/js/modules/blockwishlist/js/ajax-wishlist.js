@@ -43,34 +43,9 @@ function WishlistCart(id, action, id_product, id_product_attribute, quantity, id
         if (isLogged == true) {
           wishlistProductsIdsAdd(id_product);
           wishlistRefreshStatus();
-
-          if (!!$.prototype.fancybox)
-            $.fancybox.open([
-              {
-                type: 'inline',
-                autoScale: true,
-                minHeight: 30,
-                content: '<p class="fancybox-error">' + added_to_wishlist + '</p>'
-              }
-            ], {
-              padding: 0
-            });
-          else
-            alert(added_to_wishlist);
+          PrestaShop.showSuccess(added_to_wishlist);
         } else {
-          if (!!$.prototype.fancybox)
-            $.fancybox.open([
-              {
-                type: 'inline',
-                autoScale: true,
-                minHeight: 30,
-                content: '<p class="fancybox-error">' + loggin_required + '</p>'
-              }
-            ], {
-              padding: 0
-            });
-          else
-            alert(loggin_required);
+          PrestaShop.showError(loggin_required);
         }
       }
       if (action == 'delete') {
@@ -139,19 +114,7 @@ function WishlistAddProductCart(token, id_product, id_product_attribute, id_quan
     cache: false,
     success: function(data) {
       if (data) {
-        if (!!$.prototype.fancybox)
-          $.fancybox.open([
-            {
-              type: 'inline',
-              autoScale: true,
-              minHeight: 30,
-              content: '<p class="fancybox-error">' + data + '</p>'
-            }
-          ], {
-            padding: 0
-          });
-        else
-          alert(data);
+        PrestaShop.showSuccess(data);
       } else
         $('#' + id_quantity).val($('#' + id_quantity).val() - 1);
     }
@@ -333,19 +296,7 @@ function WishlistSend(id, id_wishlist, id_email) {
     },
     function(data) {
       if (data) {
-        if (!!$.prototype.fancybox)
-          $.fancybox.open([
-            {
-              type: 'inline',
-              autoScale: true,
-              minHeight: 30,
-              content: '<p class="fancybox-error">' + data + '</p>'
-            }
-          ], {
-            padding: 0
-          });
-        else
-          alert(data);
+        PrestaShop.showSuccess(data);
       } else
         WishlistVisibility(id, 'hideSendWishlist');
     }
@@ -399,17 +350,7 @@ function wishlistProductChange(id_product, id_product_attribute, id_old_wishlist
         $('#wishlist_' + id_old_wishlist + ' td:nth-child(2)').text($('#wishlist_' + id_old_wishlist + ' td:nth-child(2)').text() - quantity);
         $('#wishlist_' + id_new_wishlist + ' td:nth-child(2)').text(+$('#wishlist_' + id_new_wishlist + ' td:nth-child(2)').text() + +quantity);
       } else {
-        if (!!$.prototype.fancybox)
-          $.fancybox.open([
-            {
-              type: 'inline',
-              autoScale: true,
-              minHeight: 30,
-              content: '<p class="fancybox-error">' + data.error + '</p>'
-            }
-          ], {
-            padding: 0
-          });
+        PrestaShop.showError(data.error);
       }
     }
   });

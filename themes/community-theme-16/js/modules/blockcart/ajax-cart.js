@@ -204,19 +204,7 @@ var ajaxCart = {
         window.parent.location.href = window.location.href.replace('content_only=1', '');
         return;
       }
-      if (!!$.prototype.fancybox)
-        $.fancybox.open([
-          {
-            type: 'inline',
-            autoScale: true,
-            minHeight: 30,
-            content: '<p class="fancybox-error">' + fieldRequired + '</p>'
-          }
-        ], {
-          padding: 0
-        });
-      else
-        alert(fieldRequired);
+      PrestaShop.showError(fieldRequired);
       return;
     }
 
@@ -306,22 +294,11 @@ var ajaxCart = {
 
       },
       error: function(XMLHttpRequest, textStatus, errorThrown) {
-        var error = 'Impossible to add the product to the cart.<br/>textStatus: \'' + textStatus + '\'<br/>errorThrown: \'' +
-          errorThrown + '\'<br/>responseText:<br/>' + XMLHttpRequest.responseText;
-        if (!!$.prototype.fancybox) {
-          $.fancybox.open([{
-            type: 'inline',
-            autoScale: true,
-            minHeight: 30,
-            content: '<p class="fancybox-error">' + error + '</p>'
-          }], {
-            padding: 0
-          });
-        } else {
-          alert(error);
-        }
-
-        //reactive the button when adding has finished
+        PrestaShop.showError(
+          'Impossible to add the product to the cart.<br/>textStatus: \'' + textStatus + '\'<br/>errorThrown: \'' +
+          errorThrown + '\'<br/>responseText:<br/>' + XMLHttpRequest.responseText
+        );
+        // Reactivate the button when adding has finished
         if (addedFromProductPage) {
           $productPageBtn.removeProp('disabled').removeClass('disabled');
         } else {
@@ -352,19 +329,7 @@ var ajaxCart = {
         }
       },
       error: function() {
-        var error = 'ERROR: unable to delete the product';
-        if (!!$.prototype.fancybox) {
-          $.fancybox.open([{
-            type: 'inline',
-            autoScale: true,
-            minHeight: 30,
-            content: error
-          }], {
-            padding: 0
-          });
-        } else {
-          alert(error);
-        }
+        PrestaShop.showError('ERROR: unable to delete the product');
       }
     });
   },
@@ -744,30 +709,7 @@ var ajaxCart = {
   updateCart: function(jsonData) {
     //user errors display
     if (jsonData.hasError) {
-      var errors = '';
-
-      for (var error in jsonData.errors) {
-        if (jsonData.errors.hasOwnProperty(error)) {
-          //IE6 bug fix
-          if (error != 'indexOf') {
-            errors += $('<div />').html(jsonData.errors[error]).text() + '\n';
-          }
-        }
-      }
-
-      if (!!$.prototype.fancybox) {
-        $.fancybox.open([{
-          type: 'inline',
-          autoScale: true,
-          minHeight: 30,
-          content: '<p class="fancybox-error">' + errors + '</p>'
-        }], {
-          padding: 0
-        });
-      } else {
-        alert(errors);
-      }
-
+      PrestaShop.showError(jsonData.errors);
     } else {
       ajaxCart.updateCartEverywhere(jsonData);
       ajaxCart.hideOldProducts(jsonData);

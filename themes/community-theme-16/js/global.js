@@ -1,4 +1,47 @@
 /* global quickView, page_name, FancyboxI18nClose, FancyboxI18nNext, FancyboxI18nPrev, highDPI, request, url */
+
+var PrestaShop = (function() {
+
+  function showWindowAlert(msg, title) {
+    var content = title ? title + "\n\n" : '';
+    content +=  $.isArray(msg) ? msg.join("\n") : msg;
+    alert(content);
+  }
+
+  function showFancyboxAlert(msg, title, wrapperClass) {
+    if ($.isArray(msg)) {
+      msg = '<ul><li>' + msg.join('</li><li>') + '</li><ul>';
+    }
+    $.fancybox.open([{
+      type: 'inline',
+      autoScale: true,
+      minHeight: 30,
+      content: '<div class="fancybox-error' + (wrapperClass ? ' ' + wrapperClass : '') + '">'
+                + (title ? '<p><b>' + title + '</b></p>' : '') + msg + '</div>'
+    }], {
+      padding: 0
+    });
+  }
+
+  return {
+    showError : function (msg, title) {
+      if (!!$.prototype.fancybox) {
+        showFancyboxAlert(msg, title);
+      } else {
+        showWindowAlert(msg, title);
+      }
+    },
+    showSuccess : function (msg, title) {
+      if (!!$.prototype.fancybox) {
+        showFancyboxAlert(msg, title, 'fancybox-success');
+      } else {
+        showWindowAlert(msg, title);
+      }
+    }
+  };
+
+})();
+
 $(function() {
 
   var touch = !!isTouchDevice();

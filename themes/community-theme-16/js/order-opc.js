@@ -71,20 +71,10 @@ $(document).ready(function() {
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {
           if (textStatus !== 'abort') {
-            error = 'TECHNICAL ERROR: unable to send login informations \n\nDetails:\nError thrown: ' + XMLHttpRequest + '\n' + 'Text status: ' + textStatus;
-            if (!!$.prototype.fancybox)
-              $.fancybox.open([
-                {
-                  type: 'inline',
-                  autoScale: true,
-                  minHeight: 30,
-                  content: '<p class="fancybox-error">' + error + '</p>'
-                }
-              ], {
-                padding: 0
-              });
-            else
-              alert(error);
+            PrestaShop.showError(
+              'TECHNICAL ERROR: unable to send login informations \n\nDetails:\nError thrown: '
+              + XMLHttpRequest + '\n' + 'Text status: ' + textStatus
+            );
           }
         }
       });
@@ -204,20 +194,10 @@ $(document).ready(function() {
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {
           if (textStatus !== 'abort') {
-            error = 'TECHNICAL ERROR: unable to save account \n\nDetails:\nError thrown: ' + XMLHttpRequest + '\n' + 'Text status: ' + textStatus;
-            if (!!$.prototype.fancybox)
-              $.fancybox.open([
-                {
-                  type: 'inline',
-                  autoScale: true,
-                  minHeight: 30,
-                  content: '<p class="fancybox-error">' + error + '</p>'
-                }
-              ], {
-                padding: 0
-              });
-            else
-              alert(error);
+            PrestaShop.showError(
+              'TECHNICAL ERROR: unable to save account \n\nDetails:\nError thrown: '
+              + XMLHttpRequest + '\n' + 'Text status: ' + textStatus
+            );
           }
           $('#opc_new_account-overlay, #opc_delivery_methods-overlay, #opc_payment_methods-overlay').fadeIn('slow');
         }
@@ -301,24 +281,7 @@ function updateAddressSelection(is_adv_api) {
     (is_adv_api ? '&isAdvApi=1' : ''),
     success: function(jsonData) {
       if (jsonData.hasError) {
-        var errors = '';
-        for (var error in jsonData.errors)
-          //IE6 bug fix
-          if (error !== 'indexOf')
-            errors += $('<div />').html(jsonData.errors[error]).text() + '\n';
-        if (!!$.prototype.fancybox)
-          $.fancybox.open([
-            {
-              type: 'inline',
-              autoScale: true,
-              minHeight: 30,
-              content: '<p class="fancybox-error">' + errors + '</p>'
-            }
-          ], {
-            padding: 0
-          });
-        else
-          alert(errors);
+        PrestaShop.showError(jsonData.errors);
       } else {
         if (jsonData.refresh) {
           window.location.reload();
@@ -383,20 +346,10 @@ function updateAddressSelection(is_adv_api) {
     },
     error: function(XMLHttpRequest, textStatus, errorThrown) {
       if (textStatus !== 'abort') {
-        error = 'TECHNICAL ERROR: unable to save adresses \n\nDetails:\nError thrown: ' + XMLHttpRequest + '\n' + 'Text status: ' + textStatus;
-        if (!!$.prototype.fancybox)
-          $.fancybox.open([
-            {
-              type: 'inline',
-              autoScale: true,
-              minHeight: 30,
-              content: '<p class="fancybox-error">' + error + '</p>'
-            }
-          ], {
-            padding: 0
-          });
-        else
-          alert(error);
+        PrestaShop.showError(
+          'TECHNICAL ERROR: unable to save adresses \n\nDetails:\nError thrown: '
+          + XMLHttpRequest + '\n' + 'Text status: ' + textStatus
+        );
       }
       $('#opc_account-overlay, #opc_delivery_methods-overlay, #opc_payment_methods-overlay').fadeOut('slow');
     }
@@ -415,37 +368,7 @@ function getCarrierListAndUpdate() {
     data: 'ajax=true&method=getCarrierList&token=' + static_token,
     success: function(jsonData) {
       if (jsonData.hasError) {
-        var errors = '';
-        for (var error in jsonData.errors)
-          //IE6 bug fix
-          if (error !== 'indexOf')
-            errors += $('<div />').html(jsonData.errors[error]).text() + '\n';
-        if (!!$.prototype.fancybox) {
-          $.fancybox.open([
-            {
-              type: 'inline',
-              autoScale: true,
-              minHeight: 30,
-              content: '<p class="fancybox-error">' + errors + '</p>'
-            }
-          ], {
-            padding: 0
-          });
-        } else {
-          if (!!$.prototype.fancybox)
-            $.fancybox.open([
-              {
-                type: 'inline',
-                autoScale: true,
-                minHeight: 30,
-                content: '<p class="fancybox-error">' + errors + '</p>'
-              }
-            ], {
-              padding: 0
-            });
-          else
-            alert(errors);
-        }
+        PrestaShop.showError(jsonData.errors);
       } else
         updateCarrierList(jsonData);
       $('#opc_delivery_methods-overlay').fadeOut('slow');
@@ -485,24 +408,7 @@ function updateCarrierSelectionAndGift() {
     data: 'ajax=true&method=updateCarrierAndGetPayments' + delivery_option_params + 'recyclable=' + recyclablePackage + '&gift=' + gift + '&gift_message=' + giftMessage + '&token=' + static_token ,
     success: function(jsonData) {
       if (jsonData.hasError) {
-        var errors = '';
-        for (var error in jsonData.errors)
-          //IE6 bug fix
-          if (error !== 'indexOf')
-            errors += $('<div />').html(jsonData.errors[error]).text() + '\n';
-        if (!!$.prototype.fancybox)
-          $.fancybox.open([
-            {
-              type: 'inline',
-              autoScale: true,
-              minHeight: 30,
-              content: '<p class="fancybox-error">' + errors + '</p>'
-            }
-          ], {
-            padding: 0
-          });
-        else
-          alert(errors);
+        PrestaShop.showError(jsonData.errors);
       } else {
         updateCartSummary(jsonData.summary);
         updatePaymentMethods(jsonData);
@@ -549,20 +455,10 @@ function confirmFreeOrder() {
     },
     error: function(XMLHttpRequest, textStatus, errorThrown) {
       if (textStatus !== 'abort') {
-        error = 'TECHNICAL ERROR: unable to confirm the order \n\nDetails:\nError thrown: ' + XMLHttpRequest + '\n' + 'Text status: ' + textStatus;
-        if (!!$.prototype.fancybox)
-          $.fancybox.open([
-            {
-              type: 'inline',
-              autoScale: true,
-              minHeight: 30,
-              content: '<p class="fancybox-error">' + error + '</p>'
-            }
-          ], {
-            padding: 0
-          });
-        else
-          alert(error);
+        PrestaShop.showError(
+          'TECHNICAL ERROR: unable to confirm the order \n\nDetails:\nError thrown: '
+          + XMLHttpRequest + '\n' + 'Text status: ' + textStatus
+        );
       }
     }
   });
@@ -644,20 +540,10 @@ function saveAddress(type) {
     },
     error: function(XMLHttpRequest, textStatus, errorThrown) {
       if (textStatus !== 'abort') {
-        error = 'TECHNICAL ERROR: unable to save adresses \n\nDetails:\nError thrown: ' + XMLHttpRequest + '\n' + 'Text status: ' + textStatus;
-        if (!!$.prototype.fancybox)
-          $.fancybox.open([
-            {
-              type: 'inline',
-              autoScale: true,
-              minHeight: 30,
-              content: '<p class="fancybox-error">' + error + '</p>'
-            }
-          ], {
-            padding: 0
-          });
-        else
-          alert(error);
+        PrestaShop.showError(
+          'TECHNICAL ERROR: unable to save adresses \n\nDetails:\nError thrown: '
+          + XMLHttpRequest + '\n' + 'Text status: ' + textStatus
+        );
       }
       $('#opc_account-overlay, #opc_delivery_methods-overlay, #opc_payment_methods-overlay').fadeOut('slow');
     }
