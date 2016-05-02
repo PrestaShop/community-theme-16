@@ -3,7 +3,7 @@
   <form action="{$link->getPageLink('index', null, null, null, false, null, true)|escape:'html':'UTF-8'}" method="post">
     <div class="form-group{if isset($msg) && $msg } {if $nw_error}form-error{else}form-ok{/if}{/if}" >
       <div class="input-group">
-        <input class="form-control" id="newsletter-input" type="text" name="email" size="18" value="{if isset($msg) && $msg}{$msg}{elseif isset($value) && $value}{$value}{else}{l s='Enter your e-mail' mod='blocknewsletter'}{/if}" />
+        <input class="form-control" id="newsletter-input" type="email" name="email" size="18" value="{if isset($msg) && $msg}{$msg}{elseif isset($value) && $value}{$value}{else}{l s='Enter your e-mail' mod='blocknewsletter'}{/if}" required/>
         <span class="input-group-btn">
           <button type="submit" name="submitNewsletter" class="btn btn-primary">
             <i class="icon icon-chevron-right"></i>
