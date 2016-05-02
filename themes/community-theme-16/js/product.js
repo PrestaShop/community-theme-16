@@ -357,16 +357,13 @@ if (typeof(contentOnly) != 'undefined' && contentOnly) {
 
   $(document).on('click', '#image-block', function(e) {
     e.preventDefault();
-    var productUrl = window.document.location.href + '';
-    var data = productUrl.replace(/[\?|&]content_only=1/, '');
-
-    // @TODO Refactor
+    var url = window.location.href.replace(/[\?|&]content_only=1/, '');
 
     if (window.parent.page_name == 'search') {
-      data += ((data.indexOf('?') < 0) ? '?' : '&') + 'HTTP_REFERER=' + encodeURIComponent(window.parent.document.location.href);
+      url += ((url.indexOf('?') < 0) ? '?' : '&') + 'HTTP_REFERER=' + encodeURIComponent(window.parent.location.href);
     }
 
-    window.parent.document.location.href = data;
+    window.parent.location.href = url;
     return false;
   });
 }
@@ -948,7 +945,7 @@ function submitPublishProduct(url, redirect, token) {
     },
     function(data) {
       if (data.indexOf('error') === -1) {
-        document.location.href = data;
+        window.location.href = data;
       }
     }
   );
