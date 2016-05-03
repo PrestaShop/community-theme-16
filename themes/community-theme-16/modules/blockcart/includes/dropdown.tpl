@@ -129,7 +129,7 @@
         <div class="cart-prices-line">
           {assign var='cart_flag' value='Cart::ONLY_WRAPPING'|constant}
           <span>{l s='Wrapping' mod='blockcart'}</span>
-          <span class="price cart_block_wrapping_cost">
+          <span class="price ajax_block_wrapping_cost cart_block_wrapping_cost">
             {if $priceDisplay == 1}
               {convertPrice price=$cart->getOrderTotal(false, $cart_flag)}{else}{convertPrice price=$cart->getOrderTotal(true, $cart_flag)}
             {/if}

@@ -72,7 +72,7 @@
               {/if}
             {/if}
           </strong>
-          <span class="price cart_block_wrapping_cost">
+          <span class="price ajax_block_wrapping_cost">
             {if $priceDisplay == 1}
               {convertPrice price=$cart->getOrderTotal(false, Cart::ONLY_WRAPPING)}
             {else}
@@ -98,7 +98,7 @@
       {if $show_tax && isset($tax_cost)}
         <p class="layer_cart_row">
           <strong>{l s='Tax:' mod='blockcart'}</strong>
-          <span class="price cart_block_tax_cost ajax_cart_tax_cost">{$tax_cost}</span>
+          <span class="price ajax_cart_tax_cost">{$tax_cost}</span>
         </p>
       {/if}
 
