@@ -757,7 +757,7 @@ var ajaxCart = {
     }
 
     $('.ajax_cart_tax_cost').text(cart.taxCost);
-    $('.cart_block_wrapping_cost').text(cart.wrappingCost);
+    $('.ajax_block_wrapping_cost').text(cart.wrappingCost);
     $('.ajax_block_cart_total').text(cart.total);
     $('.ajax_block_products_total').text(cart.productTotal);
     $('.ajax_total_price_wt').text(cart.total_price_wt);
