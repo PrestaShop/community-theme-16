@@ -10,6 +10,7 @@
     "gulp-zip": "^3.0.2",
     "mkdirp": "^0.5.1",
     "run-sequence": "^1.1.5",
-    "yargs": "^4.2.0"
+    "yargs": "^4.2.0",
+    "node-notifier": "^4.5.0"
   }
 }

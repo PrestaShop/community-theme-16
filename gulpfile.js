@@ -25,6 +25,13 @@ var cleanUp = [
     './themes/' + themeName + '/css/**/*.css.map'
 ];
 
+function showNotification(title, message, error){
+     notifier.notify({
+        title: title,
+        message: message
+    });
+}
+
 gulp.task('create-folders', function(callback){
     var total = createFolders.length;
     var done  = 0;
@@ -49,14 +56,15 @@ gulp.task('create-folders', function(callback){
     });
 });
 
-gulp.task('compile-css', function(callback){
+gulp.task('run-compilation', function(callback){
     var options = '';
     if (argv.f || argv.force) {
         options += ' --force';
     }
     var compassCompile = exec('compass compile ./themes/' + themeName + options, function(err, out, code) {
         if (err instanceof Error) {
-            throw err;
+            showNotification('Ooops! Compilation failed!', err.name + ' ' + err.message);
+            return;
         }
 
         if (callback) {
@@ -64,6 +72,10 @@ gulp.task('compile-css', function(callback){
         }
     });
     compassCompile.stdout.pipe(process.stdout);
+});
+
+gulp.task('compile-css', ['run-compilation'], function() {
+   showNotification('Compilation success', 'Your Sass files have been compiled');
 });
 
 gulp.task('clean-up', function(){
