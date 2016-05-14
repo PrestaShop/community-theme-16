@@ -8,6 +8,9 @@ var fs          = require('fs-extra');
 var zip         = require('gulp-zip');
 var runSequence = require('run-sequence');
 var jscs        = require('gulp-jscs');
+var sass        = require('gulp-sass');
+var sourcemaps  = require('gulp-sourcemaps');
+var notify      = require("gulp-notify");
 
 var themeName = 'community-theme-16';
 
@@ -49,21 +52,25 @@ gulp.task('create-folders', function(callback){
     });
 });
 
-gulp.task('compile-css', function(callback){
-    var options = '';
-    if (argv.f || argv.force) {
-        options += ' --force';
-    }
-    var compassCompile = exec('compass compile ./themes/' + themeName + options, function(err, out, code) {
-        if (err instanceof Error) {
-            throw err;
-        }
+function displayNotification(msg){
+    return notify(msg);
+}
 
-        if (callback) {
-            callback();
-        }
-    });
-    compassCompile.stdout.pipe(process.stdout);
+gulp.task('compile-css', function(callback){
+    return gulp.src('./themes/' + themeName + '/sass/**/*.scss')
+            .pipe(sass({includePaths: require('node-bourbon').includePaths})
+            .on('error', function()
+            {
+                displayNotification(sass.logError);
+            }))
+            .pipe(sourcemaps.init())
+            .pipe(sourcemaps.write('./'))
+            .pipe(gulp.dest('./themes/' + themeName + '/css/'))
+            .pipe(displayNotification({ message: 'Compilation successful', onLast: true }));
+});
+
+gulp.task('sass:watch', function () {
+  gulp.watch('./themes/' + themeName + '/sass/**/*.scss', ['compile-css']);
 });
 
 gulp.task('clean-up', function(){

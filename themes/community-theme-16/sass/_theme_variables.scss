@@ -55,3 +55,7 @@ $input-border-focus: $brand-primary;
 // Font Awesome
 $font-icon     : 'FontAwesome';
 $fa-css-prefix : icon;
+
+// Custom mixins + bourbon
+@import "bourbon";
+@import "vendor_mixins";
