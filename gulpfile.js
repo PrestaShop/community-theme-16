@@ -12,6 +12,7 @@ var notify      = require("gulp-notify");
 var bourbon     = require('node-bourbon');
 var gulpif      = require('gulp-if');
 var options     = require('./package.json').options;
+var rename      = require('gulp-rename');
 
 var createFolders = [
   './themes/' + options.themeName + '/cache/',
@@ -69,6 +70,26 @@ gulp.task('compile-css', function(){
     .pipe(gulpif(options.sourcemaps, sourcemaps.write('./')))
     .pipe(gulp.dest('./themes/' + options.themeName + '/css/'))
     .pipe(displayNotification({ message: 'Compilation successful for ' + options.themeName, onLast: true }));
+});
+
+gulp.task('compile-module-css', function(){
+  return gulp
+    .src('./modules/' + options.themeModulePrefix + '*/views/sass/**/*.scss')
+    .pipe(sass({
+      includePaths: bourbon.includePaths,
+      outputStyle: 'expanded',
+      precision: 8
+    })
+      .on('error', function() {
+        displayNotification(sass.logError);
+      }))
+    .pipe(sourcemaps.init())
+    .pipe(sourcemaps.write('./'))
+    .pipe(rename(function(path) {
+      path.dirname = path.dirname.replace('/views/sass', '/views/css');
+    }))
+    .pipe(gulp.dest('./modules/'))
+    .pipe(displayNotification({ message: 'Module CSS compilation successful', onLast: true }));
 });
 
 gulp.task('sass:watch', function () {
