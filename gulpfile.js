@@ -165,7 +165,7 @@ gulp.task('create-zip', function(){
 
 gulp.task('build', function(callback) {
   runSequence(
-    ['create-folders', 'compile-css'],
+    ['create-folders', 'compile-css', 'compile-module-css'],
     'clean-up',
     'format-js',
     'copy-index',
