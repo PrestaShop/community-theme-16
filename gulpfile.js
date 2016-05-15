@@ -58,11 +58,14 @@ function displayNotification(msg){
 
 gulp.task('compile-css', function(callback){
   return gulp.src('./themes/' + themeName + '/sass/**/*.scss')
-    .pipe(sass({includePaths: require('node-bourbon').includePaths})
-      .on('error', function()
-      {
-        displayNotification(sass.logError);
-      }))
+    .pipe(sass({
+      includePaths: require('node-bourbon').includePaths,
+      outputStyle: 'expanded',
+      precision: 8
+    })
+    .on('error', function() {
+      displayNotification(sass.logError);
+    }))
     .pipe(sourcemaps.init())
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('./themes/' + themeName + '/css/'))
