@@ -13,6 +13,11 @@
     "node-bourbon": "^4.2.8",
     "mkdirp": "^0.5.1",
     "run-sequence": "^1.1.5",
-    "gulp-notify": "^2.2.0"
+    "gulp-notify": "^2.2.0",
+    "gulp-if": "^2.0.1"
+  },
+  "options": {
+    "themeName": "community-theme-16",
+    "sourcemaps": false
   }
 }

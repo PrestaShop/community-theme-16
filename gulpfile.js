@@ -10,22 +10,30 @@ var sass        = require('gulp-sass');
 var sourcemaps  = require('gulp-sourcemaps');
 var notify      = require("gulp-notify");
 var bourbon     = require('node-bourbon');
+var package     = require('./package.json');
+var gulpif      = require('gulp-if');
 
-var themeName = 'community-theme-16';
+var options = package.options;
 
 var createFolders = [
-  './themes/' + themeName + '/cache/',
-  './themes/' + themeName + '/pdf/',
-  './themes/' + themeName + '/pdf/lang/'
+  './themes/' + options.themeName + '/cache/',
+  './themes/' + options.themeName + '/pdf/',
+  './themes/' + options.themeName + '/pdf/lang/'
 ];
 
 var copyIndexIgnore = [];
 
 var cleanUp = [
-  './themes/' + themeName + '/.sass-cache/',
-  './themes/' + themeName + '/cache/*',
-  './themes/' + themeName + '/css/**/*.css.map'
+  './themes/' + options.themeName + '/.sass-cache/',
+  './themes/' + options.themeName + '/cache/*',
+  './themes/' + options.themeName + '/css/**/*.css.map'
 ];
+
+gulp.task('read-options', function()
+{
+  console.log(options);
+  console.log(options.themeName);
+});
 
 gulp.task('create-folders', function(callback){
   var total = createFolders.length;
@@ -56,7 +64,7 @@ function displayNotification(msg){
 }
 
 gulp.task('compile-css', function(){
-  return gulp.src('./themes/' + themeName + '/sass/**/*.scss')
+  return gulp.src('./themes/' + options.themeName + '/sass/**/*.scss')
     .pipe(sass({
       includePaths: bourbon.includePaths,
       outputStyle: 'expanded',
@@ -65,14 +73,14 @@ gulp.task('compile-css', function(){
     .on('error', function() {
       displayNotification(sass.logError);
     }))
-    .pipe(sourcemaps.init())
-    .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest('./themes/' + themeName + '/css/'))
+    .pipe(gulpif(options.sourcemaps, sourcemaps.init()))
+    .pipe(gulpif(options.sourcemaps, sourcemaps.write('./')))
+    .pipe(gulp.dest('./themes/' + options.themeName + '/css/'))
     .pipe(displayNotification({ message: 'Compilation successful', onLast: true }));
 });
 
 gulp.task('sass:watch', function () {
-  gulp.watch('./themes/' + themeName + '/sass/**/*.scss', ['compile-css']);
+  gulp.watch('./themes/' + options.themeName + '/sass/**/*.scss', ['compile-css']);
 });
 
 gulp.task('clean-up', function(){
@@ -84,7 +92,7 @@ gulp.task('clean-up', function(){
 gulp.task('copy-index', function(callback){
   var total;
   var done  = 0;
-  glob(['themes/' + themeName + '/**/', 'modules/*/**/'], { ignore : copyIndexIgnore }, function(err, folders) {
+  glob(['themes/' + options.themeName + '/**/', 'modules/*/**/'], { ignore : copyIndexIgnore }, function(err, folders) {
     total = folders.length;
     if (total < 1 && callback) {
       callback();
@@ -109,10 +117,10 @@ gulp.task('copy-index', function(callback){
 gulp.task('format-js', function () {
 
   return gulp.src([
-    './themes*/' + themeName + '/js/**/*.js',
-    '!./themes*/' + themeName + '/js/**/*.min.js',
-    '!./themes*/' + themeName + '/js/autoload/**/*.js',
-    '!./themes*/' + themeName + '/js/debug/**/*.js'
+    './themes*/' + options.themeName + '/js/**/*.js',
+    '!./themes*/' + options.themeName + '/js/**/*.min.js',
+    '!./themes*/' + options.themeName + '/js/autoload/**/*.js',
+    '!./themes*/' + options.themeName + '/js/debug/**/*.js'
   ])
     .pipe(jscs({ fix : true }))
     .pipe(gulp.dest('./'));
@@ -133,11 +141,11 @@ gulp.task('create-zip', function(){
     }
 
     return gulp.src([
-      './themes*/' + themeName + '*/**',
+      './themes*/' + options.themeName + '*/**',
       './modules*/ct*/**',
       './Config.xml'
     ])
-      .pipe(zip('v' + themeVersion + '-' + themeName + '.zip'))
+      .pipe(zip('v' + themeVersion + '-' + options.themeName + '.zip'))
       .pipe(gulp.dest('./'));
   });
 });
