@@ -44,7 +44,7 @@ class CTTopMenu extends Module
         $hooks = array(
             'displayHeader',
             'displayTop',
-            'displayCtMenu',
+            'displayCtTopMenu',
             'actionCTTopMenuCompositionChanged',
             'actionObjectProductUpdateAfter',
             'actionObjectProductDeleteAfter',
@@ -207,11 +207,12 @@ class CTTopMenu extends Module
     }
 
     /**
-     * Returns top menu HTML to be output wherever you want using {hook h='displayCtMenu'}
+     * Returns top menu HTML to be output wherever you want using {hook h='displayCtTopMenu'}
      *
+     * @param array $params - Smarty params array
      * @return string
      */
-    public function hookDisplayCtMenu($params)
+    public function hookDisplayCtTopMenu($params)
     {
         $template = 'cttopmenu';
 
