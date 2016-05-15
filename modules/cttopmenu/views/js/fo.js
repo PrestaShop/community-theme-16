@@ -7,7 +7,6 @@ $(function() {
 
   // Enables clicking inside the dropdown without closing the the drodpown (blur event)
   $(document).on('click', '.yamm .dropdown-menu', function(e) {
-    console.log('prevent');
     e.stopPropagation();
   });
 
