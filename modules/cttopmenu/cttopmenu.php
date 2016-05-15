@@ -19,7 +19,7 @@ class CTTopMenu extends Module
     {
         $this->name    = 'cttopmenu';
         $this->tab     = 'front_office_features';
-        $this->version = '1.0.0';
+        $this->version = '1.1.0';
         $this->author  = 'PrestaShop Community';
 
         parent::__construct();
@@ -44,6 +44,7 @@ class CTTopMenu extends Module
         $hooks = array(
             'displayHeader',
             'displayTop',
+            'displayCtTopMenu',
             'actionCTTopMenuCompositionChanged',
             'actionObjectProductUpdateAfter',
             'actionObjectProductDeleteAfter',
@@ -169,22 +170,20 @@ class CTTopMenu extends Module
 
     public function hookDisplayHeader()
     {
-        // $this->context->controller->addCSS();
-        // $this->context->controller->addJS();
+        $this->context->controller->addCSS($this->_path.'views/css/fo.css');
+        $this->context->controller->addJS($this->_path.'views/js/fo.js');
     }
 
     /**
-     * Returns top menu HTML to be output at the page top
+     * Returns top menu HTML within specific template
      *
+     * @param string $template - name of the smarty template for the menu
      * @return string
      */
-    public function hookDisplayTop()
+    public function renderMenu($template = 'cttopmenu')
     {
-        $this->context->controller->addCSS($this->_path.'views/css/fo.css');
-        $this->context->controller->addJS($this->_path.'views/js/fo.js');
-
-        $cacheKey = $this->getCacheId('cttopmenu.tpl');
-        if (!$this->isCached('cttopmenu.tpl', $cacheKey)) {
+        $cacheKey = $this->getCacheId($template.'.tpl');
+        if (!$this->isCached($template.'.tpl', $cacheKey)) {
             $id_lang = $this->context->language->id;
             $id_shop = Shop::getContextShopID();
 
@@ -195,7 +194,34 @@ class CTTopMenu extends Module
             ));
         }
 
-        return $this->display(__FILE__, 'cttopmenu.tpl', $cacheKey);
+        return $this->display(__FILE__, $template.'.tpl', $cacheKey);
+    }
+
+    /**
+     * Returns top menu HTML to be output at the page top
+     *
+     * @return string
+     */
+    public function hookDisplayTop()
+    {
+        return $this->renderMenu();
+    }
+
+    /**
+     * Returns top menu HTML to be output wherever you want using {hook h='displayCtTopMenu'}
+     *
+     * @param array $params - Smarty params array
+     * @return string
+     */
+    public function hookDisplayCtTopMenu(array $params)
+    {
+        $template = 'cttopmenu';
+
+        if (array_key_exists('custom_tpl', $params)) {
+            $template = $params['custom_tpl'];
+        }
+
+        return $this->renderMenu($template);
     }
 
     /**
@@ -203,7 +229,7 @@ class CTTopMenu extends Module
      */
     protected function clearMenuCache()
     {
-        $this->_clearCache('cttopmenu.tpl');
+        $this->_clearCache('*');
     }
 
     public function hookActionCTTopMenuCompositionChanged()
