@@ -69,7 +69,10 @@ gulp.task('compile-css', function(){
     .pipe(gulpif(options.sourcemaps, sourcemaps.init()))
     .pipe(gulpif(options.sourcemaps, sourcemaps.write('./')))
     .pipe(gulp.dest('./themes/' + options.themeName + '/css/'))
-    .pipe(displayNotification({ message: 'Compilation successful for ' + options.themeName, onLast: true }));
+    .pipe(displayNotification({
+      message: 'Theme CSS compilation successful for ' + options.themeName,
+      onLast: true
+    }));
 });
 
 gulp.task('compile-module-css', function(){
@@ -89,7 +92,10 @@ gulp.task('compile-module-css', function(){
       path.dirname = path.dirname.replace('/views/sass', '/views/css');
     }))
     .pipe(gulp.dest('./modules/'))
-    .pipe(displayNotification({ message: 'Module CSS compilation successful', onLast: true }));
+    .pipe(displayNotification({
+      message: 'Theme module CSS compilation successful for ' + options.themeName,
+      onLast: true
+    }));
 });
 
 gulp.task('sass:watch', function () {
