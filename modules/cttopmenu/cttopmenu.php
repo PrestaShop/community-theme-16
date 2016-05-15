@@ -213,7 +213,7 @@ class CTTopMenu extends Module
      * @param array $params - Smarty params array
      * @return string
      */
-    public function hookDisplayCtTopMenu($params)
+    public function hookDisplayCtTopMenu(array $params)
     {
         $template = 'cttopmenu';
 
