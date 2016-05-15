@@ -10,10 +10,8 @@ var sass        = require('gulp-sass');
 var sourcemaps  = require('gulp-sourcemaps');
 var notify      = require("gulp-notify");
 var bourbon     = require('node-bourbon');
-var package     = require('./package.json');
 var gulpif      = require('gulp-if');
-
-var options = package.options;
+var options     = require('./package.json').options;
 
 var createFolders = [
   './themes/' + options.themeName + '/cache/',
@@ -70,7 +68,7 @@ gulp.task('compile-css', function(){
     .pipe(gulpif(options.sourcemaps, sourcemaps.init()))
     .pipe(gulpif(options.sourcemaps, sourcemaps.write('./')))
     .pipe(gulp.dest('./themes/' + options.themeName + '/css/'))
-    .pipe(displayNotification({ message: 'Compilation successful', onLast: true }));
+    .pipe(displayNotification({ message: 'Compilation successful for ' + options.themeName, onLast: true }));
 });
 
 gulp.task('sass:watch', function () {
