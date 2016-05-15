@@ -72,8 +72,8 @@ $(document).ready(function() {
         error: function(XMLHttpRequest, textStatus, errorThrown) {
           if (textStatus !== 'abort') {
             PrestaShop.showError(
-              'TECHNICAL ERROR: unable to send login informations \n\nDetails:\nError thrown: '
-              + XMLHttpRequest + '\n' + 'Text status: ' + textStatus
+              'TECHNICAL ERROR: unable to send login informations \n\nDetails:\nError thrown: ' +
+              XMLHttpRequest + '\n' + 'Text status: ' + textStatus
             );
           }
         }
@@ -195,8 +195,8 @@ $(document).ready(function() {
         error: function(XMLHttpRequest, textStatus, errorThrown) {
           if (textStatus !== 'abort') {
             PrestaShop.showError(
-              'TECHNICAL ERROR: unable to save account \n\nDetails:\nError thrown: '
-              + XMLHttpRequest + '\n' + 'Text status: ' + textStatus
+              'TECHNICAL ERROR: unable to save account \n\nDetails:\nError thrown: ' +
+              XMLHttpRequest + '\n' + 'Text status: ' + textStatus
             );
           }
           $('#opc_new_account-overlay, #opc_delivery_methods-overlay, #opc_payment_methods-overlay').fadeIn('slow');
@@ -347,8 +347,8 @@ function updateAddressSelection(is_adv_api) {
     error: function(XMLHttpRequest, textStatus, errorThrown) {
       if (textStatus !== 'abort') {
         PrestaShop.showError(
-          'TECHNICAL ERROR: unable to save adresses \n\nDetails:\nError thrown: '
-          + XMLHttpRequest + '\n' + 'Text status: ' + textStatus
+          'TECHNICAL ERROR: unable to save adresses \n\nDetails:\nError thrown: ' +
+          XMLHttpRequest + '\n' + 'Text status: ' + textStatus
         );
       }
       $('#opc_account-overlay, #opc_delivery_methods-overlay, #opc_payment_methods-overlay').fadeOut('slow');
@@ -422,8 +422,8 @@ function updateCarrierSelectionAndGift() {
     error: function(XMLHttpRequest, textStatus, errorThrown) {
       if (textStatus !== 'abort') {
         PrestaShop.showError(
-          'TECHNICAL ERROR: unable to save carrier \n\nDetails:\nError thrown: '
-          + XMLHttpRequest + '\n' + 'Text status: ' + textStatus
+          'TECHNICAL ERROR: unable to save carrier \n\nDetails:\nError thrown: ' +
+          XMLHttpRequest + '\n' + 'Text status: ' + textStatus
         );
       }
       $('#opc_delivery_methods-overlay, #opc_payment_methods-overlay').fadeOut('slow');
@@ -460,8 +460,8 @@ function confirmFreeOrder() {
     error: function(XMLHttpRequest, textStatus, errorThrown) {
       if (textStatus !== 'abort') {
         PrestaShop.showError(
-          'TECHNICAL ERROR: unable to confirm the order \n\nDetails:\nError thrown: '
-          + XMLHttpRequest + '\n' + 'Text status: ' + textStatus
+          'TECHNICAL ERROR: unable to confirm the order \n\nDetails:\nError thrown: ' +
+          XMLHttpRequest + '\n' + 'Text status: ' + textStatus
         );
       }
     }
@@ -545,8 +545,8 @@ function saveAddress(type) {
     error: function(XMLHttpRequest, textStatus, errorThrown) {
       if (textStatus !== 'abort') {
         PrestaShop.showError(
-          'TECHNICAL ERROR: unable to save adresses \n\nDetails:\nError thrown: '
-          + XMLHttpRequest + '\n' + 'Text status: ' + textStatus
+          'TECHNICAL ERROR: unable to save adresses \n\nDetails:\nError thrown: ' +
+          XMLHttpRequest + '\n' + 'Text status: ' + textStatus
         );
       }
       $('#opc_account-overlay, #opc_delivery_methods-overlay, #opc_payment_methods-overlay').fadeOut('slow');
@@ -621,8 +621,8 @@ function updateNewAccountToAddressBlock(is_adv_api) {
     error: function(XMLHttpRequest, textStatus, errorThrown) {
       if (textStatus !== 'abort') {
         PrestaShop.showError(
-          'TECHNICAL ERROR: unable to send login informations \n\nDetails:\nError thrown: '
-          + XMLHttpRequest + '\n' + 'Text status: ' + textStatus
+          'TECHNICAL ERROR: unable to send login informations \n\nDetails:\nError thrown: ' +
+          XMLHttpRequest + '\n' + 'Text status: ' + textStatus
         );
       }
       $('#opc_delivery_methods-overlay, #opc_payment_methods-overlay').fadeOut('slow');
@@ -651,8 +651,8 @@ function bindInputs() {
       error: function(XMLHttpRequest, textStatus, errorThrown) {
         if (textStatus !== 'abort') {
           PrestaShop.showError(
-            'TECHNICAL ERROR: unable to save message \n\nDetails:\nError thrown: '
-            + XMLHttpRequest + '\n' + 'Text status: ' + textStatus
+            'TECHNICAL ERROR: unable to save message \n\nDetails:\nError thrown: ' +
+            XMLHttpRequest + '\n' + 'Text status: ' + textStatus
           );
         }
         $('#opc_delivery_methods-overlay').fadeOut('slow');

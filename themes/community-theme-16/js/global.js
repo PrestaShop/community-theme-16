@@ -3,8 +3,8 @@
 var PrestaShop = (function() {
 
   function showWindowAlert(msg, title) {
-    var content = title ? title + "\n\n" : '';
-    content +=  $.isArray(msg) ? msg.join("\n") : msg;
+    var content = title ? title + '\n\n' : '';
+    content +=  $.isArray(msg) ? msg.join('\n') : msg;
     alert(content);
   }
 
@@ -16,22 +16,22 @@ var PrestaShop = (function() {
       type: 'inline',
       autoScale: true,
       minHeight: 30,
-      content: '<div class="fancybox-error' + (wrapperClass ? ' ' + wrapperClass : '') + '">'
-                + (title ? '<p><b>' + title + '</b></p>' : '') + msg + '</div>'
+      content: '<div class="fancybox-error' + (wrapperClass ? ' ' + wrapperClass : '') + '">' +
+                (title ? '<p><b>' + title + '</b></p>' : '') + msg + '</div>'
     }], {
       padding: 0
     });
   }
 
   return {
-    showError : function (msg, title) {
+    showError: function(msg, title) {
       if (!!$.prototype.fancybox) {
         showFancyboxAlert(msg, title);
       } else {
         showWindowAlert(msg, title);
       }
     },
-    showSuccess : function (msg, title) {
+    showSuccess: function(msg, title) {
       if (!!$.prototype.fancybox) {
         showFancyboxAlert(msg, title, 'fancybox-success');
       } else {

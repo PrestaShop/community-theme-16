@@ -403,8 +403,8 @@ function deleteProductFromSummary(id) {
     error: function(XMLHttpRequest, textStatus, errorThrown) {
       if (textStatus !== 'abort') {
         PrestaShop.showError(
-          'TECHNICAL ERROR: unable to save update quantity \n\nDetails:\nError thrown: '
-          + XMLHttpRequest + '\n' + 'Text status: ' + textStatus
+          'TECHNICAL ERROR: unable to save update quantity \n\nDetails:\nError thrown: ' +
+          XMLHttpRequest + '\n' + 'Text status: ' + textStatus
         );
       }
     }
@@ -491,8 +491,8 @@ function upQuantity(id, qty) {
     error: function(XMLHttpRequest, textStatus, errorThrown) {
       if (textStatus !== 'abort') {
         PrestaShop.showError(
-          'TECHNICAL ERROR: unable to save update quantity \n\nDetails:\nError thrown: '
-          + XMLHttpRequest + '\n' + 'Text status: ' + textStatus
+          'TECHNICAL ERROR: unable to save update quantity \n\nDetails:\nError thrown: ' +
+          XMLHttpRequest + '\n' + 'Text status: ' + textStatus
         );
       }
     }
@@ -573,8 +573,8 @@ function downQuantity(id, qty) {
       error: function(XMLHttpRequest, textStatus, errorThrown) {
         if (textStatus !== 'abort') {
           PrestaShop.showError(
-            'TECHNICAL ERROR: unable to save update quantity \n\nDetails:\nError thrown: '
-            + XMLHttpRequest + '\n' + 'Text status: ' + textStatus
+            'TECHNICAL ERROR: unable to save update quantity \n\nDetails:\nError thrown: ' +
+            XMLHttpRequest + '\n' + 'Text status: ' + textStatus
           );
         }
       }

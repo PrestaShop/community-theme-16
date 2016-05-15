@@ -13,7 +13,7 @@ $(function() {
 
   $('.contact-form-box').on('submit', function() {
     $(this).addClass('loading-overlay');
-  })
+  });
 });
 
 function showProductSelect(id_order) {

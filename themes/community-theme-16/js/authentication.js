@@ -54,8 +54,8 @@ function submitFunction() {
     },
     error: function(XMLHttpRequest, textStatus, errorThrown) {
       PrestaShop.showError(
-        'TECHNICAL ERROR: unable to load form.\n\nDetails:\nError thrown: '
-        + XMLHttpRequest + '\n' + 'Text status: ' + textStatus
+        'TECHNICAL ERROR: unable to load form.\n\nDetails:\nError thrown: ' +
+        XMLHttpRequest + '\n' + 'Text status: ' + textStatus
       );
     }
   });

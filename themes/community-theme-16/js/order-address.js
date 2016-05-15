@@ -100,8 +100,8 @@ function updateAddresses() {
         $('[name="processAddress"]').prop('disabled', '');
         if (textStatus !== 'abort') {
           PrestaShop.showError(
-            'TECHNICAL ERROR: unable to save adresses \n\nDetails:\nError thrown: '
-            + XMLHttpRequest + '\n' + 'Text status: ' + textStatus
+            'TECHNICAL ERROR: unable to save adresses \n\nDetails:\nError thrown: ' +
+            XMLHttpRequest + '\n' + 'Text status: ' + textStatus
           );
         }
       }

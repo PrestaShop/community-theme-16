@@ -1,6 +1,6 @@
 $(function() {
 
-  $('#blocknewsletter').find('form').on('submit', function () {
+  $('#blocknewsletter').find('form').on('submit', function() {
     $(this).addClass('loading-overlay');
   });
 
