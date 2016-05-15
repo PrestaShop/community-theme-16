@@ -177,6 +177,7 @@ class CTTopMenu extends Module
     /**
      * Returns top menu HTML within specific template
      *
+     * @param string $template - name of the smarty template for the menu
      * @return string
      */
     public function renderMenu($template = 'cttopmenu')
