@@ -9,6 +9,7 @@ var jscs        = require('gulp-jscs');
 var sass        = require('gulp-sass');
 var sourcemaps  = require('gulp-sourcemaps');
 var notify      = require("gulp-notify");
+var bourbon     = require('node-bourbon');
 
 var themeName = 'community-theme-16';
 
@@ -57,7 +58,7 @@ function displayNotification(msg){
 gulp.task('compile-css', function(){
   return gulp.src('./themes/' + themeName + '/sass/**/*.scss')
     .pipe(sass({
-      includePaths: require('node-bourbon').includePaths,
+      includePaths: bourbon.includePaths,
       outputStyle: 'expanded',
       precision: 8
     })
