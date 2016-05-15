@@ -56,7 +56,7 @@ function displayNotification(msg){
   return notify(msg);
 }
 
-gulp.task('compile-css', function(callback){
+gulp.task('compile-css', function(){
   return gulp.src('./themes/' + themeName + '/sass/**/*.scss')
     .pipe(sass({
       includePaths: require('node-bourbon').includePaths,
