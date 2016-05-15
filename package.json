@@ -13,7 +13,6 @@
     "node-bourbon": "^4.2.8",
     "mkdirp": "^0.5.1",
     "run-sequence": "^1.1.5",
-    "yargs": "^4.2.0",
     "gulp-notify": "^2.2.0"
   }
 }
