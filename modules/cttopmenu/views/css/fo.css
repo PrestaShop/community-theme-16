@@ -7,15 +7,19 @@
 .yamm .nav, .yamm .collapse, .yamm .dropup, .yamm .dropdown {
   position: static;
 }
+
 .yamm .container {
   position: relative;
 }
+
 .yamm .dropdown-menu {
   left: auto;
 }
+
 .yamm .yamm-content {
   padding: 20px 30px;
 }
+
 .yamm .dropdown.yamm-fw .dropdown-menu {
   left: 0;
   right: 0;
@@ -27,13 +31,16 @@
 #cttopmenu {
   margin-top: 15px;
 }
+
 #cttopmenu .dropdown-menu {
   z-index: 1;
   font-size: 1.2em;
 }
+
 #cttopmenu .dropdown-content {
   padding: 10px 15px;
 }
+
 #cttopmenu .sub-list {
   padding-left: 1.35em;
   list-style: disc;
