@@ -84,9 +84,9 @@ gulp.task('compile-module-css', function(){
       outputStyle: 'expanded',
       precision: 8
     })
-      .on('error', function() {
-        displayNotification(sass.logError);
-      }))
+    .on('error', function() {
+      displayNotification(sass.logError);
+    }))
     .pipe(gulpif(options.sourcemaps, sourcemaps.init()))
     .pipe(gulpif(options.sourcemaps, sourcemaps.write('./')))
     .pipe(rename(function(path) {
@@ -142,8 +142,8 @@ gulp.task('format-js', function () {
     '!./themes*/' + options.themeName + '/js/autoload/**/*.js',
     '!./themes*/' + options.themeName + '/js/debug/**/*.js'
   ])
-    .pipe(jscs({ fix : true }))
-    .pipe(gulp.dest('./'));
+  .pipe(jscs({ fix : true }))
+  .pipe(gulp.dest('./'));
 });
 
 gulp.task('create-zip', function(){
