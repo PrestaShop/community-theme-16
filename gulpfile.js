@@ -29,12 +29,6 @@ var cleanUp = [
   './themes/' + options.themeName + '/css/**/*.css.map'
 ];
 
-gulp.task('read-options', function()
-{
-  console.log(options);
-  console.log(options.themeName);
-});
-
 gulp.task('create-folders', function(callback){
   var total = createFolders.length;
   var done  = 0;
