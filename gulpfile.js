@@ -11,8 +11,9 @@ var sourcemaps  = require('gulp-sourcemaps');
 var notify      = require("gulp-notify");
 var bourbon     = require('node-bourbon');
 var gulpif      = require('gulp-if');
-var options     = require('./package.json').options;
 var rename      = require('gulp-rename');
+/** @var {{ themeName, themeModulePrefix, sourcemaps }} options **/
+var options     = require('./package.json').options;
 
 var createFolders = [
   './themes/' + options.themeName + '/cache/',
@@ -86,8 +87,8 @@ gulp.task('compile-module-css', function(){
       .on('error', function() {
         displayNotification(sass.logError);
       }))
-    .pipe(sourcemaps.init())
-    .pipe(sourcemaps.write('./'))
+    .pipe(gulpif(options.sourcemaps, sourcemaps.init()))
+    .pipe(gulpif(options.sourcemaps, sourcemaps.write('./')))
     .pipe(rename(function(path) {
       path.dirname = path.dirname.replace('/views/sass', '/views/css');
     }))
