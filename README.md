@@ -104,14 +104,9 @@ If would like to be able to use this build process and preview the changes at th
 5. Change theme files, build theme, preview changes in browser
 6. (Optional) Push changes to a forked repository and make a pull request.
 
-**To build** this theme, two tools are required:
+**To build** this theme, these tools are required:
 
-1. [Compass](http://compass-style.org/) tool.
-2. [Node.js](https://nodejs.org/en/) & [npm](https://www.npmjs.com/).
-
-We recommend that you install [Compass](http://compass-style.org/) via [rubygems](https://rubygems.org/) package
-manager. This will give you the latest version of [Compass](http://compass-style.org/): `1.0.3`. Compass is
-required to build `.css` files from `.scss` files.
+1. [Node.js](https://nodejs.org/en/) & [npm](https://www.npmjs.com/).
 
 [npm](https://www.npmjs.com/) package manager comes together with [Node.js](https://nodejs.org/en/).
 You should install [Node.js](https://nodejs.org/en/) first and then do a
@@ -123,11 +118,11 @@ sudo npm install npm -g
 
 This will give you the updated version of [npm](https://www.npmjs.com/), which is used to build this theme.
 
-To verify that both tools are installed and have the correct versions, type the following in your terminal:
+To verify that tools are installed and have the correct versions, type the following in your terminal:
 
 ``` bash
-compass -v  // Should output 1.0.3 or higher
-npm -v      // Should output 3.5.2 or higher
+node -v
+npm -v  // Should output 3.5.2 or higher
 ```
 
 Once these tools are available, navigate to your cloned repository and run `npm install` command:
@@ -149,11 +144,6 @@ gulp build
 which will run the build steps defined in `gulpfile.js` and output theme `.zip` archive in root folder of the cloned
 repository. This theme `.zip` archive can then be distributed and installed via PrestaShop back-office.
 
-**P.S.** If you can't or won't install [Node.js](https://nodejs.org/en/) & [npm](https://www.npmjs.com/), you can
-make do without them. You can always do the packaging steps manually. The only required tools is
-[Compass](http://compass-style.org/), which you can use by itself to compile `.css` files. Just navigate to
-theme folder and run `compass compile`.
-
 ### Gulp commands
 
 Gulp `build` command is composed of several specific tasks (sub-commands), which you can run individually:
@@ -162,7 +152,7 @@ Gulp `build` command is composed of several specific tasks (sub-commands), which
 gulp create-folders  // Creates empty theme folders like pdf/, pdf/lang/, which are not included
                      // repository, but should be in theme archive
 
-gulp compile-css     // Runs shell process 'compass compile'. Optional flag maybe passed: --force
+gulp compile-css     // Compiles .scss files to .css files using gulp-sass package.
 
 gulp clean-up        // Removes files which we don't want to include in the archive, like cache files
 
