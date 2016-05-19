@@ -153,8 +153,7 @@ gulp.task('create-zip', function(){
     }
 
     var themeVersion = '';
-    var pattern = new RegExp(/<theme\s[^>]*?version=\"(.*?)\"/i);
-    var matches = data.match(pattern);
+    var matches = data.match(/<theme\s[^>]*?version="(.*?)"/i);
 
     if (matches !== null && typeof matches[1] == 'string') {
       themeVersion = matches[1].trim();
