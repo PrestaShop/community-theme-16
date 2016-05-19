@@ -162,7 +162,7 @@ gulp.task('create-zip', function() {
 
     return gulp.src([
       './themes*/' + options.themeName + '*/**',
-      './modules*/ct*/**',
+      './modules*/' + options.themeModulePrefix + '*/**',
       './Config.xml'
     ])
     .pipe(zip('v' + themeVersion + '-' + options.themeName + '.zip'))
