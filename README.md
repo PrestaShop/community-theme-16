@@ -153,7 +153,7 @@ because it is imported globally during `.scss` compilation task. See `gulpfile.j
 **Bourbon** is not required, you may remove it if you wish so. You'll need to remove the calls to these mixins too.
 **Bourbon** provides the same mixins as **Compass** does.
 Compass tool and Compass mixins were heavily used in the `default-bootstrap` theme (from which this theme originates),
-but it has been replace with **Bourbon**, which provided a significant performance boost and no necessary code changes.
+but it has been replaced with **Bourbon**, which provided a significant performance boost and no necessary code changes.
 
 ### Gulp commands
 
