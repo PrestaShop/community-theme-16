@@ -160,7 +160,7 @@ but it has been replaced with **Bourbon**, which provided a significant performa
 We have added a couple of options to `package.json` file, which you can change:
 
 ```
-themeName            // Specifies theme directory and name, used to collect theme files during build process
+themeName            // Specifies theme directory and name, used to collect files during build process
 
 themeModulePrefix    // Affects which theme modules are compiled and included to theme archive
 
