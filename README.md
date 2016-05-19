@@ -177,8 +177,8 @@ gulp create-folders  // Creates empty theme folders like pdf/, pdf/lang/, which 
 
 gulp compile-css     // Compiles .scss files to .css files using gulp-sass package.
 
-gulp sass:watch      // Watches for changes in theme .scss files and automatically launches compile-css task
-                     // when a .scss has been modified and saved
+gulp sass:watch      // Watches for changes in theme .scss files and automatically launches compile-css
+                     // task when a .scss has been modified and saved
 
 gulp clean-up        // Removes files which we don't want to include in the archive, like cache files
 
