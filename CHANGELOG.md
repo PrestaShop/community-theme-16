@@ -1,3 +1,21 @@
+# v0.11.0 (2016-05-19)
+
+This release ditches Compass build tool and replaces it with much faster
+`gulp-sass` + `bourbon`. Refactored all calls to display an alert using fancybox
+have been refactored to a function. You can now easily use a new plugin to display
+nicer alerts.
+
+- Fixed cart popup price styles (#200, #207)
+- Fixed a missing hook for aeuc module (#199)
+- Refactored calls to window.location (#201)
+- Extracted JS function to display alert in front office (#202)
+- Added overlay to contact, newsletter forms (#203, #204)
+- Improved autocomplete for icons and classes in cttopmenu module (#205, #206)
+- Replace Compass with gulp-sass and Bourbon (#209, #210)
+- Added a task to compile module CSS (#212)
+- Refactored out build script options to package.json file (#211)
+- Added a new hook for cttopmenu module (#213)
+
 # v0.10.0 (2016-04-17)
 
 This release aims to clean up the remaining PrestaShop pages.
