@@ -155,6 +155,18 @@ because it is imported globally during `.scss` compilation task. See `gulpfile.j
 Compass tool and Compass mixins were heavily used in the `default-bootstrap` theme (from which this theme originates),
 but it has been replaced with **Bourbon**, which provided a significant performance boost and no necessary code changes.
 
+### Build options
+
+We have added a couple of options to `package.json` file, which you can change:
+
+```
+themeName            // Specifies theme directory and name, used to collect theme files during build process
+
+themeModulePrefix    // Affects which theme modules are compiled and included to theme archive
+
+sourcemaps           // Enables/disables the creation of theme .scss file sourcemaps
+```
+
 ### Gulp commands
 
 Gulp `build` command is composed of several specific tasks (sub-commands), which you can run individually:
@@ -164,6 +176,9 @@ gulp create-folders  // Creates empty theme folders like pdf/, pdf/lang/, which 
                      // repository, but should be in theme archive
 
 gulp compile-css     // Compiles .scss files to .css files using gulp-sass package.
+
+gulp sass:watch      // Watches for changes in theme .scss files and automatically launches compile-css task
+                     // when a .scss has been modified and saved
 
 gulp clean-up        // Removes files which we don't want to include in the archive, like cache files
 
