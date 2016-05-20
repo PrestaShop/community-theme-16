@@ -59,14 +59,13 @@ function displayNotification(msg) {
 
 gulp.task('compile-css', function() {
   return gulp.src('./themes/' + options.themeName + '/sass/**/*.scss')
-    .pipe(sass({
-      includePaths: bourbon.includePaths,
-      outputStyle: 'expanded',
-      precision: 8
-    })
-    .on('error', function() {
-      displayNotification(sass.logError);
-    }))
+    .pipe(
+      sass({
+        includePaths: bourbon.includePaths,
+        outputStyle: 'expanded',
+        precision: 8
+      }).on('error', sass.logError)
+    )
     .pipe(gulpif(options.sourcemaps, sourcemaps.init()))
     .pipe(gulpif(options.sourcemaps, sourcemaps.write('./')))
     .pipe(gulp.dest('./themes/' + options.themeName + '/css/'))
