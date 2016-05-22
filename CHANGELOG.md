@@ -1,3 +1,7 @@
+# v0.11.1 (2016-05-22)
+
+- Fixed Sass compilation error reporting issues
+
 # v0.11.0 (2016-05-19)
 
 This release ditches Compass build tool and replaces it with much faster
