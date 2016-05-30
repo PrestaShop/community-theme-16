@@ -106,7 +106,7 @@
 <nav>
   <ul class="pager">
     <li class="previous">
-      <a href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}">&larr; {l s='Back to your account' mod='blockwishlist'}</a>
+      <a href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}" title="{l s='Back to your account' mod='blockwishlist'}">&larr; {l s='Back to your account' mod='blockwishlist'}</a>
     </li>
   </ul>
 </nav>
