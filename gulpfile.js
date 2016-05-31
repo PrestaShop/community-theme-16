@@ -170,21 +170,14 @@ gulp.task('create-zip', function() {
 });
 
 gulp.task('scan-translations', function (cb) {
-  glob('themes/' + options.themeName + '/**/*.tpl', [], function (er, files) {
+  glob(['themes/' + options.themeName + '/**/*.tpl', 'modules/**/*.tpl'], [], function (er, files) {
 
     var brokenTranslations = [];
     var totalFiles = files.length;
     var scannedFiles = 0;
 
     files.forEach(function (file) {
-      // 'themes/community-theme-16/product.tpl'
-      var translationContext = '';
-      var bits = file.split('/');
-
-      // 'themes/community-theme-16/modules/blockwishlist/my-account.tpl',
-      if (typeof bits[3] == 'string') {
-        translationContext = bits[3];
-      }
+      var translationContext = getTemplateContext(file);
 
       fs.readFile(file, 'utf-8', function (err, contents) {
 
@@ -204,6 +197,23 @@ gulp.task('scan-translations', function (cb) {
 
   });
 });
+
+function getTemplateContext(templateFilePath) {
+  var bits = templateFilePath.split('/');
+
+  // modules/mymodule/views/templates/hook/block.tpl
+  if (typeof bits[0] == 'string' && bits[0] == 'modules') {
+    return bits[1]
+  }
+
+  // 'themes/themename/modules/blockwishlist/my-account.tpl',
+  if (bits[0] == 'themes' && typeof bits[3] == 'string') {
+    return bits[3];
+  }
+
+  // 'themes/themename/product.tpl
+  return '';
+}
 
 function listBrokenTranslationStrings(smartyTplCode, translationContext) {
   var translations = smartyTplCode.match(/\{l\s+s=['"].+?}/g);
