@@ -189,6 +189,9 @@ gulp format-js       // Formats .js files using JavaScript style rules defined
 
 gulp create-zip      // Adds Config.xml and theme folder to .zip archive and outputs
                      // the file in root directory
+
+gulp scan-translations  // Scans .tpl files in theme folder and detects translatable Smarty strings
+                        // which have incorrect context
 ```
 
 ## Contributing

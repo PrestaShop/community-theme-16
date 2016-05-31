@@ -169,6 +169,60 @@ gulp.task('create-zip', function() {
   });
 });
 
+gulp.task('scan-translations', function (cb) {
+  glob('themes/' + options.themeName + '/**/*.tpl', [], function (er, files) {
+
+    var brokenTranslations = [];
+    var totalFiles = files.length;
+    var scannedFiles = 0;
+
+    files.forEach(function (file) {
+      // 'themes/community-theme-16/product.tpl'
+      var translationContext = '';
+      var bits = file.split('/');
+
+      // 'themes/community-theme-16/modules/blockwishlist/my-account.tpl',
+      if (typeof bits[3] == 'string') {
+        translationContext = bits[3];
+      }
+
+      fs.readFile(file, 'utf-8', function (err, contents) {
+
+        var brokenTranslationsInFile = listBrokenTranslationStrings(contents, translationContext);
+        if (brokenTranslationsInFile.length) {
+          brokenTranslationsInFile.unshift(file);
+          brokenTranslations.push(brokenTranslationsInFile);
+        }
+
+        if (++scannedFiles == totalFiles) {
+          console.log('Broken Smarty translation strings in theme templates:');
+          console.log(brokenTranslations);
+          cb && cb();
+        }
+      });
+    });
+
+  });
+});
+
+function listBrokenTranslationStrings(smartyTplCode, translationContext) {
+  var translations = smartyTplCode.match(/\{l\s+s=['"].+?}/g);
+
+  if (!translations) {
+    return [];
+  }
+
+  return translations.filter(function (t) {
+    if (translationContext.length) {
+      // Doesn't have correct context
+      return !((new RegExp('mod=[\'"]' + translationContext + '[\'"]')).test(t));
+    } else {
+      // Has context even though it shouldn't
+      return !!/mod=['"]/.test(t);
+    }
+  });
+}
+
 gulp.task('build', function(callback) {
   runSequence(
     ['create-folders', 'compile-css', 'compile-module-css'],
