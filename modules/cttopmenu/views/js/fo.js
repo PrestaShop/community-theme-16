@@ -10,11 +10,13 @@ $(function() {
     e.stopPropagation();
   });
 
-  // Detect when menu is collapsed
   var buffer = null;
   var $navbarHeader = $menu.find('.navbar-header');
 
+  // Initial detection of collapse top menu
   detectCollapsedMenu();
+
+  // Detect collapsed menu every 250ms using debounce
   $(window).on('resize', function() {
     clearTimeout(buffer);
     buffer = setTimeout(detectCollapsedMenu, 250);
@@ -42,6 +44,7 @@ $(function() {
     var $linksToggle = $links.filter('.dropdown-toggle');
     var $dropdowns   = $menu.find('.dropdown');
 
+    // On hover over dropdown links, we must open them, unless in mobile (collapsed view)
     $links.on('mouseenter', function() {
       // In collapsed view, use the default behaviour
       if (menuIsCollapsed) {
@@ -60,16 +63,19 @@ $(function() {
 
     });
 
+    // On leaving any links, make sure the dropdown (if any) is closed
     $dropdowns.on('mouseleave', function() {
       !menuIsCollapsed && $(this).removeClass('open');
     });
 
+    // Make sure that clicking a dropdown link opens that link instead of toggling the dropdown
     $linksToggle.on('click', function(e) {
       if (menuIsCollapsed) {
         return;
       }
-      window.location = $(this).attr('href');
-      // Prevent Bootstrap event handler, which closes the dropdown
+
+      // Prevent Bootstrap event handler, which closes the dropdown.
+      // Default browser handler will fire (link will be opened)
       e.stopImmediatePropagation();
     });
   }
