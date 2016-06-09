@@ -44,7 +44,6 @@ $(function() {
     var $dropdowns   = $menu.find('.dropdown');
 
     $links.on('mouseenter', function() {
-
       // In collapsed view, use the default behaviour
       if (menuIsCollapsed) {
         return true;
@@ -66,8 +65,10 @@ $(function() {
       !menuIsCollapsed && $(this).removeClass('open');
     });
 
-    // @TODO On click, default behaviour
     $linksToggle.on('click', function() {
+      if (menuIsCollapsed) {
+        return;
+      }
       window.location = $(this).attr('href');
     });
   }
