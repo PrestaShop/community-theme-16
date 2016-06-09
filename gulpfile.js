@@ -169,6 +169,70 @@ gulp.task('create-zip', function() {
   });
 });
 
+gulp.task('scan-translations', function (cb) {
+  glob(['themes/' + options.themeName + '/**/*.tpl', 'modules/**/*.tpl'], [], function (er, files) {
+
+    var brokenTranslations = [];
+    var totalFiles = files.length;
+    var scannedFiles = 0;
+
+    files.forEach(function (file) {
+      var translationContext = getTemplateContext(file);
+
+      fs.readFile(file, 'utf-8', function (err, contents) {
+
+        var brokenTranslationsInFile = listBrokenTranslationStrings(contents, translationContext);
+        if (brokenTranslationsInFile.length) {
+          brokenTranslationsInFile.unshift(file);
+          brokenTranslations.push(brokenTranslationsInFile);
+        }
+
+        if (++scannedFiles == totalFiles) {
+          console.log('Broken Smarty translation strings in theme templates:');
+          console.log(brokenTranslations);
+          cb && cb();
+        }
+      });
+    });
+
+  });
+});
+
+function getTemplateContext(templateFilePath) {
+  var bits = templateFilePath.split('/');
+
+  // modules/mymodule/views/templates/hook/block.tpl
+  if (typeof bits[0] == 'string' && bits[0] == 'modules') {
+    return bits[1]
+  }
+
+  // 'themes/themename/modules/blockwishlist/my-account.tpl',
+  if (bits[0] == 'themes' && typeof bits[3] == 'string') {
+    return bits[3];
+  }
+
+  // 'themes/themename/product.tpl
+  return '';
+}
+
+function listBrokenTranslationStrings(smartyTplCode, translationContext) {
+  var translations = smartyTplCode.match(/\{l\s+s=['"].+?}/g);
+
+  if (!translations) {
+    return [];
+  }
+
+  return translations.filter(function (t) {
+    if (translationContext.length) {
+      // Doesn't have correct context
+      return !((new RegExp('mod=[\'"]' + translationContext + '[\'"]')).test(t));
+    } else {
+      // Has context even though it shouldn't
+      return !!/mod=['"]/.test(t);
+    }
+  });
+}
+
 gulp.task('build', function(callback) {
   runSequence(
     ['create-folders', 'compile-css', 'compile-module-css'],
