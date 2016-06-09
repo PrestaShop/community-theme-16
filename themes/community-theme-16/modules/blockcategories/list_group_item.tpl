@@ -1,3 +1,9 @@
+{*
+ * ATENTION! If you would like to have active categories already expanded before the JavaScript loads,
+ * You must calculate whichs categories should be expanded by override a method in BlockCategories module.
+ * You may use this override: https://gist.github.com/anonymous/7715d13eb74424075c95d880089e8200
+ * If you decide to use it, don't forget to remove the JavaScript part which expands the active category.
+ *}
 {if !empty($list_item.children)}
   {$list_item_id = 'ct-'|cat:$list_item.id}
   <div class="list-group-item-wrapper{if (isset($currentCategoryId) && $list_item.id == $currentCategoryId) || (!empty($list_item.expanded) && $list_item.expanded)} active{/if}">
