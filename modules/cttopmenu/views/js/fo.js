@@ -10,11 +10,13 @@ $(function() {
     e.stopPropagation();
   });
 
-  // Detect when menu is collapsed
   var buffer = null;
   var $navbarHeader = $menu.find('.navbar-header');
 
+  // Initial detection of collapse top menu
   detectCollapsedMenu();
+
+  // Detect collapsed menu every 250ms using debounce
   $(window).on('resize', function() {
     clearTimeout(buffer);
     buffer = setTimeout(detectCollapsedMenu, 250);
@@ -36,15 +38,19 @@ $(function() {
     }
   });
 
-  // @TODO Refactor or remove on hover functionality
-  // @TODO Refactor responsive collapsed hover, also multiline (overflown) menu
   // Option: show dropdowns on mouse enter
+  // @TODO This functionality is experimental and may contain bugs. Bootstrap does not support hover dropdowns.
   if (useHover) {
+    bindOnHoverMenu();
+  }
+
+  // Binds all the necessary events handlers for the menu dropdowns to work with hover events
+  function bindOnHoverMenu() {
     var $linksToggle = $links.filter('.dropdown-toggle');
     var $dropdowns   = $menu.find('.dropdown');
 
+    // On hover over dropdown links, we must open them, unless in mobile (collapsed view)
     $links.on('mouseenter', function() {
-
       // In collapsed view, use the default behaviour
       if (menuIsCollapsed) {
         return true;
@@ -62,13 +68,20 @@ $(function() {
 
     });
 
+    // On leaving any links, make sure the dropdown (if any) is closed
     $dropdowns.on('mouseleave', function() {
       !menuIsCollapsed && $(this).removeClass('open');
     });
 
-    // @TODO On click, default behaviour
-    $linksToggle.on('click', function() {
-      window.location = $(this).attr('href');
+    // Make sure that clicking a dropdown link opens that link instead of toggling the dropdown
+    $linksToggle.on('click', function(e) {
+      if (menuIsCollapsed) {
+        return;
+      }
+
+      // Prevent Bootstrap event handler, which closes the dropdown.
+      // Default browser handler will fire (link will be opened)
+      e.stopImmediatePropagation();
     });
   }
 
