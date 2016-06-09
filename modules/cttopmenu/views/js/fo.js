@@ -41,6 +41,11 @@ $(function() {
   // Option: show dropdowns on mouse enter
   // @TODO This functionality is experimental and may contain bugs. Bootstrap does not support hover dropdowns.
   if (useHover) {
+    bindOnHoverMenu();
+  }
+
+  // Binds all the necessary events handlers for the menu dropdowns to work with hover events
+  function bindOnHoverMenu() {
     var $linksToggle = $links.filter('.dropdown-toggle');
     var $dropdowns   = $menu.find('.dropdown');
 
