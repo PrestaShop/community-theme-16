@@ -170,6 +170,7 @@ class CTConfiguration extends Module
                 'hint'  => $this->l('HTML is allowed. Enter &amp;copy; for copyright symbol.'),
                 'cast'  => 'strval',
                 'type'  => 'textareaLang',
+                'html'  => true,
                 'size'  => 50,
             ),
         );
@@ -186,6 +187,9 @@ class CTConfiguration extends Module
 
         $values = array();
         foreach ($this->getOptionFields() as $key => $field) {
+
+            $htmlAllowed = isset($field['html']) && $field['html'];
+
             if ($field['type'] == 'textareaLang' || $field['type'] == 'textLang') {
                 $values[$key] = array();
                 foreach ($langIds as $id_lang) {
@@ -205,7 +209,7 @@ class CTConfiguration extends Module
                 $values[$key] = $value;
             }
 
-            Configuration::updateValue($key, $values[$key]);
+            Configuration::updateValue($key, $values[$key], $htmlAllowed);
         }
 
         if ($values['CT_CFG_BLOCKCATEGORIES_FOOTER']) {
