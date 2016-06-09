@@ -65,11 +65,13 @@ $(function() {
       !menuIsCollapsed && $(this).removeClass('open');
     });
 
-    $linksToggle.on('click', function() {
+    $linksToggle.on('click', function(e) {
       if (menuIsCollapsed) {
         return;
       }
       window.location = $(this).attr('href');
+      // Prevent Bootstrap event handler, which closes the dropdown
+      e.stopImmediatePropagation();
     });
   }
 
