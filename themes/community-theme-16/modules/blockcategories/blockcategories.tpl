@@ -47,6 +47,12 @@ $(function() {
       $triggers.filter('[href="#' + $(this).prop('id') + '"],' +
         '[data-target="#' + $(this).prop('id') + '"]').parent().removeClass('active');
     });
+
+    // JavaScript workaround for expanding the active category tree line.
+    // Preferably you should use an override and return expanded tree from the server side
+    // @see themes/community-theme-16/modules/blockcategories/list_group_item.tpl
+    $('.list-group-item.current').parents('.collapse').collapse('show');
+
   });
 
 });
