@@ -12,6 +12,7 @@ class CTTopMenuItem extends ObjectModel
     const TYPE_PRODUCT           = 1;
     const TYPE_CATEGORY          = 2;
     const TYPE_CATEGORY_TREE     = 3;
+    const TYPE_CATEGORY_LIST     = 11;
     const TYPE_CMS               = 4;
     const TYPE_CMS_CATEGORY      = 5;
     const TYPE_CMS_CATEGORY_TREE = 6;
@@ -72,6 +73,7 @@ class CTTopMenuItem extends ObjectModel
                     self::TYPE_PRODUCT,
                     self::TYPE_CATEGORY,
                     self::TYPE_CATEGORY_TREE,
+                    self::TYPE_CATEGORY_LIST,
                     self::TYPE_CMS,
                     self::TYPE_CMS_CATEGORY,
                     self::TYPE_CMS_CATEGORY_TREE,
