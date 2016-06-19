@@ -55,6 +55,9 @@ class AdminCTTopMenuItemController extends ModuleAdminController
                     'tree_max_depth' => true,
                 ),
             ),
+            CTTopMenuItem::TYPE_CATEGORY_LIST => array(
+                'name' => $this->l('Category List'),
+            ),
             CTTopMenuItem::TYPE_CMS => array(
                 'name' => $this->l('CMS Link'),
                 'entity_name' => $this->l('CMS'),
