@@ -364,6 +364,8 @@ class CTTopMenu extends Module
                 return $this->buildCategoryLink($menuItem, $id_shop, $id_lang);
             case CTTopMenuItem::TYPE_CATEGORY_TREE:
                 return $this->buildCategoryTree($menuItem, $id_shop, $id_lang);
+            case CTTopMenuItem::TYPE_CATEGORY_LIST:
+                return $this->buildCategoryList($menuItem, $id_shop, $id_lang);
             case CTTopMenuItem::TYPE_CMS:
                 return $this->buildCmsLink($menuItem, $id_shop, $id_lang);
             case CTTopMenuItem::TYPE_CMS_CATEGORY:
@@ -586,6 +588,53 @@ class CTTopMenu extends Module
             'entity_id' => 'cat-'.$category['id_category'],
             'class'     => '',
             'type'      => 'sub-category-link',
+            'sub_items' => $subItems,
+        );
+    }
+
+    protected function buildCategoryList(array $menuItem, $id_shop, $id_lang)
+    {
+        $name  = $menuItem['name'];
+        $url   = $menuItem['url'];
+        $title = $menuItem['title'];
+
+        if (empty($name)) {
+            $name = $this->l('Categories');
+        }
+
+        if (empty($title)) {
+            $title = $this->l('A list of all categories');
+        }
+
+        $subItems = array();
+        foreach ($this->getFlatCategoryListIds($id_shop, $id_lang, true) as $id_category) {
+
+            $category = new Category($id_category, $id_lang, $id_shop);
+
+            $subItems[] = array(
+                'name' => $category->name,
+                'url'  => $this->context->link->getCategoryLink($category, null, $id_lang, null, $id_shop),
+                'title'     => $category->name,
+                'icon'      => '',
+                'no_follow' => false,
+                'id'        => '',
+                'entity_id' => 'cat-'.$category->id,
+                'class'     => '',
+                'type'      => 'category-list-link',
+                'sub_items' => array(),
+            );
+        }
+
+        return array(
+            'name'      => $name,
+            'url'       => $url,
+            'title'     => $title,
+            'icon'      => $menuItem['icon'],
+            'no_follow' => $menuItem['no_follow'],
+            'id'        => $menuItem['id_ct_top_menu_item'],
+            'entity_id' => '',
+            'class'     => $menuItem['class'],
+            'type'      => 'category-list',
             'sub_items' => $subItems,
         );
     }
@@ -1014,5 +1063,45 @@ class CTTopMenu extends Module
             'type'      => 'supplier-list',
             'sub_items' => $subItems,
         );
+    }
+
+    /**
+     * Returns a flat list of IDs of all categories in the shop, ordered by name
+     *
+     * @param int       $id_shop
+     * @param int       $id_lang
+     * @param bool|null $active
+     *
+     * @return array
+     * @throws PrestaShopDatabaseException
+     */
+    protected function getFlatCategoryListIds($id_shop, $id_lang, $active = null)
+    {
+        $id_category_root = 2;
+
+        $sql = new DbQuery();
+        $sql->select('c.id_category')
+            ->from('category', 'c')
+            ->leftJoin(
+                'category_lang',
+                'cl',
+                'c.id_category = cl.id_category AND cl.id_lang = '.(int)$id_lang.' AND cl.id_shop = '.(int)$id_shop
+            )
+            ->innerJoin('category_shop', 'cs', 'c.id_category = cs.id_category AND cs.id_shop = '.(int)$id_shop)
+            ->where('c.id_category > '.$id_category_root)
+            ->orderBy('cl.name ASC');
+
+        if ($active !== null) {
+            $sql->where('active = '.(int)boolval($active));
+        }
+
+        $rows = (array)Db::getInstance()->executeS($sql);
+
+        $categoryIds = [];
+        foreach ($rows as $row) {
+            $categoryIds[] = (int)$row['id_category'];
+        }
+
+        return $categoryIds;
     }
 }
