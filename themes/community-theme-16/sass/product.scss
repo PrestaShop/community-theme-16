@@ -36,7 +36,7 @@ $zoom-in-size: 110px;
   line-height: $zoom-in-size;
   margin-top: -($zoom-in-size / 2);
   margin-left: -($zoom-in-size / 2);
-  @include border-radius($zoom-in-size / 2);
+  border-radius: $zoom-in-size / 2;
   font-size: 3em;
   color: #fff;
   text-align: center;
