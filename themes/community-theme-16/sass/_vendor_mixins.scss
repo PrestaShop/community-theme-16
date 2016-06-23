@@ -1,6 +1,2 @@
 @import "vendor/bootstrap/bootstrap/mixins";
 @import "vendor/font-awesome/font-awesome/mixins";
-
-@mixin border-radius($radius) {
-    border-radius: $radius;
-}
