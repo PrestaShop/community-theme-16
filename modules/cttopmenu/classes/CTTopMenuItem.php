@@ -8,18 +8,18 @@ class CTTopMenuItem extends ObjectModel
     /**
      * Menu item types
      */
-    const TYPE_CUSTOM_LINK       = 0;
-    const TYPE_PRODUCT           = 1;
-    const TYPE_CATEGORY          = 2;
-    const TYPE_CATEGORY_TREE     = 3;
-    const TYPE_CATEGORY_LIST     = 11;
-    const TYPE_CMS               = 4;
-    const TYPE_CMS_CATEGORY      = 5;
-    const TYPE_CMS_CATEGORY_TREE = 6;
-    const TYPE_MANUFACTURER      = 7;
-    const TYPE_MANUFACTURER_LIST = 8;
-    const TYPE_SUPPLIER          = 9;
-    const TYPE_SUPPLIER_LIST     = 10;
+    const TYPE_CUSTOM_LINK        = 0;
+    const TYPE_PRODUCT            = 1;
+    const TYPE_CATEGORY           = 2;
+    const TYPE_CATEGORY_TREE      = 3;
+    const TYPE_CATEGORY_FLAT_TREE = 11;
+    const TYPE_CMS                = 4;
+    const TYPE_CMS_CATEGORY       = 5;
+    const TYPE_CMS_CATEGORY_TREE  = 6;
+    const TYPE_MANUFACTURER       = 7;
+    const TYPE_MANUFACTURER_LIST  = 8;
+    const TYPE_SUPPLIER           = 9;
+    const TYPE_SUPPLIER_LIST      = 10;
 
     /** @var int */
     public $type = 0;
@@ -73,7 +73,7 @@ class CTTopMenuItem extends ObjectModel
                     self::TYPE_PRODUCT,
                     self::TYPE_CATEGORY,
                     self::TYPE_CATEGORY_TREE,
-                    self::TYPE_CATEGORY_LIST,
+                    self::TYPE_CATEGORY_FLAT_TREE,
                     self::TYPE_CMS,
                     self::TYPE_CMS_CATEGORY,
                     self::TYPE_CMS_CATEGORY_TREE,
