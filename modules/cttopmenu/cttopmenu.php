@@ -364,6 +364,8 @@ class CTTopMenu extends Module
                 return $this->buildCategoryLink($menuItem, $id_shop, $id_lang);
             case CTTopMenuItem::TYPE_CATEGORY_TREE:
                 return $this->buildCategoryTree($menuItem, $id_shop, $id_lang);
+            case CTTopMenuItem::TYPE_CATEGORY_FLAT_TREE:
+                return $this->buildCategoryFlatTree($menuItem, $id_shop, $id_lang);
             case CTTopMenuItem::TYPE_CMS:
                 return $this->buildCmsLink($menuItem, $id_shop, $id_lang);
             case CTTopMenuItem::TYPE_CMS_CATEGORY:
@@ -588,6 +590,35 @@ class CTTopMenu extends Module
             'type'      => 'sub-category-link',
             'sub_items' => $subItems,
         );
+    }
+
+    /**
+     * Builds a menu tree where subcategories of a given category
+     * are a flattened
+     *
+     * @param array $menuItem
+     * @param int   $id_shop
+     * @param int   $id_lang
+     *
+     * @return array
+     */
+    protected function buildCategoryFlatTree(array $menuItem, $id_shop, $id_lang)
+    {
+        $tree = $this->buildCategoryTree($menuItem, $id_shop, $id_lang);
+        $tree['type'] = 'category-flat-tree';
+
+        $treeSubItems = array();
+        foreach ($tree['sub_items'] as $subItemKey => $subItemTree) {
+            $treeSubItems = array_merge($treeSubItems, $this->flattenMenuItemTree($subItemTree));
+        }
+
+        usort($treeSubItems, function ($a, $b) {
+            return ($a['name'] < $b['name']) ? -1 : 1;
+        });
+
+        $tree['sub_items'] = $treeSubItems;
+
+        return $tree;
     }
 
     /**
@@ -1014,5 +1045,26 @@ class CTTopMenu extends Module
             'type'      => 'supplier-list',
             'sub_items' => $subItems,
         );
+    }
+
+    /**
+     * Flattens the menu tree to a flat list (array)
+     *
+     * @param array $menuItem
+     *
+     * @return array
+     */
+    protected function flattenMenuItemTree(array $menuItem)
+    {
+        $menuItemList = array();
+
+        foreach ($menuItem['sub_items'] as $menuSubItem) {
+            $menuItemList = array_merge($menuItemList, $this->flattenMenuItemTree($menuSubItem));
+        }
+
+        $menuItem['sub_items'] = array();
+        $menuItemList[] = $menuItem;
+
+        return $menuItemList;
     }
 }

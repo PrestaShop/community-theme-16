@@ -55,6 +55,14 @@ class AdminCTTopMenuItemController extends ModuleAdminController
                     'tree_max_depth' => true,
                 ),
             ),
+            CTTopMenuItem::TYPE_CATEGORY_FLAT_TREE => array(
+                'name' => $this->l('Category Flat Tree'),
+                'entity_name' => $this->l('Category'),
+                'fields' => array(
+                    'entity_id' => true,
+                    'tree_max_depth' => true,
+                ),
+            ),
             CTTopMenuItem::TYPE_CMS => array(
                 'name' => $this->l('CMS Link'),
                 'entity_name' => $this->l('CMS'),
@@ -100,14 +108,9 @@ class AdminCTTopMenuItemController extends ModuleAdminController
         );
 
         // Write ID column so we can use this array as option list in fields form
-        $this->menuItemTypes = array_map(
-            function ($value, $key) {
-                $value['id'] = $key;
-                return $value;
-            },
-            $this->menuItemTypes,
-            array_keys($this->menuItemTypes)
-        );
+        foreach ($this->menuItemTypes as $menuItemTypeKey => &$menuItemType) {
+            $menuItemType['id'] = $menuItemTypeKey;
+        }
     }
 
     /**
