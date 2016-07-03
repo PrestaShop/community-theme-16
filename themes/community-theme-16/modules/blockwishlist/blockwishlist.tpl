@@ -22,7 +22,7 @@
             </dt>
             {if isset($product.attributes_small)}
               <dd>
-                <a href="{$link->getProductLink($product.id_product, $product.link_rewrite, $product.category_rewrite)|escape:'html':'UTF-8'}" title="{l s='Product detail'}">
+                <a href="{$link->getProductLink($product.id_product, $product.link_rewrite, $product.category_rewrite)|escape:'html':'UTF-8'}" title="{l s='Product detail' mod='blockwishlist'}">
                   {$product.attributes_small|escape:'html':'UTF-8'}
                 </a>
               </dd>

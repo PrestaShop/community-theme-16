@@ -22,7 +22,7 @@
     <ul class="dropdown-menu">
       {foreach from=$currencies key=k item=f_currency}
         {if strpos($f_currency.name, '('|cat:$f_currency.iso_code:')') === false}
-          {assign var="currency_name" value={l s='%s (%s)' sprintf=[$f_currency.name, $f_currency.iso_code]}}
+          {assign var="currency_name" value={l s='%s (%s)' sprintf=[$f_currency.name, $f_currency.iso_code] mod='blockcurrencies'}}
         {else}
           {assign var="currency_name" value=$f_currency.name}
         {/if}
