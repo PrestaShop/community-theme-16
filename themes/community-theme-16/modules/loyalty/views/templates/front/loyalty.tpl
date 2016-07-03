@@ -166,7 +166,7 @@
 <nav>
   <ul class="pager">
     <li class="previous">
-      <a href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}">&larr; {l s='Back to your account'}</a>
+      <a href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}">&larr; {l s='Back to your account' mod='loyalty'}</a>
     </li>
   </ul>
 </nav>
