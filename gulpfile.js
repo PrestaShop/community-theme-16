@@ -169,17 +169,17 @@ gulp.task('create-zip', function() {
   });
 });
 
-gulp.task('scan-translations', function (cb) {
-  glob(['themes/' + options.themeName + '/**/*.tpl', 'modules/**/*.tpl'], [], function (er, files) {
+gulp.task('scan-translations', function(cb) {
+  glob(['themes/' + options.themeName + '/**/*.tpl', 'modules/**/*.tpl'], [], function(er, files) {
 
     var brokenTranslations = [];
     var totalFiles = files.length;
     var scannedFiles = 0;
 
-    files.forEach(function (file) {
+    files.forEach(function(file) {
       var translationContext = getTemplateContext(file);
 
-      fs.readFile(file, 'utf-8', function (err, contents) {
+      fs.readFile(file, 'utf-8', function(err, contents) {
 
         var brokenTranslationsInFile = listBrokenTranslationStrings(contents, translationContext);
         if (brokenTranslationsInFile.length) {
@@ -203,7 +203,7 @@ function getTemplateContext(templateFilePath) {
 
   // modules/mymodule/views/templates/hook/block.tpl
   if (typeof bits[0] == 'string' && bits[0] == 'modules') {
-    return bits[1]
+    return bits[1];
   }
 
   // 'themes/themename/modules/blockwishlist/my-account.tpl',
@@ -222,7 +222,7 @@ function listBrokenTranslationStrings(smartyTplCode, translationContext) {
     return [];
   }
 
-  return translations.filter(function (t) {
+  return translations.filter(function(t) {
     if (translationContext.length) {
       // Doesn't have correct context
       return !((new RegExp('mod=[\'"]' + translationContext + '[\'"]')).test(t));
