@@ -1,3 +1,17 @@
+# v1.0.0 (2016-07-03)
+
+This release moves the version to `1.0.0` since there are no major issues left to
+resolve and no new major features left to implement.
+
+- Updated Font Awesome to 4.6.3 (#238)
+- Added a new menu item type: flat category list (#233)
+- Merged updates from upstream (default-bootstrap) theme (#230, #231, #232)
+- Fixed issues with hover option in top menu module (#227)
+- Added JavaScript workaround to expand active category item in category tree block (#226, #228)
+- It possible to place HTML content in theme copyright footer block (#225)
+- Added gulp command which finds incorrect context parameters in translatable template strings
+- Fixed translatable string context in theme templates (#222, #239)
+
 # v0.11.1 (2016-05-22)
 
 - Fixed Sass compilation error reporting issues
