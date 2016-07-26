@@ -185,11 +185,11 @@ npm run scan-translations  // Scans .tpl files in /themes/, /modules/ folders an
 We have added a couple of options to `package.json` file, which you can change:
 
 ```
-themeName            // Specifies theme directory and name, used to collect files during build process
+themeName          // Specifies theme directory and name, used to collect files during build process
 
-themeModulePrefix    // Affects which theme modules are compiled and included to theme archive
+themeModulePrefix  // Affects which theme modules are compiled and included to theme archive
 
-sourcemaps           // Enables/disables the creation of theme .scss file sourcemaps
+sourcemaps         // Enables/disables the creation of theme .scss file sourcemaps
 ```
 
 ### [Bourboun](http://bourbon.io/)
