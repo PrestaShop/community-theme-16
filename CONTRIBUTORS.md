@@ -1,6 +1,7 @@
 Contributors:
 --------------------------------
 
+- Benjamin Pongy
 - Gytis Škėma
 - Krystian Podemski
 - Martin Fojtík
