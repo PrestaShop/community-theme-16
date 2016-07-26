@@ -156,25 +156,25 @@ We use `npm` scripts to call `gulp` commands so you don't have to install `gulp`
 
 ``` bash
 npm run build           // Sequentially runs all of the commands below, outputs a theme .zip archive
-                        // in the root folder, ready to be installed to PrestaShop or to be distributed.
+                        // in the root folder, ready to be installed to PrestaShop or published.
 
 npm run create-folders  // Creates empty theme folders like pdf/, pdf/lang/, which are not included
-                        // repository, but should be in the final theme archive
+                        // repository, but should be in the final theme archive.
 
 npm run compile-css     // Compiles .scss files to .css files using gulp-sass package.
 
 npm run watch-sass      // Watches for changes in theme .scss files and automatically launches
                         // compile-css task when a .scss has been modified and saved
 
-npm run clean-up        // Removes files which we don't want to include in the archive, like cache files
+npm run clean-up        // Removes files which shouldn't be in the archive, like cache files
 
 npm run copy-index      // Copies index.php to all directories and subdirectories inside theme folder
 
 npm run format-js       // Formats .js files using JavaScript style rules defined
                         // in .jscsrc using JSCS tool
 
-npm run create-zip      // Adds Config.xml, /themes/ and /modules/ folder files to a theme .zip archive
-                        // and outputs it in root directory
+npm run create-zip      // Adds Config.xml, /themes/ and /modules/ folder files to
+                        // theme .zip archive and outputs it in root directory
 
 npm run scan-translations  // Scans .tpl files in /themes/, /modules/ folders and detects
                            // translatable Smarty strings which have incorrect context
