@@ -98,12 +98,14 @@ commits).
 
 If would like to be able to use this build process and preview the changes at the same time, we suggest doing this:
 
-1. Create a dedicated development installation of PrestaShop
-2. Clone the repository
-3. Build theme `.zip` archive and install it via back-office.
-4. Move repository files on top of PrestaShop installation files.
-5. Change theme files, build theme, preview changes in browser
-6. (Optional) Push changes to a forked repository and make a pull request.
+1. Create a development installation of PrestaShop (e.g. `/presta/`)
+2. Clone the repository somewhere else (e.g. `/community-theme-16/`)
+3. Build theme `.zip` archive in `/community-theme-16` and install it via back-office in `/presta/`.
+4. Move repository files from `/community-theme-16/` "on top" (merge) to PrestaShop installation `/presta/`.
+   Don't forget to move hidden dot files and folders!
+5. Delete `/community-theme-16/`. You can now do everything in `/presta/`.
+5. Change theme files, build CSS, preview changes in your browser.
+6. (Optional) Push fixes, improvements to your forked repository and make a pull request to the origin.
 
 **To build** this theme, these tools are required:
 
@@ -129,31 +131,54 @@ npm -v  // Should output 3.5.2 or higher
 Once these tools are available, navigate to your cloned repository and run `npm install` command:
 
 ``` bash
-cd community-theme-16/
+cd /community-theme-16/
 npm install
 ```
 
 This will install Node.js modules (packages) from [npmjs.com](https://www.npmjs.com/) which are used in
 `gulpfile.js` to build the theme.
 
+**Don't forget**: you need to `cd` into the root folder of the cloned repository or the root folder of PrestaShop
+installation (in you moved repository files "on top" of PrestaShop installation).
+
 After the modules are installed, you may then run the `build` command:
 
 ``` bash
-gulp build
+npm run build
 ```
 
 which will run the build steps defined in `gulpfile.js` and output theme `.zip` archive in root folder of the cloned
 repository. This theme `.zip` archive can then be distributed and installed via PrestaShop back-office.
 
-### [Bourboun](http://bourbon.io/)
+### Build commands
 
-**Bourboun** is a **Sass** mixin library. It is available in all theme `.scss` files,
-because it is imported globally during `.scss` compilation task. See `gulpfile.js` for more details.
+We use `npm` scripts to call `gulp` commands so you don't have to install `gulp` globally on your system.
 
-**Bourbon** is not required, you may remove it if you wish so. You'll need to remove the calls to these mixins too.
-**Bourbon** provides the same mixins as **Compass** does.
-Compass tool and Compass mixins were heavily used in the `default-bootstrap` theme (from which this theme originates),
-but it has been replaced with **Bourbon**, which provided a significant performance boost and no necessary code changes.
+``` bash
+npm run build           // Sequentially runs all of the commands below, outputs a theme .zip archive
+                        // in the root folder, ready to be installed to PrestaShop or to be distributed.
+
+npm run create-folders  // Creates empty theme folders like pdf/, pdf/lang/, which are not included
+                        // repository, but should be in the final theme archive
+
+npm run compile-css     // Compiles .scss files to .css files using gulp-sass package.
+
+npm run watch-sass      // Watches for changes in theme .scss files and automatically launches
+                        // compile-css task when a .scss has been modified and saved
+
+npm run clean-up        // Removes files which we don't want to include in the archive, like cache files
+
+npm run copy-index      // Copies index.php to all directories and subdirectories inside theme folder
+
+npm run format-js       // Formats .js files using JavaScript style rules defined
+                        // in .jscsrc using JSCS tool
+
+npm run create-zip      // Adds Config.xml, /themes/ and /modules/ folder files to a theme .zip archive
+                        // and outputs it in root directory
+
+npm run scan-translations  // Scans .tpl files in /themes/, /modules/ folders and detects
+                           // translatable Smarty strings which have incorrect context
+```
 
 ### Build options
 
@@ -167,32 +192,15 @@ themeModulePrefix    // Affects which theme modules are compiled and included to
 sourcemaps           // Enables/disables the creation of theme .scss file sourcemaps
 ```
 
-### Gulp commands
+### [Bourboun](http://bourbon.io/)
 
-Gulp `build` command is composed of several specific tasks (sub-commands), which you can run individually:
+**Bourboun** is a **Sass** mixin library. It is available in all theme `.scss` files,
+because it is imported globally during `.scss` compilation task. See `gulpfile.js` for more details.
 
-``` bash
-gulp create-folders  // Creates empty theme folders like pdf/, pdf/lang/, which are not included
-                     // repository, but should be in theme archive
-
-gulp compile-css     // Compiles .scss files to .css files using gulp-sass package.
-
-gulp watch-sass      // Watches for changes in theme .scss files and automatically launches
-                     // compile-css task when a .scss has been modified and saved
-
-gulp clean-up        // Removes files which we don't want to include in the archive, like cache files
-
-gulp copy-index      // Copies index.php to all directories and subdirectories inside theme folder
-
-gulp format-js       // Formats .js files using JavaScript style rules defined
-                     // in .jscsrc using JSCS tool
-
-gulp create-zip      // Adds Config.xml and theme folder to .zip archive and outputs
-                     // the file in root directory
-
-gulp scan-translations  // Scans .tpl files in /themes/theme-name/, /modules/ folders and detects
-                        // translatable Smarty strings which have incorrect context
-```
+**Bourbon** is not required, you may remove it if you wish so. You'll need to remove the calls to these mixins too.
+**Bourbon** provides the same mixins as **Compass** does.
+Compass tool and Compass mixins were heavily used in the `default-bootstrap` theme (from which this theme originates),
+but it has been replaced with **Bourbon**, which provided a significant performance boost and no necessary code changes.
 
 ## Contributing
 
