@@ -166,7 +166,7 @@ npm run compile-css     // Compiles .scss files to .css files using gulp-sass pa
 npm run watch-sass      // Watches for changes in theme .scss files and automatically launches
                         // compile-css task when a .scss has been modified and saved
 
-npm run clean-up        // Removes files which shouldn't be in the archive, like cache files
+npm run clean-up        // Removes files which should not be in the archive, like cache files
 
 npm run copy-index      // Copies index.php to all directories and subdirectories inside theme folder
 
