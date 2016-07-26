@@ -2,6 +2,7 @@ Contributors:
 --------------------------------
 
 - Benjamin Pongy
+- Francois Peyret
 - Gytis Škėma
 - Krystian Podemski
 - Martin Fojtík
