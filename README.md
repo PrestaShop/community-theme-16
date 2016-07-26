@@ -154,7 +154,7 @@ repository. This theme `.zip` archive can then be distributed and installed via 
 
 We use `npm` scripts to call `gulp` commands so you don't have to install `gulp` globally on your system.
 
-``` bash
+```
 npm run build           // Sequentially runs all of the commands below, outputs a theme .zip archive
                         // in the root folder, ready to be installed to PrestaShop or published.
 
