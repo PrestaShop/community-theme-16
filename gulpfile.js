@@ -98,7 +98,7 @@ gulp.task('compile-module-css', function() {
     }));
 });
 
-gulp.task('sass:watch', function() {
+gulp.task('watch-sass', function() {
   gulp.watch('./themes/' + options.themeName + '/sass/**/*.scss', ['compile-css']);
 });
 
