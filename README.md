@@ -72,7 +72,7 @@ E.g. `.product-list-item`.
 
                         | default-bootstrap | community-theme-16
 ----------------------- | ----------------- | -------------
-Bootstrap               | 3.0.0             | 3.3.6
+Bootstrap               | 3.0.0             | 3.3.7
 Font Awesome            | 4.3.0             | 4.6.3
 jquery.uniform.js       | 2.1.2             | -
 jquery.total-storage.js | 1.1.2             | 1.1.2
