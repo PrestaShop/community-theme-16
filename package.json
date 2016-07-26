@@ -21,5 +21,15 @@
     "themeName": "community-theme-16",
     "themeModulePrefix" : "ct",
     "sourcemaps": false
+  },
+  "scripts": {
+    "build": "./node_modules/.bin/gulp build",
+    "compile-css": "./node_modules/.bin/gulp compile-css",
+    "watch-sass": "./node_modules/.bin/gulp watch-sass",
+    "clean-up": "./node_modules/.bin/gulp clean-up",
+    "copy-index": "./node_modules/.bin/gulp copy-index",
+    "format-js": "./node_modules/.bin/gulp format-js",
+    "create-zip": "./node_modules/.bin/gulp create-zip",
+    "scan-translations": "./node_modules/.bin/gulp scan-translations"
   }
 }
