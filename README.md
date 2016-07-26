@@ -73,7 +73,7 @@ E.g. `.product-list-item`.
                         | default-bootstrap | community-theme-16
 ----------------------- | ----------------- | -------------
 Bootstrap               | 3.0.0             | 3.3.6
-Font Awesome            | 4.3.0             | 4.5.0
+Font Awesome            | 4.3.0             | 4.6.3
 jquery.uniform.js       | 2.1.2             | -
 jquery.total-storage.js | 1.1.2             | 1.1.2
 [js-url](https://github.com/websanova/js-url) | - | 2.3.0
