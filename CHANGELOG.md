@@ -1,3 +1,10 @@
+# v1.1.0 (2016-07-26)
+
+- Updated Bootstrap to v3.3.7 (#245)
+- Refactored build process to use local gulp (#246)
+- Updated development guide in README
+- Minor CSS fixes (#242, 2d3e7c5e18feb6d507aa8d7737ccdf078fabc91e)
+
 # v1.0.0 (2016-07-03)
 
 This release moves the version to `1.0.0` since there are no major issues left to
