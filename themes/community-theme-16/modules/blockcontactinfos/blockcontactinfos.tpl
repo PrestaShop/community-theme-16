@@ -15,7 +15,7 @@
       {if !empty($blockcontactinfos_phone)}
         <li>
           <i class="icon icon-phone"></i>
-          <a href="{$blockcontactinfos_phone|escape:'html':'UTF-8'}">{$blockcontactinfos_phone|escape:'html':'UTF-8'}</a>
+          <a href="tel:{$blockcontactinfos_phone|escape:'html':'UTF-8'}" class="phone-link" rel="nofollow">{$blockcontactinfos_phone|escape:'html':'UTF-8'}</a>
         </li>
       {/if}
       {if !empty($blockcontactinfos_email)}
