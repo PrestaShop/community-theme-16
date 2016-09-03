@@ -59,6 +59,7 @@ function displayNotification(msg) {
 
 gulp.task('compile-css', function() {
   return gulp.src('./themes/' + options.themeName + '/sass/**/*.scss')
+    .pipe(gulpif(options.sourcemaps, sourcemaps.init()))
     .pipe(
       sass({
         includePaths: bourbon.includePaths,
@@ -66,7 +67,6 @@ gulp.task('compile-css', function() {
         precision: 8
       }).on('error', sass.logError)
     )
-    .pipe(gulpif(options.sourcemaps, sourcemaps.init()))
     .pipe(gulpif(options.sourcemaps, sourcemaps.write('./')))
     .pipe(gulp.dest('./themes/' + options.themeName + '/css/'))
     .pipe(displayNotification({
@@ -78,6 +78,7 @@ gulp.task('compile-css', function() {
 gulp.task('compile-module-css', function() {
   return gulp
     .src('./modules/' + options.themeModulePrefix + '*/views/sass/**/*.scss')
+    .pipe(gulpif(options.sourcemaps, sourcemaps.init()))
     .pipe(sass({
       includePaths: bourbon.includePaths,
       outputStyle: 'expanded',
@@ -86,7 +87,6 @@ gulp.task('compile-module-css', function() {
     .on('error', function() {
       displayNotification(sass.logError);
     }))
-    .pipe(gulpif(options.sourcemaps, sourcemaps.init()))
     .pipe(gulpif(options.sourcemaps, sourcemaps.write('./')))
     .pipe(rename(function(path) {
       path.dirname = path.dirname.replace('/views/sass', '/views/css');
