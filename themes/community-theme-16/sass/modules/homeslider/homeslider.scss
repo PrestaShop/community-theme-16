@@ -5,6 +5,8 @@
 #homepage-slider {
   position: relative;
   margin-bottom: 30px;
+  // Hides slides outside the container before JS slider initializes
+  overflow: hidden;
   .bx-wrapper {
     // .bx-pager { bottom: auto; }
     .bx-next,
