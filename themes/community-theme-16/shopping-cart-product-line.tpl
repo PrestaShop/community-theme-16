@@ -109,6 +109,7 @@
         {/if}
       {/if}
     </span>
+    {hook h='displayCartExtraProductActions' product=$product}
   </td>
 
 </tr>
