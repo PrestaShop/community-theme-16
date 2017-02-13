@@ -8,7 +8,8 @@ $(function() {
   cancelFilter();
 
   // Click on color
-  $(document).on('click', '#layered_form input[type=button], #layered_form label.layered_color', function() {
+  $(document).on('click', '#layered_form input[type=button], #layered_form label.layered_color a', function(e) {
+    e.preventDefault();
     var $hiddenInput = $('input[name=' + $(this).attr('name') + '][type=hidden]');
     if (!$hiddenInput.length) {
       $('<input />').attr('type', 'hidden').attr('name', $(this).attr('name')).val($(this).data('rel')).appendTo('#layered_form');
