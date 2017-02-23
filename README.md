@@ -127,6 +127,10 @@ To verify that tools are installed and have the correct versions, type the follo
 node -v
 npm -v  // Should output 3.5.2 or higher
 ```
+If you can't access gulp command from your terminal try to install globally gulp-cli utility:
+
+``` bash
+sudo npm install gulp-cli -g
 
 Once these tools are available, navigate to your cloned repository and run `npm install` command:
 
