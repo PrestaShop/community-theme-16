@@ -12,6 +12,8 @@
 
 {if !empty($HOOK_HOME)}
   <div class="row">
-    {$HOOK_HOME}
+    <div class="col-xs-12">
+      {$HOOK_HOME}
+    </div>
   </div>
 {/if}
