@@ -1,8 +1,8 @@
 $(document).ready(function() {
   $(document).on('change', '#our_price_display', function(e) {
-    updateLoyaltyView(parseInt($('#our_price_display').text()));
+    updateLoyaltyView(parseInt($('#our_price_display').attr('content')));
   });
-  updateLoyaltyView(parseInt($('#our_price_display').text()));
+  updateLoyaltyView(parseInt($('#our_price_display').attr('content')));
 });
 
 function updateLoyaltyView(new_price) {
