@@ -171,12 +171,6 @@ $zoom-in-size: 110px;
   }
 }
 
-// Used in add to cart button
-@include keyframes(icon-spin) {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(359deg); }
-}
-
 //
 // Product page footer elements
 //
