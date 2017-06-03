@@ -66,7 +66,11 @@ function reloadProductComparison() {
       cache: false,
     });
 
-    window.location.search = '?' + $.param(params);
+    if (params['compare_product_list'] > 0) {
+      window.location.search = '?' + $.param(params);
+    } else {
+      window.location.search = '';
+    }
   });
 }
 
