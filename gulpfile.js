@@ -67,8 +67,8 @@ gulp.task('compile-css', function() {
       }).on('error', sass.logError)
     )
     .pipe(autoprefixer({
-        browsers: ['last 2 versions'],
-        cascade: false
+      browsers: ['last 2 versions'],
+      cascade: false
     }))
     .pipe(gulpif(options.sourcemaps, sourcemaps.write('./')))
     .pipe(gulp.dest('./themes/' + options.themeName + '/css/'))
@@ -90,8 +90,8 @@ gulp.task('compile-module-css', function() {
       displayNotification(sass.logError);
     }))
     .pipe(autoprefixer({
-        browsers: ['last 2 versions'],
-        cascade: false
+      browsers: ['last 2 versions'],
+      cascade: false
     }))
     .pipe(gulpif(options.sourcemaps, sourcemaps.write('./')))
     .pipe(rename(function(path) {
