@@ -1,0 +1,26 @@
+// Need a custom font ?
+@mixin font-face($font-family, $file-path, $font-weight, $font-style: normal) {
+  @font-face {
+    font-family: $font-family;
+    src: url('#{$file-path}.eot');
+    src: url('#{$file-path}.eot?#iefix') format('embedded-opentype'),
+    url('#{$file-path}.woff') format('woff'),
+    url('#{$file-path}.ttf') format('truetype'),
+    url('#{$file-path}.svg##{$font-family}') format('svg');
+    font-weight: $font-weight;
+    font-style: $font-style;
+  }
+  @media screen and (-webkit-min-device-pixel-ratio: 0) {
+    @font-face {
+      font-family: $font-family;
+      src: url('#{$file-path}.svg##{$font-family}') format('svg');
+    }
+  }
+}
+
+/*
+Exemple : how to import a font (before you need to convert your 'myFontCustom' .svg, .woff, .ttf and .eot)
+@include font-face('myFontCustom', '../fonts/myFontCustom-Light', 300);
+@include font-face('myFontCustom', '../fonts/myFontCustom-Regular', 400);
+@include font-face('myFontCustom', '../fonts/myFontCustom-Bold', 700);
+*/
