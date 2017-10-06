@@ -9,7 +9,7 @@ var jscs        = require('gulp-jscs');
 var sass        = require('gulp-sass');
 var sourcemaps  = require('gulp-sourcemaps');
 var notify      = require('gulp-notify');
-var bourbon     = require('node-bourbon');
+var autoprefix  = require('gulp-autoprefixer');
 var gulpif      = require('gulp-if');
 var rename      = require('gulp-rename');
 /** @var {{ themeName, themeModulePrefix, sourcemaps }} options **/
@@ -62,12 +62,15 @@ gulp.task('compile-css', function() {
     .pipe(gulpif(options.sourcemaps, sourcemaps.init()))
     .pipe(
       sass({
-        includePaths: bourbon.includePaths,
         outputStyle: 'expanded',
         precision: 8
       }).on('error', sass.logError)
     )
-    .pipe(gulpif(options.sourcemaps, sourcemaps.write('./')))
+    .pipe(autoprefix({
+      browsers: ['last 2 versions'],
+      cascade: false
+    }))
+    .pipe(gulpif(options.sourcemaps, sourcemaps.write('./sourcemaps/')))
     .pipe(gulp.dest('./themes/' + options.themeName + '/css/'))
     .pipe(displayNotification({
       message: 'Theme CSS compilation successful for ' + options.themeName,
@@ -80,14 +83,17 @@ gulp.task('compile-module-css', function() {
     .src('./modules/' + options.themeModulePrefix + '*/views/sass/**/*.scss')
     .pipe(gulpif(options.sourcemaps, sourcemaps.init()))
     .pipe(sass({
-      includePaths: bourbon.includePaths,
       outputStyle: 'expanded',
       precision: 8
     })
     .on('error', function() {
       displayNotification(sass.logError);
     }))
-    .pipe(gulpif(options.sourcemaps, sourcemaps.write('./')))
+    .pipe(autoprefix({
+      browsers: ['last 2 versions'],
+      cascade: false
+    }))
+    .pipe(gulpif(options.sourcemaps, sourcemaps.write('./sourcemaps/')))
     .pipe(rename(function(path) {
       path.dirname = path.dirname.replace('/views/sass', '/views/css');
     }))
@@ -117,7 +123,6 @@ gulp.task('copy-index', function(callback) {
       callback();
     }
 
-    // console.log('Copy to folders: \n', folders.join('\n'));
     folders.forEach(function(folder) {
       fs.copy('index.php.copy', folder + '/index.php', function(err) {
         if (err) {
@@ -244,4 +249,4 @@ gulp.task('build', function(callback) {
   );
 });
 
-gulp.task('default', ['build']);
+gulp.task('default', ['watch-sass']);
