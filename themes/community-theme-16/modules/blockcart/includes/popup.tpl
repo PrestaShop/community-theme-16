@@ -15,7 +15,7 @@
         </div>
         <div class="col-xs-12 col-md-7">
           <div class="layer_cart_product_info">
-            <h4 id="layer_cart_product_title" class="product-name"></h4>
+            <h4 id="layer_cart_product_title" class="product-name">{l s='Product name' mod='blockcart'}</h4>
             <p id="layer_cart_product_attributes"></p>
             <p>
               <strong>{l s='Quantity:' mod='blockcart'}</strong>
