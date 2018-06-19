@@ -6,7 +6,7 @@ $(function() {
 
   $('#newsletter-input').on({
     focus: function() {
-      if ($(this).val() == placeholder_blocknewsletter || $(this).val() == msg_newsl) {
+      if ($(this).val() == placeholder_blocknewsletter || (typeof msg_newsl != 'undefined' && $(this).val() == msg_newsl)) {
         $(this).val('');
       }
     },
